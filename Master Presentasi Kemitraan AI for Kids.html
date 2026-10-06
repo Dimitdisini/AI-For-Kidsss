@@ -3,31 +3,38 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master Cetak-Biru Teknis Akademi AI for Kids - Dimitri Ahmad</title>
+  <title>Membangun Generasi Kreator AI! - Akademi AI for Kids</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@700;900&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM: TECHNICAL MASTER BLUEPRINT (16:9 WIDESCREEN)
-       Estetika Matte Alami: Royal Navy, Warm Cream Paper, Amber Solar, Mint Emerald, Slate Ink
-       Bebas AI Slop: Tanpa Neon Glow, Tanpa Border Menyala, Bebas Emoji Robot/Bintang
+       DESIGN SYSTEM: COMIC ADVENTURE 16:9 (SELARAS DENGAN PPT MITRA MARKETING)
+       Estetika: Matte Alami, Garis Tinta Komik Tegas, Bayangan Solid, Bebas AI Slop
        ========================================================================== */
     :root {
-      --slide-bg: #0f172a;
-      --slide-paper: #fffdf5;
-      --slide-paper-pure: #ffffff;
-      --slide-navy-deep: #1e3a8a;
-      --slide-blue-hero: #2563eb;
-      --slide-amber: #f59e0b;
-      --slide-amber-light: #fef3c7;
-      --slide-emerald: #10b981;
-      --slide-emerald-light: #a7f3d0;
-      --slide-crimson: #ef4444;
-      --slide-ink: #0f172a;
-      --slide-ink-muted: #475569;
-      --slide-border: 3.5px solid var(--slide-ink);
-      --slide-shadow: 6px 6px 0px var(--slide-ink);
+      --comic-blue-hero: #2563eb;
+      --comic-blue-deep: #1e3a8a;
+      --comic-blue-sky: #38bdf8;
+      --comic-amber-gold: #f59e0b;
+      --comic-amber-light: #fef3c7;
+      --comic-green-emerald: #10b981;
+      --comic-green-light: #d1fae5;
+      --comic-crimson: #ef4444;
+      --comic-crimson-light: #fee2e2;
+      --comic-paper-cream: #fffdf5;
+      --comic-paper-white: #ffffff;
+      --comic-ink-black: #0f172a;
+      --comic-ink-muted: #475569;
+
+      --border-comic-thick: 3.5px solid var(--comic-ink-black);
+      --border-comic-md: 2.5px solid var(--comic-ink-black);
+      --border-comic-sm: 1.5px solid var(--comic-ink-black);
+
+      --shadow-comic-sm: 0 2px 0px var(--comic-ink-black);
+      --shadow-comic-md: 0 4px 0px var(--comic-ink-black);
+      --shadow-comic-lg: 0 6px 0px var(--comic-ink-black);
+
       --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
     }
@@ -39,17 +46,19 @@
     }
 
     body {
-      background-color: var(--slide-bg);
-      background-image: linear-gradient(rgba(30, 41, 59, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.3) 1px, transparent 1px);
-      background-size: 28px 28px;
-      color: var(--slide-ink);
+      background-color: #0b1329;
+      background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--comic-ink-black);
       font-family: var(--font-main);
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      padding: 16px;
       overflow-x: hidden;
     }
 
@@ -58,46 +67,45 @@
       width: 100%;
       max-width: 1080px;
       aspect-ratio: 16 / 9;
-      background: var(--slide-paper);
-      border: var(--slide-border);
+      background: var(--comic-paper-cream);
+      border: var(--border-comic-thick);
       border-radius: 24px;
-      box-shadow:  0 12px 0px #020617;
-      position: relative;
-      overflow: hidden;
+      box-shadow: var(--shadow-comic-lg);
       display: flex;
       flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* TOP HUD BAR */
+    .slide-top-bar {
+      height: 48px;
+      background: var(--comic-paper-white);
+      border-bottom: var(--border-comic-md);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 24px;
       user-select: none;
     }
 
-    /* SLIDE HEADER & FOOTER CHROME */
-    .slide-top-bar {
-      height: 52px;
-      background: var(--slide-paper-pure);
-      border-bottom: var(--slide-border);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0 24px;
-      flex-shrink: 0;
-    }
-
-    .slide-badge-pos {
-      background: var(--slide-amber);
-      color: var(--slide-ink);
-      font-size: 0.78rem;
+    .slide-badge-tag {
+      background: var(--comic-amber-gold);
+      color: var(--comic-ink-black);
+      font-size: 0.76rem;
       font-weight: 900;
       padding: 3px 12px;
-      border: 2px solid var(--slide-ink);
+      border: var(--border-comic-sm);
       border-radius: 9999px;
-      box-shadow:  0 2px 0px var(--slide-ink);
+      box-shadow: var(--shadow-comic-sm);
       letter-spacing: 0.5px;
     }
 
     .slide-counter {
       font-family: var(--font-mono);
       font-size: 0.82rem;
-      font-weight: 800;
-      color: var(--slide-ink-muted);
+      font-weight: 900;
+      color: var(--comic-blue-hero);
     }
 
     /* SLIDE STACK CONTAINER */
@@ -110,14 +118,14 @@
     .slide {
       position: absolute;
       inset: 0;
-      padding: 32px 42px;
+      padding: 28px 36px;
       display: flex;
       flex-direction: column;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transform: translateX(30px);
-      transition: opacity 0.28s ease, transform 0.28s ease;
+      transform: translateX(20px);
+      transition: opacity 0.25s ease, transform 0.25s ease;
     }
 
     .slide.active {
@@ -126,182 +134,167 @@
       transform: translateX(0);
     }
 
-    /* SLIDE TYPOGRAPHY */
+    /* TYPOGRAPHY */
     .slide-pretitle {
       font-family: var(--font-mono);
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       font-weight: 900;
-      color: var(--slide-blue-hero);
+      color: var(--comic-blue-hero);
       text-transform: uppercase;
       letter-spacing: 1px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       display: flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .slide-title {
-      font-size: 1.95rem;
+      font-size: 1.85rem;
       font-weight: 900;
-      color: var(--slide-ink);
+      color: var(--comic-ink-black);
       line-height: 1.2;
-      margin-bottom: 10px;
+      margin-bottom: 6px;
       letter-spacing: -0.5px;
     }
 
     .slide-subtitle {
-      font-size: 0.98rem;
-      font-weight: 600;
-      color: var(--slide-ink-muted);
-      line-height: 1.45;
-      max-width: 900px;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--comic-ink-muted);
+      margin-bottom: 16px;
+      line-height: 1.4;
     }
 
-    /* SLIDE CONTENT CONTAINERS */
+    /* GRIDS & CARDS */
     .slide-grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
-      margin-top: 18px;
+      gap: 14px;
     }
 
     .slide-grid-3 {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-      margin-top: 16px;
+      gap: 12px;
     }
 
     .slide-grid-4 {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
-      gap: 12px;
-      margin-top: 16px;
+      gap: 10px;
     }
 
-    .slide-card {
-      background: var(--slide-paper-pure);
-      border: var(--slide-border);
+    .comic-card {
+      background: var(--comic-paper-white);
+      border: var(--border-comic-md);
       border-radius: 14px;
-      padding: 16px;
-      box-shadow:  0 4px 0px var(--slide-ink);
+      padding: 14px 16px;
+      box-shadow: var(--shadow-comic-md);
       display: flex;
       flex-direction: column;
+    }
+
+    .comic-card h3 {
+      font-size: 0.98rem;
+      font-weight: 900;
+      color: var(--comic-ink-black);
+      margin: 4px 0 6px;
+      display: flex;
+      align-items: center;
       gap: 6px;
     }
 
-    .slide-card h3 {
-      font-size: 1.05rem;
-      font-weight: 900;
-      color: var(--slide-ink);
-    }
-
-    .slide-card p, .slide-card li {
-      font-size: 0.82rem;
+    .comic-card p {
+      font-size: 0.8rem;
+      color: var(--comic-ink-muted);
+      line-height: 1.4;
       font-weight: 600;
-      color: var(--slide-ink-muted);
-      line-height: 1.45;
     }
 
-    .code-badge {
-      font-family: var(--font-mono);
-      font-size: 0.72rem;
-      font-weight: 800;
-      background: #0f172a;
-      color: #a7f3d0;
-      padding: 3px 8px;
-      border-radius: 6px;
+    .comic-badge-pill {
       display: inline-block;
-      margin-top: 4px;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 900;
+      padding: 2px 8px;
+      border-radius: 6px;
+      border: 1.5px solid var(--comic-ink-black);
+      width: fit-content;
+      margin-bottom: 4px;
     }
 
-    .highlight-box {
-      background: var(--slide-amber-light);
-      border: 2px dashed var(--slide-amber);
+    .highlight-strip {
+      background: var(--comic-amber-light);
+      border: 2px dashed var(--comic-amber-gold);
       border-radius: 12px;
       padding: 10px 14px;
-      font-size: 0.84rem;
-      font-weight: 700;
-      color: #92400e;
-      margin-top: 14px;
+      font-size: 0.82rem;
+      font-weight: 800;
+      color: #78350f;
+      margin-top: 12px;
+      line-height: 1.4;
     }
 
-    /* NAVIGATION BAR AT BOTTOM */
+    /* BOTTOM NAVIGATION */
     .slide-bottom-bar {
-      height: 56px;
-      background: var(--slide-paper-pure);
-      border-top: var(--slide-border);
+      height: 48px;
+      background: var(--comic-paper-white);
+      border-top: var(--border-comic-md);
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 0 24px;
-      flex-shrink: 0;
+      justify-content: space-between;
+      padding: 0 20px;
+      user-select: none;
+    }
+
+    .keyboard-hint {
+      font-size: 0.72rem;
+      color: var(--comic-ink-muted);
+      font-weight: 700;
+    }
+
+    .keyboard-hint kbd {
+      background: #e2e8f0;
+      border: 1.5px solid var(--comic-ink-black);
+      border-radius: 4px;
+      padding: 2px 6px;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
     }
 
     .nav-btn-group {
       display: flex;
-      gap: 10px;
+      gap: 8px;
     }
 
-    .btn-nav {
-      background: var(--slide-paper);
-      border: 2px solid var(--slide-ink);
-      border-radius: 10px;
-      padding: 7px 16px;
+    .btn-slide-nav {
+      background: #ffffff;
+      border: var(--border-comic-md);
+      border-radius: 8px;
+      padding: 4px 14px;
       font-family: var(--font-main);
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 900;
-      color: var(--slide-ink);
+      color: var(--comic-ink-black);
       cursor: pointer;
-      box-shadow:  0 2px 0px var(--slide-ink);
-      transition: all 0.1s ease;
+      box-shadow: var(--shadow-comic-sm);
+      transition: all 0.12s ease;
     }
 
-    .btn-nav:hover {
-      background: var(--slide-amber-light);
+    .btn-slide-nav:hover:not(:disabled) {
       transform: translateY(-1px);
+      box-shadow: var(--shadow-comic-md);
     }
 
-    .btn-nav:active {
-      transform: translateY(2px);
-      box-shadow: 0 0 0;
+    .btn-slide-nav:disabled {
+      opacity: 0.4;
+      cursor: not-allowed;
     }
 
-    .btn-nav-primary {
-      background: var(--slide-blue-hero);
+    .btn-slide-nav-primary {
+      background: var(--comic-blue-hero);
       color: #ffffff;
-    }
-
-    .btn-nav-primary:hover {
-      background: var(--slide-navy-deep);
-    }
-
-    .btn-nav-demo {
-      background: var(--slide-emerald);
-      color: #ffffff;
-      text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .btn-nav-demo:hover {
-      background: #047857;
-    }
-
-    .keyboard-hint {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      color: var(--slide-ink-muted);
-      font-weight: 700;
-    }
-
-    kbd {
-      background: #e2e8f0;
-      border: 1px solid var(--slide-ink);
-      border-radius: 4px;
-      padding: 2px 5px;
-      font-size: 0.7rem;
+      border-color: var(--comic-ink-black);
     }
   </style>
 </head>
@@ -312,252 +305,358 @@
   <!-- TOP HUD -->
   <div class="slide-top-bar">
     <div style="display: flex; align-items: center; gap: 10px;">
-      <span class="slide-badge-pos">CETAK-BIRU TEKNIS & FABRIKASI</span>
-      <span style="font-weight: 800; font-size: 0.82rem; color: var(--slide-ink-muted);">LEAD TECH: DIMITRI AHMAD</span>
+      <span class="slide-badge-tag">PETUALANGAN KREATIF ANAK</span>
+      <span style="font-weight: 800; font-size: 0.82rem; color: var(--comic-ink-muted);">AKADEMI AI FOR KIDS</span>
     </div>
-    <div class="slide-counter" id="slideIndicator">SLIDE 1 / 6</div>
+    <div class="slide-counter" id="slideIndicator">SLIDE 1 / 10</div>
   </div>
 
-  <!-- SLIDE DECK (6 DEEP TECHNICAL SLIDES) -->
+  <!-- SLIDE DECK (10 SLIDE BERSIH, RAMAH ANAK, MENYATU DENGAN PPT REKAN) -->
   <div class="slide-deck">
 
     <!-- ======================================================================
-         SLIDE 1: ARSITEKTUR SOFTWARE & ZERO-DEPENDENCY STACK
+         SLIDE 1: COVER & VISI AKADEMI
          ====================================================================== -->
     <div class="slide active" id="slide-1">
-      <div class="slide-pretitle">FONDASI TEKNIS PERANGKAT LUNAK</div>
-      <h1 class="slide-title">Arsitektur Game Studio: Zero-Dependency & 60 FPS</h1>
-      <p class="slide-subtitle">
-        Dirancang khusus untuk ruang kelas anak usia 8–12 tahun: <strong>Anti-lag, anti-install, dan bebas dari kendala jaringan sekolah.</strong>
+      <div class="slide-pretitle">KOLABORASI EDUKASI TEKNOLOGI MASA DEPAN</div>
+      <h1 class="slide-title" style="font-size: 2.3rem;">Membangun Generasi Kreator AI!</h1>
+      <p class="slide-subtitle" style="font-size: 1.05rem; color: #1e3a8a;">
+        Dari sekadar konsumen teknologi menjadi <strong>pemecah masalah yang kritis, kreatif, dan beretika.</strong>
       </p>
 
-      <div class="slide-grid-3">
-        <div class="slide-card" style="border-top: 5px solid var(--slide-blue-hero);">
-          <h3>Aplikasi 1 File Ringan (~307 KB)</h3>
-          <p>Seluruh sistem (game, grafis, efek suara, dan kontrol balok) berada di dalam <strong>1 berkas tunggal</strong>. Cukup klik ganda, langsung jalan di laptop mana pun.</p>
-          <span class="code-badge">Tanpa Perlu Instal • Langsung Buka • Anti-Ribet</span>
+      <div class="slide-grid-3" style="margin-top: 6px;">
+        <div class="comic-card" style="border-top: 5px solid var(--comic-blue-hero);">
+          <span class="comic-badge-pill" style="background: #dbeafe; color: #1e40af;">PILAR 1</span>
+          <h3>Kritis & Sadar Data</h3>
+          <p>Membongkar cara kerja mesin agar anak paham bahwa AI bukan sihir gaib, melainkan pengenalan pola.</p>
         </div>
-        <div class="slide-card" style="border-top: 5px solid var(--slide-emerald);">
-          <h3>Audio Sintetis Bebas Kuota</h3>
-          <p>Tanpa file lagu/MP3 berat yang bikin lemot. Efek suara tembakan laser, lompatan ceria, dan koin dihasilkan langsung oleh peramban secara otomatis.</p>
-          <span class="code-badge">Suara Retro Ceria • 0 MB Kuota • Bebas Lemot</span>
+        <div class="comic-card" style="border-top: 5px solid var(--comic-amber-gold);">
+          <span class="comic-badge-pill" style="background: #fef3c7; color: #92400e;">PILAR 2</span>
+          <h3>Kolaborasi Kreatif</h3>
+          <p>Melatih anak menjadi kapten instruksi yang mampu memimpin kecerdasan mesin untuk berkarya nyata.</p>
         </div>
-        <div class="slide-card" style="border-top: 5px solid var(--slide-amber);">
-          <h3>Bebas Login & Aman Privasi</h3>
-          <p>Anak tidak perlu mendaftar akun Google atau memasukkan password email. Aman untuk anak di bawah 13 tahun dan 100% bisa dimainkan tanpa internet.</p>
-          <span class="code-badge">Privasi Aman • 100% Bisa Offline</span>
+        <div class="comic-card" style="border-top: 5px solid var(--comic-green-emerald);">
+          <span class="comic-badge-pill" style="background: #d1fae5; color: #065f46;">PILAR 3</span>
+          <h3>Etika & Nilai Hati</h3>
+          <p>Menjaga orisinalitas, empati, dan budi pekerti manusia sebagai nakhoda utama teknologi.</p>
         </div>
       </div>
 
-      <div class="highlight-box">
-        Kelebihan Operasional: Kelas dijamin 100% jalan lancar meski Wi-Fi ruangan tiba-tiba mati total saat sesi berlangsung.
+      <div class="highlight-strip" style="text-align: center;">
+        💡 Sasaran Peserta: Anak Usia 8–12 Tahun • Format: 100% Interaktif, Menyenangkan, dan Bebas Frustrasi.
       </div>
     </div>
 
     <!-- ======================================================================
-         SLIDE 2: SISTEM DUAL SUB-AGENT & NLP PROMPT ENGINE
+         SLIDE 2: MASALAH MASA KINI (KONSUMEN PASIF VS KREATOR CERDAS)
          ====================================================================== -->
     <div class="slide" id="slide-2">
-      <div class="slide-pretitle">IKON RESMI AI FOR KIDS: BIMA & KINAR</div>
-      <h1 class="slide-title">Dua Maskot Tokoh: BIMA (Logika) & KINAR (Desain)</h1>
+      <div class="slide-pretitle">TITIK KECEMASAN ORANG TUA ZAMAN SEKARANG</div>
+      <h1 class="slide-title">Gawai: Musuh atau Kawan Masa Depan?</h1>
       <p class="slide-subtitle">
-        Representasi anak Indonesia yang ceria via <strong>Rak Blok Kata Visual (Lego Prompting 3 Warna)</strong>: Bima memandu logika/aturan, Kinar memandu seni & atmosfer.
+        Jangan biarkan teknologi hanya menjadi mainan yang menghabiskan waktu. Anak punya kekuatan untuk mengendalikannya!
       </p>
 
       <div class="slide-grid-2">
-        <div class="slide-card" style="border-left: 6px solid var(--slide-blue-hero);">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--slide-ink); flex-shrink: 0; background: #e2e8f0;">
-              <img src="Aset/Karakter Bima.jpg" onerror="this.onerror=null; this.src='Karakter Bima.jpg'; this.onerror=function(){this.src='Aset Ide AI for Kids/Karakter Bima.jpg';};" style="width: 100%; height: 100%; object-fit: cover;" alt="Bima">
-            </div>
-            <div>
-              <h3 style="color: var(--slide-blue-hero);">BIMA — Agen Logika & Aturan</h3>
-              <span style="font-size: 0.75rem; font-weight: 700; color: var(--slide-ink-muted);">Mekanika, Fisika Gravitasi & Senjata</span>
-            </div>
+        <div class="comic-card" style="background: #fef2f2; border-color: #991b1b;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="comic-badge-pill" style="background: #fee2e2; color: #991b1b;">KONDISI LAMA</span>
+            <strong style="color: #991b1b; font-size: 0.8rem;">Konsumen Pasif</strong>
           </div>
-          <p style="margin-top: 6px;">Tugas Bima: Mengatur matematika dan fisika game secara otomatis:</p>
-          <ul style="padding-left: 18px; line-height: 1.55;">
-            <li><strong>Aturan Gravitasi:</strong> Normal (Bumi) ➔ Gravitasi Bulan (Lompatan tinggi).</li>
-            <li><strong>Jenis Senjata:</strong> Tembakan 1 laser ➔ Tembakan 3 laser menyebar.</li>
-            <li><strong>Karakteristik Musuh:</strong> Mengatur HP Bos dan kecepatan serangan.</li>
+          <h3 style="color: #991b1b;">Terjebak di Depan Layar</h3>
+          <ul style="padding-left: 18px; font-size: 0.82rem; font-weight: 600; line-height: 1.5; color: #7f1d1d; margin-top: 6px;">
+            <li>Menghabiskan berjam-jam bermain game atau scrolling video tanpa menghasilkan karya.</li>
+            <li>Mudah percaya dan menelan mentah-mentah apa pun konten yang disodorkan algoritma.</li>
+            <li>Teknologi hanya dipandang sebagai alat hiburan yang memicu ketergantungan.</li>
           </ul>
-          <span class="code-badge">{ gravitasi: "bulan", senjata: "triple_laser", bos_hp: 8 }</span>
         </div>
-        <div class="slide-card" style="border-left: 6px solid #e11d48;">
-          <div style="display: flex; align-items: center; gap: 10px;">
-            <div style="width: 44px; height: 44px; border-radius: 50%; overflow: hidden; border: 2px solid var(--slide-ink); flex-shrink: 0; background: #e2e8f0;">
-              <img src="Aset/Karakter Kinar.jpg" onerror="this.onerror=null; this.src='Karakter Kinar.jpg'; this.onerror=function(){this.src='Aset Ide AI for Kids/Karakter Kinar.jpg';};" style="width: 100%; height: 100%; object-fit: cover;" alt="Kinar">
-            </div>
-            <div>
-              <h3 style="color: #e11d48;">KINAR — Agen Visual & Desain</h3>
-              <span style="font-size: 0.75rem; font-weight: 700; color: var(--slide-ink-muted);">Seni Grafis, Atmosfer Cuaca & Kostum</span>
-            </div>
+
+        <div class="comic-card" style="background: #f0fdf4; border-color: #166534;">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span class="comic-badge-pill" style="background: #dcfce7; color: #166534;">AKADEMI AI FOR KIDS</span>
+            <strong style="color: #166534; font-size: 0.8rem;">Kreator Aktif</strong>
           </div>
-          <p style="margin-top: 6px;">Tugas Kinar: Mengatur seni grafis dan atmosfer kanvas secara otomatis:</p>
-          <ul style="padding-left: 18px; line-height: 1.55;">
-            <li><strong>Efek Langit & Cuaca:</strong> Siang cerah ➔ Badai meteor emas / nebula.</li>
-            <li><strong>Warna & Kostum:</strong> Mengganti warna zirah atau cat mobil balap.</li>
-            <li><strong>Efek Komik:</strong> Memunculkan lencana teks melayang ("POW! +250", "NITRO!").</li>
+          <h3 style="color: #166534;">Memimpin Kecerdasan Mesin</h3>
+          <ul style="padding-left: 18px; font-size: 0.82rem; font-weight: 600; line-height: 1.5; color: #14532d; margin-top: 6px;">
+            <li>Mengubah layar laptop menjadi studio penciptaan game dan petualangan logika sendiri.</li>
+            <li>Melatih kacamata kritis untuk membedakan fakta, opini, dan kesalahan mesin.</li>
+            <li>Memiliki rasa percaya diri tinggi sebagai arsitek penemu masa depan.</li>
           </ul>
-          <span class="code-badge">{ tema_langit: "nebula", cuaca: "badai_meteor" }</span>
         </div>
       </div>
 
-      <div class="highlight-box" style="background: #e0f2fe; border-color: var(--slide-blue-hero); color: #0369a1;">
-        Metode Interaksi Anak: Zero-Coding! Anak menyusun Rak Blok Lego 3 Warna (Hijau: Tokoh, Biru: Aksi/Modifikasi, Amber: Atmosfer Dunia) tanpa risiko typo atau sintaks rusak.
+      <div class="highlight-strip" style="background: #eff6ff; border-color: #3b82f6; color: #1e40af;">
+        🎯 Misi Kita Bersama: Mengubah screen time anak dari <strong>hiburan pasif yang mencemaskan</strong> menjadi <strong>wahana kreasi yang membanggakan orang tua</strong>.
       </div>
     </div>
 
     <!-- ======================================================================
-         SLIDE 3: BEDAH 4 GAME ENGINE AKSI
+         SLIDE 3: PARADIGMA BARU (CODING TRADISIONAL VS AI LITERACY)
          ====================================================================== -->
     <div class="slide" id="slide-3">
-      <div class="slide-pretitle">BEDAH 4 GAME: SERUNYA PERMAINAN & EDUKASI NYATA</div>
-      <h1 class="slide-title">4 Game Nyata: Dari Mainan Menjadi Edukasi Sains</h1>
+      <div class="slide-pretitle">METODE PEMBELAJARAN ZAMAN BARU</div>
+      <h1 class="slide-title">Tinggalkan Rumus Kaku, Mulai Kolaborasi Cerdas!</h1>
       <p class="slide-subtitle">
-        Di mata anak, ini adalah game petualangan yang sangat seru. Di mata orang tua, ini laboratorium sains & fisika nyata tanpa rumus rumit.
+        Di era kecerdasan buatan, keterampilan yang menentukan bukanlah menghafal tanda baca koding, melainkan <strong>kemampuan berpikir runtut.</strong>
+      </p>
+
+      <div class="slide-grid-2">
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #f1f5f9; color: #475569;">KODING TRADISIONAL</span>
+          <h3>Hafalan Rumus & Sintaks Baku</h3>
+          <p style="margin-bottom: 8px;">Fokus pada detail teknis penulisan titik-koma, tanda kurung, dan aturan pengetikan kode yang kaku.</p>
+          <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 8px; padding: 8px; font-size: 0.78rem; color: #64748b; font-weight: 600;">
+            ⚠️ <em>Risiko untuk Anak 8–12 Tahun:</em> Anak cepat pusing dan frustrasi jika kode gagal jalan hanya karena satu salah ketik huruf.
+          </div>
+        </div>
+
+        <div class="comic-card" style="background: #fffdf5; border-color: var(--comic-blue-hero);">
+          <span class="comic-badge-pill" style="background: #dbeafe; color: #1e40af;">LITERASI & LOGIKA AI</span>
+          <h3 style="color: var(--comic-blue-hero);">Pemahaman Konsep & Arahan Cerdas</h3>
+          <p style="margin-bottom: 8px;">Fokus pada pemikiran komputasional: merumuskan masalah, menyusun instruksi logis, dan mengevaluasi hasil mesin.</p>
+          <div style="background: #eff6ff; border: 1.5px solid #93c5fd; border-radius: 8px; padding: 8px; font-size: 0.78rem; color: #1e40af; font-weight: 700;">
+            ✨ <em>Kelebihan untuk Anak:</em> Ramah kognisi, merangsang imajinasi, dan hasil karyanya bisa langsung dilihat dalam hitungan detik!
+          </div>
+        </div>
+      </div>
+
+      <div class="highlight-strip">
+        💡 Literasi AI berarti anak belajar <strong>bagaimana memimpin teknologi</strong>, bukan sekadar menjadi pekerja yang mengikuti aturan mesin.
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SLIDE 4: PETA PERJALANAN 4 LANGKAH (HERO'S JOURNEY)
+         ====================================================================== -->
+    <div class="slide" id="slide-4">
+      <div class="slide-pretitle">ALUR KURIKULUM & PETA PETUALANGAN</div>
+      <h1 class="slide-title">Peta Misi: 4 Langkah Menjadi Arsitek AI</h1>
+      <p class="slide-subtitle">
+        Petualangan terstruktur yang dirancang bertahap agar anak belajar dengan penuh rasa ingin tahu dan kegembiraan.
       </p>
 
       <div class="slide-grid-4">
-        <div class="slide-card">
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 900; color: var(--slide-blue-hero);">SEKTOR 1</span>
-          <h3>Mario & Gravitasi</h3>
-          <p><strong>Keseruan Anak:</strong> Lari, lompat di atas pipa, ambil koin putar, dan kalahkan monster!</p>
-          <p><strong>Sains Anak:</strong> Memahami gravitasi Bumi vs gravitasi Bulan (bisa melayang anggun).</p>
-          <span class="code-badge" style="background: #eff6ff; color: #1e40af; border: 1.5px solid #93c5fd;">Simulasi Gravitasi</span>
+        <div class="comic-card" style="border-top: 5px solid var(--comic-blue-hero);">
+          <span class="comic-badge-pill" style="background: #dbeafe; color: #1e40af;">LANGKAH 1</span>
+          <h3>Kacamata Detektif</h3>
+          <p><strong>Kesadaran (Awareness):</strong> Membongkar rahasia mesin. Membedakan aturan baku komputer dengan kecerdasan machine learning.</p>
         </div>
-        <div class="slide-card">
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 900; color: var(--slide-amber);">SEKTOR 2</span>
-          <h3>Pemanen Bintang</h3>
-          <p><strong>Keseruan Anak:</strong> Geser gerobak beroda, tangkap hujan bintang, tembak awan petir!</p>
-          <p><strong>Sains Anak:</strong> Mengaktifkan gaya magnetik agar bintang tersedot otomatis ke keranjang.</p>
-          <span class="code-badge" style="background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d;">Gaya Tarik Magnet</span>
+
+        <div class="comic-card" style="border-top: 5px solid var(--comic-amber-gold);">
+          <span class="comic-badge-pill" style="background: #fef3c7; color: #92400e;">LANGKAH 2</span>
+          <h3>Kapten Instruksi</h3>
+          <p><strong>Interaksi (Prompting):</strong> Berlatih merangkai instruksi terstruktur menggunakan balok logika visual tanpa pusing koding.</p>
         </div>
-        <div class="slide-card">
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 900; color: var(--slide-crimson);">SEKTOR 3</span>
-          <h3>Dogfight Galaksi</h3>
-          <p><strong>Keseruan Anak:</strong> Terbangkan jet 4 arah, semprot meriam laser, ledakkan bom plasma!</p>
-          <p><strong>Sains Anak:</strong> Mengenal arah sudut tembakan menyebar & memprediksi gerakan liukan ombak.</p>
-          <span class="code-badge" style="background: #fef2f2; color: #991b1b; border: 1.5px solid #fca5a5;">Sudut Arah & Refleks</span>
+
+        <div class="comic-card" style="border-top: 5px solid var(--comic-green-emerald);">
+          <span class="comic-badge-pill" style="background: #d1fae5; color: #065f46;">LANGKAH 3</span>
+          <h3>Meja Penciptaan</h3>
+          <p><strong>Penciptaan (Creation):</strong> Anak merancang 4 sektor game petualangannya sendiri dan memodifikasi aturan dunianya.</p>
         </div>
-        <div class="slide-card">
-          <span style="font-family: var(--font-mono); font-size: 0.72rem; font-weight: 900; color: var(--slide-emerald);">SEKTOR 4</span>
-          <h3>Balap Mobil Kart</h3>
-          <p><strong>Keseruan Anak:</strong> Duel balapan 3 putaran di sirkuit, drift tikungan, tancap nitro turbo!</p>
-          <p><strong>Sains Anak:</strong> Belajar gaya gesek ban (oli bikin licin) & duel lawan Bot AI cerdas.</p>
-          <span class="code-badge" style="background: #f0fdf4; color: #166534; border: 1.5px solid #86efac;">Robot Pintar (AI) & Gesekan</span>
+
+        <div class="comic-card" style="border-top: 5px solid #a855f7;">
+          <span class="comic-badge-pill" style="background: #f3e8ff; color: #7e22ce;">LANGKAH 4</span>
+          <h3>Panggung Wisuda</h3>
+          <p><strong>Pameran (Showcase):</strong> Menunjukkan karya game ke orang tua dan menerima lencana resmi Arsitek AI Cilik.</p>
         </div>
       </div>
 
-      <div style="margin-top: 14px; display: flex; justify-content: space-between; align-items: center;">
-        <span style="font-size: 0.82rem; font-weight: 800; color: var(--slide-blue-hero);">
-          Status Mesin: 100% Selesai Dibangun, Mulus 60 FPS & Siap Dimainkan
-        </span>
-        <a class="btn-nav btn-nav-demo" href="index.html" onclick="if(typeof switchMasterTab==='function'){switchMasterTab(2); return false;}">Buka Live Demo Game Sekarang (Langkah 2) ➔</a>
+      <div class="highlight-strip" style="text-align: center;">
+        🎖️ Setiap langkah misi diselesaikan, anak mendapatkan cap resmi di buku <strong>Paspor Petualang AI</strong> mereka!
       </div>
     </div>
 
     <!-- ======================================================================
-         SLIDE 4: PIPELINE FABRIKASI 3D PRINTING DIMITRI
-         ====================================================================== -->
-    <div class="slide" id="slide-4">
-      <div class="slide-pretitle">HARDWARE & WORKSHOP DIMITRI AHMAD</div>
-      <h1 class="slide-title">Pipeline 3D Printing: Dari Digital ke Benda Nyata</h1>
-      <p class="slide-subtitle">
-        Spesifikasi teknis produksi kepingan fisik menggunakan printer FDM workshop Dimitri untuk suvenir mingguan.
-      </p>
-
-      <div class="slide-grid-3">
-        <div class="slide-card">
-          <h3>Spesifikasi Mesin & Nozzle</h3>
-          <p>• Printer: <strong>FDM High-Speed (Bambu Lab / Creality)</strong></p>
-          <p>• Nozzle: <strong>0.4 mm</strong> (Presisi tinggi & handal)</p>
-          <p>• Layer Height: <strong>0.20 mm Standard</strong></p>
-          <span class="code-badge">Toleransi Interlocking: 0.25 mm</span>
-        </div>
-        <div class="slide-card">
-          <h3>Material & Karakteristik</h3>
-          <p>• <strong>PLA Silk Gold:</strong> Koin Rover Sektor 1</p>
-          <p>• <strong>PLA Glow-in-the-Dark:</strong> Kristal Sektor 2</p>
-          <p>• <strong>PLA Matte Pastel:</strong> Jet Tempur Sektor 3</p>
-          <p>• <strong>PLA Slate Navy:</strong> Baseplate Stasiun Sektor 4</p>
-        </div>
-        <div class="slide-card">
-          <h3>Efisiensi Batch & Biaya</h3>
-          <p>• 1 Build Plate muat <strong>10–12 keping sekaligus</strong></p>
-          <p>• Waktu cetak per batch: <strong>~2.5 jam</strong></p>
-          <p>• Total berat 4 modul: <strong>~45 gram / anak</strong></p>
-          <span class="code-badge">Modal Bahan: ~Rp 22.500 / anak</span>
-        </div>
-      </div>
-
-      <div class="highlight-box">
-        Mekanisme Perakitan: Koin, Kristal, dan Miniatur Pesawat dirancang memiliki dudukan *snap-fit* presisi di atas Baseplate Sektor 4 tanpa butuh lem.
-      </div>
-    </div>
-
-    <!-- ======================================================================
-         SLIDE 5: MITIGASI RISIKO KELAS & QUALITY CONTROL
+         SLIDE 5: POS 1 — KACAMATA DETEKTIF (KESADARAN DATA)
          ====================================================================== -->
     <div class="slide" id="slide-5">
-      <div class="slide-pretitle">SOP PENCEGAHAN MASALAH TEKNIS</div>
-      <h1 class="slide-title">Mitigasi Risiko Teknis di Ruang Kelas</h1>
+      <div class="slide-pretitle">POS 1: TAHAP KESADARAN (AWARENESS)</div>
+      <h1 class="slide-title">Kacamata Detektif: Membongkar Rahasia Mesin</h1>
       <p class="slide-subtitle">
-        Daftar masalah klasik kelas komputer anak dan bagaimana sistem Dimitri menyelesaikannya secara preventif.
+        AI bukanlah sihir ajaib. Anak-anak diajak membongkar bagaimana komputer mengenali pola dari data di sekitarnya.
       </p>
 
-      <div class="slide-grid-2">
-        <div class="slide-card" style="border-left: 6px solid var(--slide-crimson);">
-          <h3 style="color: var(--slide-crimson);">Masalah Klasik Kursus Coding Lain:</h3>
-          <p>❌ Laptop anak beda-beda OS (Windows, Mac, Chromebook) sering gagal instal compiler.</p>
-          <p>❌ Wi-Fi kelas lemot membuat platform koding cloud macet total.</p>
-          <p>❌ Anak salah ketik titik-koma membuat kodingan error merah dan anak menangis/frustrasi.</p>
-          <p>❌ Spasi di input teks membajak tombol lompat game di browser.</p>
+      <div class="slide-grid-3">
+        <div class="comic-card">
+          <h3>🔍 Bongkar Pola Data</h3>
+          <p>Bagaimana komputer tahu gambar kucing vs anjing? Anak mengamati cara mesin mengenali ciri-ciri khas melalui contoh gambar.</p>
         </div>
-        <div class="slide-card" style="border-left: 6px solid var(--slide-emerald);">
-          <h3 style="color: var(--slide-emerald);">Solusi Rekayasa Teknis Dimitri:</h3>
-          <p>✔ <strong>100% Browser Agnostic:</strong> Cukup buka file HTML standar, jalan mulus di OS apa pun.</p>
-          <p>✔ <strong>Offline Failsafe:</strong> Game dan parser lokal tetap berfungsi 100% tanpa internet.</p>
-          <p>✔ <strong>Puzzle Blok Lego 3 Warna:</strong> Anak menyusun balok kata visual, mustahil terjadi sintaks rusak.</p>
-          <p>✔ <strong>Showcase Online Vercel & QR Code HP:</strong> 1-klik deploy ke Vercel dan kartu pameran QR Code agar orang tua bisa langsung main di ponsel Safari/Chrome & share ke WhatsApp Story!</p>
+        <div class="comic-card">
+          <h3>⚖️ Menemukan Bias Mesin</h3>
+          <p>Melatih daya kritis: Jika data yang diberikan salah, komputer juga akan salah. Anak belajar tidak mudah percaya pada hoaks digital.</p>
+        </div>
+        <div class="comic-card">
+          <h3>🧠 Mesin vs Pikiran Manusia</h3>
+          <p>Memahami perbedaan mendasar: Komputer punya kecepatan hitung raksasa, tetapi hanya manusia yang punya hati dan imajinasi.</p>
         </div>
       </div>
 
-      <div class="highlight-box">
-        Jaminan Dimitri: Dalam 90 menit kelas, 100% anak dipastikan sukses menjalankan gamenya dan orang tua bisa memainkannya langsung di ponsel!
+      <div class="highlight-strip" style="background: #f0fdf4; border-color: #10b981; color: #065f46;">
+        🛡️ Output Pos 1: Anak memiliki <strong>kacamata filter kritis</strong> saat menggunakan perangkat digital di rumah dan di sekolah.
       </div>
     </div>
 
     <!-- ======================================================================
-         SLIDE 6: CHECKLIST KESIAPAN RUNNING BATCH 1
+         SLIDE 6: POS 2 — KAPTEN INSTRUKSI (LEGO PROMPTING)
          ====================================================================== -->
     <div class="slide" id="slide-6">
-      <div class="slide-pretitle">STATUS KESIAPAN EKSEKUSI</div>
-      <h1 class="slide-title">Kesiapan Teknis: Siap Running Kelas!</h1>
+      <div class="slide-pretitle">POS 2: TAHAP INTERAKSI & PROMPTING</div>
+      <h1 class="slide-title">Kapten Instruksi: Meracik Perintah Presisi</h1>
       <p class="slide-subtitle">
-        Semua infrastruktur teknis sudah tuntas diuji dan siap dioperasikan bersama anak-anak.
+        AI adalah kru kapal paling setia. Anak dilatih menjadi kapten yang mahir menyusun komunikasi instruksional terstruktur.
       </p>
 
       <div class="slide-grid-3">
-        <div class="slide-card">
-          <div style="font-size: 1.3rem;">✔ Siap 100%</div>
-          <h3>Software Studio Game & Vercel</h3>
-          <p>File `Studio Game Komik AI for Kids.html` lulus 40+ unit test headless. Lengkap dengan Rak Blok Lego 3 Warna & tombol Ekspor Hosting Vercel/QR Code.</p>
+        <div class="comic-card" style="border-left: 6px solid #2563eb;">
+          <span class="comic-badge-pill" style="background: #dbeafe; color: #1e40af;">BALOK 1: SIAPA?</span>
+          <h3>Aktor & Peran</h3>
+          <p>Menentukan identitas pahlawan: <em>Bima sang Pelindung Galaksi</em> atau <em>Kinar sang Penjelajah Kosmik</em>.</p>
         </div>
-        <div class="slide-card">
-          <div style="font-size: 1.3rem;">✔ Siap 100%</div>
-          <h3>Kartu Misi Cetak A4</h3>
-          <p>File `Kartu Misi dan Panduan Arsitek Koloni Antariksa.html` berformat siap cetak dengan formula resep 4 sektor terstruktur.</p>
+        <div class="comic-card" style="border-left: 6px solid #f59e0b;">
+          <span class="comic-badge-pill" style="background: #fef3c7; color: #92400e;">BALOK 2: APA KEKUATANNYA?</span>
+          <h3>Aksi & Fisika</h3>
+          <p>Merumuskan kekuatan: Gravitasi bulan yang melayang tinggi, meriam laser plasma, atau perisai energi kebal.</p>
         </div>
-        <div class="slide-card">
-          <div style="font-size: 1.3rem;">✔ Siap 100%</div>
-          <h3>Kapasitas Cetak 3D</h3>
-          <p>Workshop printer FDM Dimitri siap mencetak 10 set modul (40 keping fisik) dalam waktu 48 jam begitu pendaftaran batch ditutup.</p>
+        <div class="comic-card" style="border-left: 6px solid #10b981;">
+          <span class="comic-badge-pill" style="background: #d1fae5; color: #065f46;">BALOK 3: DI MANA?</span>
+          <h3>Atmosfer Dunia</h3>
+          <p>Menciptakan latar belakang: Badai meteor emas, nebula antariksa ungu, atau sirkuit malam hari.</p>
         </div>
       </div>
 
-      <div class="highlight-box" style="text-align: center; font-size: 0.95rem; background: var(--slide-emerald-light); border-color: var(--slide-emerald); color: #065f46;">
-        Kesimpulan Teknis: Fondasi produk sudah solid dan teruji. Rekan Marketing bisa 100% percaya diri untuk mulai promosi & jualan!
+      <div class="highlight-strip">
+        🧩 Konsep <strong>Lego Prompting 3 Warna</strong>: Mengasah struktur berpikir analitis anak tanpa membebani mereka dengan ketikan yang rumit.
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SLIDE 7: POS 3 — MEJA PENCIPTAAN (STUDIO GAME DIMITRI)
+         ====================================================================== -->
+    <div class="slide" id="slide-7">
+      <div class="slide-pretitle">POS 3: TAHAP PENCIPTAAN (CREATION)</div>
+      <h1 class="slide-title">Hari Pertama, Anak Langsung Jadi Game Creator!</h1>
+      <p class="slide-subtitle">
+        Kekuatan teknologi tanpa ribet: Sistem berjalan 100% mulus di peramban, anti-lemot, dan anak langsung melihat hasil kreasinya.
+      </p>
+
+      <div class="slide-grid-4">
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #eff6ff; color: #1d4ed8;">SEKTOR 1</span>
+          <h3>Petualangan Mario</h3>
+          <p>Atur tinggi lompatan gravitasi, koin berputar, dan taklukkan monster slime!</p>
+        </div>
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #fef3c7; color: #92400e;">SEKTOR 2</span>
+          <h3>Pemanen Bintang</h3>
+          <p>Geser gerobak beroda, aktifkan tarikan magnetik, dan tangkap bintang jatuh!</p>
+        </div>
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #fee2e2; color: #991b1b;">SEKTOR 3</span>
+          <h3>Dogfight Galaksi</h3>
+          <p>Terbangkan jet starfighter, tembak meriam plasma, dan uji sudut refleks!</p>
+        </div>
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #ecfdf5; color: #065f46;">SEKTOR 4</span>
+          <h3>Balap Kart Grand Prix</h3>
+          <p>Duel balapan sirkuit melawan Robot AI pintar, tikungan drift, dan tancap nitro!</p>
+        </div>
+      </div>
+
+      <div class="highlight-strip" style="background: #f0fdf4; border-color: #10b981; color: #065f46;">
+        🚀 Sensasi Pencapaian Nyata: Anak tidak cuma mendengarkan teori, tapi langsung <strong>memainkan game ciptaan mereka sendiri</strong> di dalam kelas!
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SLIDE 8: KARYA YANG DIBAWA PULANG (BUKTI NYATA UNTUK ORANG TUA)
+         ====================================================================== -->
+    <div class="slide" id="slide-8">
+      <div class="slide-pretitle">HASIL BELAJAR NYATA & PORTOFOLIO KELUARGA</div>
+      <h1 class="slide-title">Karya Nyata yang Dibawa Pulang Anak</h1>
+      <p class="slide-subtitle">
+        Bukan sekadar kursus biasa—orang tua dapat melihat dan menguji langsung pencapaian buah hatinya.
+      </p>
+
+      <div class="slide-grid-3">
+        <div class="comic-card" style="border-top: 5px solid var(--comic-amber-gold);">
+          <h3>📖 Paspor Petualang AI Fisik</h3>
+          <p>Buku saku petualangan fisik yang dibawa pulang tiap minggu dengan stempel resmi kelulusan tiap pos misi.</p>
+        </div>
+        <div class="comic-card" style="border-top: 5px solid var(--comic-blue-hero);">
+          <h3>📱 Link Game via QR Code</h3>
+          <p>Game buatan anak memiliki tautan online pribadi dan kartu koleksi ber-QR Code untuk dimainkan langsung di HP orang tua!</p>
+        </div>
+        <div class="comic-card" style="border-top: 5px solid var(--comic-green-emerald);">
+          <h3>🏆 Panggung Showcase Sesi 4</h3>
+          <p>Di sesi terakhir, orang tua diundang masuk kelas: anak berperan sebagai mentor yang menguji orang tuanya memainkan game buatannya.</p>
+        </div>
+      </div>
+
+      <div class="highlight-strip" style="text-align: center;">
+        📲 Nilai Viralitas Tinggi: Orang tua dengan bangga membagikan tautan game dan kartu karya anaknya ke <strong>WhatsApp Story & Instagram</strong>!
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SLIDE 9: TIMBANGAN HATI & 3 KEKUATAN SUPER
+         ====================================================================== -->
+    <div class="slide" id="slide-9">
+      <div class="slide-pretitle">FILOSOFI & NILAI BUDI PEKERTI PROGRAM</div>
+      <h1 class="slide-title">Teknologi Cepat, Tapi Hati Manusia Pemimpinnya!</h1>
+      <p class="slide-subtitle">
+        Mesin memiliki kecepatan komputasi. Tetapi orisinalitas, imajinasi, dan empati etika adalah murni milik manusia.
+      </p>
+
+      <div class="slide-grid-3">
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #fef3c7; color: #92400e;">SUPERPOWER 1</span>
+          <h3>Evaluasi Kritis</h3>
+          <p>Kebiasaan memverifikasi kebenaran data dan tidak menelan mentah-mentah hasil keluaran mesin.</p>
+        </div>
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #dbeafe; color: #1e40af;">SUPERPOWER 2</span>
+          <h3>Kreativitas Asli</h3>
+          <p>Ide, rasa seni, dan gagasan utama tetap datang dari anak. AI hanyalah kuas dan palu perkakas bantu.</p>
+        </div>
+        <div class="comic-card">
+          <span class="comic-badge-pill" style="background: #d1fae5; color: #065f46;">SUPERPOWER 3</span>
+          <h3>Adaptabilitas & Etika</h3>
+          <p>Percaya diri menghadapi masa depan baru dan selalu menggunakan teknologi untuk kebaikan sesama.</p>
+        </div>
+      </div>
+
+      <div class="highlight-strip" style="text-align: center; font-size: 0.9rem;">
+        ⚖️ Prinsip Akademi: <strong>Mencetak anak-anak yang cerdas bernalar, bukan sekadar operator mesin yang patuh.</strong>
+      </div>
+    </div>
+
+    <!-- ======================================================================
+         SLIDE 10: AJAKAN KEMITRAAN (SIAP EKSEKUSI BATCH 1)
+         ====================================================================== -->
+    <div class="slide" id="slide-10">
+      <div class="slide-pretitle">SIAP RUNNING KELAS & PEMBUKAAN PENDAFTARAN</div>
+      <h1 class="slide-title">Mari Buka Petualangan Perdana Batch 1!</h1>
+      <p class="slide-subtitle">
+        Infrastruktur kurikulum, perangkat studio game, dan lembar aktivitas sudah siap 100% untuk dijalankan bersama mitra.
+      </p>
+
+      <div class="slide-grid-3">
+        <div class="comic-card">
+          <h3>📅 Format Program</h3>
+          <p>• 4 Pertemuan Mingguan (@90 Menit per sesi)<br>• Kuota Terbatas: <strong>8–10 Anak per Kelas</strong> agar pendampingan maksimal.</p>
+        </div>
+        <div class="comic-card">
+          <h3>💻 Kesiapan Perangkat</h3>
+          <p>• Cukup laptop standar dengan peramban browser.<br>• Bebas instalasi rumit & aman dari kendala internet lemot.</p>
+        </div>
+        <div class="comic-card">
+          <h3>🤝 Kolaborasi Tim</h3>
+          <p>• <strong>Dimitri Ahmad:</strong> Lead Fasilitator & Produk Software.<br>• <strong>Mitra Marketing:</strong> Promosi, Funnel Medsos & CS WhatsApp.</p>
+        </div>
+      </div>
+
+      <div class="highlight-strip" style="background: #ecfdf5; border-color: #10b981; color: #065f46; text-align: center; font-size: 0.95rem;">
+        🎉 <strong>Langkah Berikutnya:</strong> Buka Pre-Registration Pilot Batch & Rilis Teaser Video Cuplikan Game ke Media Sosial!
       </div>
     </div>
 
@@ -569,8 +668,8 @@
       Navigasi: <kbd>◀</kbd> <kbd>▶</kbd> atau tombol di kanan
     </div>
     <div class="nav-btn-group">
-      <button class="btn-nav" id="btnPrev" onclick="prevSlide()">◀ Sebelumnya</button>
-      <button class="btn-nav btn-nav-primary" id="btnNext" onclick="nextSlide()">Berikutnya ▶</button>
+      <button class="btn-slide-nav" id="btnPrev" onclick="prevSlide()">◀ Sebelumnya</button>
+      <button class="btn-slide-nav btn-slide-nav-primary" id="btnNext" onclick="nextSlide()">Berikutnya ▶</button>
     </div>
   </div>
 
@@ -578,7 +677,7 @@
 
 <script>
   let currentSlide = 1;
-  const totalSlides = 6;
+  const totalSlides = 10;
 
   function updateSlideUI() {
     for (let i = 1; i <= totalSlides; i++) {
@@ -610,7 +709,7 @@
     }
   }
 
-  // Keyboard Arrow Listeners
+  // Keyboard navigation: Panah Kiri, Kanan, atau Spasi
   window.addEventListener('keydown', (e) => {
     if (e.code === 'ArrowRight' || e.code === 'Space') {
       nextSlide();
