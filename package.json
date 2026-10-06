@@ -1,0 +1,20 @@
+{
+  "name": "project-ai-for-kids",
+  "version": "1.0.0",
+  "description": "Studio Game Komik AI for Kids: Multi-Sector Arcade Hub & Lego Prompting Zero Coding",
+  "main": "index.html",
+  "scripts": {
+    "test": "node test_headless.js",
+    "start": "npx serve ."
+  },
+  "keywords": [
+    "ai-for-kids",
+    "game-studio",
+    "html5-canvas",
+    "bima-kinar",
+    "zero-coding",
+    "lego-prompting"
+  ],
+  "author": "Dimitri Ahmad",
+  "license": "MIT"
+}

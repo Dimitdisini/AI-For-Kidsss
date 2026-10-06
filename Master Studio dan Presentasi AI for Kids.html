@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal Master AI for Kids - Dimitri Ahmad & Mitra</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bar-bg: #0b1329;
+      --bar-border: #1e293b;
+      --accent-blue: #2563eb;
+      --accent-amber: #f59e0b;
+      --accent-green: #10b981;
+      --text-white: #ffffff;
+      --text-muted: #94a3b8;
+      --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #020617;
+      font-family: var(--font-main);
+    }
+
+    /* TOP MASTER HEADER */
+    #masterTopBar {
+      height: 64px;
+      background: var(--bar-bg);
+      border-bottom: 2.5px solid #1e293b;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      gap: 12px;
+      z-index: 1000;
+      position: relative;
+    }
+
+    .master-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--accent-amber);
+      color: #0f172a;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.72rem;
+      font-weight: 900;
+      padding: 4px 10px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+      white-space: nowrap;
+    }
+
+    .brand-title {
+      font-size: 0.96rem;
+      font-weight: 900;
+      color: var(--text-white);
+      line-height: 1.2;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    /* TAB NAVIGATOR */
+    .master-nav-tabs {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .nav-tab-btn {
+      background: #1e293b;
+      border: 1.5px solid #334155;
+      border-radius: 10px;
+      padding: 6px 14px;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      color: #e2e8f0;
+      cursor: pointer;
+      font-family: var(--font-main);
+      transition: all 0.15s ease;
+      user-select: none;
+      box-shadow: 0 2px 0px #020617;
+      text-decoration: none;
+    }
+
+    .nav-tab-btn:hover {
+      background: #334155;
+      border-color: #64748b;
+    }
+
+    .nav-tab-btn.active {
+      background: var(--accent-blue);
+      border-color: #60a5fa;
+      color: #ffffff;
+      box-shadow: 0 3px 0px #020617;
+    }
+
+    .tab-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      background: #0f172a;
+      color: #f59e0b;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1.5px solid #ffffff;
+    }
+
+    .nav-tab-btn.active .tab-number {
+      background: #f59e0b;
+      color: #0f172a;
+    }
+
+    .tab-meta {
+      text-align: left;
+    }
+
+    .tab-meta strong {
+      display: block;
+      font-size: 0.84rem;
+      font-weight: 900;
+      line-height: 1.15;
+    }
+
+    .tab-meta small {
+      font-size: 0.65rem;
+      opacity: 0.85;
+      font-weight: 600;
+      display: block;
+    }
+
+    /* RIGHT ACTIONS */
+    .master-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-open-tab {
+      background: #0f172a;
+      border: 1.5px solid #334155;
+      color: #38bdf8;
+      border-radius: 8px;
+      padding: 6px 12px;
+      font-size: 0.78rem;
+      font-weight: 800;
+      cursor: pointer;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+      white-space: nowrap;
+    }
+
+    .btn-open-tab:hover {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #38bdf8;
+    }
+
+    /* IFRAME VIEWPORT */
+    #contentViewport {
+      width: 100%;
+      height: calc(100vh - 64px);
+      border: none;
+      display: block;
+      background: #0b1329;
+    }
+
+    @media (max-width: 950px) {
+      #masterTopBar {
+        height: auto;
+        padding: 8px 12px;
+        flex-wrap: wrap;
+      }
+      .master-nav-tabs {
+        order: 3;
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 4px;
+      }
+      #contentViewport {
+        height: calc(100vh - 110px);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MASTER HEADER -->
+  <header id="masterTopBar">
+    <div class="master-brand">
+      <div class="brand-badge">PORTAL TERPADU</div>
+      <div>
+        <div class="brand-title">AI for Kids: Cockpit Presentasi & Demo</div>
+        <div class="brand-sub">Dimitri Ahmad (Lead Tech & 3D Maker) & Mitra Digital Marketing</div>
+      </div>
+    </div>
+
+    <!-- TABS NAVIGATOR: MEMUAT KAMAR MASING-MASING -->
+    <nav class="master-nav-tabs">
+      <button class="nav-tab-btn active" id="tabBtn-1" onclick="openRoom(1)">
+        <span class="tab-number">1</span>
+        <div class="tab-meta">
+          <strong>Slide Presentasi</strong>
+          <small>Pitch Partner 16:9</small>
+        </div>
+      </button>
+
+      <button class="nav-tab-btn" id="tabBtn-2" onclick="openRoom(2)">
+        <span class="tab-number">2</span>
+        <div class="tab-meta">
+          <strong>Studio Game Anak</strong>
+          <small>Demo 4 Sektor & Lego</small>
+        </div>
+      </button>
+
+      <button class="nav-tab-btn" id="tabBtn-3" onclick="openRoom(3)">
+        <span class="tab-number">3</span>
+        <div class="tab-meta">
+          <strong>Lembar Kerja Kelas</strong>
+          <small>Format Cetak A4 Siswa</small>
+        </div>
+      </button>
+
+      <button class="nav-tab-btn" id="tabBtn-4" onclick="openRoom(4)">
+        <span class="tab-number">4</span>
+        <div class="tab-meta">
+          <strong>Rundown & 3D Print</strong>
+          <small>Alur 90m & Cetak Fisik</small>
+        </div>
+      </button>
+    </nav>
+
+    <!-- ACTION: BUKA FILE MURNI DI TAB BARU -->
+    <div class="master-actions">
+      <a id="linkDirectOpen" href="Master Presentasi Kemitraan AI for Kids.html" target="_blank" class="btn-open-tab" title="Buka kamar aktif di tab browser terpisah">
+        <span>↗ Buka Tab Penuh</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ISOLATED IFRAME VIEWPORT (100% TERISOLASI, ZERO CONFLICT) -->
+  <iframe id="contentViewport" src="Master Presentasi Kemitraan AI for Kids.html" title="Kamar AI for Kids"></iframe>
+
+  <script>
+    const rooms = {
+      1: {
+        file: "Master Presentasi Kemitraan AI for Kids.html",
+        label: "Slide Presentasi (Kamar 1)"
+      },
+      2: {
+        file: "Studio Game Komik AI for Kids.html",
+        label: "Studio Game Anak (Kamar 2)"
+      },
+      3: {
+        file: "Kartu Misi dan Panduan Arsitek Koloni Antariksa.html",
+        label: "Lembar Kerja Siswa (Kamar 3)"
+      },
+      4: {
+        file: "Panduan Operasional dan 3D Printing AI for Kids.html",
+        label: "Rundown & 3D Print (Kamar 4)"
+      }
+    };
+
+    let activeRoomId = 1;
+
+    function openRoom(roomId) {
+      if (!rooms[roomId]) return;
+      activeRoomId = roomId;
+
+      // Update Tab Styles
+      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+      const activeBtn = document.getElementById('tabBtn-' + roomId);
+      if (activeBtn) activeBtn.classList.add('active');
+
+      // Load File into Isolated Iframe Viewport
+      const viewport = document.getElementById('contentViewport');
+      const directLink = document.getElementById('linkDirectOpen');
+      
+      const targetFile = rooms[roomId].file;
+      if (viewport) {
+        viewport.src = targetFile;
+      }
+      if (directLink) {
+        directLink.href = targetFile;
+        directLink.setAttribute('title', 'Buka ' + rooms[roomId].label + ' di tab baru');
+      }
+    }
+  </script>
+
+</body>
+</html>

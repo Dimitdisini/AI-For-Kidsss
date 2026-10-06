@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panduan Operasional & Workshop 3D Printing AI for Kids - Dimitri Ahmad</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --space-blue-deep: #1e3a8a;
+      --space-blue-hero: #2563eb;
+      --space-amber: #f59e0b;
+      --space-amber-light: #fef3c7;
+      --space-emerald: #10b981;
+      --space-emerald-light: #a7f3d0;
+      --space-crimson: #ef4444;
+      --space-ink: #0f172a;
+      --space-ink-muted: #475569;
+      --space-paper-white: #ffffff;
+      --space-paper-cream: #fffdf5;
+
+      --border-thick: 3.5px solid var(--space-ink);
+      --border-md: 2.5px solid var(--space-ink);
+      --border-sm: 1.5px solid var(--space-ink);
+
+      --shadow-solid-sm: 0 2px 0px var(--space-ink);
+      --shadow-solid-md: 0 4px 0px var(--space-ink);
+      --shadow-solid-lg: 0 6px 0px var(--space-ink);
+
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #0b1329;
+      background-image: 
+        linear-gradient(rgba(30, 58, 138, 0.25) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 58, 138, 0.25) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--space-ink);
+      font-family: var(--font-sans);
+      padding: 30px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .doc-page {
+      width: 100%;
+      max-width: 1080px;
+      background: var(--space-paper-white);
+      border: var(--border-thick);
+      border-radius: 20px;
+      box-shadow: var(--shadow-solid-lg);
+      padding: 36px 40px;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .doc-page {
+        max-width: 100%;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 20mm;
+        page-break-after: always;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    .banner-header {
+      border-bottom: var(--border-thick);
+      padding-bottom: 20px;
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .banner-title-group h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--space-ink);
+      line-height: 1.2;
+    }
+
+    .banner-title-group p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--space-ink-muted);
+      margin-top: 6px;
+    }
+
+    .badge-tag {
+      background: var(--space-emerald);
+      color: #ffffff;
+      border: var(--border-sm);
+      border-radius: 9999px;
+      padding: 5px 14px;
+      font-size: 0.82rem;
+      font-weight: 900;
+      box-shadow: var(--shadow-solid-sm);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--space-blue-deep);
+      margin: 24px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 22px;
+      background: var(--space-amber);
+      border-radius: 3px;
+    }
+
+    .step-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    @media (max-width: 900px) {
+      .step-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .step-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .step-card {
+      border: var(--border-md);
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: var(--shadow-solid-sm);
+    }
+
+    .step-card span {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+    }
+
+    .step-card h4 {
+      font-size: 0.95rem;
+      font-weight: 900;
+      margin: 4px 0;
+    }
+
+    .step-card p {
+      font-size: 0.78rem;
+      color: var(--space-ink-muted);
+      font-weight: 600;
+      line-height: 1.35;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin: 14px 0 20px;
+      border: var(--border-thick);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: var(--shadow-solid-md);
+    }
+
+    th {
+      background: var(--space-blue-deep);
+      color: #ffffff;
+      padding: 10px 14px;
+      font-weight: 900;
+      font-size: 0.85rem;
+      text-align: left;
+      border-bottom: var(--border-thick);
+    }
+
+    td {
+      padding: 10px 14px;
+      border-bottom: 1.5px solid #cbd5e1;
+      font-size: 0.85rem;
+      color: var(--space-ink);
+      font-weight: 600;
+      vertical-align: top;
+      background: #ffffff;
+    }
+
+    tr:last-child td {
+      border-bottom: none;
+    }
+
+    tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 14px 0;
+    }
+
+    @media (max-width: 700px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .btn-action {
+      background: var(--space-blue-hero);
+      color: #ffffff;
+      border: var(--border-md);
+      border-radius: 10px;
+      box-shadow: var(--shadow-solid-sm);
+      padding: 8px 16px;
+      font-weight: 900;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-action:hover {
+      background: #1d4ed8;
+    }
+  </style>
+</head>
+<body>
+
+<div class="no-print" style="width: 100%; max-width: 1080px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: #ffffff; font-weight: 800; font-size: 0.9rem;">
+    📘 Panduan Operasional Kelas & Spesifikasi 3D Printing (Kamar 4)
+  </div>
+  <div style="display: flex; gap: 8px;">
+    <button class="btn-action" onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
+  </div>
+</div>
+
+<div class="doc-page">
+  <div class="banner-header">
+    <div class="banner-title-group">
+      <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+        <span class="badge-tag">PANDUAN OPERASIONAL & WORKSHOP</span>
+        <span style="font-weight: 800; font-size: 0.85rem; color: var(--space-ink-muted);">AI FOR KIDS</span>
+      </div>
+      <h1>Panduan Operasional Kelas & Suvenir 3D Printing</h1>
+      <p>Panduan Kolaborasi: Dimitri Ahmad (Produk, Teknologi & 3D Maker) & Mitra Digital Marketing</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: CUSTOMER JOURNEY -->
+  <div class="section-title">1. Alur Perjalanan Pelanggan (Customer Journey Flow)</div>
+  <div class="step-grid">
+    <div class="step-card" style="background: #eff6ff;">
+      <span style="color: #2563eb;">TAHAP 1</span>
+      <h4>Awareness</h4>
+      <p>Video Reels/TikTok demo Lego Prompting anak mengubah game secara instan.</p>
+    </div>
+    <div class="step-card" style="background: #fef3c7;">
+      <span style="color: #d97706;">TAHAP 2</span>
+      <h4>Conversion</h4>
+      <p>Konsultasi WhatsApp & pendaftaran 4 sesi + paket keping 3D suvenir fisik.</p>
+    </div>
+    <div class="step-card" style="background: #e0e7ff;">
+      <span style="color: #4338ca;">TAHAP 3</span>
+      <h4>Onboarding</h4>
+      <p>Grup WhatsApp resmi orang tua & pembagian Paspor Petualang AI di awal kelas.</p>
+    </div>
+    <div class="step-card" style="background: #f0fdf4;">
+      <span style="color: #059669;">TAHAP 4</span>
+      <h4>Experience</h4>
+      <p>4 Sesi mingguan @90 menit. Tiap sesi bawa pulang 1 keping fisik 3D.</p>
+    </div>
+    <div class="step-card" style="background: #fdf2f8;">
+      <span style="color: #db2777;">TAHAP 5</span>
+      <h4>Showcase</h4>
+      <p>Ortu hadir di 30 menit sesi 4: mainkan game anak & tancapkan keping 3D.</p>
+    </div>
+    <div class="step-card" style="background: #f1f5f9;">
+      <span style="color: #0f172a;">TAHAP 6</span>
+      <h4>Advocacy</h4>
+      <p>Viralitas status WA & Instagram orang tua + retensi pendaftaran batch lanjutan.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 2: RUNDOWN KELAS -->
+  <div class="section-title">2. Alur Pelaksanaan Kelas 90 Menit (Rundown Terstruktur)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Waktu</th>
+        <th style="width: 20%;">Fase Aktivitas</th>
+        <th style="width: 44%;">Aktivitas Siswa & Mentor</th>
+        <th style="width: 22%;">Output Nyata</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>Menit 00–10</strong></td>
+        <td><strong>Briefing Misi Cerita</strong></td>
+        <td>Mentor membuka sektor petualangan baru dengan cerita komik imajinatif.</td>
+        <td>Fokus & antusiasme anak</td>
+      </tr>
+      <tr>
+        <td><strong>Menit 10–25</strong></td>
+        <td><strong>Resep Fisik (Mad-Libs)</strong></td>
+        <td>Anak mengisi Lembar Kartu Misi: menentukan gravitasi, kecepatan, dan senjata.</td>
+        <td>Formula tertulis di meja</td>
+      </tr>
+      <tr>
+        <td><strong>Menit 25–60</strong></td>
+        <td><strong>Lego Prompting Studio</strong></td>
+        <td>Anak memilih blok kata di layar, klik terapkan, dan mainkan perubahan gamenya.</td>
+        <td>Game hidup secara real-time</td>
+      </tr>
+      <tr>
+        <td><strong>Menit 60–75</strong></td>
+        <td><strong>Playtest & Tantangan</strong></td>
+        <td>Tukar laptop dengan teman di sebelahnya untuk playtest game karya teman.</td>
+        <td>Uji ketahanan game & fun</td>
+      </tr>
+      <tr>
+        <td><strong>Menit 75–85</strong></td>
+        <td><strong>Refleksi Logika Sains</strong></td>
+        <td>Mentor membahas sains di balik game: gravitasi, magnet, sudut liukan, gesekan ban.</td>
+        <td>Pemahaman komputasi riil</td>
+      </tr>
+      <tr>
+        <td><strong>Menit 85–90</strong></td>
+        <td><strong>Reward Keping 3D Fisik</strong></td>
+        <td>Pembagian modul suvenir 3D printer mingguan & stempel di paspor petualang.</td>
+        <td>Suvenir fisik dibawa pulang</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3: 3D PRINTING DIMITRI -->
+  <div class="section-title">3. Spesifikasi Fabrikasi 3D Printing Dimitri Ahmad (FDM Workshop)</div>
+  <div class="grid-2">
+    <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 18px;">
+      <h3 style="font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; color: var(--space-blue-deep);">⚙️ Spesifikasi Teknis Mesin FDM</h3>
+      <ul style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
+        <li><strong>Printer:</strong> FDM High-Speed (Bambu Lab / Creality).</li>
+        <li><strong>Nozzle:</strong> 0.4mm (Keseimbangan presisi detail & kecepatan cetak).</li>
+        <li><strong>Material:</strong> PLA ramah anak (Bebas racun, aman dipegang).</li>
+        <li><strong>Variasi Filamen:</strong> Silk Gold (Koin), Glow-in-the-Dark (Kristal), Matte Pastel (Jet & Sirkuit).</li>
+      </ul>
+    </div>
+    <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 18px;">
+      <h3 style="font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; color: var(--space-emerald);">💰 Estimasi Biaya Fabrikasi per Anak</h3>
+      <ul style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
+        <li><strong>Total Berat 4 Keping:</strong> ~45 gram PLA per paket anak.</li>
+        <li><strong>Modal Bahan Mentah:</strong> Rp 500 / gram × 45g = <strong>Rp 22.500 / anak</strong>.</li>
+        <li><strong>Nilai Tambah (Perceived Value):</strong> Menjustifikasi harga kelas jutaan rupiah di mata orang tua.</li>
+        <li><strong>Kapasitas Produksi:</strong> 40 keping selesai dalam waktu 48 jam di workshop Dimitri.</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECTION 4: PEMBAGIAN TUGAS (RACI) -->
+  <div class="section-title">4. Matriks Pembagian Tugas & Tanggung Jawab</div>
+  <div class="grid-2">
+    <div style="background: #f0fdf4; border: 2.5px solid #166534; border-radius: 14px; padding: 18px;">
+      <h3 style="font-size: 1.05rem; font-weight: 900; color: #166534; margin-bottom: 8px;">👨‍💻 Dimitri Ahmad (Teknologi & Produk)</h3>
+      <ol style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
+        <li>Menyediakan software Studio Game 4 sektor zero-dependency.</li>
+        <li>Mencetak suvenir fisik 3D printing mingguan di workshop pribadi.</li>
+        <li>Menyiapkan materi lembar kerja Mad-Libs resep prompt.</li>
+        <li>Bertindak sebagai Lead Mentor teknis yang memandu anak di kelas.</li>
+      </ol>
+    </div>
+    <div style="background: #eff6ff; border: 2.5px solid #1e40af; border-radius: 14px; padding: 18px;">
+      <h3 style="font-size: 1.05rem; font-weight: 900; color: #1e40af; margin-bottom: 8px;">📢 Mitra Bisnis (Digital Marketing)</h3>
+      <ol style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
+        <li>Menjalankan iklan promosi & funnel konten (Instagram/TikTok).</li>
+        <li>Melayani konsultasi WhatsApp orang tua & registrasi pembayaran.</li>
+        <li>Mengatur logistik ruang kelas (sewa tempat/komunitas).</li>
+        <li>Dokumentasi kelas & memandu orang tua saat showcase di sesi 4.</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
