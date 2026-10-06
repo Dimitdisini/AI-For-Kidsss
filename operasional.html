@@ -3,18 +3,25 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Panduan Operasional & Alur Kelas AI for Kids - Dimitri Ahmad & Mitra</title>
+  <title>Panduan Operasional & Rundown Kelas - AI for Kids</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
   <style>
+    /* ==========================================================================
+       DESIGN SYSTEM: PANDUAN OPERASIONAL & RUNDOWN KELAS (KAMAR 3)
+       Selaras 100% dengan Slide Presentasi: 4 Langkah Petualangan Arsitek AI
+       ========================================================================== */
     :root {
       --space-blue-deep: #1e3a8a;
       --space-blue-hero: #2563eb;
+      --space-blue-light: #eff6ff;
       --space-amber: #f59e0b;
       --space-amber-light: #fef3c7;
       --space-emerald: #10b981;
-      --space-emerald-light: #a7f3d0;
+      --space-emerald-light: #d1fae5;
+      --space-purple: #7e22ce;
+      --space-purple-light: #f3e8ff;
       --space-crimson: #ef4444;
       --space-ink: #0f172a;
       --space-ink-muted: #475569;
@@ -42,12 +49,12 @@
     body {
       background-color: #0b1329;
       background-image: 
-        linear-gradient(rgba(30, 58, 138, 0.25) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(30, 58, 138, 0.25) 1px, transparent 1px);
+        linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
       background-size: 32px 32px;
       color: var(--space-ink);
       font-family: var(--font-sans);
-      padding: 30px 16px;
+      padding: 24px 16px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -55,13 +62,13 @@
 
     .doc-page {
       width: 100%;
-      max-width: 1080px;
+      max-width: 1040px;
       background: var(--space-paper-white);
       border: var(--border-thick);
       border-radius: 20px;
       box-shadow: var(--shadow-solid-lg);
       padding: 36px 40px;
-      margin-bottom: 30px;
+      margin-bottom: 24px;
       position: relative;
     }
 
@@ -75,8 +82,7 @@
         border: none;
         box-shadow: none;
         border-radius: 0;
-        padding: 20mm;
-        page-break-after: always;
+        padding: 12mm 16mm;
       }
       .no-print {
         display: none !important;
@@ -90,31 +96,31 @@
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
-      flex-wrap: wrap;
       gap: 16px;
+      flex-wrap: wrap;
     }
 
     .banner-title-group h1 {
-      font-size: 1.85rem;
+      font-size: 1.8rem;
       font-weight: 900;
-      color: var(--space-ink);
       line-height: 1.2;
+      color: var(--space-ink);
     }
 
     .banner-title-group p {
-      font-size: 0.95rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--space-ink-muted);
       margin-top: 6px;
     }
 
     .badge-tag {
-      background: var(--space-emerald);
-      color: #ffffff;
+      background: var(--space-amber);
+      color: var(--space-ink);
       border: var(--border-sm);
       border-radius: 9999px;
       padding: 5px 14px;
-      font-size: 0.82rem;
+      font-size: 0.8rem;
       font-weight: 900;
       box-shadow: var(--shadow-solid-sm);
       display: inline-block;
@@ -124,7 +130,7 @@
       font-size: 1.25rem;
       font-weight: 900;
       color: var(--space-blue-deep);
-      margin: 24px 0 14px;
+      margin: 28px 0 16px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -135,83 +141,124 @@
       display: inline-block;
       width: 10px;
       height: 22px;
-      background: var(--space-amber);
+      background: var(--space-blue-hero);
       border-radius: 3px;
     }
 
-    .step-grid {
+    /* 4 STEP OVERVIEW CARDS */
+    .four-steps-grid {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-      margin-bottom: 16px;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
     }
 
-    @media (max-width: 900px) {
-      .step-grid {
-        grid-template-columns: repeat(3, 1fr);
+    @media (max-width: 880px) {
+      .four-steps-grid {
+        grid-template-columns: 1fr 1fr;
       }
     }
-    @media (max-width: 600px) {
-      .step-grid {
+
+    @media (max-width: 540px) {
+      .four-steps-grid {
         grid-template-columns: 1fr;
       }
     }
 
-    .step-card {
+    .step-overview-card {
+      background: var(--space-paper-cream);
       border: var(--border-md);
-      border-radius: 12px;
-      padding: 12px;
+      border-radius: 14px;
       box-shadow: var(--shadow-solid-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
-    .step-card span {
+    .step-pill {
       font-family: var(--font-mono);
       font-size: 0.72rem;
       font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 6px;
+      align-self: flex-start;
     }
 
-    .step-card h4 {
-      font-size: 0.95rem;
+    .step-overview-card h3 {
+      font-size: 1rem;
       font-weight: 900;
-      margin: 4px 0;
+      color: var(--space-ink);
+      line-height: 1.25;
     }
 
-    .step-card p {
+    .step-overview-card p {
       font-size: 0.78rem;
-      color: var(--space-ink-muted);
       font-weight: 600;
-      line-height: 1.35;
+      color: var(--space-ink-muted);
+      line-height: 1.45;
+    }
+
+    /* DETAILED SESSION TABLES */
+    .session-container {
+      background: #fafafa;
+      border: var(--border-md);
+      border-radius: 16px;
+      padding: 20px;
+      margin-bottom: 22px;
+    }
+
+    .session-head-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px dashed #cbd5e1;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .session-tag-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .session-title-text {
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: var(--space-ink);
     }
 
     table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
-      margin: 14px 0 20px;
-      border: var(--border-thick);
+      border: var(--border-md);
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: var(--shadow-solid-md);
+      box-shadow: var(--shadow-solid-sm);
+      margin-bottom: 12px;
     }
 
     th {
       background: var(--space-blue-deep);
       color: #ffffff;
-      padding: 10px 14px;
       font-weight: 900;
-      font-size: 0.85rem;
+      font-size: 0.84rem;
+      padding: 9px 12px;
       text-align: left;
-      border-bottom: var(--border-thick);
     }
 
     td {
-      padding: 10px 14px;
-      border-bottom: 1.5px solid #cbd5e1;
-      font-size: 0.85rem;
-      color: var(--space-ink);
-      font-weight: 600;
-      vertical-align: top;
       background: #ffffff;
+      padding: 10px 12px;
+      font-size: 0.83rem;
+      font-weight: 600;
+      border-bottom: 1px solid #e2e8f0;
+      vertical-align: top;
+      color: var(--space-ink);
     }
 
     tr:last-child td {
@@ -222,17 +269,17 @@
       background: #f8fafc;
     }
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin: 14px 0;
-    }
-
-    @media (max-width: 700px) {
-      .grid-2 {
-        grid-template-columns: 1fr;
-      }
+    .key-takeaway-strip {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .btn-action {
@@ -258,9 +305,9 @@
 </head>
 <body>
 
-<div class="no-print" style="width: 100%; max-width: 1080px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+<div class="no-print" style="width: 100%; max-width: 1040px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
   <div style="color: #ffffff; font-weight: 800; font-size: 0.9rem;">
-    📘 Panduan Operasional Kelas & Alur 90 Menit (Kamar 3)
+    📘 Panduan Operasional & Rundown Kelas (Kamar 3) — Sinkron Penuh 4 Sesi
   </div>
   <div style="display: flex; gap: 8px;">
     <button class="btn-action" onclick="window.print()">🖨️ Cetak / Simpan PDF</button>
@@ -268,148 +315,293 @@
 </div>
 
 <div class="doc-page">
+
   <div class="banner-header">
     <div class="banner-title-group">
       <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-        <span class="badge-tag">PANDUAN OPERASIONAL & KELAS</span>
-        <span style="font-weight: 800; font-size: 0.85rem; color: var(--space-ink-muted);">AI FOR KIDS</span>
+        <span class="badge-tag">SOP & RUNDOWN RESMI</span>
+        <span style="font-weight: 800; font-size: 0.85rem; color: var(--space-ink-muted);">AI FOR KIDS (4 SESI × 90 MENIT)</span>
       </div>
-      <h1>Panduan Operasional Kelas & Alur Kemitraan</h1>
-      <p>Panduan Kolaborasi: Dimitri Ahmad (Teknologi & Produk) & Mitra Digital Marketing (Promosi & Operasional)</p>
+      <h1>Peta Misi Kelas: Alur Mengalir dari Detektif Menuju Arsitek AI</h1>
+      <p>Panduan Fasilitator: Menggali Daya Kritis, Logika Instruksi, dan Kreativitas Anak Usia 8–12 Tahun</p>
     </div>
   </div>
 
-  <!-- SECTION 1: CUSTOMER JOURNEY -->
-  <div class="section-title">1. Alur Perjalanan Pelanggan (Customer Journey Flow)</div>
-  <div class="step-grid">
-    <div class="step-card" style="background: #eff6ff;">
-      <span style="color: #2563eb;">TAHAP 1</span>
-      <h4>Awareness</h4>
-      <p>Video Reels/TikTok cuplikan anak meracik Lego Prompting dan memodifikasi game seketika.</p>
+  <!-- SECTION 1: IKHTISAR 4 LANGKAH PETUALANGAN (SELARAS SLIDE 4 PRESENTASI) -->
+  <div class="section-title">1. Peta Petualangan 4 Sesi (Selaras Slide 4 Presentasi)</div>
+  <div class="four-steps-grid">
+    <div class="step-overview-card" style="border-top: 5px solid var(--space-blue-hero);">
+      <span class="step-pill" style="background: var(--space-blue-light); color: var(--space-blue-hero);">SESI 1</span>
+      <h3>1. Kacamata Detektif</h3>
+      <p><strong>Kesadaran (Awareness):</strong> Membongkar rahasia mesin. Anak paham AI bukan sihir gaib, melainkan pembuat tebakan pola data.</p>
     </div>
-    <div class="step-card" style="background: #fef3c7;">
-      <span style="color: #d97706;">TAHAP 2</span>
-      <h4>Conversion</h4>
-      <p>Konsultasi WhatsApp & registrasi pendaftaran 4 pertemuan akhir pekan (Pilot Batch).</p>
+    <div class="step-overview-card" style="border-top: 5px solid var(--space-amber);">
+      <span class="step-pill" style="background: var(--space-amber-light); color: #92400e;">SESI 2</span>
+      <h3>2. Kapten Instruksi</h3>
+      <p><strong>Interaksi (Prompting):</strong> Melatih berpikir terstruktur dengan balok Lego Prompting 3 Warna (Siapa, Apa, Di Mana).</p>
     </div>
-    <div class="step-card" style="background: #e0e7ff;">
-      <span style="color: #4338ca;">TAHAP 3</span>
-      <h4>Onboarding</h4>
-      <p>Grup WhatsApp orang tua & pembagian buku saku Paspor Petualang AI di awal sesi 1.</p>
+    <div class="step-overview-card" style="border-top: 5px solid var(--space-emerald);">
+      <span class="step-pill" style="background: var(--space-emerald-light); color: #065f46;">SESI 3</span>
+      <h3>3. Meja Penciptaan</h3>
+      <p><strong>Penciptaan (Creation):</strong> Anak memegang kendali Studio Game, meracik dunia, aturan fisika, dan menantang teman sebelahnya.</p>
     </div>
-    <div class="step-card" style="background: #f0fdf4;">
-      <span style="color: #059669;">TAHAP 4</span>
-      <h4>Experience</h4>
-      <p>4 Pertemuan @90 menit. Anak aktif berkarya dan mengumpulkan stempel kelulusan pos.</p>
-    </div>
-    <div class="step-card" style="background: #fdf2f8;">
-      <span style="color: #db2777;">TAHAP 5</span>
-      <h4>Showcase</h4>
-      <p>30 Menit sesi 4: Orang tua hadir dan anak memandu orang tua memainkan game buatannya.</p>
-    </div>
-    <div class="step-card" style="background: #f1f5f9;">
-      <span style="color: #0f172a;">TAHAP 6</span>
-      <h4>Advocacy</h4>
-      <p>Orang tua membagikan link game & foto sertifikat anak ke WhatsApp Story & Instagram.</p>
+    <div class="step-overview-card" style="border-top: 5px solid var(--space-purple);">
+      <span class="step-pill" style="background: var(--space-purple-light); color: #7e22ce;">SESI 4</span>
+      <h3>4. Panggung Wisuda</h3>
+      <p><strong>Pameran (Showcase):</strong> Orang tua diundang masuk kelas. Anak memandu orang tua memainkan gamenya, duel balap, dan wisuda.</p>
     </div>
   </div>
 
-  <!-- SECTION 2: RUNDOWN KELAS -->
-  <div class="section-title">2. Alur Pelaksanaan Kelas 90 Menit (Rundown Terstruktur)</div>
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 14%;">Waktu</th>
-        <th style="width: 20%;">Fase Aktivitas</th>
-        <th style="width: 44%;">Aktivitas Siswa & Mentor</th>
-        <th style="width: 22%;">Output Nyata</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Menit 00–10</strong></td>
-        <td><strong>Briefing Misi Cerita</strong></td>
-        <td>Mentor membuka kelas dengan cerita petualangan komik sektor baru.</td>
-        <td>Antusiasme & fokus anak</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 10–25</strong></td>
-        <td><strong>Resep Fisik (Mad-Libs)</strong></td>
-        <td>Anak mengisi Lembar Kartu Misi fisik: menentukan kekuatan aktor, kecepatan, dan gravitasi.</td>
-        <td>Formula logis tertulis di meja</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 25–60</strong></td>
-        <td><strong>Studio Lego Prompting</strong></td>
-        <td>Anak menyusun balok kata visual di layar laptop, klik terapkan, dan mainkan perubahannya.</td>
-        <td>Game berjalan live 60 FPS</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 60–75</strong></td>
-        <td><strong>Playtest & Tantangan</strong></td>
-        <td>Saling bertukar laptop dengan teman di sebelahnya untuk menguji game karya teman.</td>
-        <td>Evaluasi kritis & rasa fun</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 75–85</strong></td>
-        <td><strong>Refleksi Logika Sains</strong></td>
-        <td>Mentor membahas sains di balik game: gravitasi, gaya magnet, sudut pantulan, gesekan ban.</td>
-        <td>Pemahaman komputasi riil</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 85–90</strong></td>
-        <td><strong>Stempel Paspor & Cap Pos</strong></td>
-        <td>Pengecapan stempel resmi kelulusan di buku Paspor Petualang AI anak.</td>
-        <td>Bukti kemajuan belajar</td>
-      </tr>
-    </tbody>
-  </table>
+  <!-- SECTION 2: RUNDOWN DETAIL TIAP SESI (90 MENIT) -->
+  <div class="section-title">2. Rundown Mengalir 90 Menit Tiap Pertemuan</div>
+
+  <!-- SESI 1: KACAMATA DETEKTIF -->
+  <div class="session-container">
+    <div class="session-head-bar">
+      <div class="session-tag-group">
+        <span class="badge-tag" style="background: #2563eb; color: #fff;">SESI 1</span>
+        <span class="session-title-text">Langkah 1: Kacamata Detektif — Membongkar Rahasia Mesin</span>
+      </div>
+      <span style="font-size: 0.8rem; font-weight: 800; color: var(--space-blue-hero);">Fokus: Literasi Data & Daya Kritis</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">Waktu</th>
+          <th style="width: 26%;">Fase Kegiatan</th>
+          <th style="width: 42%;">Aktivitas Siswa & Arahan Mentor</th>
+          <th style="width: 18%;">Output & Alat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>00–15 m</strong></td>
+          <td><strong>Tantangan Kucing vs Roti:</strong> AI itu Sihir atau Tebakan?</td>
+          <td>Mentor menampilkan gambar membingungkan (anjing chihuahua vs muffin). Anak mendiskusikan mengapa komputer bisa terkecoh.</td>
+          <td>Rasa penasaran meledak & laptop belum dibuka</td>
+        </tr>
+        <tr>
+          <td><strong>15–30 m</strong></td>
+          <td><strong>Kartu Detektif Fisik:</strong> Bongkar Ciri Data</td>
+          <td>Anak mengisi Lembar Kartu Misi 1 (pensil): menandai ciri data yang dilihat komputer (telinga lancip, mata, tekstur) & menemukan data palsu.</td>
+          <td>Lembar Kartu Misi 1 terisi di meja</td>
+        </tr>
+        <tr>
+          <td><strong>30–65 m</strong></td>
+          <td><strong>Eksperimen Interaktif di Layar:</strong> Menguji Tebakan Mesin</td>
+          <td>Buka laptop! Anak mencoba eksperimen pengenalan pola sederhana di peramban untuk melihat langsung bagaimana mesin membaca input mereka.</td>
+          <td>Pengalaman nyata AI membaca pola</td>
+        </tr>
+        <tr>
+          <td><strong>65–80 m</strong></td>
+          <td><strong>Diskusi Kritis:</strong> Kapan Komputer Bisa Salah?</td>
+          <td>Mentor membimbing: *"Kalau data yang kita kasih salah, komputer juga bakal salah."* Menumbuhkan kacamata kritis anti-hoaks.</td>
+          <td>Kesadaran kritis anak terbentuk</td>
+        </tr>
+        <tr>
+          <td><strong>80–90 m</strong></td>
+          <td><strong>Stempel Pos 1 & Paspor AI</strong></td>
+          <td>Pengecapan stempel resmi **"Lulus Pos 1: Detektif AI"** di buku Paspor Petualang AI yang dibawa pulang ke rumah.</td>
+          <td>Cap Pos 1 Resmi</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="key-takeaway-strip">
+      💡 <strong>Esensi Belajar Sesi 1:</strong> Anak menyadari bahwa AI bukanlah keajaiban mistis, melainkan mesin pembaca pola data. Anak tidak takut pada AI dan mulai memiliki naluri kritis.
+    </div>
+  </div>
+
+  <!-- SESI 2: KAPTEN INSTRUKSI -->
+  <div class="session-container">
+    <div class="session-head-bar">
+      <div class="session-tag-group">
+        <span class="badge-tag" style="background: #d97706; color: #fff;">SESI 2</span>
+        <span class="session-title-text">Langkah 2: Kapten Instruksi — Meracik Komunikasi Terstruktur</span>
+      </div>
+      <span style="font-size: 0.8rem; font-weight: 800; color: #d97706;">Fokus: Lego Prompting 3 Warna</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">Waktu</th>
+          <th style="width: 26%;">Fase Kegiatan</th>
+          <th style="width: 42%;">Aktivitas Siswa & Arahan Mentor</th>
+          <th style="width: 18%;">Output & Alat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>00–15 m</strong></td>
+          <td><strong>Permainan Perintah Robot Buta</strong></td>
+          <td>Mentor pura-pura jadi robot bodoh. Anak memberi perintah mengambil botol. Jika perintahnya samar (*"maju terus!"*), robot menabrak tembok.</td>
+          <td>Anak paham pentingnya instruksi presisi</td>
+        </tr>
+        <tr>
+          <td><strong>15–30 m</strong></td>
+          <td><strong>Kartu Resep Lego 3 Warna (Fisik)</strong></td>
+          <td>Anak mengisi Lembar Kartu Misi 2: meracik formula Lego Prompting:<br>• <strong>Biru:</strong> Siapa Aktornya? (Bima / Kinar)<br>• <strong>Kuning:</strong> Apa Kekuatannya? (Fisika gerak)<br>• <strong>Hijau:</strong> Di mana Dunianya? (Latar atmosfer)</td>
+          <td>Resep logika tertulis rapi di meja</td>
+        </tr>
+        <tr>
+          <td><strong>30–65 m</strong></td>
+          <td><strong>Praktek Studio: Meracik Balok Prompting</strong></td>
+          <td>Buka laptop! Anak memilih balok kata visual di Studio Game, klik TERAPKAN, dan melihat karakter bereaksi persis seperti instruksinya.</td>
+          <td>Aksi nyata di layar responsif</td>
+        </tr>
+        <tr>
+          <td><strong>65–80 m</strong></td>
+          <td><strong>Tantangan Modifikasi Kreatif</strong></td>
+          <td>Anak mencoba memodifikasi satu kata instruksi dan mengamati perbedaannya (misal: dari gravitasi Bumi menjadi gravitasi Bulan melayang).</td>
+          <td>Pemahaman sebab-akibat komputasi</td>
+        </tr>
+        <tr>
+          <td><strong>80–90 m</strong></td>
+          <td><strong>Stempel Pos 2 & Paspor AI</strong></td>
+          <td>Pengecapan stempel resmi **"Lulus Pos 2: Kapten Instruksi"** di buku Paspor Petualang AI.</td>
+          <td>Cap Pos 2 Resmi</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="key-takeaway-strip">
+      💡 <strong>Esensi Belajar Sesi 2:</strong> Anak belajar memimpin teknologi. Anak bukan operator pasif, melainkan kapten yang mampu merumuskan maksud pikirannya menjadi instruksi yang dipahami mesin.
+    </div>
+  </div>
+
+  <!-- SESI 3: MEJA PENCIPTAAN -->
+  <div class="session-container">
+    <div class="session-head-bar">
+      <div class="session-tag-group">
+        <span class="badge-tag" style="background: #059669; color: #fff;">SESI 3</span>
+        <span class="session-title-text">Langkah 3: Meja Penciptaan — Menjadi Arsitek Game Mandiri</span>
+      </div>
+      <span style="font-size: 0.8rem; font-weight: 800; color: #059669;">Fokus: Rekayasa Dunia Game & Playtest</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">Waktu</th>
+          <th style="width: 26%;">Fase Kegiatan</th>
+          <th style="width: 42%;">Aktivitas Siswa & Arahan Mentor</th>
+          <th style="width: 18%;">Output & Alat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>00–15 m</strong></td>
+          <td><strong>Briefing Arsitek: Aturan Dunia Permainan</strong></td>
+          <td>Mentor membedah anatomi game: rintangan, tujuan menang, dan fisika sains (kecepatan, sudut pantul, gesekan).</td>
+          <td>Visi karya game anak</td>
+        </tr>
+        <tr>
+          <td><strong>15–30 m</strong></td>
+          <td><strong>Cetak Biru Desain Game (Kertas Misi 3)</strong></td>
+          <td>Anak memilih 1 dari 4 Sektor Game favoritnya di Lembar Kartu Misi 3, menggambar denah rintangan dan menentukan aturan skor.</td>
+          <td>Cetak biru game di kertas</td>
+        </tr>
+        <tr>
+          <td><strong>30–65 m</strong></td>
+          <td><strong>Studio Game Creation: Membangun Game</strong></td>
+          <td>Anak memodifikasi game sepuasnya di Studio: menyetel rintangan, kekuatan proyektil, atmosfer kosmik, hingga game terasa asyik dimainkan.</td>
+          <td>Game mandiri aktif di laptop</td>
+        </tr>
+        <tr>
+          <td><strong>65–80 m</strong></td>
+          <td><strong>Saling Uji Coba (Peer Playtest)</strong></td>
+          <td>Anak saling bertukar tempat duduk dengan teman sebelah: menguji game temannya, memberi pujian, dan mencatat ide perbaikan.</td>
+          <td>Evaluasi karya & rasa bangga</td>
+        </tr>
+        <tr>
+          <td><strong>80–90 m</strong></td>
+          <td><strong>Stempel Pos 3 & Paspor AI</strong></td>
+          <td>Pengecapan stempel resmi **"Lulus Pos 3: Arsitek Kreator"** di buku Paspor Petualang AI.</td>
+          <td>Cap Pos 3 Resmi</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="key-takeaway-strip">
+      💡 <strong>Esensi Belajar Sesi 3:</strong> Anak merasakan sensasi penciptaan nyata: dari konsumen pemain game menjadi pembuat aturan game. Kreativitas dan pemikiran solutif anak terasah tuntas.
+    </div>
+  </div>
+
+  <!-- SESI 4: PANGGUNG WISUDA -->
+  <div class="session-container">
+    <div class="session-head-bar">
+      <div class="session-tag-group">
+        <span class="badge-tag" style="background: #7e22ce; color: #fff;">SESI 4</span>
+        <span class="session-title-text">Langkah 4: Panggung Wisuda — Showcase & Pameran Keluarga</span>
+      </div>
+      <span style="font-size: 0.8rem; font-weight: 800; color: #7e22ce;">Fokus: Portofolio, Percaya Diri & Wisuda</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 14%;">Waktu</th>
+          <th style="width: 26%;">Fase Kegiatan</th>
+          <th style="width: 42%;">Aktivitas Siswa & Arahan Mentor</th>
+          <th style="width: 18%;">Output & Alat</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>00–25 m</strong></td>
+          <td><strong>Finishing Game & Pembuatan QR Code</strong></td>
+          <td>Anak menyempurnakan game pamungkasnya dan menekan tombol *Generate QR Code Game Pribadi* untuk siap dimainkan di smartphone.</td>
+          <td>Kartu QR Code & Link Online HP</td>
+        </tr>
+        <tr>
+          <td><strong>25–35 m</strong></td>
+          <td><strong>Briefing Sambut Tamu Istimewa: Papa & Mama</strong></td>
+          <td>Mentor melatih anak bersikap sebagai tuan rumah/mentor cilik: *"Hari ini kalian yang jadi gurunya Papa dan Mama!"*</td>
+          <td>Kepercayaan diri anak melonjak</td>
+        </tr>
+        <tr>
+          <td><strong>35–65 m</strong></td>
+          <td><strong>Showcase Seru: Duel Anak vs Orang Tua!</strong></td>
+          <td>Orang tua masuk ke kelas! Anak memandu orang tua memainkan gamenya dan mengisi tabel Lembar Tantangan Duel Keluarga di kertas Misi 4.</td>
+          <td>Momen bangga & dokumentasi viral</td>
+        </tr>
+        <tr>
+          <td><strong>65–80 m</strong></td>
+          <td><strong>Scan QR & Mainkan di HP Orang Tua</strong></td>
+          <td>Orang tua memindai QR code game anak dengan HP masing-masing dan langsung memainkannya di layar ponsel mereka.</td>
+          <td>Portofolio keluarga digital aktif</td>
+        </tr>
+        <tr>
+          <td><strong>80–90 m</strong></td>
+          <td><strong>Prosesi Wisuda & Penyerahan Sertifikat</strong></td>
+          <td>Penyerahan **Sertifikat Arsitek AI Cilik**, foto bersama keluarga, dan pembagian cenderamata stiker pahlawan.</td>
+          <td>Sertifikat Fisik & Foto Wisuda</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="key-takeaway-strip">
+      💡 <strong>Esensi Belajar Sesi 4:</strong> Puncak pembuktian diri anak. Orang tua melihat langsung kemampuan buah hatinya bukan sekadar main HP, tapi mampu merancang logika cerdas dan mandiri.
+    </div>
+  </div>
 
   <!-- SECTION 3: FASILITAS KELAS & ZERO FRUSTRATION -->
-  <div class="section-title">3. Standar Fasilitas Kelas (Anti-Ribet & Bebas Frustrasi)</div>
-  <div class="grid-2">
+  <div class="section-title">3. Standar Fasilitas Kelas (Anti-Ribet & Nol Frustrasi)</div>
+  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 10px;">
     <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 18px;">
-      <h3 style="font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; color: var(--space-blue-deep);">💻 Persyaratan Perangkat Anak</h3>
+      <h3 style="font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; color: var(--space-blue-deep);">💻 Perangkat yang Dibawa Siswa</h3>
       <ul style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
-        <li><strong>Perangkat:</strong> Laptop standar apa pun (Windows / Mac / Chromebook).</li>
-        <li><strong>Aplikasi:</strong> Cukup peramban web (Google Chrome / Safari / Edge).</li>
-        <li><strong>Nol Instalasi:</strong> Tanpa instal Python, Node.js, atau IDE koding rumit.</li>
-        <li><strong>Keamanan Wi-Fi:</strong> Game 100% mandiri, tetap jalan lancar meski internet mati tiba-tiba.</li>
+        <li>Laptop standar apa pun (Windows / Mac / Chromebook).</li>
+        <li>Hanya butuh peramban web (Google Chrome / Safari / Edge).</li>
+        <li><strong>Nol Instalasi:</strong> Tanpa instal compiler, tanpa terminal koding rumit.</li>
+        <li><strong>Mandiri:</strong> Game tetap berjalan mulus walau Wi-Fi kelas sempat putus.</li>
       </ul>
     </div>
     <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 18px;">
-      <h3 style="font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; color: var(--space-emerald);">🎒 Perlengkapan yang Disediakan Tim</h3>
+      <h3 style="font-size: 1.05rem; font-weight: 900; margin-bottom: 10px; color: var(--space-emerald);">🎒 Perlengkapan yang Disiapkan Tim</h3>
       <ul style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
-        <li><strong>Buku Saku:</strong> Paspor Petualang AI untuk tempat stempel tiap pos.</li>
-        <li><strong>Lembar Cetak A4:</strong> Kartu Misi Resep Lego Prompting per sektor.</li>
-        <li><strong>Hosting Online:</strong> Tautan pameran Vercel gratis & QR Code untuk orang tua.</li>
-        <li><strong>Sertifikat Resmi:</strong> Kelulusan Arsitek AI Cilik di akhir program.</li>
+        <li>Buku Saku <strong>Paspor Petualang AI</strong> (untuk stempel tiap sesi).</li>
+        <li>Lembar Cetak A4 <strong>Kartu Misi Mingguan</strong> (Misi 1 s.d. 4).</li>
+        <li>Server Vercel online untuk hosting link game anak gratis.</li>
+        <li>Sertifikat Resmi Kelulusan & Kartu Pameran QR Code.</li>
       </ul>
     </div>
   </div>
 
-  <!-- SECTION 4: PEMBAGIAN TUGAS (RACI) -->
-  <div class="section-title">4. Matriks Pembagian Tugas & Tanggung Jawab</div>
-  <div class="grid-2">
-    <div style="background: #f0fdf4; border: 2.5px solid #166534; border-radius: 14px; padding: 18px;">
-      <h3 style="font-size: 1.05rem; font-weight: 900; color: #166534; margin-bottom: 8px;">👨‍💻 Dimitri Ahmad (Teknologi & Produk)</h3>
-      <ol style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
-        <li>Menyediakan software Studio Game 4 sektor zero-dependency.</li>
-        <li>Menyiapkan materi lembar aktivitas Mad-Libs resep prompt.</li>
-        <li>Memastikan generator kartu pameran QR Code dan link online siap.</li>
-        <li>Bertindak sebagai Lead Fasilitator teknis yang memandu anak di kelas.</li>
-      </ol>
-    </div>
-    <div style="background: #eff6ff; border: 2.5px solid #1e40af; border-radius: 14px; padding: 18px;">
-      <h3 style="font-size: 1.05rem; font-weight: 900; color: #1e40af; margin-bottom: 8px;">📢 Mitra Bisnis (Digital Marketing)</h3>
-      <ol style="padding-left: 20px; font-size: 0.85rem; font-weight: 600; line-height: 1.6; color: var(--space-ink);">
-        <li>Mengelola promosi & konten media sosial (Reels/TikTok).</li>
-        <li>Melayani konsultasi WhatsApp orang tua & registrasi pendaftaran.</li>
-        <li>Mengatur logistik ruang kelas (sewa tempat/komunitas/sekolah).</li>
-        <li>Dokumentasi kelas & memandu orang tua saat showcase di sesi 4.</li>
-      </ol>
-    </div>
-  </div>
 </div>
 
 </body>
