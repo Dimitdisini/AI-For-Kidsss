@@ -3,36 +3,37 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kartu Misi dan Panduan Arsitek Koloni Antariksa</title>
+  <title>Kartu Misi & Lembar Aktivitas Siswa - Akademi AI for Kids</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM: COMIC PRINT & PRESENTATION (SELARAS PPT DIMITRI)
-       Format Siap Cetak A4 / Baca di Layar, Bebas AI Slop
+       DESIGN SYSTEM: COMIC PRINT & ACTIVITY SHEET (SELARAS SLIDE 10 PRESENTASI)
+       Format Siap Cetak A4 / Baca di Layar, Bebas AI Slop, Zero 3D Printing
        ========================================================================== */
     :root {
-      --space-blue-deep: #1e3a8a;
-      --space-blue-hero: #2563eb;
-      --space-blue-sky: #38bdf8;
-      --space-amber: #f59e0b;
-      --space-amber-light: #fef3c7;
-      --space-emerald: #10b981;
-      --space-emerald-light: #a7f3d0;
-      --space-crimson: #ef4444;
-      --space-ink: #0f172a;
-      --space-ink-muted: #475569;
-      --space-paper-white: #ffffff;
-      --space-paper-cream: #fffdf5;
+      --comic-blue-deep: #1e3a8a;
+      --comic-blue-hero: #2563eb;
+      --comic-blue-sky: #38bdf8;
+      --comic-amber: #f59e0b;
+      --comic-amber-light: #fef3c7;
+      --comic-emerald: #10b981;
+      --comic-emerald-light: #d1fae5;
+      --comic-crimson: #ef4444;
+      --comic-crimson-light: #fee2e2;
+      --comic-ink: #0f172a;
+      --comic-ink-muted: #475569;
+      --comic-paper-white: #ffffff;
+      --comic-paper-cream: #fffdf5;
 
-      --border-thick: 3.5px solid var(--space-ink);
-      --border-md: 2.5px solid var(--space-ink);
-      --border-sm: 1.5px solid var(--space-ink);
+      --border-thick: 3.5px solid var(--comic-ink);
+      --border-md: 2.5px solid var(--comic-ink);
+      --border-sm: 1.5px solid var(--comic-ink);
 
-      --shadow-solid-sm: 0 2px 0px var(--space-ink);
-      --shadow-solid-md: 0 4px 0px var(--space-ink);
-      --shadow-solid-lg: 0 6px 0px var(--space-ink);
+      --shadow-solid-sm: 0 2px 0px var(--comic-ink);
+      --shadow-solid-md: 0 4px 0px var(--comic-ink);
+      --shadow-solid-lg: 0 6px 0px var(--comic-ink);
 
       --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
       --font-mono: 'JetBrains Mono', monospace;
@@ -45,8 +46,12 @@
     }
 
     body {
-      background-color: #f1f5f9;
-      color: var(--space-ink);
+      background-color: #0b1329;
+      background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--comic-ink);
       font-family: var(--font-sans);
       padding: 30px 16px;
       display: flex;
@@ -56,12 +61,12 @@
 
     .doc-page {
       width: 100%;
-      max-width: 900px;
-      background: var(--space-paper-white);
+      max-width: 920px;
+      background: var(--comic-paper-white);
       border: var(--border-thick);
       border-radius: 20px;
       box-shadow: var(--shadow-solid-lg);
-      padding: 40px;
+      padding: 36px 40px;
       margin-bottom: 30px;
       position: relative;
     }
@@ -76,7 +81,7 @@
         border: none;
         box-shadow: none;
         border-radius: 0;
-        padding: 20mm;
+        padding: 15mm 20mm;
         page-break-after: always;
       }
       .no-print {
@@ -84,11 +89,10 @@
       }
     }
 
-    /* HEADER BANNER */
     .banner-header {
       border-bottom: var(--border-thick);
-      padding-bottom: 24px;
-      margin-bottom: 28px;
+      padding-bottom: 20px;
+      margin-bottom: 24px;
       display: flex;
       justify-content: space-between;
       align-items: flex-start;
@@ -97,37 +101,36 @@
     }
 
     .banner-title-group h1 {
-      font-size: 2rem;
+      font-size: 1.85rem;
       font-weight: 900;
-      color: var(--space-ink);
+      color: var(--comic-ink);
       line-height: 1.2;
     }
 
     .banner-title-group p {
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 700;
-      color: var(--space-ink-muted);
+      color: var(--comic-ink-muted);
       margin-top: 6px;
     }
 
     .badge-tag {
-      background: var(--space-amber);
-      color: var(--space-ink);
+      background: var(--comic-amber);
+      color: var(--comic-ink);
       border: var(--border-sm);
       border-radius: 9999px;
       padding: 6px 16px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 900;
       box-shadow: var(--shadow-solid-sm);
       display: inline-block;
     }
 
-    /* SECTION TITLES */
     .section-title {
-      font-size: 1.35rem;
+      font-size: 1.25rem;
       font-weight: 900;
-      color: var(--space-ink);
-      margin: 24px 0 16px;
+      color: var(--comic-blue-deep);
+      margin: 22px 0 14px;
       display: flex;
       align-items: center;
       gap: 10px;
@@ -136,18 +139,16 @@
     .section-title::before {
       content: '';
       display: inline-block;
-      width: 12px;
-      height: 24px;
-      background: var(--space-blue-hero);
-      border: var(--border-sm);
-      border-radius: 4px;
+      width: 10px;
+      height: 22px;
+      background: var(--comic-blue-hero);
+      border-radius: 3px;
     }
 
-    /* CARDS & GRIDS */
     .grid-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 18px;
       margin-bottom: 20px;
     }
 
@@ -156,14 +157,14 @@
     }
 
     .mission-card {
-      background: var(--space-paper-cream);
+      background: var(--comic-paper-cream);
       border: var(--border-md);
       border-radius: 16px;
       box-shadow: var(--shadow-solid-md);
-      padding: 20px;
+      padding: 18px;
       display: flex;
       flex-direction: column;
-      gap: 12px;
+      gap: 10px;
       position: relative;
     }
 
@@ -171,67 +172,66 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      border-bottom: 2px dashed var(--space-ink);
-      padding-bottom: 10px;
+      border-bottom: 2px dashed var(--comic-ink);
+      padding-bottom: 8px;
     }
 
     .sector-badge {
       font-family: var(--font-mono);
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       font-weight: 900;
-      background: var(--space-blue-deep);
+      background: var(--comic-blue-deep);
       color: #ffffff;
       padding: 3px 10px;
       border-radius: 6px;
     }
 
     .mission-card-title {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 900;
-      color: var(--space-ink);
+      color: var(--comic-ink);
     }
 
     .madlibs-prompt-box {
-      background: var(--space-paper-white);
+      background: var(--comic-paper-white);
       border: var(--border-sm);
       border-radius: 10px;
-      padding: 14px;
+      padding: 12px 14px;
       font-family: var(--font-mono);
-      font-size: 0.82rem;
-      line-height: 1.7;
-      color: var(--space-ink);
+      font-size: 0.8rem;
+      line-height: 1.65;
+      color: var(--comic-ink);
     }
 
     .blank-slot {
       display: inline-block;
-      border-bottom: 2px solid var(--space-blue-hero);
-      color: var(--space-blue-hero);
+      border-bottom: 2px solid var(--comic-blue-hero);
+      color: var(--comic-blue-hero);
       font-weight: 800;
       padding: 0 4px;
-      background: var(--space-amber-light);
+      background: var(--comic-amber-light);
       border-radius: 4px;
     }
 
     .takeaway-badge {
-      background: var(--space-emerald-light);
+      background: var(--comic-emerald-light);
       border: var(--border-sm);
       border-radius: 8px;
       padding: 6px 12px;
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       font-weight: 800;
-      color: var(--space-ink);
+      color: #065f46;
       display: flex;
       align-items: center;
       gap: 6px;
       margin-top: auto;
     }
 
-    /* TABLE */
     table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
-      margin: 16px 0 24px;
+      margin: 14px 0 22px;
       border: var(--border-thick);
       border-radius: 12px;
       overflow: hidden;
@@ -239,21 +239,21 @@
     }
 
     th {
-      background: var(--space-blue-deep);
+      background: var(--comic-blue-deep);
       color: #ffffff;
       font-weight: 900;
-      font-size: 0.9rem;
-      padding: 12px 14px;
+      font-size: 0.85rem;
+      padding: 10px 14px;
       text-align: left;
       border-bottom: var(--border-thick);
     }
 
     td {
-      background: var(--space-paper-white);
-      padding: 12px 14px;
-      font-size: 0.86rem;
+      background: var(--comic-paper-white);
+      padding: 10px 14px;
+      font-size: 0.84rem;
       font-weight: 600;
-      border-bottom: 1px solid #cbd5e1;
+      border-bottom: 1.5px solid #cbd5e1;
       vertical-align: top;
     }
 
@@ -262,119 +262,125 @@
     }
 
     tr:nth-child(even) td {
-      background: var(--space-paper-cream);
+      background: var(--comic-paper-cream);
     }
 
-    /* ACTION BAR */
     .print-btn-bar {
-      margin-bottom: 20px;
+      width: 100%;
+      max-width: 920px;
+      margin-bottom: 16px;
       display: flex;
-      gap: 12px;
+      justify-content: space-between;
+      align-items: center;
     }
 
     .btn-action {
-      background: var(--space-blue-hero);
+      background: var(--comic-blue-hero);
       color: #ffffff;
       border: var(--border-md);
-      border-radius: 12px;
+      border-radius: 10px;
       box-shadow: var(--shadow-solid-sm);
-      padding: 10px 20px;
+      padding: 8px 16px;
       font-weight: 900;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
       cursor: pointer;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
     }
 
     .btn-action:hover {
-      background: var(--space-blue-deep);
-      transform: translateY(-2px);
+      background: var(--comic-blue-deep);
     }
   </style>
 </head>
 <body>
 
 <div class="print-btn-bar no-print">
-  <button class="btn-action" onclick="window.print()">Cetak Kartu Misi (Print A4)</button>
-  <a class="btn-action" style="background: var(--space-emerald);" href="Studio Game Komik AI for Kids.html" target="_blank">Buka Studio Game di Browser</a>
+  <div style="color: #ffffff; font-weight: 800; font-size: 0.9rem;">
+    📝 Lembar Kerja Aktivitas Siswa (Kamar 3) — Format Siap Cetak A4
+  </div>
+  <div style="display: flex; gap: 8px;">
+    <button class="btn-action" onclick="window.print()">🖨️ Cetak Kartu Misi (A4)</button>
+    <a class="btn-action" style="background: var(--comic-emerald);" href="game.html" target="_blank">🎮 Uji Coba Game di Layar</a>
+  </div>
 </div>
 
 <!-- ==========================================================================
-     HALAMAN 1: IKHTISAR KURIKULUM & SISTEM MODUL 3D PRINTING
+     HALAMAN 1: IKHTISAR KURIKULUM & PETA 4 MINGGU (SELARAS SLIDE 4 & 7)
      ========================================================================== -->
 <div class="doc-page">
 
   <div class="banner-header">
     <div class="banner-title-group">
       <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-        <span class="badge-tag">PROGRAM RESMI KREATOR CILIK</span>
-        <span style="font-weight: 800; font-size: 0.85rem; color: var(--space-ink-muted);">USIA 8–12 TAHUN</span>
+        <span class="badge-tag">LEMBAR AKTIVITAS KELAS RESMI</span>
+        <span style="font-weight: 800; font-size: 0.85rem; color: var(--comic-ink-muted);">USIA 8–12 TAHUN</span>
       </div>
-      <h1>Arsitek Koloni Antariksa</h1>
-      <p>Kurikulum Logic Prompting & Fabrikasi Fisik 3D Printing (4 Minggu × 90 Menit)</p>
+      <h1>Akademi Kreator AI: Peta Misi & Resep Logika</h1>
+      <p>Kurikulum Lego Prompting & Studio Game Interaktif (4 Pertemuan × 90 Menit)</p>
     </div>
-    <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 12px; padding: 10px 16px; box-shadow: var(--shadow-solid-sm); font-weight: 800; font-size: 0.85rem;">
-      Konsep: Dimitri Ahmad & Tim
+    <div style="background: var(--comic-paper-cream); border: var(--border-md); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow-solid-sm); font-weight: 800; font-size: 0.82rem;">
+      Mentor: Dimitri Ahmad & Tim
     </div>
   </div>
 
-  <div class="section-title">1. Narasi Dunia & Peran Anak</div>
-  <p style="font-size: 0.95rem; line-height: 1.6; font-weight: 600; color: var(--space-ink-muted); margin-bottom: 16px;">
-    Anak berperan sebagai <strong>"Arsitek Koloni Antariksa"</strong> yang ditugaskan membangun peradaban stasiun luar angkasa baru di planet asing. Anak tidak berkutat dengan sintaks koding teks yang rumit, melainkan menjadi perancang logika (Prompt Director) bersama robot AI pendamping <strong>Bot-E</strong> yang bertindak sebagai mesin konstruksi otomatis.
+  <div class="section-title">1. Narasi Petualangan & Maskot Pendamping</div>
+  <p style="font-size: 0.9rem; line-height: 1.6; font-weight: 600; color: var(--comic-ink-muted); margin-bottom: 14px;">
+    Anak berperan sebagai <strong>"Arsitek Kreator AI"</strong> yang merancang dan mengendalikan dunia permainannya sendiri. Anak didampingi oleh dua sahabat pahlawan sebaya: <strong>Bima</strong> (Sahabat Logika & Fisika) dan <strong>Kinar</strong> (Sahabat Desain & Seni). Pembelajaran menggunakan metode <strong>Lego Prompting 3 Warna</strong>—tanpa sintaks koding teks yang membingungkan.
   </p>
 
-  <div class="section-title">2. Peta Perjalanan 4 Minggu (Sektor Koloni & Modul 3D)</div>
+  <div class="section-title">2. Peta Misi 4 Minggu (Sinkron dengan Slide 4 & 7 Presentasi)</div>
   <table>
     <thead>
       <tr>
         <th style="width: 12%;">Sesi</th>
-        <th style="width: 25%;">Sektor Koloni</th>
-        <th style="width: 35%;">Logika Prompting & Game</th>
-        <th style="width: 28%;">Oleh-Oleh Fisik (3D Print)</th>
+        <th style="width: 26%;">Sektor Petualangan</th>
+        <th style="width: 38%;">Eksperimen Logika & Sains Anak</th>
+        <th style="width: 24%;">Bukti Hasil Karya</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>Minggu 1</strong></td>
-        <td><strong>Sektor 1: Penjelajah Medan Planet</strong></td>
-        <td>Fisika platformer, koordinat X/Y, gravitasi permukaan, lompatan tebing, dan sensor bahaya alien.</td>
-        <td><strong>Koin Modul Rover</strong><br><span style="font-size: 0.78rem; color: var(--space-ink-muted);">Keping heksagonal berlogo roda rover (PLA Silk Emas).</span></td>
+        <td><strong>Sesi 1</strong></td>
+        <td><strong>Sektor 1: Petualangan Mario</strong></td>
+        <td>Membedakan gravitasi Bumi ($0.65$) vs Bulan ($0.22$), lompatan platform tebing, dan sensor slime.</td>
+        <td><strong>Game Sektor 1 Aktif</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Cap Pos 1 di Paspor AI</span></td>
       </tr>
       <tr>
-        <td><strong>Minggu 2</strong></td>
-        <td><strong>Sektor 2: Pemanen Energi Bintang</strong></td>
-        <td>Sistem penangkap foton, loop generasi acak bintang jatuh, dan logika kombo energi baterai koloni.</td>
-        <td><strong>Kristal Reaktor Inti</strong><br><span style="font-size: 0.78rem; color: var(--space-ink-muted);">Kristal bintang segi-5 (PLA Glow-in-the-Dark bercahaya).</span></td>
+        <td><strong>Sesi 2</strong></td>
+        <td><strong>Sektor 2: Pemanen Bintang</strong></td>
+        <td>Mengatur tarikan medan gaya magnetik gerobak, memanen koin bintang, dan menangkis awan petir.</td>
+        <td><strong>Game Sektor 2 Aktif</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Cap Pos 2 di Paspor AI</span></td>
       </tr>
       <tr>
-        <td><strong>Minggu 3</strong></td>
-        <td><strong>Sektor 3: Kubah Bio-Dome Mochi</strong></td>
-        <td>Manajemen ekosistem biosfer, status Kenyang/Bahagia terhadap waktu, dan interaksi respons emosi.</td>
-        <td><strong>Miniatur Alien Mochi</strong><br><span style="font-size: 0.78rem; color: var(--space-ink-muted);">Figur chibi lucu (PLA Matte Pastel Mint, bisa diwarnai).</span></td>
+        <td><strong>Sesi 3</strong></td>
+        <td><strong>Sektor 3: Dogfight Galaksi</strong></td>
+        <td>Mengendalikan jet Starfighter 4 arah, meriam triple laser, sudut pantulan refleks, dan bom plasma.</td>
+        <td><strong>Game Sektor 3 Aktif</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Cap Pos 3 di Paspor AI</span></td>
       </tr>
       <tr>
-        <td><strong>Minggu 4</strong></td>
-        <td><strong>Sektor 4: Terminal Komando & Showcase</strong></td>
-        <td>Percabangan logika boolean (Benar/Salah), kuis navigasi sains keluarga, dan pelantikan arsitek.</td>
-        <td><strong>Baseplate Stasiun Koloni Utuh</strong><br><span style="font-size: 0.78rem; color: var(--space-ink-muted);">Dudukan pangkalan yang merakit ke-3 modul fisik menjadi 1 Monumen Utuh!</span></td>
+        <td><strong>Sesi 4</strong></td>
+        <td><strong>Sektor 4: Balap Kart & Showcase</strong></td>
+        <td>Uji gesekan ban (oli & nitro), duel lawan Bot AI pintar di sirkuit, dan pameran game ke orang tua.</td>
+        <td><strong>QR Code & Link Game HP</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Sertifikat Arsitek Cilik</span></td>
       </tr>
     </tbody>
   </table>
 
-  <div class="section-title">3. Nilai Unik di Mata Orang Tua (Wow Factor)</div>
+  <div class="section-title">3. Pengalaman Belajar Berkelanjutan (Nilai Wow untuk Orang Tua)</div>
   <div class="grid-2">
-    <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 16px;">
-      <strong style="color: var(--space-blue-deep); font-size: 0.95rem;">Dual Artifact (Digital + Nyata)</strong>
-      <p style="font-size: 0.85rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 6px;">
-        Anak pulang tidak hanya membawa link game di handphone orang tua, tetapi membawa monumen fisik 3D print buatan mesin Dimitri yang dirakit bertahap setiap minggu sebagai bukti pencapaian nyata.
+    <div style="background: var(--comic-paper-cream); border: var(--border-md); border-radius: 14px; padding: 14px;">
+      <strong style="color: var(--comic-blue-hero); font-size: 0.92rem;">📱 Portofolio Digital Bisa Dimainkan di HP</strong>
+      <p style="font-size: 0.82rem; font-weight: 600; color: var(--comic-ink-muted); margin-top: 4px;">
+        Setiap karya game anak langsung memiliki QR Code pribadi dan file HTML mandiri. Orang tua bisa langsung memainkan game buatan anaknya di browser smartphone saat di rumah!
       </p>
     </div>
-    <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 16px;">
-      <strong style="color: var(--space-emerald); font-size: 0.95rem;">Empowering Experience (Anak Mengajari Ortu)</strong>
-      <p style="font-size: 0.85rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 6px;">
-        Di sesi 4, orang tua bukan sekadar penonton, tetapi menjadi "kru astronot" yang diuji langsung oleh anak memainkan game koloni buatannya. Momen bangga ini memicu unggahan organik ke WhatsApp Story.
+    <div style="background: var(--comic-paper-cream); border: var(--border-md); border-radius: 14px; padding: 14px;">
+      <strong style="color: var(--comic-emerald); font-size: 0.92rem;">📖 Buku Saku Paspor Petualang AI Fisik</strong>
+      <p style="font-size: 0.82rem; font-weight: 600; color: var(--comic-ink-muted); margin-top: 4px;">
+        Anak membawa pulang buku paspor fisik yang dicap setiap minggu setelah menaklukkan misi. Menumbuhkan rasa bangga dan pembuktian nyata tanpa perlu alat mekanik yang merepotkan.
       </p>
     </div>
   </div>
@@ -382,141 +388,97 @@
 </div>
 
 <!-- ==========================================================================
-     HALAMAN 2: LEMBAR CETAK KARTU MISI RESEP PROMPT (MAD-LIBS STYLE)
+     HALAMAN 2: LEMBAR CETAK KARTU RESEP PROMPT 4 SEKTOR (MAD-LIBS STYLE)
      ========================================================================== -->
 <div class="doc-page">
 
   <div class="banner-header">
     <div class="banner-title-group">
-      <span class="badge-tag">LEMBAR AKTIVITAS KELAS</span>
-      <h1 style="font-size: 1.6rem; margin-top: 6px;">Kartu Resep Misi Arsitek (Mad-Libs Prompt)</h1>
-      <p>Instruksi: Anak mengisi titik-titik di bawah sesuai kreativitasnya, lalu memasukkannya ke AI!</p>
+      <span class="badge-tag">LEMBAR PENSIL & KERTAS DI KELAS</span>
+      <h1 style="font-size: 1.6rem; margin-top: 6px;">Kartu Resep Misi Lego Prompting (Mad-Libs)</h1>
+      <p>Petunjuk: Isi titik-titik di bawah dengan pensil sebelum kamu meraciknya di laptop!</p>
     </div>
   </div>
 
   <div class="grid-2">
 
-    <!-- KARTU 1 -->
+    <!-- RESEP 1: MARIO -->
     <div class="mission-card">
       <div class="mission-card-header">
-        <span class="sector-badge">MISI 1</span>
-        <span class="mission-card-title">Penjelajah Medan Planet</span>
+        <span class="sector-badge">SEKTOR 1</span>
+        <span class="mission-card-title">Petualangan Mario</span>
       </div>
-      <p style="font-size: 0.8rem; font-weight: 700; color: var(--space-ink-muted);">
-        Rancang rover penjelajah untuk menambang kristal di tebing planet asing:
+      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+        Atur gravitasi dunia dan lompatan pahlawanmu di tebing rintangan:
       </p>
       <div class="madlibs-prompt-box">
-        "Saya adalah Arsitek Koloni. Buatkan rover penjelajah warna <span class="blank-slot">[ Biru / Oranye / Hijau ]</span> yang bisa melompat setinggi <span class="blank-slot">[ 10 / 15 / 20 ]</span> meter. Buat platform tebing batu berisi kristal energi emas bernilai <span class="blank-slot">[ 100 ]</span> poin. Letakkan alien tanah warna merah yang bisa dihindari, dan letakkan menara pangkalan koloni di ujung jalan sebagai garis kemenangan."
+        "Pahlawan saya adalah <span class="blank-slot">[ Bima / Kinar ]</span>. Saya ingin melompat dengan gravitasi <span class="blank-slot">[ Bulan yang Ringan / Bumi Standar ]</span> setinggi <span class="blank-slot">[ 12 / 16 ]</span> meter. Letakkan balok misteri [?] berisi koin emas putar, dan buat monster slime berjalan yang harus saya injak untuk mencapai tiang bendera istana!"
       </div>
       <div class="takeaway-badge">
-        Hadiah: Koin 3D Rover + Stempel Paspor Sektor 1
+        🎯 Konsep Sains: Gravitasi $g$, Kecepatan Lompat $v_y$, & Koordinat Lantai
       </div>
     </div>
 
-    <!-- KARTU 2 -->
+    <!-- RESEP 2: CATCHER -->
     <div class="mission-card">
       <div class="mission-card-header">
-        <span class="sector-badge">MISI 2</span>
-        <span class="mission-card-title">Pemanen Energi Bintang</span>
+        <span class="sector-badge">SEKTOR 2</span>
+        <span class="mission-card-title">Pemanen Bintang Kosmik</span>
       </div>
-      <p style="font-size: 0.8rem; font-weight: 700; color: var(--space-ink-muted);">
-        Rancang gerobak foton surya pengisi baterai stasiun koloni:
+      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+        Rancang gerobak beroda dan kekuatan magnet penarik bintang:
       </p>
       <div class="madlibs-prompt-box">
-        "Saya adalah Arsitek Koloni. Buatkan gerobak pemanen kayu beroda putar yang digerakkan panah keyboard. Setiap detik turunkan bintang foton jatuh berkecepatan <span class="blank-slot">[ Lambat / Cepat ]</span> bernilai <span class="blank-slot">[ 20 ]</span> energi baterai. Jika menangkap beruntun, berikan kombo kelipatan! Namun pasang awan badai petir ionik warna gelap yang mengurangi <span class="blank-slot">[ 1 ]</span> nyawa jika tertabrak."
+        "Kendalikan gerobak beroda kayu yang dikemudikan oleh <span class="blank-slot">[ Bima / Kinar ]</span>. Pasang perlengkapan <span class="blank-slot">[ Magnet Penarik Bintang / Perisai Badai ]</span> dengan kecepatan roda <span class="blank-slot">[ Cepat / Ekstra Turbo ]</span>. Bintang jatuh memberikan nilai 10 poin, tetapi awan petir gelap akan mengurangi nyawa jika tertabrak!"
       </div>
       <div class="takeaway-badge">
-        Hadiah: Kristal 3D Glow-in-the-Dark + Stempel Sektor 2
+        🎯 Konsep Sains: Gaya Tarik Magnetik, Vektor Jarak, & Refleks Arah
       </div>
     </div>
 
-    <!-- KARTU 3 -->
+    <!-- RESEP 3: DOGFIGHT -->
     <div class="mission-card">
       <div class="mission-card-header">
-        <span class="sector-badge">MISI 3</span>
-        <span class="mission-card-title">Kubah Bio-Dome Mochi</span>
+        <span class="sector-badge">SEKTOR 3</span>
+        <span class="mission-card-title">Dogfight Galaksi</span>
       </div>
-      <p style="font-size: 0.8rem; font-weight: 700; color: var(--space-ink-muted);">
-        Bangun biosfer buatan untuk merawat satwa unik antariksa:
+      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+        Siapkan kapal Starfighter untuk duel antariksa melawan armada alien:
       </p>
       <div class="madlibs-prompt-box">
-        "Saya adalah Arsitek Koloni. Rancang biosfer kubah ramah untuk merawat satwa alien imut Mochi berbadan kenyal warna <span class="blank-slot">[ Mint / Pink Pastel ]</span>. Matanya aktif menatap kursor mouse anak. Sediakan tombol ransum buah apel kosmik yang menambah kenyang <span class="blank-slot">[ 30% ]</span> dan bola pantul yang menambah bahagia <span class="blank-slot">[ 25% ]</span>. Saat dielus kursor, Mochi mengeluarkan partikel hati!"
+        "Nakhoda kapal antariksa saya adalah <span class="blank-slot">[ Bima / Kinar ]</span>. Senjatai kapal saya dengan meriam <span class="blank-slot">[ Tembakan Tiga Plasma / Peluru Cepat ]</span> di atmosfer langit <span class="blank-slot">[ Nebula Ungu / Bintang Galaksi ]</span>. Sediakan bom supernova darurat yang bisa meledakkan seluruh kapal alien di layar!"
       </div>
       <div class="takeaway-badge">
-        Hadiah: Miniatur 3D Alien Mochi + Stempel Sektor 3
+        🎯 Konsep Sains: Sudut Tembak Menyebar, Pola Liukan Gelombang Sinus
       </div>
     </div>
 
-    <!-- KARTU 4 -->
+    <!-- RESEP 4: RACER -->
     <div class="mission-card">
       <div class="mission-card-header">
-        <span class="sector-badge">MISI 4</span>
-        <span class="mission-card-title">Terminal Komando & Showcase</span>
+        <span class="sector-badge">SEKTOR 4</span>
+        <span class="mission-card-title">Grand Prix Kart Racer 2D</span>
       </div>
-      <p style="font-size: 0.8rem; font-weight: 700; color: var(--space-ink-muted);">
-        Aktifkan konsol kuis navigasi sains untuk diuji ke orang tua:
+      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+        Rancang mobil balap kart dan taklukkan sirkuit melawan Robot AI lawan:
       </p>
       <div class="madlibs-prompt-box">
-        "Saya adalah Arsitek Koloni. Aktifkan terminal komando stasiun luar angkasa dengan 3 kartu pertanyaan sains tentang <span class="blank-slot">[ Dinosaurus / Planet / Hewan ]</span>. Tombol jawaban memiliki efek bayangan 3D. Jika orang tuaku memilih jawaban yang tepat, munculkan cap stempel merah bertuliskan <span class="blank-slot">[ TERBUKTI BENAR! ]</span> dengan efek confetti kemenangan!"
+        "Pembalap saya adalah <span class="blank-slot">[ Bima / Kinar ]</span> mengendarai gokart warna <span class="blank-slot">[ Biru / Oranye ]</span>. Mobil saya dilengkapi tombol <span class="blank-slot">[ Semprotan Nitro Turbo / Ban Anti-Licin ]</span> di sirkuit sirkuler 3 putaran. Saya harus mengalahkan Bot AI rival dan menghindari jebakan tumpahan oli di tikungan!"
       </div>
       <div class="takeaway-badge">
-        Hadiah: Baseplate Stasiun Koloni Utuh + Lencana Arsitek
+        🎯 Konsep Sains: Gesekan Ban (Friction), Gaya Sentripetal, & Robot AI Pintar
       </div>
     </div>
 
   </div>
 
-</div>
-
-<!-- ==========================================================================
-     HALAMAN 3: PANDUAN SHOWCASE KELUARGA & RUNDOWN SESI 4
-     ========================================================================== -->
-<div class="doc-page">
-
-  <div class="banner-header">
-    <div class="banner-title-group">
-      <span class="badge-tag" style="background: var(--space-emerald); color: white;">PANDUAN OPERASIONAL</span>
-      <h1 style="font-size: 1.6rem; margin-top: 6px;">Rundown Sesi 4: Showcase & Pelantikan Arsitek</h1>
-      <p>Format 90 Menit yang Dirancang Menghasilkan Dampak Emosional & Viralitas Alami</p>
-    </div>
-  </div>
-
-  <div class="section-title">Rundown 90 Menit Sesi 4</div>
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 20%;">Waktu</th>
-        <th style="width: 30%;">Aktivitas</th>
-        <th style="width: 50%;">Detail & Peran Dimitri / Partner Marketing</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Menit 00–45</strong><br>(45 Menit)</td>
-        <td><strong>Finishing Terminal Komando</strong></td>
-        <td>Anak-anak memfinalisasi 3 pertanyaan kuis dan aturan game di laptop masing-masing. Fasilitator memastikan tautan game siap dibuka di layar penuh.</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 45–75</strong><br>(30 Menit)</td>
-        <td><strong>Tantangan Main Bareng Orang Tua</strong></td>
-        <td>Orang tua masuk ke kelas dan duduk di sebelah anaknya. <strong>Anak bertindak sebagai instruktur</strong> yang menantang ayah/ibunya memainkan 4 sektor game. Ruangan penuh tawa dan kebanggaan keluarga.</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 75–85</strong><br>(10 Menit)</td>
-        <td><strong>Upacara Penyatuan Monumen 3D</strong></td>
-        <td>Dimitri membagikan keping fisik terakhir: <strong>Baseplate Stasiun Koloni</strong>. Anak merakit Koin Rover, Kristal Glow, dan Mochi ke atas baseplate di depan orang tua mereka.</td>
-      </tr>
-      <tr>
-        <td><strong>Menit 85–90</strong><br>(5 Menit)</td>
-        <td><strong>Penyerahan Lencana & Momen Foto</strong></td>
-        <td>Setiap anak menerima Lencana Pin "Arsitek Koloni Antariksa Tingkat 1". Foto keluarga memegang monumen 3D dan sertifikat. Tim marketing mengarahkan foto siap unggah WhatsApp Story.</td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="section-title">Contoh Caption Rekomendasi untuk Orang Tua di WhatsApp</div>
-  <div style="background: var(--space-paper-cream); border: var(--border-md); border-radius: 14px; padding: 18px; font-style: italic; font-weight: 600; color: var(--space-ink);">
-    "Bangga banget sama [Nama Anak]! 4 minggu ikutan kelas Akademi AI, sekarang udah bisa bikin 4 game antariksa sendiri pake logika prompt tanpa koding. Tadi ayah/bunda langsung dites main gamenya di kelas! Ditambah bawa pulang miniatur stasiun koloni 3D keren ini. Keren banget belajarnya kreatif & terarah! 🚀🛰️ #AkademiAI #ArsitekCilik"
+  <div style="background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
+    <span style="font-size: 0.82rem; font-weight: 800; color: #1e40af;">
+      🚀 Setelah mengisi resep di atas, anak langsung menyusunnya di Studio Game menggunakan Rak Balok 3 Warna!
+    </span>
+    <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 900; background: #2563eb; color: #ffffff; padding: 3px 8px; border-radius: 6px;">
+      LANGKAH 3 SELESAI
+    </span>
   </div>
 
 </div>
