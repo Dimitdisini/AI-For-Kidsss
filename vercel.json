@@ -1,11 +1,4 @@
 {
-  "version": 2,
-  "name": "ai-for-kids-arcade",
-  "cleanUrls": true,
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
-    }
-  ]
+  "cleanUrls": false,
+  "trailingSlash": false
 }
