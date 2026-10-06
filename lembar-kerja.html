@@ -9,8 +9,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
   <style>
     /* ==========================================================================
-       DESIGN SYSTEM: COMIC PRINT & ACTIVITY SHEET (SELARAS SLIDE 10 PRESENTASI)
-       Format Siap Cetak A4 / Baca di Layar, Bebas AI Slop, Zero 3D Printing
+       DESIGN SYSTEM: COMIC PRINT & ACTIVITY SHEET (SELARAS SLIDE 4 & 7 PRESENTASI)
+       Format Tab Mingguan + Siap Cetak A4 Mandiri Per Minggu, Bebas AI Slop
        ========================================================================== */
     :root {
       --comic-blue-deep: #1e3a8a;
@@ -53,225 +53,37 @@
       background-size: 32px 32px;
       color: var(--comic-ink);
       font-family: var(--font-sans);
-      padding: 30px 16px;
+      padding: 24px 16px 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
     }
 
-    .doc-page {
+    /* TOP BAR CONTROLS */
+    .control-bar {
       width: 100%;
       max-width: 920px;
-      background: var(--comic-paper-white);
-      border: var(--border-thick);
-      border-radius: 20px;
-      box-shadow: var(--shadow-solid-lg);
-      padding: 36px 40px;
-      margin-bottom: 30px;
-      position: relative;
-    }
-
-    @media print {
-      body {
-        background: none;
-        padding: 0;
-      }
-      .doc-page {
-        max-width: 100%;
-        border: none;
-        box-shadow: none;
-        border-radius: 0;
-        padding: 15mm 20mm;
-        page-break-after: always;
-      }
-      .no-print {
-        display: none !important;
-      }
-    }
-
-    .banner-header {
-      border-bottom: var(--border-thick);
-      padding-bottom: 20px;
-      margin-bottom: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .banner-title-group h1 {
-      font-size: 1.85rem;
-      font-weight: 900;
-      color: var(--comic-ink);
-      line-height: 1.2;
-    }
-
-    .banner-title-group p {
-      font-size: 0.95rem;
-      font-weight: 700;
-      color: var(--comic-ink-muted);
-      margin-top: 6px;
-    }
-
-    .badge-tag {
-      background: var(--comic-amber);
-      color: var(--comic-ink);
-      border: var(--border-sm);
-      border-radius: 9999px;
-      padding: 6px 16px;
-      font-size: 0.82rem;
-      font-weight: 900;
-      box-shadow: var(--shadow-solid-sm);
-      display: inline-block;
-    }
-
-    .section-title {
-      font-size: 1.25rem;
-      font-weight: 900;
-      color: var(--comic-blue-deep);
-      margin: 22px 0 14px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .section-title::before {
-      content: '';
-      display: inline-block;
-      width: 10px;
-      height: 22px;
-      background: var(--comic-blue-hero);
-      border-radius: 3px;
-    }
-
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
       margin-bottom: 20px;
-    }
-
-    @media (max-width: 768px) {
-      .grid-2 { grid-template-columns: 1fr; }
-    }
-
-    .mission-card {
-      background: var(--comic-paper-cream);
-      border: var(--border-md);
-      border-radius: 16px;
-      box-shadow: var(--shadow-solid-md);
-      padding: 18px;
       display: flex;
       flex-direction: column;
+      gap: 12px;
+    }
+
+    .top-nav-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 10px;
-      position: relative;
     }
 
-    .mission-card-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 2px dashed var(--comic-ink);
-      padding-bottom: 8px;
-    }
-
-    .sector-badge {
-      font-family: var(--font-mono);
-      font-size: 0.75rem;
-      font-weight: 900;
-      background: var(--comic-blue-deep);
+    .top-title {
       color: #ffffff;
-      padding: 3px 10px;
-      border-radius: 6px;
-    }
-
-    .mission-card-title {
+      font-weight: 900;
       font-size: 1.05rem;
-      font-weight: 900;
-      color: var(--comic-ink);
-    }
-
-    .madlibs-prompt-box {
-      background: var(--comic-paper-white);
-      border: var(--border-sm);
-      border-radius: 10px;
-      padding: 12px 14px;
-      font-family: var(--font-mono);
-      font-size: 0.8rem;
-      line-height: 1.65;
-      color: var(--comic-ink);
-    }
-
-    .blank-slot {
-      display: inline-block;
-      border-bottom: 2px solid var(--comic-blue-hero);
-      color: var(--comic-blue-hero);
-      font-weight: 800;
-      padding: 0 4px;
-      background: var(--comic-amber-light);
-      border-radius: 4px;
-    }
-
-    .takeaway-badge {
-      background: var(--comic-emerald-light);
-      border: var(--border-sm);
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 0.78rem;
-      font-weight: 800;
-      color: #065f46;
       display: flex;
       align-items: center;
-      gap: 6px;
-      margin-top: auto;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: separate;
-      border-spacing: 0;
-      margin: 14px 0 22px;
-      border: var(--border-thick);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: var(--shadow-solid-md);
-    }
-
-    th {
-      background: var(--comic-blue-deep);
-      color: #ffffff;
-      font-weight: 900;
-      font-size: 0.85rem;
-      padding: 10px 14px;
-      text-align: left;
-      border-bottom: var(--border-thick);
-    }
-
-    td {
-      background: var(--comic-paper-white);
-      padding: 10px 14px;
-      font-size: 0.84rem;
-      font-weight: 600;
-      border-bottom: 1.5px solid #cbd5e1;
-      vertical-align: top;
-    }
-
-    tr:last-child td {
-      border-bottom: none;
-    }
-
-    tr:nth-child(even) td {
-      background: var(--comic-paper-cream);
-    }
-
-    .print-btn-bar {
-      width: 100%;
-      max-width: 920px;
-      margin-bottom: 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      gap: 8px;
     }
 
     .btn-action {
@@ -288,200 +100,680 @@
       display: inline-flex;
       align-items: center;
       gap: 6px;
+      transition: all 0.15s ease;
     }
 
     .btn-action:hover {
       background: var(--comic-blue-deep);
+      transform: translateY(-1px);
+    }
+
+    /* WEEK SELECTOR TABS */
+    .week-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+
+    .week-tab-btn {
+      background: #1e293b;
+      color: #94a3b8;
+      border: 2px solid #334155;
+      border-radius: 10px;
+      padding: 8px 14px;
+      font-family: var(--font-sans);
+      font-size: 0.84rem;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .week-tab-btn:hover {
+      background: #334155;
+      color: #ffffff;
+    }
+
+    .week-tab-btn.active {
+      background: var(--comic-amber);
+      color: var(--comic-ink);
+      border-color: var(--comic-ink);
+      box-shadow: var(--shadow-solid-sm);
+    }
+
+    /* SHEET CANVAS */
+    .doc-page {
+      width: 100%;
+      max-width: 920px;
+      background: var(--comic-paper-white);
+      border: var(--border-thick);
+      border-radius: 20px;
+      box-shadow: var(--shadow-solid-lg);
+      padding: 32px 36px;
+      position: relative;
+    }
+
+    .sheet-view {
+      display: none;
+    }
+
+    .sheet-view.active {
+      display: block;
+    }
+
+    /* SHEET HEADERS */
+    .sheet-header {
+      border-bottom: var(--border-thick);
+      padding-bottom: 16px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .sheet-header-left h1 {
+      font-size: 1.65rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--comic-ink);
+      margin-top: 6px;
+    }
+
+    .sheet-header-left p {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--comic-ink-muted);
+      margin-top: 4px;
+    }
+
+    .student-badge-box {
+      background: var(--comic-paper-cream);
+      border: var(--border-md);
+      border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: var(--shadow-solid-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 240px;
+    }
+
+    .badge-input-row {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--comic-ink);
+    }
+
+    .badge-input-line {
+      flex: 1;
+      border-bottom: 2px dashed var(--comic-ink-muted);
+      height: 14px;
+    }
+
+    .badge-pill {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      background: var(--comic-blue-hero);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+    }
+
+    /* SECTION BOXES */
+    .box-grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 18px;
+    }
+
+    @media (max-width: 768px) {
+      .box-grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .step-card {
+      background: var(--comic-paper-cream);
+      border: var(--border-md);
+      border-radius: 14px;
+      box-shadow: var(--shadow-solid-sm);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .step-card-title {
+      font-size: 0.96rem;
+      font-weight: 900;
+      color: var(--comic-ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 2px dashed #cbd5e1;
+      padding-bottom: 8px;
+    }
+
+    .madlibs-prompt-box {
+      background: var(--comic-paper-white);
+      border: var(--border-sm);
+      border-radius: 10px;
+      padding: 12px 14px;
+      font-family: var(--font-mono);
+      font-size: 0.82rem;
+      line-height: 1.65;
+      color: var(--comic-ink);
+    }
+
+    .circle-opt {
+      display: inline-block;
+      border: 1.5px solid var(--comic-blue-hero);
+      background: var(--comic-amber-light);
+      padding: 1px 7px;
+      border-radius: 9999px;
+      font-weight: 800;
+      color: var(--comic-blue-deep);
+      margin: 2px 0;
+    }
+
+    .blank-write-line {
+      display: inline-block;
+      border-bottom: 2px solid var(--comic-ink);
+      min-width: 90px;
+      height: 14px;
+    }
+
+    .science-badge {
+      background: var(--comic-emerald-light);
+      border: var(--border-sm);
+      border-radius: 8px;
+      padding: 8px 12px;
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #065f46;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-top: 4px;
+    }
+
+    .sketch-box-grid {
+      background: #ffffff;
+      border: 2px dashed #94a3b8;
+      border-radius: 10px;
+      height: 120px;
+      background-image: 
+        linear-gradient(#e2e8f0 1px, transparent 1px),
+        linear-gradient(90deg, #e2e8f0 1px, transparent 1px);
+      background-size: 16px 16px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sketch-watermark {
+      font-size: 0.78rem;
+      font-weight: 700;
+      color: #94a3b8;
+      pointer-events: none;
+      text-align: center;
+    }
+
+    .stamp-box {
+      border: 2px dashed #cbd5e1;
+      border-radius: 12px;
+      background: #fafafa;
+      padding: 12px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .stamp-circle {
+      width: 58px;
+      height: 58px;
+      border: 2px dashed #94a3b8;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.68rem;
+      font-weight: 900;
+      color: #94a3b8;
+      text-align: center;
+      transform: rotate(-10deg);
+    }
+
+    /* PRINT STYLES */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .no-print {
+        display: none !important;
+      }
+      .doc-page {
+        max-width: 100%;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 10mm 15mm;
+      }
+      /* If printing specific week tab, only show active */
+      .sheet-view {
+        display: none !important;
+      }
+      .sheet-view.active {
+        display: block !important;
+      }
     }
   </style>
 </head>
 <body>
 
-<div class="print-btn-bar no-print">
-  <div style="color: #ffffff; font-weight: 800; font-size: 0.9rem;">
-    📝 Lembar Kerja Aktivitas Siswa (Kamar 3) — Format Siap Cetak A4
+<!-- TOP CONTROL BAR -->
+<div class="control-bar no-print">
+  <div class="top-nav-row">
+    <div class="top-title">
+      <span>📝 Lembar Kerja Aktivitas Siswa (Kamar 3)</span>
+      <span style="font-size: 0.8rem; background: #3b82f6; color: #fff; padding: 2px 8px; border-radius: 6px;">1 Minggu = 1 Lembar A4</span>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <button class="btn-action" onclick="window.print()">🖨️ Cetak Lembar Minggu Ini (A4)</button>
+      <a class="btn-action" style="background: var(--comic-emerald);" href="game.html" target="_blank">🎮 Buka Studio Game di Layar</a>
+    </div>
   </div>
-  <div style="display: flex; gap: 8px;">
-    <button class="btn-action" onclick="window.print()">🖨️ Cetak Kartu Misi (A4)</button>
-    <a class="btn-action" style="background: var(--comic-emerald);" href="game.html" target="_blank">🎮 Uji Coba Game di Layar</a>
+
+  <!-- SELECTOR MINGGU -->
+  <div class="week-tabs">
+    <button class="week-tab-btn active" onclick="switchWeek(1)">🚩 Minggu 1: Mario & Gravitasi</button>
+    <button class="week-tab-btn" onclick="switchWeek(2)">⭐ Minggu 2: Pemanen Bintang & Magnet</button>
+    <button class="week-tab-btn" onclick="switchWeek(3)">🚀 Minggu 3: Dogfight Galaksi & Refleks</button>
+    <button class="week-tab-btn" onclick="switchWeek(4)">🏁 Minggu 4: Balap Kart & Showcase Ortu</button>
   </div>
 </div>
 
 <!-- ==========================================================================
-     HALAMAN 1: IKHTISAR KURIKULUM & PETA 4 MINGGU (SELARAS SLIDE 4 & 7)
+     CANVAS LEMBAR KERJA A4 (TERPISAH PER MINGGU)
      ========================================================================== -->
 <div class="doc-page">
 
-  <div class="banner-header">
-    <div class="banner-title-group">
-      <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
-        <span class="badge-tag">LEMBAR AKTIVITAS KELAS RESMI</span>
-        <span style="font-weight: 800; font-size: 0.85rem; color: var(--comic-ink-muted);">USIA 8–12 TAHUN</span>
+  <!-- ======================================================================
+       MINGGU 1: MARIO & GRAVITASI (LOMPATAN SAINS BUMI VS BULAN)
+       ====================================================================== -->
+  <div class="sheet-view active" id="sheet-week-1">
+    
+    <div class="sheet-header">
+      <div class="sheet-header-left">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="badge-pill" style="background: var(--comic-amber); color: #000;">SESI 1 DARI 4</span>
+          <span class="badge-pill">LANGKAH 1 & 2: KACAMATA DETEKTIF</span>
+        </div>
+        <h1>Kartu Misi 1: Petualangan Mario & Gravitasi Sains</h1>
+        <p>Waktu Pengerjaan Kertas: 10–15 Menit Sebelum Menyalakan Laptop</p>
       </div>
-      <h1>Akademi Kreator AI: Peta Misi & Resep Logika</h1>
-      <p>Kurikulum Lego Prompting & Studio Game Interaktif (4 Pertemuan × 90 Menit)</p>
+      <div class="student-badge-box">
+        <div class="badge-input-row">
+          <span>Nama Arsitek Cilik:</span>
+          <div class="badge-input-line"></div>
+        </div>
+        <div class="badge-input-row">
+          <span>Pilihan Rekan:</span>
+          <span class="circle-opt">Bima (Logika)</span>
+          <span class="circle-opt">Kinar (Seni)</span>
+        </div>
+      </div>
     </div>
-    <div style="background: var(--comic-paper-cream); border: var(--border-md); border-radius: 12px; padding: 10px 14px; box-shadow: var(--shadow-solid-sm); font-weight: 800; font-size: 0.82rem;">
-      Mentor: Dimitri Ahmad & Tim
+
+    <div class="box-grid-2">
+      <!-- LANGKAH A: RESEP PROMPT LEGO 3 WARNA -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>1. Resep Lego Prompting (Mad-Libs)</span>
+          <span style="font-size: 0.75rem; color: var(--comic-blue-hero);">Lingkari Pilihanmu</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Rumuskan aturan fisika duniamu sebelum dipasang ke Studio Game:
+        </p>
+        <div class="madlibs-prompt-box">
+          "Pahlawan saya adalah <span class="circle-opt">Bima</span> / <span class="circle-opt">Kinar</span>.<br>
+          Saya ingin beraksi di medan gravitasi <span class="circle-opt">Bulan (~1/6 Gravitasi Bumi)</span> / <span class="circle-opt">Bumi Normal</span> dengan gaya lompat <span class="circle-opt">Melayang Tinggi</span> / <span class="circle-opt">Gesit Standar</span>.<br>
+          Letakkan balok misteri <span style="font-weight: 900; color: #b45309;">[?]</span> berisi koin emas putar, dan buat monster slime berjalan yang harus saya injak untuk mencapai tiang bendera istana!"
+        </div>
+        <div class="science-badge">
+          🔬 <strong>Konsep Sains Riil:</strong> Gravitasi Bumi ($g \approx 9.8\text{ m/s}^2$) vs Bulan ($\frac{1}{6}g$). Di Bulan kamu melayang lebih tinggi karena gaya tariknya jauh lebih kecil!
+        </div>
+      </div>
+
+      <!-- LANGKAH B: SKETSA RINTANGAN LEVEL -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>2. Sketsa Desain Rintangan Tebing</span>
+          <span style="font-size: 0.75rem; color: var(--comic-ink-muted);">Gunakan Pensil</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Gambar 1 pijakan tebing kayu dan 1 balok [?] misteri yang ingin kamu taklukkan:
+        </p>
+        <div class="sketch-box-grid">
+          <div class="sketch-watermark">
+            ✏️ Gambarlah Balok [?] dan Posisi Karaktermu di sini<br>
+            <span style="font-size: 0.7rem; color: #cbd5e1;">(Bebas berekspresi sebelum menyusunnya di layar)</span>
+          </div>
+        </div>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted); margin-top: 4px;">
+          💡 <strong>Target Kemenangan:</strong> Kumpulkan minimal 5 koin emas & injak 2 monster slime tanpa terjatuh ke jurang!
+        </div>
+      </div>
     </div>
+
+    <!-- STEMPEL POS MINGGU 1 -->
+    <div class="stamp-box">
+      <div>
+        <div style="font-size: 0.88rem; font-weight: 900; color: var(--comic-ink);">Bukti Kelulusan Misi 1 (Cap Pos Mentor)</div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--comic-ink-muted);">Setelah berhasil memainkan game Mario buatanmu di layar laptop, mintalah cap resmi ke mentor!</div>
+      </div>
+      <div class="stamp-circle">
+        CAP POS 1<br>LULUS
+      </div>
+    </div>
+
   </div>
 
-  <div class="section-title">1. Narasi Petualangan & Maskot Pendamping</div>
-  <p style="font-size: 0.9rem; line-height: 1.6; font-weight: 600; color: var(--comic-ink-muted); margin-bottom: 14px;">
-    Anak berperan sebagai <strong>"Arsitek Kreator AI"</strong> yang merancang dan mengendalikan dunia permainannya sendiri. Anak didampingi oleh dua sahabat pahlawan sebaya: <strong>Bima</strong> (Sahabat Logika & Fisika) dan <strong>Kinar</strong> (Sahabat Desain & Seni). Pembelajaran menggunakan metode <strong>Lego Prompting 3 Warna</strong>—tanpa sintaks koding teks yang membingungkan.
-  </p>
-
-  <div class="section-title">2. Peta Misi 4 Minggu (Sinkron dengan Slide 4 & 7 Presentasi)</div>
-  <table>
-    <thead>
-      <tr>
-        <th style="width: 12%;">Sesi</th>
-        <th style="width: 26%;">Sektor Petualangan</th>
-        <th style="width: 38%;">Eksperimen Logika & Sains Anak</th>
-        <th style="width: 24%;">Bukti Hasil Karya</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td><strong>Sesi 1</strong></td>
-        <td><strong>Sektor 1: Petualangan Mario</strong></td>
-        <td>Membandingkan gravitasi Bumi ($g \approx 9.8\text{ m/s}^2$) vs gravitasi Bulan ($\frac{1}{6}g$, lompatan melayang lebih tinggi), serta mekanika tabrakan tebing dan rintangan slime.</td>
-        <td><strong>Game Sektor 1 Aktif</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Cap Pos 1 di Paspor AI</span></td>
-      </tr>
-      <tr>
-        <td><strong>Sesi 2</strong></td>
-        <td><strong>Sektor 2: Pemanen Bintang</strong></td>
-        <td>Mengatur tarikan medan gaya magnetik gerobak, memanen koin bintang, dan menangkis awan petir.</td>
-        <td><strong>Game Sektor 2 Aktif</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Cap Pos 2 di Paspor AI</span></td>
-      </tr>
-      <tr>
-        <td><strong>Sesi 3</strong></td>
-        <td><strong>Sektor 3: Dogfight Galaksi</strong></td>
-        <td>Mengendalikan jet Starfighter 4 arah, meriam triple laser, sudut pantulan refleks, dan bom plasma.</td>
-        <td><strong>Game Sektor 3 Aktif</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Cap Pos 3 di Paspor AI</span></td>
-      </tr>
-      <tr>
-        <td><strong>Sesi 4</strong></td>
-        <td><strong>Sektor 4: Balap Kart & Showcase</strong></td>
-        <td>Uji gesekan ban (oli & nitro), duel lawan Bot AI pintar di sirkuit, dan pameran game ke orang tua.</td>
-        <td><strong>QR Code & Link Game HP</strong><br><span style="font-size: 0.76rem; color: var(--comic-ink-muted);">Sertifikat Arsitek Cilik</span></td>
-      </tr>
-    </tbody>
-  </table>
-
-  <div class="section-title">3. Pengalaman Belajar Berkelanjutan (Nilai Wow untuk Orang Tua)</div>
-  <div class="grid-2">
-    <div style="background: var(--comic-paper-cream); border: var(--border-md); border-radius: 14px; padding: 14px;">
-      <strong style="color: var(--comic-blue-hero); font-size: 0.92rem;">📱 Portofolio Digital Bisa Dimainkan di HP</strong>
-      <p style="font-size: 0.82rem; font-weight: 600; color: var(--comic-ink-muted); margin-top: 4px;">
-        Setiap karya game anak langsung memiliki QR Code pribadi dan file HTML mandiri. Orang tua bisa langsung memainkan game buatan anaknya di browser smartphone saat di rumah!
-      </p>
+  <!-- ======================================================================
+       MINGGU 2: PEMANEN BINTANG (GAYA MAGNET & VEKTOR JARAK)
+       ====================================================================== -->
+  <div class="sheet-view" id="sheet-week-2">
+    
+    <div class="sheet-header">
+      <div class="sheet-header-left">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="badge-pill" style="background: var(--comic-amber); color: #000;">SESI 2 DARI 4</span>
+          <span class="badge-pill">LANGKAH 2: KAPTEN INSTRUKSI</span>
+        </div>
+        <h1>Kartu Misi 2: Pemanen Bintang Kosmik & Gaya Magnet</h1>
+        <p>Waktu Pengerjaan Kertas: 10–15 Menit Sebelum Menyalakan Laptop</p>
+      </div>
+      <div class="student-badge-box">
+        <div class="badge-input-row">
+          <span>Nama Arsitek Cilik:</span>
+          <div class="badge-input-line"></div>
+        </div>
+        <div class="badge-input-row">
+          <span>Skor Tertinggi Target:</span>
+          <span class="circle-opt">100 Poin</span>
+          <span class="circle-opt">250 Poin</span>
+        </div>
+      </div>
     </div>
-    <div style="background: var(--comic-paper-cream); border: var(--border-md); border-radius: 14px; padding: 14px;">
-      <strong style="color: var(--comic-emerald); font-size: 0.92rem;">📖 Buku Saku Paspor Petualang AI Fisik</strong>
-      <p style="font-size: 0.82rem; font-weight: 600; color: var(--comic-ink-muted); margin-top: 4px;">
-        Anak membawa pulang buku paspor fisik yang dicap setiap minggu setelah menaklukkan misi. Menumbuhkan rasa bangga dan pembuktian nyata tanpa perlu alat mekanik yang merepotkan.
-      </p>
+
+    <div class="box-grid-2">
+      <!-- LANGKAH A: RESEP PROMPT LEGO 3 WARNA -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>1. Resep Lego Prompting Gerobak Bintang</span>
+          <span style="font-size: 0.75rem; color: var(--comic-blue-hero);">Lingkari Pilihanmu</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Tentukan alat tangkap dan kekuatan gerobak antariksamu:
+        </p>
+        <div class="madlibs-prompt-box">
+          "Kendalikan gerobak beroda kayu kosmik yang dikemudikan <span class="circle-opt">Bima</span> / <span class="circle-opt">Kinar</span>.<br>
+          Pasang perlengkapan <span class="circle-opt">Magnet Penarik Bintang</span> / <span class="circle-opt">Perisai Anti-Petir</span> dengan roda berkecepatan <span class="circle-opt">Gesit Cepat</span> / <span class="circle-opt">Super Turbo</span>.<br>
+          Setiap bintang jatuh bernilai 10 poin, tetapi awan petir gelap akan mengurangi 1 nyawa jika tertabrak!"
+        </div>
+        <div class="science-badge">
+          🧲 <strong>Konsep Sains Riil:</strong> Gaya Tarik Magnetik & Jarak Sensor. Benda feromagnetik akan tertarik otomatis semakin dekat gerobakmu dengan posisi bintang jatuh.
+        </div>
+      </div>
+
+      <!-- LANGKAH B: STRATEGI REFLEKS -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>2. Aturan Tantangan & Refleks Gerak</span>
+          <span style="font-size: 0.75rem; color: var(--comic-ink-muted);">Rancang Skor</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Tuliskan 2 aturan permainan yang ingin kamu buat di laptop:
+        </p>
+        <div style="background: #ffffff; border: var(--border-sm); border-radius: 10px; padding: 12px; display: flex; flex-direction: column; gap: 8px;">
+          <div style="font-size: 0.8rem; font-weight: 700;">
+            1. Jika gerobak berhasil menangkap Bintang Emas Beruntun: Dapat kombo <span class="circle-opt">2x Lipat</span> / <span class="circle-opt">3x Lipat</span>.
+          </div>
+          <div style="font-size: 0.8rem; font-weight: 700;">
+            2. Jika Awan Petir menyambar: Layar bergetar (Screen Shake) dan gerobak melambat selama <span class="circle-opt">1 Detik</span> / <span class="circle-opt">2 Detik</span>.
+          </div>
+        </div>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted); margin-top: 4px;">
+          💡 <strong>Target Kemenangan:</strong> Raih minimal 15 tangkapan bintang emas sebelum 3 nyawa hatimu habis!
+        </div>
+      </div>
     </div>
+
+    <!-- STEMPEL POS MINGGU 2 -->
+    <div class="stamp-box">
+      <div>
+        <div style="font-size: 0.88rem; font-weight: 900; color: var(--comic-ink);">Bukti Kelulusan Misi 2 (Cap Pos Mentor)</div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--comic-ink-muted);">Setelah berhasil memanen bintang di laptop dengan skor >100, mintalah cap resmi ke mentor!</div>
+      </div>
+      <div class="stamp-circle">
+        CAP POS 2<br>LULUS
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ======================================================================
+       MINGGU 3: DOGFIGHT GALAKSI (SUDUT REFLEKS & PROYEKTIL PLASMA)
+       ====================================================================== -->
+  <div class="sheet-view" id="sheet-week-3">
+    
+    <div class="sheet-header">
+      <div class="sheet-header-left">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="badge-pill" style="background: var(--comic-amber); color: #000;">SESI 3 DARI 4</span>
+          <span class="badge-pill">LANGKAH 3: MEJA PENCIPTAAN</span>
+        </div>
+        <h1>Kartu Misi 3: Dogfight Galaksi & Refleks Vektor</h1>
+        <p>Waktu Pengerjaan Kertas: 10–15 Menit Sebelum Menyalakan Laptop</p>
+      </div>
+      <div class="student-badge-box">
+        <div class="badge-input-row">
+          <span>Nama Arsitek Cilik:</span>
+          <div class="badge-input-line"></div>
+        </div>
+        <div class="badge-input-row">
+          <span>Pilihan Pesawat:</span>
+          <span class="circle-opt">Starfighter Alpha</span>
+          <span class="circle-opt">Plasma Beta</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-grid-2">
+      <!-- LANGKAH A: RESEP PROMPT LEGO 3 WARNA -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>1. Resep Lego Prompting Armada Jet</span>
+          <span style="font-size: 0.75rem; color: var(--comic-blue-hero);">Lingkari Pilihanmu</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Pasang persenjataan jet antariksa untuk menembus formasi armada alien:
+        </p>
+        <div class="madlibs-prompt-box">
+          "Nakhoda kapal antariksa saya adalah <span class="circle-opt">Bima</span> / <span class="circle-opt">Kinar</span>.<br>
+          Senjatai kapal saya dengan meriam <span class="circle-opt">Tembakan Tiga Plasma Menyebar</span> / <span class="circle-opt">Peluru Cepat Lurus</span> di atmosfer <span class="circle-opt">Nebula Ungu</span> / <span class="circle-opt">Bintang Kosmik</span>.<br>
+          Sediakan tombol darurat Bom Supernova yang bisa memusnahkan seluruh armada musuh di layar jika terdesak!"
+        </div>
+        <div class="science-badge">
+          🚀 <strong>Konsep Sains Riil:</strong> Vektor Arah & Sudut Tembakan. Tembakan menyebar menyapu sudut lebar ($15^\circ$), sedangkan tembakan lurus memiliki kecepatan luncur dua kali lebih tinggi.
+        </div>
+      </div>
+
+      <!-- LANGKAH B: SKETSA POLA SERANGAN ALIEN -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>2. Taktik Mengelak Formasi Alien</span>
+          <span style="font-size: 0.75rem; color: var(--comic-ink-muted);">Rancang Formasi</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Gambar jalur manuver menghindar jet milikmu dari tembakan alien:
+        </p>
+        <div class="sketch-box-grid">
+          <div class="sketch-watermark">
+            🛸 Sketsa Formasi Manuver Menghindar (Zig-Zag atau Melingkar)<br>
+            <span style="font-size: 0.7rem; color: #cbd5e1;">(Gunakan tombol panah 4 arah di keyboard saat bermain)</span>
+          </div>
+        </div>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted); margin-top: 4px;">
+          💡 <strong>Target Kemenangan:</strong> Kalahkan 10 kapal penyusup alien dan selamatkan stasiun luar angkasa!
+        </div>
+      </div>
+    </div>
+
+    <!-- STEMPEL POS MINGGU 3 -->
+    <div class="stamp-box">
+      <div>
+        <div style="font-size: 0.88rem; font-weight: 900; color: var(--comic-ink);">Bukti Kelulusan Misi 3 (Cap Pos Mentor)</div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: var(--comic-ink-muted);">Setelah berhasil bertahan dari gelombang musuh galaksi di laptop, mintalah cap resmi ke mentor!</div>
+      </div>
+      <div class="stamp-circle">
+        CAP POS 3<br>LULUS
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ======================================================================
+       MINGGU 4: BALAP KART & SHOWCASE ORANG TUA (GESEKAN BAN & DUEL BOT AI)
+       ====================================================================== -->
+  <div class="sheet-view" id="sheet-week-4">
+    
+    <div class="sheet-header">
+      <div class="sheet-header-left">
+        <div style="display: flex; gap: 6px; align-items: center;">
+          <span class="badge-pill" style="background: var(--comic-crimson); color: #fff;">SESI 4: PAMERAN BESAR</span>
+          <span class="badge-pill">LANGKAH 4: PANGGUNG WISUDA</span>
+        </div>
+        <h1>Kartu Misi 4: Balap Kart Grand Prix & Tantangan Ortu</h1>
+        <p>Waktu Pengerjaan Kertas: 10 Menit Awal + Dipakai untuk Menguji Orang Tua di Kelas</p>
+      </div>
+      <div class="student-badge-box">
+        <div class="badge-input-row">
+          <span>Nama Pembalap Cilik:</span>
+          <div class="badge-input-line"></div>
+        </div>
+        <div class="badge-input-row">
+          <span>Nama Orang Tua yang Ditantang:</span>
+          <div class="badge-input-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="box-grid-2">
+      <!-- LANGKAH A: RESEP PROMPT MOBIL BALAP -->
+      <div class="step-card">
+        <div class="step-card-title">
+          <span>1. Resep Lego Mobil Balap Kart</span>
+          <span style="font-size: 0.75rem; color: var(--comic-blue-hero);">Lingkari Pilihanmu</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Rancang mobil kart untuk duel balapan 3 putaran sirkuit:
+        </p>
+        <div class="madlibs-prompt-box">
+          "Pembalap saya adalah <span class="circle-opt">Bima</span> / <span class="circle-opt">Kinar</span> mengendarai gokart warna <span class="circle-opt">Biru Petir</span> / <span class="circle-opt">Oranye Api</span>.<br>
+          Mobil saya dilengkapi tombol <span class="circle-opt">Semprotan Nitro Turbo</span> / <span class="circle-opt">Ban Anti-Licin Oli</span> di sirkuit sirkuler 3 lap.<br>
+          Saya harus mengalahkan Robot AI lawan dan menghindari tumpahan oli di tikungan tajam!"
+        </div>
+        <div class="science-badge">
+          🏎️ <strong>Konsep Sains Riil:</strong> Gaya Gesek Ban (Friction) & Titik Sentripetal Tikungan. Oli licin membuat gaya gesek mendekati nol sehingga mobil tergelincir jika tidak dikendalikan.
+        </div>
+      </div>
+
+      <!-- LANGKAH B: LEMBAR SKOR TANTANGAN ORANG TUA -->
+      <div class="step-card" style="background: #fffdf5; border-color: var(--comic-amber);">
+        <div class="step-card-title">
+          <span style="color: #92400e;">2. Papan Pertandingan: Anak vs Orang Tua</span>
+          <span style="font-size: 0.75rem; color: #92400e; font-weight: 900;">SHOWCASE SERU</span>
+        </div>
+        <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
+          Beri laptopmu kepada Papa / Mama, dan catat hasil balapan 3 putaran mereka:
+        </p>
+        <table style="width: 100%; border-collapse: collapse; font-size: 0.8rem; margin: 6px 0; border: 1.5px solid var(--comic-ink); border-radius: 8px; overflow: hidden;">
+          <tr style="background: var(--comic-blue-deep); color: #ffffff; font-weight: 900;">
+            <th style="padding: 6px 8px; text-align: left;">Pemain</th>
+            <th style="padding: 6px 8px; text-align: center;">Waktu / Posisi</th>
+            <th style="padding: 6px 8px; text-align: center;">Kena Jebakan Oli?</th>
+          </tr>
+          <tr style="background: #ffffff; border-bottom: 1px solid #cbd5e1;">
+            <td style="padding: 6px 8px; font-weight: 800;">Anak (Arsitek)</td>
+            <td style="padding: 6px 8px; text-align: center;"><div class="blank-write-line"></div></td>
+            <td style="padding: 6px 8px; text-align: center;"><span class="circle-opt">Ya / Tidak</span></td>
+          </tr>
+          <tr style="background: #f8fafc;">
+            <td style="padding: 6px 8px; font-weight: 800;">Papa / Mama</td>
+            <td style="padding: 6px 8px; text-align: center;"><div class="blank-write-line"></div></td>
+            <td style="padding: 6px 8px; text-align: center;"><span class="circle-opt">Ya / Tidak</span></td>
+          </tr>
+        </table>
+        <div style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted); margin-top: 4px;">
+          🎉 <strong>Komentar Orang Tua:</strong> <em>"Luar biasa, anak saya berhasil membuat game sendiri yang seru dimainkan!"</em>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEMPEL POS MINGGU 4 & WISUDA -->
+    <div class="stamp-box" style="background: #f0fdf4; border-color: #10b981;">
+      <div>
+        <div style="font-size: 0.88rem; font-weight: 900; color: #065f46;">Lulus Sempurna & Berhak Menerima Sertifikat Arsitek AI</div>
+        <div style="font-size: 0.78rem; font-weight: 600; color: #047857;">Semua 4 game selesai diracik, link QR Code aktif di HP, dan berhasil diuji coba bersama keluarga!</div>
+      </div>
+      <div class="stamp-circle" style="border-color: #10b981; color: #065f46;">
+        WISUDA<br>BINTANG 5
+      </div>
+    </div>
+
   </div>
 
 </div>
 
-<!-- ==========================================================================
-     HALAMAN 2: LEMBAR CETAK KARTU RESEP PROMPT 4 SEKTOR (MAD-LIBS STYLE)
-     ========================================================================== -->
-<div class="doc-page">
+<script>
+  function switchWeek(weekNum) {
+    // Update tab buttons
+    const buttons = document.querySelectorAll('.week-tab-btn');
+    buttons.forEach((btn, idx) => {
+      if (idx === weekNum - 1) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
 
-  <div class="banner-header">
-    <div class="banner-title-group">
-      <span class="badge-tag">LEMBAR PENSIL & KERTAS DI KELAS</span>
-      <h1 style="font-size: 1.6rem; margin-top: 6px;">Kartu Resep Misi Lego Prompting (Mad-Libs)</h1>
-      <p>Petunjuk: Isi titik-titik di bawah dengan pensil sebelum kamu meraciknya di laptop!</p>
-    </div>
-  </div>
-
-  <div class="grid-2">
-
-    <!-- RESEP 1: MARIO -->
-    <div class="mission-card">
-      <div class="mission-card-header">
-        <span class="sector-badge">SEKTOR 1</span>
-        <span class="mission-card-title">Petualangan Mario</span>
-      </div>
-      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
-        Atur medan gravitasi dunia dan daya dorong lompatan pahlawanmu:
-      </p>
-      <div class="madlibs-prompt-box">
-        "Pahlawan saya adalah <span class="blank-slot">[ Bima / Kinar ]</span>. Saya ingin beraksi di medan gravitasi <span class="blank-slot">[ Bulan (~1/6 Gravitasi Bumi) / Bumi Normal ]</span> dengan dorongan lompat <span class="blank-slot">[ Tinggi Melayang / Cepat Gesit ]</span>. Letakkan balok misteri [?] berisi koin emas putar, dan buat monster slime berjalan yang harus saya injak untuk mencapai tiang bendera istana!"
-      </div>
-      <div class="takeaway-badge">
-        🎯 Konsep Sains: Percepatan Gravitasi ($g$), Gaya Normal Lantai, & Energi Lompatan
-      </div>
-    </div>
-
-    <!-- RESEP 2: CATCHER -->
-    <div class="mission-card">
-      <div class="mission-card-header">
-        <span class="sector-badge">SEKTOR 2</span>
-        <span class="mission-card-title">Pemanen Bintang Kosmik</span>
-      </div>
-      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
-        Rancang gerobak beroda dan kekuatan magnet penarik bintang:
-      </p>
-      <div class="madlibs-prompt-box">
-        "Kendalikan gerobak beroda kayu yang dikemudikan oleh <span class="blank-slot">[ Bima / Kinar ]</span>. Pasang perlengkapan <span class="blank-slot">[ Magnet Penarik Bintang / Perisai Badai ]</span> dengan kecepatan roda <span class="blank-slot">[ Cepat / Ekstra Turbo ]</span>. Bintang jatuh memberikan nilai 10 poin, tetapi awan petir gelap akan mengurangi nyawa jika tertabrak!"
-      </div>
-      <div class="takeaway-badge">
-        🎯 Konsep Sains: Gaya Tarik Magnetik, Vektor Jarak, & Refleks Arah
-      </div>
-    </div>
-
-    <!-- RESEP 3: DOGFIGHT -->
-    <div class="mission-card">
-      <div class="mission-card-header">
-        <span class="sector-badge">SEKTOR 3</span>
-        <span class="mission-card-title">Dogfight Galaksi</span>
-      </div>
-      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
-        Siapkan kapal Starfighter untuk duel antariksa melawan armada alien:
-      </p>
-      <div class="madlibs-prompt-box">
-        "Nakhoda kapal antariksa saya adalah <span class="blank-slot">[ Bima / Kinar ]</span>. Senjatai kapal saya dengan meriam <span class="blank-slot">[ Tembakan Tiga Plasma / Peluru Cepat ]</span> di atmosfer langit <span class="blank-slot">[ Nebula Ungu / Bintang Galaksi ]</span>. Sediakan bom supernova darurat yang bisa meledakkan seluruh kapal alien di layar!"
-      </div>
-      <div class="takeaway-badge">
-        🎯 Konsep Sains: Sudut Tembak Menyebar, Pola Liukan Gelombang Sinus
-      </div>
-    </div>
-
-    <!-- RESEP 4: RACER -->
-    <div class="mission-card">
-      <div class="mission-card-header">
-        <span class="sector-badge">SEKTOR 4</span>
-        <span class="mission-card-title">Grand Prix Kart Racer 2D</span>
-      </div>
-      <p style="font-size: 0.78rem; font-weight: 700; color: var(--comic-ink-muted);">
-        Rancang mobil balap kart dan taklukkan sirkuit melawan Robot AI lawan:
-      </p>
-      <div class="madlibs-prompt-box">
-        "Pembalap saya adalah <span class="blank-slot">[ Bima / Kinar ]</span> mengendarai gokart warna <span class="blank-slot">[ Biru / Oranye ]</span>. Mobil saya dilengkapi tombol <span class="blank-slot">[ Semprotan Nitro Turbo / Ban Anti-Licin ]</span> di sirkuit sirkuler 3 putaran. Saya harus mengalahkan Bot AI rival dan menghindari jebakan tumpahan oli di tikungan!"
-      </div>
-      <div class="takeaway-badge">
-        🎯 Konsep Sains: Gesekan Ban (Friction), Gaya Sentripetal, & Robot AI Pintar
-      </div>
-    </div>
-
-  </div>
-
-  <div style="background: #eff6ff; border: 2px dashed #3b82f6; border-radius: 12px; padding: 12px 16px; display: flex; justify-content: space-between; align-items: center; margin-top: 10px;">
-    <span style="font-size: 0.82rem; font-weight: 800; color: #1e40af;">
-      🚀 Setelah mengisi resep di atas, anak langsung menyusunnya di Studio Game menggunakan Rak Balok 3 Warna!
-    </span>
-    <span style="font-family: var(--font-mono); font-size: 0.78rem; font-weight: 900; background: #2563eb; color: #ffffff; padding: 3px 8px; border-radius: 6px;">
-      LANGKAH 3 SELESAI
-    </span>
-  </div>
-
-</div>
+    // Update sheet views
+    for (let i = 1; i <= 4; i++) {
+      const sheet = document.getElementById('sheet-week-' + i);
+      if (sheet) {
+        if (i === weekNum) {
+          sheet.classList.add('active');
+        } else {
+          sheet.classList.remove('active');
+        }
+      }
+    }
+  }
+</script>
 
 </body>
 </html>
