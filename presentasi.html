@@ -296,6 +296,111 @@
       color: #ffffff;
       border-color: var(--comic-ink-black);
     }
+
+    /* ==========================================================================
+       RESPONSIVE DESIGN SYSTEM (DESKTOP 16:9, TABLET & SMARTPHONE ADAPTIVE)
+       ========================================================================== */
+    @media (max-width: 900px) {
+      body {
+        padding: 10px 8px;
+        min-height: 100dvh;
+        justify-content: flex-start;
+      }
+
+      .presentation-frame {
+        max-width: 100%;
+        aspect-ratio: auto;
+        min-height: calc(100dvh - 20px);
+        border-radius: 16px;
+      }
+
+      .slide-top-bar {
+        height: auto;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .slide-deck {
+        position: relative;
+        min-height: 480px;
+        overflow-y: auto;
+      }
+
+      .slide {
+        position: relative;
+        inset: auto;
+        padding: 18px 16px 24px;
+        min-height: 100%;
+        justify-content: flex-start;
+        display: none;
+        transform: none;
+      }
+
+      .slide.active {
+        display: flex;
+        transform: none;
+      }
+
+      .slide-title {
+        font-size: 1.4rem;
+        line-height: 1.25;
+      }
+
+      .slide-subtitle {
+        font-size: 0.85rem;
+        margin-bottom: 12px;
+      }
+
+      .slide-grid-2,
+      .slide-grid-3,
+      .slide-grid-4 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .comic-card {
+        padding: 12px 14px;
+      }
+
+      .comic-card h3 {
+        font-size: 0.92rem;
+      }
+
+      .comic-card p {
+        font-size: 0.78rem;
+      }
+
+      .highlight-strip {
+        font-size: 0.78rem;
+        padding: 8px 12px;
+        margin-top: 10px;
+      }
+
+      .slide-bottom-bar {
+        height: auto;
+        padding: 10px 14px;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .keyboard-hint {
+        display: none;
+      }
+
+      .nav-btn-group {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+      }
+
+      .btn-slide-nav {
+        flex: 1;
+        padding: 10px 12px;
+        font-size: 0.85rem;
+        text-align: center;
+      }
+    }
   </style>
 </head>
 <body>

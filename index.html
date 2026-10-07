@@ -186,6 +186,7 @@
     #contentViewport {
       width: 100%;
       height: calc(100vh - 64px);
+      height: calc(100dvh - 64px);
       border: none;
       display: block;
       background: #0b1329;
@@ -194,17 +195,43 @@
     @media (max-width: 950px) {
       #masterTopBar {
         height: auto;
-        padding: 8px 12px;
+        padding: 8px 10px;
         flex-wrap: wrap;
+        gap: 8px;
       }
+
+      .brand-title {
+        font-size: 0.92rem;
+      }
+
+      .brand-sub {
+        font-size: 0.65rem;
+      }
+
       .master-nav-tabs {
         order: 3;
         width: 100%;
         overflow-x: auto;
-        padding-bottom: 4px;
+        padding-bottom: 2px;
+        gap: 6px;
+        -webkit-overflow-scrolling: touch;
       }
+
+      .nav-tab-btn {
+        padding: 6px 10px;
+      }
+
+      .tab-meta strong {
+        font-size: 0.76rem;
+      }
+
+      .tab-meta small {
+        display: none;
+      }
+
       #contentViewport {
-        height: calc(100vh - 110px);
+        height: calc(100vh - 105px);
+        height: calc(100dvh - 105px);
       }
     }
   </style>
