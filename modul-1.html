@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modul 1: Detektif Data & Mata Mesin - Akademi AI for Kids</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       MODUL 1: DETEKTIF DATA & MATA MESIN (TEACHABLE MACHINE LAB)
+       Format Panduan Fasilitator & Siswa 90 Menit | Matte Estetik Retro-Komik
+       ========================================================================== */
+    :root {
+      --space-blue-deep: #1e3a8a;
+      --space-blue-hero: #2563eb;
+      --space-blue-light: #eff6ff;
+      --space-amber: #f59e0b;
+      --space-amber-light: #fef3c7;
+      --space-emerald: #10b981;
+      --space-emerald-light: #d1fae5;
+      --space-purple: #7e22ce;
+      --space-purple-light: #f3e8ff;
+      --space-crimson: #ef4444;
+      --space-crimson-light: #fee2e2;
+      --space-ink: #0f172a;
+      --space-ink-muted: #475569;
+      --space-paper-white: #ffffff;
+      --space-paper-cream: #fffdf5;
+
+      --border-thick: 3.5px solid var(--space-ink);
+      --border-md: 2.5px solid var(--space-ink);
+      --border-sm: 1.5px solid var(--space-ink);
+
+      --shadow-sm: 0 2px 0px var(--space-ink);
+      --shadow-md: 0 4px 0px var(--space-ink);
+      --shadow-lg: 0 6px 0px var(--space-ink);
+
+      --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0b1329;
+      background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--space-ink);
+      font-family: var(--font-sans);
+      padding: 24px 16px 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .doc-page {
+      width: 100%;
+      max-width: 960px;
+      background: var(--space-paper-white);
+      border: var(--border-thick);
+      border-radius: 20px;
+      box-shadow: var(--shadow-lg);
+      padding: 36px 40px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .doc-page { max-width: 100%; border: none; box-shadow: none; border-radius: 0; padding: 10mm 15mm; }
+      .no-print { display: none !important; }
+    }
+
+    @media (max-width: 768px) {
+      .doc-page { padding: 24px 18px; border-radius: 16px; }
+      .grid-2, .grid-3 { grid-template-columns: 1fr !important; }
+    }
+
+    .banner-header {
+      border-bottom: var(--border-thick);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .banner-title-group h1 {
+      font-size: 1.85rem;
+      font-weight: 900;
+      color: var(--space-ink);
+      line-height: 1.2;
+    }
+
+    .banner-title-group p {
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--space-ink-muted);
+      margin-top: 6px;
+    }
+
+    .badge-tag {
+      background: var(--space-amber);
+      color: var(--space-ink);
+      border: var(--border-sm);
+      border-radius: 9999px;
+      padding: 5px 14px;
+      font-size: 0.78rem;
+      font-weight: 900;
+      box-shadow: var(--shadow-sm);
+      display: inline-block;
+    }
+
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: var(--space-blue-deep);
+      margin: 26px 0 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 10px;
+      height: 22px;
+      background: var(--space-blue-hero);
+      border-radius: 3px;
+    }
+
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 12px 0; }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin: 12px 0; }
+
+    .card-box {
+      background: var(--space-paper-cream);
+      border: var(--border-md);
+      border-radius: 14px;
+      padding: 16px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .card-box h3 {
+      font-size: 1rem;
+      font-weight: 900;
+      color: var(--space-ink);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .card-box p {
+      font-size: 0.83rem;
+      font-weight: 600;
+      color: var(--space-ink-muted);
+      line-height: 1.5;
+    }
+
+    .highlight-strip {
+      background: #eff6ff;
+      border: 2px dashed #93c5fd;
+      border-radius: 12px;
+      padding: 12px 16px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: #1e40af;
+      margin: 14px 0;
+      line-height: 1.5;
+    }
+
+    .step-badge {
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 900;
+      background: var(--space-blue-hero);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: var(--border-md);
+      border-radius: 12px;
+      overflow: hidden;
+      margin: 12px 0;
+      box-shadow: var(--shadow-sm);
+    }
+
+    th {
+      background: var(--space-blue-deep);
+      color: #ffffff;
+      font-weight: 900;
+      font-size: 0.82rem;
+      padding: 10px 12px;
+      text-align: left;
+    }
+
+    td {
+      background: #ffffff;
+      padding: 10px 12px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      border-bottom: 1px solid #cbd5e1;
+      color: var(--space-ink);
+      vertical-align: top;
+    }
+
+    tr:last-child td { border-bottom: none; }
+    tr:nth-child(even) td { background: #f8fafc; }
+
+    .btn-action {
+      background: var(--space-blue-hero);
+      color: #ffffff;
+      border: var(--border-md);
+      border-radius: 10px;
+      box-shadow: var(--shadow-sm);
+      padding: 8px 16px;
+      font-weight: 900;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .btn-action:hover { background: #1d4ed8; }
+
+    .interactive-simulator {
+      background: #0f172a;
+      border: var(--border-thick);
+      border-radius: 16px;
+      padding: 20px;
+      color: #ffffff;
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .sim-screen {
+      background: #020617;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      padding: 18px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 180px;
+      position: relative;
+    }
+
+    .sim-bar-wrap {
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sim-bar-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-family: var(--font-mono);
+    }
+
+    .sim-bar-bg {
+      flex: 1;
+      height: 18px;
+      background: #1e293b;
+      border-radius: 9999px;
+      overflow: hidden;
+      border: 1px solid #475569;
+    }
+
+    .sim-bar-fill {
+      height: 100%;
+      background: var(--space-emerald);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+
+    .sim-btn-group {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .sim-btn {
+      background: #334155;
+      color: #ffffff;
+      border: 2px solid #64748b;
+      border-radius: 10px;
+      padding: 8px 16px;
+      font-family: var(--font-sans);
+      font-size: 0.82rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .sim-btn:hover { background: #475569; }
+    .sim-btn.active {
+      background: var(--space-blue-hero);
+      border-color: #60a5fa;
+      color: #ffffff;
+    }
+  </style>
+</head>
+<body>
+
+<div class="no-print" style="width: 100%; max-width: 960px; margin-bottom: 16px; display: flex; justify-content: space-between; align-items: center;">
+  <div style="color: #ffffff; font-weight: 800; font-size: 0.9rem;">
+    📘 Modul 1: Panduan Pelatih & Lab Interaktif Teachable Machine
+  </div>
+  <div style="display: flex; gap: 8px;">
+    <button class="btn-action" onclick="window.print()">🖨️ Cetak Modul (A4)</button>
+    <a class="btn-action" style="background: var(--space-emerald);" href="https://teachablemachine.withgoogle.com/" target="_blank">🌐 Buka Teachable Machine Asli ↗</a>
+  </div>
+</div>
+
+<div class="doc-page">
+
+  <!-- HEADER -->
+  <div class="banner-header">
+    <div class="banner-title-group">
+      <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 6px;">
+        <span class="badge-tag">MODUL 1 RESMI (SESI 1 DARI 4)</span>
+        <span style="font-weight: 800; font-size: 0.85rem; color: var(--space-ink-muted);">DURASI: 90 MENIT</span>
+      </div>
+      <h1>Mata & Sensor Mesin: Membongkar Rahasia AI</h1>
+      <p>Kurikulum Solutif Bebas Ketik: Menembus Blank Canvas Paralysis dengan Google Teachable Machine</p>
+    </div>
+  </div>
+
+  <!-- SECTION 1: KENAPA MODUL INI DIRANCANG SEPERTI INI? -->
+  <div class="section-title">1. Jembatan Pedagogis: Mengapa Bebas Ketik & Berbasis Tubuh?</div>
+  <div class="grid-2">
+    <div class="card-box" style="border-left: 5px solid var(--space-crimson);">
+      <span class="step-badge" style="background: var(--space-crimson);">MASALAH LAPANGAN (STRUGGLE)</span>
+      <h3>Blank Canvas Paralysis</h3>
+      <p>
+        Anak usia 8–12 tahun membeku ketika langsung disuruh mengetik prompt cerita dari nol. Kecepatan mengetik mereka hanya 10–15 WPM dan mereka takut salah ketik, sehingga orang tua cenderung mengambil alih keyboard.
+      </p>
+    </div>
+    <div class="card-box" style="border-left: 5px solid var(--space-emerald);">
+      <span class="step-badge" style="background: var(--space-emerald);">SOLUSI TEACHABLE MACHINE</span>
+      <h3>Sensory & Embodied AI</h3>
+      <p>
+        Anak tidak memencet tuts keyboard sama sekali. Mereka hanya menggunakan mimik wajah, pose tubuh, dan benda di saku di depan webcam. Model belajar dalam 10 detik secara lokal dan instan!
+      </p>
+    </div>
+  </div>
+
+  <div class="highlight-strip">
+    💡 <strong>Triad Fundamental AI yang Dipelajari Anak Hari Ini:</strong><br>
+    $$\text{Data Input (50 Foto Frame)} \longrightarrow \text{Model (Otak Mesin)} \longrightarrow \text{Confidence Score (Meteran Probabilitas 0–100\%) }$$
+  </div>
+
+  <!-- SECTION 2: RUNDOWN DETAIL 90 MENIT -->
+  <div class="section-title">2. Alur Pelaksanaan 90 Menit (Menit-per-Menit)</div>
+  <table>
+    <thead>
+      <tr>
+        <th style="width: 14%;">Waktu</th>
+        <th style="width: 24%;">Fase Kegiatan</th>
+        <th style="width: 44%;">Aktivitas Siswa & Naskah Fasilitator</th>
+        <th style="width: 18%;">Output Nyata</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>00–12 m</strong></td>
+        <td><strong>Unplugged: Komputer Buta & Tebak Ciri</strong></td>
+        <td>Laptop ditutup. Mentor memakai penutup mata kain. Asisten memegang gambar Kucing. Anak-anak hanya boleh memberi CIRI-CIRI FISIK (telinga segitiga, kumis tipis) sampai mentor menebak benar.</td>
+        <td>Anak paham konsep ciri data</td>
+      </tr>
+      <tr>
+        <td><strong>12–32 m</strong></td>
+        <td><strong>Sentuhan Pertama: 2 Kelas Cepat</strong></td>
+        <td>Buka Teachable Machine di Chrome. Buat Kelas 1: <em>Tangan Terbuka</em> vs Kelas 2: <em>Kepalan Tinju</em>. Rekam 40–50 frame. Klik Train (10 detik). Langsung tes di Preview!</td>
+        <td>Early win & kepercayaan diri anak</td>
+      </tr>
+      <tr>
+        <td><strong>32–55 m</strong></td>
+        <td><strong>Evolusi 3 Mode Avatar Petualang</strong></td>
+        <td>Ubah kelas menjadi: 1. Wajah Normal, 2. Jurus Tempur, 3. Senjata Rahasia (ambil benda nyata di saku: botol/kunci). Putar laptop ke teman sebelah untuk diuji coba!</td>
+        <td>3 DNA Karakter siap untuk Modul 2</td>
+      </tr>
+      <tr>
+        <td><strong>55–75 m</strong></td>
+        <td><strong>Hack The AI: Membongkar Bias Mesin</strong></td>
+        <td>Trik pindah kursi (latar belakang berubah) dan trik benda palsu (tumbler merah diganti buku merah). Anak melihat meteran persentase turun/tertipu.</td>
+        <td>Daya kritis & literasi anti-hoaks</td>
+      </tr>
+      <tr>
+        <td><strong>75–85 m</strong></td>
+        <td><strong>Pencatatan DNA di Lembar Paspor</strong></td>
+        <td>Anak mengisi Lembar Paspor Petualang AI: menuliskan nama avatar, jurus tempur, dan skor keyakinan tertinggi yang dicapai.</td>
+        <td>Catatan fisik permanen</td>
+      </tr>
+      <tr>
+        <td><strong>85–90 m</strong></td>
+        <td><strong>Cap Stempel Pos 1 & Penutupan</strong></td>
+        <td>Mentor mencap stempel resmi <strong>"LULUS POS 1: DETEKTIF DATA"</strong> di buku paspor anak. Mentor memberi teaser pengantar Modul 2.</td>
+        <td>Bukti kemajuan belajar</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- SECTION 3: SIMULATOR MINI KONSEP TEACHABLE MACHINE -->
+  <div class="section-title">3. Simulator Mini: Coba Cara Kerja Teachable Machine di Sini!</div>
+  <p style="font-size: 0.85rem; font-weight: 600; color: var(--space-ink-muted); margin-bottom: 10px;">
+    Klik tombol simulasi pose di bawah untuk melihat bagaimana model AI membaca input dan mengubah nilai meteran probabilitas (Confidence Score):
+  </p>
+
+  <div class="interactive-simulator">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #334155; padding-bottom: 10px;">
+      <span style="font-size: 0.82rem; font-weight: 900; color: #38bdf8;">SIMULATOR WEBCAM AI MODEL</span>
+      <span id="simStatusTag" style="font-size: 0.75rem; background: #1e293b; padding: 2px 8px; border-radius: 6px; color: #a5f3fc;">Mode Standby</span>
+    </div>
+
+    <div class="sim-screen">
+      <div id="simVisualEmoji" style="font-size: 4rem; margin-bottom: 12px; transition: transform 0.2s ease;">👤</div>
+      <div id="simVisualText" style="font-size: 0.95rem; font-weight: 800; color: #f8fafc;">Pilih pose di bawah untuk menguji model</div>
+    </div>
+
+    <div class="sim-bar-wrap">
+      <div class="sim-bar-item">
+        <span style="width: 140px;">Kelas 1 (Senyum):</span>
+        <div class="sim-bar-bg"><div id="barClass1" class="sim-bar-fill"></div></div>
+        <span id="valClass1" style="width: 40px; text-align: right;">0%</span>
+      </div>
+      <div class="sim-bar-item">
+        <span style="width: 140px;">Kelas 2 (Jurus Tempur):</span>
+        <div class="sim-bar-bg"><div id="barClass2" class="sim-bar-fill"></div></div>
+        <span id="valClass2" style="width: 40px; text-align: right;">0%</span>
+      </div>
+      <div class="sim-bar-item">
+        <span style="width: 140px;">Kelas 3 (Senjata Rahasia):</span>
+        <div class="sim-bar-bg"><div id="barClass3" class="sim-bar-fill"></div></div>
+        <span id="valClass3" style="width: 40px; text-align: right;">0%</span>
+      </div>
+    </div>
+
+    <div class="sim-btn-group">
+      <button class="sim-btn" onclick="triggerSim('smile')">😄 Pose Senyum</button>
+      <button class="sim-btn" onclick="triggerSim('fight')">🥋 Pose Jurus Tempur</button>
+      <button class="sim-btn" onclick="triggerSim('item')">🥤 Tunjukkan Benda Saku</button>
+      <button class="sim-btn" onclick="triggerSim('trick')">🎭 Trik Latar Belakang (Hack AI!)</button>
+    </div>
+  </div>
+
+  <!-- SECTION 4: INSTRUMEN OBSERVASI MENTOR (DAY 1 DIAGNOSTIC) -->
+  <div class="section-title">4. Instrumen Observasi Mentor: Menemukan "Anak Strong di Mana"</div>
+  <p style="font-size: 0.85rem; font-weight: 600; color: var(--space-ink-muted); margin-bottom: 12px;">
+    Selama 90 menit sesi berjalan, mentor asisten mencatat indikator perilaku alami anak tanpa ujian tertulis formal:
+  </p>
+
+  <div class="grid-2">
+    <div class="card-box" style="border-top: 4px solid var(--space-blue-hero);">
+      <h3>🔍 The Systematic Sleuth (Logika)</h3>
+      <p>
+        <strong>Ciri Teramati:</strong> Sangat fokus memperhatikan pergerakan angka persentase meteran, penasaran kenapa model salah tebak, dan suka menguji batas toleransi sudut kamera.<br>
+        <em style="color: var(--space-blue-hero);">Arah Bakat: Problem Solver, Software Architecture, Machine Learning.</em>
+      </p>
+    </div>
+    <div class="card-box" style="border-top: 4px solid var(--space-amber);">
+      <h3>🎨 The Expressive Storyteller (Narasi)</h3>
+      <p>
+        <strong>Ciri Teramati:</strong> Totalitas saat berpose wajah, langsung memberi nama epik pada jurusnya (*"Jurus Petir Bintang 9"*), dan sibuk menceritakan latar belakang avatarnya.<br>
+        <em style="color: #b45309;">Arah Bakat: Game Writer, Creative Director, Animator, Storyteller.</em>
+      </p>
+    </div>
+    <div class="card-box" style="border-top: 4px solid var(--space-emerald);">
+      <h3>🛠️ The Tactile Architect (Hardware)</h3>
+      <p>
+        <strong>Ciri Teramati:</strong> Paling antusias saat mencari benda fisik di saku untuk Kelas 3, penasaran dengan perangkat keras webcam/laptop, suka meraba tekstur benda.<br>
+        <em style="color: #047857;">Arah Bakat: Roboticist, IoT Maker, Mechanical Engineer.</em>
+      </p>
+    </div>
+    <div class="card-box" style="border-top: 4px solid var(--space-purple);">
+      <h3>✨ The Visual Stylist (Estetika)</h3>
+      <p>
+        <strong>Ciri Teramati:</strong> Peduli pada pencahayaan ruangan, kerapian posisi wajah tepat di tengah layar webcam, dan kebersihan kontras latar belakang.<br>
+        <em style="color: var(--space-purple);">Arah Bakat: UI/UX Designer, Digital Illustrator, Visual Director.</em>
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function triggerSim(type) {
+    const btnList = document.querySelectorAll('.sim-btn');
+    btnList.forEach(b => b.classList.remove('active'));
+
+    const emojiEl = document.getElementById('simVisualEmoji');
+    const textEl = document.getElementById('simVisualText');
+    const statusTag = document.getElementById('simStatusTag');
+
+    const bar1 = document.getElementById('barClass1');
+    const val1 = document.getElementById('valClass1');
+    const bar2 = document.getElementById('barClass2');
+    const val2 = document.getElementById('valClass2');
+    const bar3 = document.getElementById('barClass3');
+    const val3 = document.getElementById('valClass3');
+
+    if (type === 'smile') {
+      emojiEl.innerText = '😄';
+      textEl.innerText = 'Model Mengenali: Wajah Bahagia (Senyum)';
+      statusTag.innerText = 'Deteksi Sukses';
+      statusTag.style.color = '#86efac';
+
+      bar1.style.width = '96%'; val1.innerText = '96%';
+      bar2.style.width = '3%';  val2.innerText = '3%';
+      bar3.style.width = '1%';  val3.innerText = '1%';
+    } else if (type === 'fight') {
+      emojiEl.innerText = '🥋';
+      textEl.innerText = 'Model Mengenali: Jurus Tempur Aktif!';
+      statusTag.innerText = 'Deteksi Sukses';
+      statusTag.style.color = '#86efac';
+
+      bar1.style.width = '2%';  val1.innerText = '2%';
+      bar2.style.width = '94%'; val2.innerText = '94%';
+      bar3.style.width = '4%';  val3.innerText = '4%';
+    } else if (type === 'item') {
+      emojiEl.innerText = '🥤';
+      textEl.innerText = 'Model Mengenali: Senjata Pusaka Saku!';
+      statusTag.innerText = 'Deteksi Sukses';
+      statusTag.style.color = '#86efac';
+
+      bar1.style.width = '1%';  val1.innerText = '1%';
+      bar2.style.width = '2%';  val2.innerText = '2%';
+      bar3.style.width = '97%'; val3.innerText = '97%';
+    } else if (type === 'trick') {
+      emojiEl.innerText = '🎭';
+      textEl.innerText = 'Eksperimen Hack AI: Latar Berubah, Model Bingung!';
+      statusTag.innerText = 'Trik AI Berhasil';
+      statusTag.style.color = '#fca5a5';
+
+      bar1.style.width = '45%'; val1.innerText = '45%';
+      bar2.style.width = '42%'; val2.innerText = '42%';
+      bar3.style.width = '13%'; val3.innerText = '13%';
+    }
+  }
+</script>
+
+</body>
+</html>
