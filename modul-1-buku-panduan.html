@@ -1,0 +1,1500 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Buku Panduan Modul 1: Detektif Data & Mata Mesin - Akademi AI for Kids</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800;900&family=JetBrains+Mono:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================================================================
+       AKADEMI AI FOR KIDS: BUKU PANDUAN & BUKU KERJA SISWA
+       MODUL 1: MATA & SENSOR MESIN (GOOGLE TEACHABLE MACHINE LAB)
+       Format Cetak Presisi A4 Portrait (210mm x 297mm) | Matte Estetik Retro-Komik
+       ========================================================================== */
+
+    :root {
+      --space-blue-deep: #1e3a8a;
+      --space-blue-hero: #2563eb;
+      --space-blue-sky: #0284c7;
+      --space-blue-light: #eff6ff;
+      --space-amber: #d97706;
+      --space-amber-bright: #f59e0b;
+      --space-amber-light: #fef3c7;
+      --space-emerald: #059669;
+      --space-emerald-bright: #10b981;
+      --space-emerald-light: #ecfdf5;
+      --space-purple: #7e22ce;
+      --space-purple-light: #f5f3ff;
+      --space-crimson: #dc2626;
+      --space-crimson-light: #fef2f2;
+      --space-ink: #0f172a;
+      --space-ink-muted: #475569;
+      --space-slate-line: #cbd5e1;
+      --space-paper-white: #ffffff;
+      --space-paper-cream: #fffdf5;
+
+      --border-thick: 3px solid var(--space-ink);
+      --border-md: 2px solid var(--space-ink);
+      --border-sm: 1.5px solid var(--space-ink);
+
+      --shadow-sm: 2px 2px 0px var(--space-ink);
+      --shadow-md: 3.5px 3.5px 0px var(--space-ink);
+      --shadow-lg: 5px 5px 0px var(--space-ink);
+
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    body {
+      background-color: #0b1329;
+      background-image: 
+        linear-gradient(rgba(37, 99, 235, 0.15) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(37, 99, 235, 0.15) 1px, transparent 1px);
+      background-size: 32px 32px;
+      color: var(--space-ink);
+      font-family: var(--font-sans);
+      padding: 30px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* WEB TOOLBAR CONTROLS */
+    .web-toolbar {
+      width: 210mm;
+      max-width: 100%;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1e293b;
+      border: 2px solid #334155;
+      border-radius: 12px;
+      padding: 12px 20px;
+      color: #ffffff;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .web-toolbar-title {
+      font-size: 0.95rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .btn-action {
+      background: var(--space-blue-hero);
+      color: #ffffff;
+      border: var(--border-md);
+      border-radius: 8px;
+      box-shadow: var(--shadow-sm);
+      padding: 8px 16px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action:hover {
+      background: var(--space-blue-deep);
+      transform: translateY(-1px);
+    }
+
+    /* A4 PAGE SPECIFICATION */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      min-height: 297mm;
+      max-height: 297mm;
+      background: var(--space-paper-white);
+      border: var(--border-thick);
+      box-shadow: var(--shadow-lg);
+      padding: 12mm 14mm 10mm 14mm;
+      margin-bottom: 25px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      page-break-after: always;
+      break-after: page;
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .web-toolbar {
+        display: none !important;
+      }
+      .a4-page {
+        margin: 0;
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+        page-break-after: always;
+        break-after: page;
+      }
+    }
+
+    /* REUSABLE HEADER & FOOTER */
+    .page-header {
+      border-bottom: var(--border-md);
+      padding-bottom: 8px;
+      margin-bottom: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .header-logo-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .academy-badge {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 800;
+      background: var(--space-blue-deep);
+      color: #ffffff;
+      padding: 3px 8px;
+      border-radius: 6px;
+      letter-spacing: 0.5px;
+    }
+
+    .header-tagline {
+      font-size: 0.76rem;
+      font-weight: 800;
+      color: var(--space-ink-muted);
+    }
+
+    .header-module-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: var(--space-amber-light);
+      border: 1.5px solid var(--space-amber);
+      color: var(--space-amber);
+      padding: 2px 8px;
+      border-radius: 9999px;
+    }
+
+    .page-footer {
+      border-top: var(--border-md);
+      padding-top: 6px;
+      margin-top: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--space-ink-muted);
+      font-family: var(--font-sans);
+    }
+
+    .page-num {
+      font-family: var(--font-mono);
+      font-weight: 800;
+      background: var(--space-paper-cream);
+      border: 1.5px solid var(--space-ink);
+      padding: 1px 8px;
+      border-radius: 6px;
+      color: var(--space-ink);
+    }
+
+    /* TYPOGRAPHY & TITLES */
+    .module-title-h1 {
+      font-size: 1.55rem;
+      font-weight: 900;
+      line-height: 1.2;
+      color: var(--space-ink);
+      letter-spacing: -0.3px;
+    }
+
+    .module-subtitle-p {
+      font-size: 0.84rem;
+      font-weight: 700;
+      color: var(--space-ink-muted);
+      margin-top: 4px;
+      line-height: 1.4;
+    }
+
+    .section-banner {
+      background: var(--space-paper-cream);
+      border: var(--border-md);
+      border-radius: 10px;
+      padding: 8px 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .section-title-text {
+      font-size: 0.95rem;
+      font-weight: 900;
+      color: var(--space-blue-deep);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-meta-pill {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      font-weight: 800;
+      background: var(--space-blue-hero);
+      color: #ffffff;
+      padding: 2px 7px;
+      border-radius: 5px;
+    }
+
+    /* RETRO-COMIC COMPONENTS */
+    .comic-dialogue-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .comic-bubble-card {
+      background: var(--space-paper-cream);
+      border: var(--border-md);
+      border-radius: 12px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      position: relative;
+    }
+
+    .char-avatar-mini {
+      width: 48px;
+      height: 48px;
+      border-radius: 8px;
+      border: 2px solid var(--space-ink);
+      object-fit: cover;
+      flex-shrink: 0;
+      box-shadow: 1.5px 1.5px 0px var(--space-ink);
+    }
+
+    .bubble-content {
+      flex: 1;
+    }
+
+    .bubble-name {
+      font-size: 0.78rem;
+      font-weight: 900;
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 4px;
+      margin-bottom: 3px;
+      border: 1px solid var(--space-ink);
+    }
+
+    .name-bima {
+      background: #bfdbfe;
+      color: #1e3a8a;
+    }
+
+    .name-kinar {
+      background: #fed7aa;
+      color: #7c2d12;
+    }
+
+    .bubble-text {
+      font-size: 0.77rem;
+      font-weight: 600;
+      color: var(--space-ink);
+      line-height: 1.35;
+    }
+
+    /* GRID & CARDS */
+    .grid-2col {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .grid-3col {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-bottom: 10px;
+    }
+
+    .card-panel {
+      background: #ffffff;
+      border: var(--border-md);
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-panel-cream {
+      background: var(--space-paper-cream);
+      border: var(--border-md);
+      border-radius: 10px;
+      padding: 10px 12px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-title-bar {
+      font-size: 0.84rem;
+      font-weight: 900;
+      color: var(--space-ink);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1.5px dashed var(--space-slate-line);
+      padding-bottom: 4px;
+    }
+
+    .card-body-text {
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--space-ink-muted);
+      line-height: 1.4;
+    }
+
+    .step-num-pill {
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 900;
+      background: var(--space-blue-hero);
+      color: #ffffff;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .info-strip {
+      background: var(--space-blue-light);
+      border: 1.5px solid #bfdbfe;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #1e40af;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0;
+    }
+
+    .warn-strip {
+      background: var(--space-amber-light);
+      border: 1.5px solid #fde68a;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #92400e;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0;
+    }
+
+    .success-strip {
+      background: var(--space-emerald-light);
+      border: 1.5px solid #a7f3d0;
+      border-radius: 8px;
+      padding: 8px 10px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #065f46;
+      line-height: 1.4;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 6px 0;
+    }
+
+    /* STEP BY STEP BOXES */
+    .step-flow-box {
+      border: var(--border-md);
+      border-radius: 10px;
+      background: #ffffff;
+      padding: 10px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      position: relative;
+    }
+
+    .step-flow-box.active-step {
+      background: var(--space-paper-cream);
+      border-left: 6px solid var(--space-blue-hero);
+    }
+
+    /* TABLES */
+    .clean-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      border: var(--border-md);
+      border-radius: 8px;
+      overflow: hidden;
+      font-size: 0.74rem;
+      margin: 6px 0;
+    }
+
+    .clean-table th {
+      background: var(--space-blue-deep);
+      color: #ffffff;
+      font-weight: 800;
+      padding: 6px 8px;
+      text-align: left;
+      font-size: 0.72rem;
+    }
+
+    .clean-table td {
+      padding: 6px 8px;
+      border-bottom: 1px solid var(--space-slate-line);
+      color: var(--space-ink);
+      font-weight: 600;
+      vertical-align: top;
+      background: #ffffff;
+      line-height: 1.35;
+    }
+
+    .clean-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    .clean-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* FORM ELEMENTS & CHECKBOXES */
+    .input-line {
+      display: inline-block;
+      border-bottom: 1.5px solid var(--space-ink);
+      height: 14px;
+      min-width: 80px;
+    }
+
+    .check-circle {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 1.5px solid var(--space-ink);
+      border-radius: 4px;
+      margin-right: 6px;
+      vertical-align: -2px;
+      background: #ffffff;
+    }
+
+    /* METER BAR */
+    .meter-visual {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--font-mono);
+      font-size: 0.72rem;
+      font-weight: 800;
+      margin: 3px 0;
+    }
+
+    .meter-bg {
+      flex: 1;
+      height: 14px;
+      background: #e2e8f0;
+      border-radius: 9999px;
+      border: 1px solid var(--space-ink);
+      overflow: hidden;
+      display: flex;
+    }
+
+    .meter-fill {
+      height: 100%;
+      transition: width 0.3s ease;
+    }
+
+    /* STAMP BOX */
+    .official-stamp-box {
+      border: 2px dashed #94a3b8;
+      border-radius: 10px;
+      background: var(--space-paper-cream);
+      padding: 10px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .stamp-seal {
+      width: 68px;
+      height: 68px;
+      border: 2px dashed var(--space-blue-hero);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--space-blue-hero);
+      font-weight: 900;
+      font-size: 0.65rem;
+      text-align: center;
+      transform: rotate(-8deg);
+      line-height: 1.2;
+      background: #ffffff;
+      box-shadow: var(--shadow-sm);
+      flex-shrink: 0;
+    }
+
+    /* DRAWING CANVAS */
+    .sketch-canvas {
+      border: 2px dashed #94a3b8;
+      border-radius: 8px;
+      height: 110px;
+      background: #ffffff;
+      background-image: 
+        linear-gradient(#f1f5f9 1px, transparent 1px),
+        linear-gradient(90deg, #f1f5f9 1px, transparent 1px);
+      background-size: 14px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #94a3b8;
+      text-align: center;
+      position: relative;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOOLBAR WEB (TIDAK MUNCUL SAAT CETAK PDF) -->
+  <div class="web-toolbar">
+    <div class="web-toolbar-title">
+      <span>📘 Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span style="font-size: 0.75rem; background: var(--space-amber); color: #000; padding: 2px 8px; border-radius: 6px;">7 Halaman Lengkap</span>
+    </div>
+    <div style="display: flex; gap: 10px;">
+      <a class="btn-action" style="background: var(--space-emerald);" href="https://teachablemachine.withgoogle.com/" target="_blank">🌐 Buka Teachable Machine ↗</a>
+      <button class="btn-action" onclick="window.print()">🖨️ Cetak / Simpan PDF (A4)</button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 1: SAMPUL RESMI & KARTU DETEKTIF CILIK
+       ========================================================================== -->
+  <div class="a4-page" id="page-1">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">AKADEMI AI FOR KIDS</span>
+          <span class="header-tagline">Lab Sains, Logika & Rancang Bangun AI Ramah Anak</span>
+        </div>
+        <span class="header-module-pill">EDISI RESMI SISWA</span>
+      </div>
+
+      <!-- BANNER UTAMA SAMPUL -->
+      <div style="background: var(--space-paper-cream); border: var(--border-thick); border-radius: 16px; padding: 18px 20px; box-shadow: var(--shadow-lg); margin-bottom: 14px; position: relative; overflow: hidden;">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start; gap: 14px;">
+          <div>
+            <div style="display: flex; gap: 8px; align-items: center; margin-bottom: 8px;">
+              <span style="background: var(--space-amber-bright); color: var(--space-ink); font-weight: 900; font-size: 0.72rem; padding: 3px 10px; border-radius: 9999px; border: var(--border-sm); box-shadow: var(--shadow-sm); font-family: var(--font-mono);">
+                MODUL 1 DARI 4 • TAHAP 1
+              </span>
+              <span style="font-size: 0.75rem; font-weight: 800; color: var(--space-ink-muted);">DURASI: 90 MENIT</span>
+            </div>
+            <h1 class="module-title-h1" style="font-size: 1.8rem;">MATA & SENSOR MESIN</h1>
+            <h2 style="font-size: 1.15rem; font-weight: 900; color: var(--space-blue-hero); margin-top: 2px;">Detektif Data & Google Teachable Machine</h2>
+            <p class="module-subtitle-p" style="max-width: 440px;">
+              Buku panduan visual langkah demi langkah membongkar rahasia bagaimana komputer melihat benda di dunia nyata tanpa mengetik satu baris kode pun!
+            </p>
+          </div>
+          <!-- BADGE GRAFIS -->
+          <div style="background: #ffffff; border: var(--border-thick); border-radius: 12px; padding: 10px; text-align: center; box-shadow: var(--shadow-sm); width: 110px; flex-shrink: 0;">
+            <div style="font-size: 2.2rem; line-height: 1;">🔍</div>
+            <div style="font-family: var(--font-mono); font-size: 0.65rem; font-weight: 900; color: var(--space-ink); margin-top: 4px;">SENSORY AI</div>
+            <div style="font-size: 0.6rem; font-weight: 800; color: var(--space-emerald); background: var(--space-emerald-light); border-radius: 4px; padding: 1px 4px; margin-top: 2px;">BEBAS KETIK</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU SAMBUTAN KARAKTER (BIMA & KINAR) -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px;">
+        <div class="comic-bubble-card" style="border-left: 5px solid var(--space-blue-hero);">
+          <img src="Aset/Karakter Bima.jpg" class="char-avatar-mini" alt="Bima">
+          <div class="bubble-content">
+            <span class="bubble-name name-bima">BIMA • Sahabat Logika</span>
+            <p class="bubble-text">
+              "Halo Detektif Cilik! Hari ini kita akan memberi komputer <em>'mata digital'</em>. Siapkan senyummu, pose terkerenmu, dan benda rahasia di sakumu!"
+            </p>
+          </div>
+        </div>
+        <div class="comic-bubble-card" style="border-left: 5px solid var(--space-amber);">
+          <img src="Aset/Karakter Kinar.jpg" class="char-avatar-mini" alt="Kinar">
+          <div class="bubble-content">
+            <span class="bubble-name name-kinar">KINAR • Sahabat Desain</span>
+            <p class="bubble-text">
+              "Ingat ya, komputer itu sebenarnya buta! Kita yang menjadi pelatihnya. Ayo buktikan apakah komputer bisa kita latih dan kita jaili sampai bingung!"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU IDENTITAS DETEKTIF CILIK (ISIAN RESMI) -->
+      <div class="card-panel-cream" style="border: var(--border-thick); margin-bottom: 12px;">
+        <div class="card-title-bar" style="border-bottom-color: var(--space-ink);">
+          <span style="font-size: 0.88rem; font-weight: 900; color: var(--space-ink);">📋 KARTU IDENTITAS DETEKTIF CILIK</span>
+          <span style="font-family: var(--font-mono); font-size: 0.68rem; font-weight: 800; background: var(--space-blue-hero); color: #fff; padding: 2px 8px; border-radius: 4px;">PASPOR RESMI #001</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 6px 0;">
+          <div style="font-size: 0.78rem; font-weight: 700;">
+            Nama Lengkap: <span class="input-line" style="width: 60%;"></span>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 700;">
+            Nama Sandi (Codename): <span class="input-line" style="width: 50%;"></span>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 700;">
+            Usia / Kelas: <span class="input-line" style="width: 65%;"></span>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 700;">
+            Sekolah / Markas: <span class="input-line" style="width: 55%;"></span>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 700;">
+            Tanggal Misi: <span class="input-line" style="width: 65%;"></span>
+          </div>
+          <div style="font-size: 0.78rem; font-weight: 700;">
+            Mentor Pendamping: <span class="input-line" style="width: 50%;"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- IKRAR DETEKTIF CILIK AI -->
+      <div style="background: #ffffff; border: var(--border-md); border-radius: 10px; padding: 10px 14px; box-shadow: var(--shadow-sm);">
+        <div style="font-size: 0.82rem; font-weight: 900; color: var(--space-blue-deep); margin-bottom: 4px; display: flex; align-items: center; gap: 6px;">
+          <span>🛡️ IKRAR DETEKTIF CILIK AI</span>
+        </div>
+        <p style="font-size: 0.73rem; font-weight: 600; color: var(--space-ink-muted); line-height: 1.4;">
+          1. <strong>Saya Penasaran:</strong> Saya selalu ingin tahu bagaimana cara kerja mesin di balik layar.<br>
+          2. <strong>Saya Kritis:</strong> Saya tidak percaya begitu saja pada tebakan komputer tanpa mengujinya.<br>
+          3. <strong>Saya Pengendali:</strong> Manusia adalah pemimpin teknologi, AI adalah alat pembantu yang kita latih.
+        </p>
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 1 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 1 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 2: BAB 1 - CERITA PEMBUKA & MISI DETEKTIF
+       ========================================================================== -->
+  <div class="a4-page" id="page-2">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">BAB 1</span>
+          <span class="header-tagline">Cerita Pembuka & Logika Sains</span>
+        </div>
+        <span class="header-module-pill">KOMPUTER BUTA & DATA</span>
+      </div>
+
+      <div class="section-banner">
+        <div class="section-title-text">
+          <span>🔍 Rahasia Mata Mesin: Komputer Sebenarnya Buta!</span>
+        </div>
+        <span class="section-meta-pill">MENIT 00–12</span>
+      </div>
+
+      <!-- DIALOG KOMIK -->
+      <div class="comic-dialogue-row">
+        <div class="comic-bubble-card">
+          <img src="Aset/Karakter Kinar.jpg" class="char-avatar-mini" alt="Kinar">
+          <div class="bubble-content">
+            <span class="bubble-name name-kinar">KINAR</span>
+            <p class="bubble-text">
+              "Bima! Apakah lensa webcam di laptop itu bisa melihat wajah kita seperti mata manusia?"
+            </p>
+          </div>
+        </div>
+        <div class="comic-bubble-card">
+          <img src="Aset/Karakter Bima.jpg" class="char-avatar-mini" alt="Bima">
+          <div class="bubble-content">
+            <span class="bubble-name name-bima">BIMA</span>
+            <p class="bubble-text">
+              "Sama sekali tidak, Kinar! Bagi komputer, gambarmu hanyalah jutaan angka kotak warna (pixel). Komputer tidak tahu apa itu 'mata' atau 'senyum'!"
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDI KASUS CHIHUAHUA VS MUFFIN -->
+      <div class="card-panel-cream" style="margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <span style="color: var(--space-crimson);">🐾 Kasus Detektif Nyata: Misteri "Chihuahua vs Muffin Cokelat"</span>
+          <span style="font-family: var(--font-mono); font-size: 0.68rem; font-weight: 800; background: var(--space-crimson); color: #fff; padding: 1px 6px; border-radius: 4px;">STUDI KASUS AI</span>
+        </div>
+        <p class="card-body-text">
+          Pernahkah kamu melihat foto anjing kecil Chihuahua yang disandingkan dengan kue muffin cokelat bertabur kismis? Keduanya memiliki <strong>tiga titik cokelat gelap</strong> (dua mata dan satu hidung pada anjing, atau tiga butir kismis pada muffin)!
+        </p>
+        <div style="background: #ffffff; border: var(--border-sm); border-radius: 8px; padding: 8px 10px; margin-top: 6px; display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="font-size: 0.73rem; font-weight: 700; color: #1e3a8a;">
+            🐶 <strong>Mata Manusia:</strong> Langsung tahu bedanya karena manusia paham bulu anjing itu hangat dan bernapas, sedangkan muffin itu kue manis berpori.
+          </div>
+          <div style="font-size: 0.73rem; font-weight: 700; color: #b45309;">
+            💻 <strong>Otak Komputer:</strong> Sangat bingung! Bagi komputer, keduanya sama-sama lingkaran cokelat muda dengan 3 bintik gelap. Komputer menebak 50% Anjing, 50% Roti!
+          </div>
+        </div>
+      </div>
+
+      <!-- DIAGRAM TRIAD FUNDAMENTAL MACHINE LEARNING -->
+      <div class="card-panel" style="margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <span>🧠 Tiga Kunci Cara Mesin Belajar (Triad Fundamental AI)</span>
+          <span style="font-size: 0.7rem; color: var(--space-blue-hero);">Konsep Sains Wajib Paham</span>
+        </div>
+        <div class="grid-3col" style="margin-top: 6px; margin-bottom: 0;">
+          <div style="background: var(--space-blue-light); border: 1.5px solid #93c5fd; border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="font-size: 1.3rem;">📸</div>
+            <div style="font-size: 0.76rem; font-weight: 900; color: #1e40af; margin-top: 2px;">1. DATA INPUT</div>
+            <p style="font-size: 0.7rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 3px;">
+              Contoh foto dari berbagai sudut. Ini adalah 'makanan' bagi otak mesin.
+            </p>
+          </div>
+          <div style="background: var(--space-amber-light); border: 1.5px solid #fde68a; border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="font-size: 1.3rem;">🧩</div>
+            <div style="font-size: 0.76rem; font-weight: 900; color: #b45309; margin-top: 2px;">2. MODEL AI</div>
+            <p style="font-size: 0.7rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 3px;">
+              Kumpulan rumus matematika yang mencari pola garis, bentuk, dan warna.
+            </p>
+          </div>
+          <div style="background: var(--space-emerald-light); border: 1.5px solid #a7f3d0; border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="font-size: 1.3rem;">🎯</div>
+            <div style="font-size: 0.76rem; font-weight: 900; color: #065f46; margin-top: 2px;">3. CONFIDENCE SCORE</div>
+            <p style="font-size: 0.7rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 3px;">
+              Meteran persentase (0–100%) seberapa yakin komputer dengan tebakannya.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- RUNDOWN ALUR SESI 90 MENIT -->
+      <div class="card-panel-cream">
+        <div class="card-title-bar">
+          <span>⏱️ Peta Alur Menit-demi-Menit Petualangan 90 Menit</span>
+          <span style="font-size: 0.68rem; font-weight: 800; color: var(--space-ink-muted);">6 BABAK AKTIVITAS</span>
+        </div>
+        <table class="clean-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">Waktu</th>
+              <th style="width: 30%;">Babak Misi</th>
+              <th style="width: 55%;">Aktivitas Nyata Detektif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>00–12 m</strong></td>
+              <td><strong>Komputer Buta (Unplugged)</strong></td>
+              <td>Laptop ditutup! Mentor memakai penutup mata. Anak memberi ciri fisik sampai mentor menebak benar.</td>
+            </tr>
+            <tr>
+              <td><strong>12–32 m</strong></td>
+              <td><strong>Lab Sentuhan Pertama</strong></td>
+              <td>Buka Teachable Machine di Chrome. Latih 2 kelas (Tangan Terbuka vs Kepalan Tinju, 50 frame).</td>
+            </tr>
+            <tr>
+              <td><strong>32–55 m</strong></td>
+              <td><strong>Evolusi 3 Avatar Petualang</strong></td>
+              <td>Buat 3 Kelas: Senyum, Jurus Tempur, Benda Saku Misterius. Putar laptop untuk diuji teman sebelah!</td>
+            </tr>
+            <tr>
+              <td><strong>55–75 m</strong></td>
+              <td><strong>Misi Hack The AI (Bias)</strong></td>
+              <td>Uji trik pindah kursi (latar belakang) & benda tiruan serupa. Saksikan meteran kebingungan!</td>
+            </tr>
+            <tr>
+              <td><strong>75–85 m</strong></td>
+              <td><strong>Pencatatan Paspor Siswa</strong></td>
+              <td>Tuliskan data frame, skor keyakinan, dan sketsa avatar di Lembar Kerja Resmi.</td>
+            </tr>
+            <tr>
+              <td><strong>85–90 m</strong></td>
+              <td><strong>Cap Stempel Kelulusan Pos 1</strong></td>
+              <td>Pemberian cap resmi Pos 1 Detektif Data oleh Mentor dan pengantar menuju Modul 2.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 2 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 2 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 3: BAB 2 - LABORATORIUM TEACHABLE MACHINE (LANGKAH 1 & 2)
+       ========================================================================== -->
+  <div class="a4-page" id="page-3">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">BAB 2 • BAGIAN A</span>
+          <span class="header-tagline">Laboratorium Teachable Machine Bergambar</span>
+        </div>
+        <span class="header-module-pill">LANGKAH 1 & 2</span>
+      </div>
+
+      <div class="section-banner">
+        <div class="section-title-text">
+          <span>🚀 Sentuhan Pertama: Menyalakan Kamera & Melatih 2 Gerakan</span>
+        </div>
+        <span class="section-meta-pill">MENIT 12–32</span>
+      </div>
+
+      <!-- LANGKAH 1: MEMBUKA SITUS & IZIN KAMERA -->
+      <div class="step-flow-box active-step" style="margin-bottom: 12px;">
+        <div class="card-title-bar">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="step-num-pill">LANGKAH 1</span>
+            <span style="font-weight: 900; font-size: 0.86rem; color: var(--space-blue-deep);">Buka Markas Teachable Machine di Google Chrome</span>
+          </div>
+          <span style="font-size: 0.7rem; color: var(--space-emerald); font-weight: 800;">✓ Aman & Bebas Biaya</span>
+        </div>
+        <p class="card-body-text">
+          Buka aplikasi browser <strong>Google Chrome</strong> di laptopmu, lalu ketik alamat situs berikut di kotak pencarian:
+        </p>
+        <div style="background: #0f172a; color: #38bdf8; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 800; padding: 7px 12px; border-radius: 6px; display: flex; justify-content: space-between; align-items: center;">
+          <span>https://teachablemachine.withgoogle.com/</span>
+          <span style="color: #94a3b8; font-size: 0.7rem;">[ TEKAN ENTER ]</span>
+        </div>
+        
+        <div class="grid-3col" style="margin-top: 6px; margin-bottom: 2px;">
+          <div style="background: #ffffff; border: var(--border-sm); border-radius: 6px; padding: 6px 8px; font-size: 0.73rem;">
+            <strong>1. Klik "Get Started"</strong><br>
+            <span style="color: var(--space-ink-muted);">Tombol biru di tengah layar beranda.</span>
+          </div>
+          <div style="background: #ffffff; border: var(--border-sm); border-radius: 6px; padding: 6px 8px; font-size: 0.73rem;">
+            <strong>2. Pilih "Image Project"</strong><br>
+            <span style="color: var(--space-ink-muted);">Pilih kotak paling kiri bergambar foto.</span>
+          </div>
+          <div style="background: #ffffff; border: var(--border-sm); border-radius: 6px; padding: 6px 8px; font-size: 0.73rem;">
+            <strong>3. "Standard Image Model"</strong><br>
+            <span style="color: var(--space-ink-muted);">Pilih model standar untuk komputer/laptop.</span>
+          </div>
+        </div>
+
+        <div class="info-strip">
+          🛡️ <strong>Penting (Izin Kamera):</strong> Saat muncul jendela kecil di kiri atas <em>"teachablemachine wants to use your camera"</em>, klik tombol <strong>"Allow" (Izinkan)</strong>. Seluruh proses pengolahan foto berlangsung di laptopmu secara aman!
+        </div>
+      </div>
+
+      <!-- LANGKAH 2: LATIHAN CEPAT 2 KELAS -->
+      <div class="step-flow-box" style="margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="step-num-pill" style="background: var(--space-amber);">LANGKAH 2</span>
+            <span style="font-weight: 900; font-size: 0.86rem; color: var(--space-ink);">Latihan Kilat 2 Gerakan: Tangan Terbuka vs Kepalan Tinju</span>
+          </div>
+          <span style="font-size: 0.7rem; font-weight: 800; color: var(--space-blue-hero);">50 Foto per Kelas</span>
+        </div>
+        <p class="card-body-text">
+          Untuk membuktikan seberapa cepat komputer belajar, kita buat 2 kelas sederhana terlebih dahulu:
+        </p>
+
+        <div class="grid-2col" style="margin-top: 6px; margin-bottom: 6px;">
+          <!-- KELAS 1 -->
+          <div style="background: #ffffff; border: 2px solid var(--space-blue-hero); border-radius: 8px; padding: 8px 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span style="font-weight: 900; font-size: 0.78rem; color: var(--space-blue-hero);">✋ KELAS 1: TANGAN TERBUKA</span>
+              <span style="font-family: var(--font-mono); font-size: 0.65rem; background: #eff6ff; padding: 1px 5px; border-radius: 4px;">Target: 40–50 Frame</span>
+            </div>
+            <p style="font-size: 0.72rem; color: var(--space-ink-muted); line-height: 1.35;">
+              1. Ubah tulisan <em>Class 1</em> menjadi <strong>TANGAN TERBUKA</strong>.<br>
+              2. Klik tombol <strong>Webcam</strong>, buka telapak tanganmu di depan kamera.<br>
+              3. Tahan tombol <strong>Hold to Record</strong> sambil menggoyangkan sedikit jari-jarimu sampai counter mencapai 50 foto!
+            </p>
+          </div>
+
+          <!-- KELAS 2 -->
+          <div style="background: #ffffff; border: 2px solid var(--space-amber); border-radius: 8px; padding: 8px 10px;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+              <span style="font-weight: 900; font-size: 0.78rem; color: var(--space-amber);">✊ KELAS 2: KEPALAN TINJU</span>
+              <span style="font-family: var(--font-mono); font-size: 0.65rem; background: #fef3c7; padding: 1px 5px; border-radius: 4px;">Target: 40–50 Frame</span>
+            </div>
+            <p style="font-size: 0.72rem; color: var(--space-ink-muted); line-height: 1.35;">
+              1. Ubah tulisan <em>Class 2</em> menjadi <strong>KEPALAN TINJU</strong>.<br>
+              2. Klik tombol <strong>Webcam</strong>, kepalkan tanganmu erat-erat.<br>
+              3. Tahan tombol <strong>Hold to Record</strong> sambil memutar kepalan tanganmu perlahan hingga mencapai 50 foto!
+            </p>
+          </div>
+        </div>
+
+        <!-- TOMBOL TRAIN MODEL -->
+        <div style="background: var(--space-paper-cream); border: var(--border-sm); border-radius: 8px; padding: 8px 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px;">
+          <div>
+            <div style="font-size: 0.78rem; font-weight: 900; color: var(--space-ink);">
+              ⚡ Tekan Tombol Tengah: <span style="color: var(--space-blue-hero);">"Train Model"</span>
+            </div>
+            <div style="font-size: 0.71rem; font-weight: 600; color: var(--space-ink-muted);">
+              Tunggu 10 detik! <strong>DILARANG PINDAH TAB ATAU MINIMIZE BROWSER</strong> selama proses pelatihan agar perhitungan otak mesin tidak terputus.
+            </div>
+          </div>
+          <div style="background: var(--space-emerald); color: #fff; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 900; padding: 6px 12px; border-radius: 6px; box-shadow: var(--shadow-sm); flex-shrink: 0;">
+            TRAINING: 10 DETIK
+          </div>
+        </div>
+      </div>
+
+      <!-- KOTAK PREVIEW CEPAT -->
+      <div class="success-strip">
+        🎉 <strong>Uji di Jendela Preview:</strong> Begitu selesai training, lihat kotak Preview di sebelah kanan. Buka tanganmu, lalu kepalkan tanganmu! Perhatikan meteran berwarna melonjak ke 100% mengikuti gerakanmu!
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 3 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 3 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 4: BAB 2 - LABORATORIUM (LANGKAH 3 & 4)
+       ========================================================================== -->
+  <div class="a4-page" id="page-4">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">BAB 2 • BAGIAN B</span>
+          <span class="header-tagline">Laboratorium Teachable Machine Bergambar</span>
+        </div>
+        <span class="header-module-pill">LANGKAH 3 & 4</span>
+      </div>
+
+      <div class="section-banner">
+        <div class="section-title-text">
+          <span>🥋 Evolusi Avatar 3 Mode & Membaca Meteran Keyakinan</span>
+        </div>
+        <span class="section-meta-pill">MENIT 32–55</span>
+      </div>
+
+      <!-- LANGKAH 3: EVOLUSI AVATAR 3 MODE -->
+      <div class="step-flow-box active-step" style="margin-bottom: 12px;">
+        <div class="card-title-bar">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="step-num-pill">LANGKAH 3</span>
+            <span style="font-weight: 900; font-size: 0.86rem; color: var(--space-blue-deep);">Evolusi Avatar Petualang 3 Mode (Persiapan Modul 2)</span>
+          </div>
+          <span style="font-size: 0.7rem; color: var(--space-purple); font-weight: 800;">3 DNA Karakter Game</span>
+        </div>
+        <p class="card-body-text">
+          Sekarang kita hapus atau ubah nama kelas menjadi 3 mode petualang asli. Klik tombol <strong>"+ Add a class"</strong> di bawah untuk membuat kelas ketiga:
+        </p>
+
+        <div class="grid-3col" style="margin-top: 6px; margin-bottom: 6px;">
+          <!-- MODE 1 -->
+          <div style="background: #ffffff; border: 2px solid var(--space-emerald); border-radius: 8px; padding: 8px;">
+            <div style="font-size: 0.76rem; font-weight: 900; color: var(--space-emerald); margin-bottom: 2px;">MODE 1: SENYUM</div>
+            <div style="font-size: 0.68rem; font-weight: 800; color: var(--space-ink-muted); margin-bottom: 4px;">Karakter Standby / Ramah</div>
+            <p style="font-size: 0.7rem; color: var(--space-ink); line-height: 1.3;">
+              Duduk tegak, tatap kamera, dan tersenyum lebar. Rekam 50 frame foto wajah ramahmu. Miringkan kepala sedikit agar mesin mengenali berbagai sudut.
+            </p>
+          </div>
+
+          <!-- MODE 2 -->
+          <div style="background: #ffffff; border: 2px solid var(--space-crimson); border-radius: 8px; padding: 8px;">
+            <div style="font-size: 0.76rem; font-weight: 900; color: var(--space-crimson); margin-bottom: 2px;">MODE 2: JURUS TEMPUR</div>
+            <div style="font-size: 0.68rem; font-weight: 800; color: var(--space-ink-muted); margin-bottom: 4px;">Pose Menyerang / Bertahan</div>
+            <p style="font-size: 0.7rem; color: var(--space-ink); line-height: 1.3;">
+              Pasang kuda-kuda tempur! Buat pose silat, kepalan tangan menyilang di dada, atau pose menembak laser. Tahan ekspresi mata tajam selama 50 frame.
+            </p>
+          </div>
+
+          <!-- MODE 3 -->
+          <div style="background: #ffffff; border: 2px solid var(--space-purple); border-radius: 8px; padding: 8px;">
+            <div style="font-size: 0.76rem; font-weight: 900; color: var(--space-purple); margin-bottom: 2px;">MODE 3: BENDA SAKU</div>
+            <div style="font-size: 0.68rem; font-weight: 800; color: var(--space-ink-muted); margin-bottom: 4px;">Senjata Pusaka Fisik</div>
+            <p style="font-size: 0.7rem; color: var(--space-ink); line-height: 1.3;">
+              Keluarkan 1 benda fisik nyata dari sakumu: botol minum, pulpen unik, kunci, atau kartu. Tunjukkan benda itu tepat di depan kamera sebanyak 50 frame!
+            </p>
+          </div>
+        </div>
+
+        <div class="info-strip">
+          🤝 <strong>Tantangan Tukar Laptop (Peer Challenge):</strong> Setelah klik Train Model, putar laptopmu 180 derajat ke teman sebelahmu. Minta temanmu mencoba berpose seperti jurusmu! Apakah komputer mengenalinya atau bingung?
+        </div>
+      </div>
+
+      <!-- LANGKAH 4: MEMBACA METERAN KEYAKINAN (CONFIDENCE SCORE) -->
+      <div class="step-flow-box" style="margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <div style="display: flex; align-items: center; gap: 6px;">
+            <span class="step-num-pill" style="background: var(--space-emerald);">LANGKAH 4</span>
+            <span style="font-weight: 900; font-size: 0.86rem; color: var(--space-ink);">Membaca "Meteran Keyakinan" (Confidence Score 0–100%)</span>
+          </div>
+          <span style="font-size: 0.7rem; font-weight: 800; color: var(--space-amber);">Probabilitas Sains</span>
+        </div>
+        <p class="card-body-text">
+          Di jendela Preview, di bawah setiap nama kelas terdapat meteran berwarna bergerak. Angka persentase ini bukan nilai ujian, melainkan <strong>tingkat keyakinan probabilitas matematika</strong>:
+        </p>
+
+        <!-- VISUAL METERAN TIGA LEVEL -->
+        <div style="display: flex; flex-direction: column; gap: 6px; margin: 8px 0; background: var(--space-paper-cream); border: var(--border-sm); border-radius: 8px; padding: 8px 12px;">
+          <div>
+            <div class="meter-visual">
+              <span style="width: 140px; color: var(--space-emerald);">🟢 90% – 100% (YAKIN)</span>
+              <div class="meter-bg">
+                <div class="meter-fill" style="width: 96%; background: var(--space-emerald);"></div>
+              </div>
+              <span style="width: 45px; text-align: right;">96%</span>
+            </div>
+            <div style="font-size: 0.69rem; color: var(--space-ink-muted); margin-left: 140px;">
+              "Ciri gambar di kamera SANGAT MIRIP dengan 50 foto yang pernah kamu latih!"
+            </div>
+          </div>
+
+          <div>
+            <div class="meter-visual">
+              <span style="width: 140px; color: var(--space-amber);">🟡 50% – 89% (RAGU-RAGU)</span>
+              <div class="meter-bg">
+                <div class="meter-fill" style="width: 65%; background: var(--space-amber-bright);"></div>
+              </div>
+              <span style="width: 45px; text-align: right;">65%</span>
+            </div>
+            <div style="font-size: 0.69rem; color: var(--space-ink-muted); margin-left: 140px;">
+              "Ada kemiripan, tapi ada bagian yang beda (mungkin sudut atau cahaya berubah)."
+            </div>
+          </div>
+
+          <div>
+            <div class="meter-visual">
+              <span style="width: 140px; color: var(--space-crimson);">🔴 DI BAWAH 50% (BINGUNG)</span>
+              <div class="meter-bg">
+                <div class="meter-fill" style="width: 32%; background: var(--space-crimson);"></div>
+              </div>
+              <span style="width: 45px; text-align: right;">32%</span>
+            </div>
+            <div style="font-size: 0.69rem; color: var(--space-ink-muted); margin-left: 140px;">
+              "Komputer tidak yakin dan mulai menebak secara acak karena data tidak dikenal!"
+            </div>
+          </div>
+        </div>
+
+        <div class="comic-dialogue-row" style="margin-bottom: 0;">
+          <div class="comic-bubble-card" style="padding: 6px 10px;">
+            <div class="bubble-content">
+              <span class="bubble-name name-bima" style="font-size: 0.7rem;">CATATAN LOGIKA BIMA</span>
+              <p class="bubble-text" style="font-size: 0.72rem;">
+                "Kalkulator selalu memberi jawaban pasti (2+2=4). Tapi AI bekerja dengan perkiraan probabilitas (96% mirip). Inilah kenapa AI butuh pengawasan manusia!"
+              </p>
+            </div>
+          </div>
+          <div class="comic-bubble-card" style="padding: 6px 10px;">
+            <div class="bubble-content">
+              <span class="bubble-name name-kinar" style="font-size: 0.7rem;">CATATAN KREATIF KINAR</span>
+              <p class="bubble-text" style="font-size: 0.72rem;">
+                "Jika meteranmu melompat-lompat 50%-50%, artinya komputer melihat ciri yang mirip antara dua kelas. Ayo kita selidiki di Bab 3!"
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 4 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 4 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 5: BAB 3 - MISI HACK THE AI (MEMBONGKAR BIAS MESIN)
+       ========================================================================== -->
+  <div class="a4-page" id="page-5">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">BAB 3</span>
+          <span class="header-tagline">Laboratorium Detektif Kritis</span>
+        </div>
+        <span class="header-module-pill">MEMBONGKAR BIAS & CELAH</span>
+      </div>
+
+      <div class="section-banner" style="background: var(--space-crimson-light); border-color: var(--space-crimson);">
+        <div class="section-title-text" style="color: var(--space-crimson);">
+          <span>🕵️ Misi Hack The AI: Menjaili Mesin Hingga Tertipu!</span>
+        </div>
+        <span class="section-meta-pill" style="background: var(--space-crimson);">MENIT 55–75</span>
+      </div>
+
+      <p class="card-body-text" style="margin-bottom: 10px;">
+        Detektif cilik sejati tidak hanya tahu cara melatih komputer, tetapi juga <strong>membongkar kelemahannya</strong>. Ayo lakukan 2 eksperimen ilmiah untuk menipu otak AI:
+      </p>
+
+      <!-- EKSPERIMEN 1: TRIK PINDAH KURSI -->
+      <div class="card-panel" style="border-left: 6px solid var(--space-crimson); margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <span style="color: var(--space-crimson); font-size: 0.86rem;">🧪 Eksperimen 1: Trik Pindah Kursi (Jebakan Latar Belakang)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.68rem; background: var(--space-crimson-light); color: var(--space-crimson); padding: 2px 6px; border-radius: 4px;">UJI LATAR</span>
+        </div>
+        
+        <div class="grid-2col" style="margin-top: 4px; margin-bottom: 4px;">
+          <div style="font-size: 0.73rem; line-height: 1.4;">
+            <strong>Aksi Detektif:</strong><br>
+            Berdiri dari kursimu, lalu geser tubuhmu 1 meter ke kanan atau ke kiri. Lakukan pose jurus tempur yang persis sama dengan yang tadi kamu latih!
+          </div>
+          <div style="background: var(--space-paper-cream); border: var(--border-sm); border-radius: 6px; padding: 6px 8px; font-size: 0.72rem;">
+            <strong>Apa yang Terjadi di Meteran?</strong><br>
+            Keyakinan komputer tiba-tiba anjlok dari <strong>98%</strong> menjadi <strong>45%</strong>! Komputer mendadak bingung dan ragu-ragu.
+          </div>
+        </div>
+
+        <div class="info-strip" style="background: #fff; border: 1.5px dashed var(--space-crimson); color: var(--space-ink);">
+          🔬 <strong>Mengapa Ini Terjadi? (The Science Behind It):</strong><br>
+          Kamera merekam SELURUH kotak tampilan, bukan cuma tubuhmu! Komputer menghafal warna dinding, lemari, jendela, dan bayangan di belakangmu. Ketika dinding di belakangmu bergeser, komputer mengira kamu adalah orang yang berbeda!
+        </div>
+      </div>
+
+      <!-- EKSPERIMEN 2: TRIK BENDA TIRUAN -->
+      <div class="card-panel" style="border-left: 6px solid var(--space-amber); margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <span style="color: var(--space-amber); font-size: 0.86rem;">🧪 Eksperimen 2: Trik Benda Tiruan (Jebakan Warna Serupa)</span>
+          <span style="font-family: var(--font-mono); font-size: 0.68rem; background: var(--space-amber-light); color: var(--space-amber); padding: 2px 6px; border-radius: 4px;">UJI WARNA</span>
+        </div>
+
+        <div class="grid-2col" style="margin-top: 4px; margin-bottom: 4px;">
+          <div style="font-size: 0.73rem; line-height: 1.4;">
+            <strong>Aksi Detektif:</strong><br>
+            Jika di Kelas 3 kamu melatih botol minum berwarna biru, sekarang cari buku biru atau kotak pensil biru. Sorotkan benda biru itu ke depan webcam!
+          </div>
+          <div style="background: var(--space-paper-cream); border: var(--border-sm); border-radius: 6px; padding: 6px 8px; font-size: 0.72rem;">
+            <strong>Apa yang Terjadi di Meteran?</strong><br>
+            Komputer berteriak yakin <strong>97% BENDA SAKU</strong>, padahal itu bukan botol minum melainkan buku tulis!
+          </div>
+        </div>
+
+        <div class="warn-strip" style="background: #fff; border: 1.5px dashed var(--space-amber); color: var(--space-ink);">
+          🔬 <strong>Mengapa Ini Terjadi? (The Science Behind It):</strong><br>
+          Komputer tidak punya akal untuk tahu bahwa botol itu tempat air dan buku itu untuk dibaca. Komputer hanya melihat gumpalan pixel biru berbentuk persegi panjang! Komputer bisa tertipu oleh warna yang sama.
+        </div>
+      </div>
+
+      <!-- REFLEKSI MORAL & SAINS: MENGAPA MANUSIA HARUS MEMIMPIN -->
+      <div class="card-panel-cream" style="border: 2px solid var(--space-blue-deep);">
+        <div class="card-title-bar" style="border-bottom-color: var(--space-blue-deep);">
+          <span style="font-size: 0.86rem; color: var(--space-blue-deep);">💡 Pelajaran Berharga Seumur Hidup: Mengapa Manusia Memimpin AI?</span>
+        </div>
+        <div class="grid-3col" style="margin-top: 6px; margin-bottom: 0;">
+          <div style="background: #ffffff; border: var(--border-sm); border-radius: 6px; padding: 6px 8px;">
+            <div style="font-size: 0.74rem; font-weight: 900; color: #1e3a8a;">1. AI Hanya Hafalan Data</div>
+            <p style="font-size: 0.68rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 2px;">
+              Jika data yang kita masukkan tidak lengkap atau salah, tebakan AI pasti keliru (*Garbage In, Garbage Out*).
+            </p>
+          </div>
+          <div style="background: #ffffff; border: var(--border-sm); border-radius: 6px; padding: 6px 8px;">
+            <div style="font-size: 0.74rem; font-weight: 900; color: #065f46;">2. Manusia Memiliki Empati</div>
+            <p style="font-size: 0.68rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 2px;">
+              Komputer tidak punya rasa peduli, kebaikan hati, atau keadilan. Hanya manusia yang bisa memutuskan mana yang benar dan salah.
+            </p>
+          </div>
+          <div style="background: #ffffff; border: var(--border-sm); border-radius: 6px; padding: 6px 8px;">
+            <div style="font-size: 0.74rem; font-weight: 900; color: #b45309;">3. Kamu Adalah Sang Kapten</div>
+            <p style="font-size: 0.68rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 2px;">
+              Teknologi AI bukanlah monster ajaib yang harus ditakuti, melainkan asisten pintar yang menunggu perintah hebat darimu!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 5 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 5 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 6: BAB 4 - LEMBAR MISI & CATATAN LABORATORIUM SISWA
+       ========================================================================== -->
+  <div class="a4-page" id="page-6">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">BAB 4</span>
+          <span class="header-tagline">Lembar Kerja Praktik Fisik Siswa</span>
+        </div>
+        <span class="header-module-pill">PASPOR POS 1</span>
+      </div>
+
+      <div class="section-banner">
+        <div class="section-title-text">
+          <span>📝 Lembar Logbook Detektif: Catat Bukti Eksperimenmu!</span>
+        </div>
+        <span class="section-meta-pill">MENIT 75–85</span>
+      </div>
+
+      <!-- BAGIAN A: TABEL LOG WEBCAM SISWA -->
+      <div class="card-panel-cream" style="margin-bottom: 8px;">
+        <div class="card-title-bar">
+          <span style="font-size: 0.82rem;">BAGIAN A: Catatan Rekaman Model AI-mu</span>
+          <span style="font-size: 0.68rem; color: var(--space-blue-hero); font-weight: 800;">Diisi saat di depan laptop</span>
+        </div>
+        <table class="clean-table" style="margin-top: 4px; margin-bottom: 0;">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Kelas</th>
+              <th style="width: 35%;">Nama Pose / Benda Nyata</th>
+              <th style="width: 25%;">Jumlah Foto Rekaman</th>
+              <th style="width: 20%;">Skor Yakin %</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Kelas 1</strong></td>
+              <td>Wajah Normal / Senyum</td>
+              <td><span class="check-circle"></span> 50 Frame Lengkap</td>
+              <td>[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % ]</td>
+            </tr>
+            <tr>
+              <td><strong>Kelas 2</strong></td>
+              <td>Jurus Tempur: <span class="input-line" style="min-width: 60px;"></span></td>
+              <td><span class="check-circle"></span> 50 Frame Lengkap</td>
+              <td>[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % ]</td>
+            </tr>
+            <tr>
+              <td><strong>Kelas 3</strong></td>
+              <td>Benda Saku: <span class="input-line" style="min-width: 60px;"></span></td>
+              <td><span class="check-circle"></span> 50 Frame Lengkap</td>
+              <td>[ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; % ]</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- BAGIAN B: CHECKLIST HACK THE AI -->
+      <div class="card-panel" style="margin-bottom: 8px;">
+        <div class="card-title-bar">
+          <span style="font-size: 0.82rem; color: var(--space-crimson);">BAGIAN B: Bukti Berhasil Menipu AI (Centang yang Terbukti)</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px; padding: 2px 0;">
+          <div style="font-size: 0.74rem; font-weight: 700;">
+            <span class="check-circle"></span> <strong>Trik Latar Belakang:</strong> Saat aku geser tempat duduk, skor keyakinan komputer turun menjadi <span class="input-line" style="min-width: 40px;"></span> %.
+          </div>
+          <div style="font-size: 0.74rem; font-weight: 700;">
+            <span class="check-circle"></span> <strong>Trik Benda Tiruan:</strong> Komputer tertipu benda lain yang warnanya sama, yaitu benda: <span class="input-line" style="min-width: 100px;"></span>.
+          </div>
+          <div style="font-size: 0.74rem; font-weight: 700;">
+            <span class="check-circle"></span> <strong>Tantangan Teman:</strong> Laptopku dicoba oleh teman bernama: <span class="input-line" style="min-width: 90px;"></span>. Hasilnya komputer ( Cocok / Bingung ).
+          </div>
+        </div>
+      </div>
+
+      <!-- BAGIAN C: KOTAK SKETSA AVATAR UNTUK MODUL 2 -->
+      <div class="card-panel-cream" style="margin-bottom: 8px;">
+        <div class="card-title-bar">
+          <span style="font-size: 0.82rem; color: var(--space-purple);">BAGIAN C: Sketsa DNA Avatar Tempurku (Untuk Modul 2 Studio Game)</span>
+          <span style="font-size: 0.68rem; color: var(--space-ink-muted);">Gambarlah dengan pensil / spidol</span>
+        </div>
+        <div class="sketch-canvas">
+          <span>🎨 Kotak Gambar Sketsa Karakter & Senjata Pusakamu di Sini<br><small style="color: #cbd5e1;">(Beri nama jurus dan warna kostum avatarmu!)</small></span>
+        </div>
+        <div style="display: flex; justify-content: space-between; font-size: 0.72rem; font-weight: 800; margin-top: 4px;">
+          <span>Nama Karakter Avatar: <span class="input-line" style="min-width: 90px;"></span></span>
+          <span>Nama Senjata Pusaka: <span class="input-line" style="min-width: 90px;"></span></span>
+        </div>
+      </div>
+
+      <!-- BAGIAN D: STEMPEL RESMI POS 1 -->
+      <div class="official-stamp-box">
+        <div>
+          <div style="font-size: 0.86rem; font-weight: 900; color: var(--space-ink);">
+            KREDIT KELULUSAN POS 1: DETEKTIF DATA
+          </div>
+          <div style="font-size: 0.72rem; font-weight: 600; color: var(--space-ink-muted); margin-top: 2px;">
+            Tunjukkan hasil model Teachable Machine dan catatan ini kepada Mentor untuk mendapatkan stempel resmi dan kepingan fisik reward!
+          </div>
+          <div style="display: flex; gap: 12px; margin-top: 6px; font-size: 0.74rem; font-weight: 700;">
+            <span>Paraf Mentor: <span class="input-line" style="min-width: 80px;"></span></span>
+            <span>Tanggal Lulus: <span class="input-line" style="min-width: 70px;"></span></span>
+          </div>
+        </div>
+        <div class="stamp-seal">
+          <span>RESMI</span>
+          <span style="font-size: 0.72rem; font-weight: 900; color: var(--space-blue-hero);">LULUS</span>
+          <span>POS 1</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 6 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 6 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       HALAMAN 7: BAB 5 - PANDUAN FASILITATOR & ORANG TUA
+       ========================================================================== -->
+  <div class="a4-page" id="page-7">
+    <div>
+      <div class="page-header">
+        <div class="header-logo-group">
+          <span class="academy-badge">BAB 5</span>
+          <span class="header-tagline">Panduan Fasilitator & Orang Tua</span>
+        </div>
+        <span class="header-module-pill">DIAGNOSTIK BAKAT ALAMI</span>
+      </div>
+
+      <div class="section-banner">
+        <div class="section-title-text">
+          <span>🧭 4 Kuadran Bakat Alami: Menemukan "Anak Kuat di Mana"</span>
+        </div>
+        <span class="section-meta-pill">DIAGNOSTIK TANPA UJIAN</span>
+      </div>
+
+      <p class="card-body-text" style="margin-bottom: 10px;">
+        Di Akademi AI for Kids, kami tidak mengukur anak dengan ujian angka kaku. Selama 90 menit sesi Teachable Machine berlangsung, mentor dan orang tua dapat mengamati <strong>perilaku alami anak</strong> untuk memetakan arah bakat masa depannya:
+      </p>
+
+      <!-- 4 KUADRAN BAKAT -->
+      <div class="grid-2col" style="margin-bottom: 10px;">
+        <!-- KUADRAN 1: SYSTEMATIC SLEUTH -->
+        <div class="card-panel" style="border-top: 4px solid var(--space-blue-hero);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 900; font-size: 0.82rem; color: var(--space-blue-hero);">🔍 1. THE SYSTEMATIC SLEUTH (LOGIKA)</span>
+            <span style="font-size: 0.65rem; background: #eff6ff; padding: 1px 5px; border-radius: 4px; font-weight: 800;">DATA & ALGORITMA</span>
+          </div>
+          <p style="font-size: 0.72rem; color: var(--space-ink-muted); line-height: 1.35; margin-top: 4px;">
+            <strong>Ciri Teramati:</strong> Sangat fokus memperhatikan pergerakan angka meteran keyakinan, penasaran mengapa model salah tebak saat sudut bergeser, dan suka menguji batas toleransi kamera.<br>
+            <span style="color: var(--space-blue-deep); font-weight: 700;">Arah Masa Depan: Machine Learning Scientist, Software Architect, Problem Solver.</span>
+          </p>
+        </div>
+
+        <!-- KUADRAN 2: EXPRESSIVE STORYTELLER -->
+        <div class="card-panel" style="border-top: 4px solid var(--space-amber);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 900; font-size: 0.82rem; color: var(--space-amber);">🎨 2. THE EXPRESSIVE STORYTELLER (NARASI)</span>
+            <span style="font-size: 0.65rem; background: #fef3c7; padding: 1px 5px; border-radius: 4px; font-weight: 800;">CERITA & KARAKTER</span>
+          </div>
+          <p style="font-size: 0.72rem; color: var(--space-ink-muted); line-height: 1.35; margin-top: 4px;">
+            <strong>Ciri Teramati:</strong> Totalitas saat berpose wajah, langsung memberi nama epik pada jurusnya (<em>"Jurus Halilintar Angin Putar"</em>), dan sibuk menceritakan latar belakang karakter avatarnya.<br>
+            <span style="color: #b45309; font-weight: 700;">Arah Masa Depan: Game Narrative Director, Creative Writer, Content Creator.</span>
+          </p>
+        </div>
+
+        <!-- KUADRAN 3: TACTILE ARCHITECT -->
+        <div class="card-panel" style="border-top: 4px solid var(--space-emerald);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 900; font-size: 0.82rem; color: var(--space-emerald);">🛠️ 3. THE TACTILE ARCHITECT (FISIK)</span>
+            <span style="font-size: 0.65rem; background: #ecfdf5; padding: 1px 5px; border-radius: 4px; font-weight: 800;">HARDWARE & IOT</span>
+          </div>
+          <p style="font-size: 0.72rem; color: var(--space-ink-muted); line-height: 1.35; margin-top: 4px;">
+            <strong>Ciri Teramati:</strong> Paling antusias mencari benda nyata di saku untuk Kelas 3, penasaran dengan fisik lensa webcam dan kabel laptop, serta suka meraba tekstur benda.<br>
+            <span style="color: #065f46; font-weight: 700;">Arah Masa Depan: Roboticist, IoT Hardware Maker, Mechanical Engineer.</span>
+          </p>
+        </div>
+
+        <!-- KUADRAN 4: VISUAL STYLIST -->
+        <div class="card-panel" style="border-top: 4px solid var(--space-purple);">
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: 900; font-size: 0.82rem; color: var(--space-purple);">✨ 4. THE VISUAL STYLIST (ESTETIKA)</span>
+            <span style="font-size: 0.65rem; background: #f5f3ff; padding: 1px 5px; border-radius: 4px; font-weight: 800;">DESAIN & VISUAL</span>
+          </div>
+          <p style="font-size: 0.72rem; color: var(--space-ink-muted); line-height: 1.35; margin-top: 4px;">
+            <strong>Ciri Teramati:</strong> Sangat peduli pada pencahayaan ruangan, kerapian posisi wajah tepat simetris di tengah layar, dan kebersihan kontras warna di belakang tubuhnya.<br>
+            <span style="color: var(--space-purple); font-weight: 700;">Arah Masa Depan: UI/UX Designer, 3D Animator, Digital Art Director.</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- PANDUAN DISKUSI HANGAT ORANG TUA DI RUMAH -->
+      <div class="card-panel-cream" style="margin-bottom: 10px;">
+        <div class="card-title-bar">
+          <span style="font-size: 0.84rem; color: var(--space-blue-deep);">💬 3 Pertanyaan Pemantik Diskusi Hangat di Rumah (Bukan Menguji!)</span>
+        </div>
+        <p class="card-body-text" style="margin-bottom: 6px;">
+          Saat anak pulang dari sesi Modul 1, hindari bertanya <em>"Tadi nilainya berapa?"</em>. Gunakan 3 pertanyaan rasa ingin tahu yang membuat anak bersemangat menceritakan pengalamannya:
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 4px; font-size: 0.73rem; font-weight: 700; color: var(--space-ink);">
+          <div style="background: #ffffff; border: 1px solid var(--space-slate-line); border-radius: 6px; padding: 5px 8px;">
+            1. <strong>"Tadi kamu berhasil jaili komputer pakai trik apa sampai komputernya bingung?"</strong><br>
+            <span style="font-weight: 500; color: var(--space-ink-muted);">→ Memancing anak menjelaskan konsep bias latar belakang dengan bahasa mereka sendiri.</span>
+          </div>
+          <div style="background: #ffffff; border: 1px solid var(--space-slate-line); border-radius: 6px; padding: 5px 8px;">
+            2. <strong>"Benda apa yang kamu ambil dari saku buat jadi senjata pusaka rahasia?"</strong><br>
+            <span style="font-weight: 500; color: var(--space-ink-muted);">→ Menghargai spontanitas dan daya kreativitas taktil anak.</span>
+          </div>
+          <div style="background: #ffffff; border: 1px solid var(--space-slate-line); border-radius: 6px; padding: 5px 8px;">
+            3. <strong>"Kenapa kata kakak mentor manusia tetap harus memimpin komputer?"</strong><br>
+            <span style="font-weight: 500; color: var(--space-ink-muted);">→ Membangun kesadaran kepemimpinan etis dan literasi digital sejak dini.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOTAK CATATAN OBSERVASI MENTOR -->
+      <div style="background: #ffffff; border: var(--border-md); border-radius: 8px; padding: 8px 12px; display: flex; justify-content: space-between; align-items: center; gap: 12px;">
+        <div>
+          <div style="font-size: 0.78rem; font-weight: 900; color: var(--space-ink);">
+            Catatan Observasi Mentor Kelas:
+          </div>
+          <div style="font-size: 0.71rem; font-weight: 600; color: var(--space-ink-muted);">
+            Kecenderungan Bakat Alami: [ &nbsp; ] Sleuth &nbsp;&nbsp; [ &nbsp; ] Storyteller &nbsp;&nbsp; [ &nbsp; ] Tactile &nbsp;&nbsp; [ &nbsp; ] Stylist
+          </div>
+        </div>
+        <div style="font-size: 0.72rem; font-weight: 800; border: 1px solid var(--space-slate-line); padding: 4px 8px; border-radius: 6px; background: var(--space-paper-cream);">
+          Lanjut ke Modul 2: Arsitek Logika
+        </div>
+      </div>
+    </div>
+
+    <!-- FOOTER HALAMAN 7 -->
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Data & Mata Mesin</span>
+      <span class="page-num">Hal 7 dari 7</span>
+    </div>
+  </div>
+
+</body>
+</html>
