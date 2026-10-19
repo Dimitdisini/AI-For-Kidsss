@@ -2,9 +2,9 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <title>Laporan Master Modul 1 — Studio Detektif Pikiran: Membedah Cara Berpikir Manusia vs AI</title>
+  <title>Studi Kasus Nyata Modul 1 — Robo-Mochi & Misteri Donat Hilang</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700&family=JetBrains+Mono:wght@600&display=swap');
 
     @page {
       size: A4 portrait;
@@ -20,19 +20,19 @@
     }
 
     body {
-      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #f1f5f9;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #f8fafc;
       color: #0f172a;
-      line-height: 1.45;
-      font-size: 11pt;
+      line-height: 1.5;
+      font-size: 10.5pt;
     }
 
     .a4-page {
       width: 210mm;
       height: 297mm;
       max-height: 297mm;
-      margin: 0 auto 20px auto;
-      padding: 14mm 15mm 12mm 15mm;
+      margin: 0 auto;
+      padding: 16mm 18mm 14mm 18mm;
       background: #ffffff;
       position: relative;
       overflow: hidden;
@@ -40,774 +40,582 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      border: 1px solid #e2e8f0;
     }
 
     @media print {
-      body {
-        background: transparent;
-      }
-      .a4-page {
-        margin: 0;
-        border: none;
-        page-break-after: always;
-      }
+      body { background: transparent; }
+      .a4-page { margin: 0; border: none; }
     }
 
-    /* TYPOGRAPHY & COMIC TOUCHES */
+    /* TYPOGRAPHY */
     h1, h2, h3, h4, .font-heading {
       font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
       letter-spacing: -0.02em;
+      font-weight: 700;
     }
 
-    .comic-badge {
-      display: inline-block;
-      padding: 3px 10px;
-      font-size: 8pt;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 12px;
+      font-size: 8.5pt;
       font-weight: 800;
       text-transform: uppercase;
       letter-spacing: 0.05em;
+      border-radius: 6px;
       border: 2px solid #0f172a;
       box-shadow: 2px 2px 0px #0f172a;
-      border-radius: 4px;
     }
 
+    .badge-yellow { background: #fbbf24; color: #0f172a; }
     .badge-blue { background: #3b82f6; color: #ffffff; }
-    .badge-amber { background: #f59e0b; color: #0f172a; }
     .badge-emerald { background: #10b981; color: #ffffff; }
-    .badge-dark { background: #0f172a; color: #ffffff; }
     .badge-rose { background: #f43f5e; color: #ffffff; }
+    .badge-slate { background: #0f172a; color: #ffffff; }
 
-    /* CARD PANELS */
-    .comic-panel {
-      border: 2px solid #0f172a;
-      border-radius: 8px;
+    /* EDITORIAL CARDS & CONTAINERS */
+    .card {
+      border: 2.5px solid #0f172a;
+      border-radius: 12px;
       background: #ffffff;
-      box-shadow: 3px 3px 0px #0f172a;
-      padding: 10px 14px;
-      margin-bottom: 10px;
-      position: relative;
+      box-shadow: 4px 4px 0px #0f172a;
+      padding: 16px 20px;
+      margin-bottom: 14px;
     }
 
-    .panel-header {
+    .card-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 8px;
-      border-bottom: 1.5px solid #0f172a;
-      padding-bottom: 6px;
-    }
-
-    .panel-title {
-      font-size: 11pt;
-      font-weight: 800;
-      color: #0f172a;
-      display: flex;
-      align-items: center;
-      gap: 6px;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
     }
 
     /* HEADER & FOOTER */
-    .page-header {
+    .header-bar {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 8px;
-      border-bottom: 2px solid #0f172a;
-      margin-bottom: 10px;
+      padding-bottom: 10px;
+      border-bottom: 2.5px solid #0f172a;
+      margin-bottom: 14px;
     }
 
-    .page-header-title {
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      border-top: 2px solid #cbd5e1;
       font-size: 8.5pt;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: #475569;
-    }
-
-    .page-footer {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 8px;
-      border-top: 1.5px solid #cbd5e1;
-      font-size: 8pt;
       color: #64748b;
       font-weight: 600;
     }
 
-    .page-num {
+    .page-tag {
       background: #0f172a;
       color: #ffffff;
-      padding: 2px 8px;
-      border-radius: 4px;
-      font-size: 8pt;
+      padding: 3px 10px;
+      border-radius: 5px;
       font-weight: 700;
-    }
-
-    /* GRIDS & TABLES */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .grid-3 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 8px;
-    }
-
-    .grid-4 {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      gap: 8px;
-    }
-
-    table.data-table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 8.5pt;
-      margin-top: 6px;
-    }
-
-    table.data-table th, table.data-table td {
-      border: 1.5px solid #0f172a;
-      padding: 6px 8px;
-      text-align: left;
-    }
-
-    table.data-table th {
-      background: #f8fafc;
-      font-weight: 800;
-      color: #0f172a;
-      text-transform: uppercase;
       font-size: 8pt;
     }
 
-    /* FLOW DIAGRAM */
-    .step-box {
-      border: 1.5px solid #0f172a;
-      border-radius: 6px;
-      padding: 6px 8px;
-      background: #f8fafc;
-      font-size: 8pt;
-      box-shadow: 2px 2px 0px #0f172a;
-    }
-
-    .step-box strong {
-      display: block;
-      color: #1e40af;
-      font-size: 8.5pt;
-      margin-bottom: 2px;
+    /* COMIC SPEECH BUBBLE */
+    .speech-bubble {
+      position: relative;
+      background: #fffbeb;
+      border: 2px solid #0f172a;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 9.5pt;
+      box-shadow: 3px 3px 0px #0f172a;
     }
   </style>
 </head>
 <body>
 
-  <!-- ==================== HALAMAN 1: COVER & EXECUTIVE SUMMARY ==================== -->
+  <!-- ==================== HALAMAN 1: SHOWCASE PROYEK NYATA ==================== -->
   <div class="a4-page">
     <div>
-      <div class="page-header">
-        <div class="page-header-title">DOKUMEN CETAK BIRU KURIKULUM RESMI • AKADEMI AI FOR KIDS</div>
-        <div class="comic-badge badge-dark">MASTER DOCUMENT #01</div>
+      <div class="header-bar">
+        <div style="font-size: 9pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          AKADEMI AI FOR KIDS • CONTOH KASUS NYATA PEMBELAJARAN
+        </div>
+        <div class="badge badge-yellow">MODUL 1 SHOWCASE</div>
       </div>
 
-      <!-- MAIN HERO BANNER -->
-      <div style="background: #1e3a8a; border: 2.5px solid #0f172a; box-shadow: 4px 4px 0px #0f172a; border-radius: 10px; padding: 20px 22px; color: #ffffff; margin-bottom: 14px;">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
-          <div class="comic-badge badge-amber" style="font-size: 8.5pt;">MODUL 1: FONDASI KOGNITIF & MULTIMODAL</div>
-          <span style="font-size: 8.5pt; font-weight: 700; color: #93c5fd; background: rgba(0,0,0,0.25); padding: 3px 8px; border-radius: 4px; border: 1px solid rgba(255,255,255,0.2);">USIA: 8–12 TAHUN | SESI: 90 MENIT</span>
+      <!-- MAIN BANNER -->
+      <div style="background: #1e3a8a; border: 3px solid #0f172a; box-shadow: 5px 5px 0px #0f172a; border-radius: 14px; padding: 22px 24px; color: #ffffff; margin-bottom: 16px;">
+        <div style="display: flex; gap: 8px; margin-bottom: 10px;">
+          <span class="badge badge-yellow" style="font-size: 8pt;">STUDI KASUS SISWA USIA 10 TAHUN</span>
+          <span class="badge badge-emerald" style="font-size: 8pt;">HASIL KELAS 90 MENIT</span>
         </div>
-        <h1 style="font-size: 20pt; line-height: 1.15; margin-bottom: 8px; color: #ffffff;">STUDIO DETEKTIF PIKIRAN</h1>
-        <p style="font-size: 11pt; font-weight: 600; color: #cbd5e1; margin-bottom: 12px;">
-          Membedah Cara Berpikir Otak Manusia vs Otak AI Melalui Alur Terstruktur Step A s/d G Tanpa "Blank Canvas Paralysis"
-        </p>
-        <div style="display: flex; gap: 8px; flex-wrap: wrap;">
-          <span class="comic-badge badge-emerald">Zero-Typing Scaffolding</span>
-          <span class="comic-badge badge-blue">Platform Web Mandiri</span>
-          <span class="comic-badge badge-amber">Rapor Bakat 4 Kuadran</span>
-        </div>
-      </div>
-
-      <!-- RINGKASAN EKSEKUTIF -->
-      <div class="comic-panel" style="background: #f8fafc; border-left: 5px solid #1e40af;">
-        <div class="panel-header">
-          <div class="panel-title">📌 RINGKASAN EKSEKUTIF & LATAR BELAKANG STRATEGIS</div>
-          <span class="comic-badge badge-dark">LATAR MASALAH</span>
-        </div>
-        <p style="font-size: 9pt; color: #334155; margin-bottom: 8px; text-align: justify;">
-          Dari hasil evaluasi lapangan bersama <strong>Pak Fadhly</strong> dan observasi langsung pada anak usia 8–12 tahun, teridentifikasi tantangan kritis: <strong>anak mengalami <em>Blank Canvas Paralysis</em> (membeku dan bingung ketika diminta membuat karya atau menulis prompt dari nol).</strong> Pendekatan kurikulum koding tradisional yang kaku atau langsung menuntut pembuatan game arkade disepakati terlalu ambisius dan membebani kognisi anak.
-        </p>
-        <p style="font-size: 9pt; color: #334155; margin-bottom: 0; text-align: justify;">
-          Modul 1 ini hadir sebagai <strong>Jembatan Kognitif Orisinal</strong> yang lepas dari ketergantungan tool pihak ketiga yang kaku. Menggunakan platform web studio mandiri, anak dipandu melalui pancingan balok visual terstruktur (Step A sampai Step G) untuk memahami bagaimana AI memproses ciri, merespons instruksi, dan di mana celah kelemahannya. Capaian utama sesi ini bukan sekadar demo teknis, melainkan <strong>penarikan kesimpulan akurat mengenai peta kekuatan alami anak (<em>"Anak Strong di Mana"</em>)</strong> bagi orang tua.
+        <h1 style="font-size: 22pt; line-height: 1.15; color: #ffffff; margin-bottom: 6px;">
+          "ROBO-MOCHI &amp; MISTERI DONAT HILANG"
+        </h1>
+        <p style="font-size: 11pt; color: #93c5fd; font-weight: 600;">
+          Bagaimana Siswa Kelas 4 SD Membangun Karakter AI Penjaga Toko Tanpa Pernah Mengetik Kode Sintaks Rumit
         </p>
       </div>
 
-      <!-- 3 PILAR UTAMA MODUL 1 -->
-      <div class="grid-3" style="margin-top: 10px;">
-        <div class="comic-panel" style="margin-bottom: 0;">
-          <div style="font-size: 9pt; font-weight: 800; color: #1e40af; margin-bottom: 4px;">1. ANTI-BLANK CANVAS</div>
-          <p style="font-size: 8pt; color: #475569;">Anak tidak menatap layar kosong. Disodorkan siluet misterius & balok pancingan ciri (Wujud, Warna, Sifat, Aksi) yang dipilih dengan 1 klik.</p>
+      <!-- KONTAN KASUS NYATA (MOCKUP VISUAL) -->
+      <div class="card" style="background: #fffdf5; border-color: #0f172a; margin-bottom: 16px;">
+        <div class="card-header">
+          <div style="font-size: 11pt; font-weight: 800; color: #0f172a;">
+            🎯 APA YANG BENAR-BENAR DIBANGUN OLEH ANAK DI MODUL 1?
+          </div>
+          <span class="badge badge-slate">OUTPUT NYATA</span>
         </div>
-        <div class="comic-panel" style="margin-bottom: 0;">
-          <div style="font-size: 9pt; font-weight: 800; color: #d97706; margin-bottom: 4px;">2. PROPRIETARY WEB STUDIO</div>
-          <p style="font-size: 8pt; color: #475569;">100% platform web mandiri (Vercel) terintegrasi Gemini Flash. Nol instalasi, bebas hambatan teknis, ramah perangkat apa pun.</p>
-        </div>
-        <div class="comic-panel" style="margin-bottom: 0;">
-          <div style="font-size: 9pt; font-weight: 800; color: #059669; margin-bottom: 4px;">3. RAPOR DIAGNOSTIK BAKAT</div>
-          <p style="font-size: 8pt; color: #475569;">Observasi menit-ke-menit untuk memetakan apakah anak dominan di Creative Storyteller, Analytical Thinker, Visual Stylist, atau Tactile Explorer.</p>
-        </div>
-      </div>
-    </div>
 
-    <div class="page-footer">
-      <span>Dimitri HQ &amp; Akademi AI for Kids • Dokumen Kurikulum Master</span>
-      <span class="page-num">Halaman 1 dari 7</span>
-    </div>
-  </div>
-
-  <!-- ==================== HALAMAN 2: FILOSOFI PEDAGOGIS & STEP A-G ==================== -->
-  <div class="a4-page">
-    <div>
-      <div class="page-header">
-        <div class="page-header-title">BAB 1 • KERANGKA KOGNITIF &amp; METODOLOGI PEDAGOGIS</div>
-        <div class="comic-badge badge-blue">SCAFFOLDING SYSTEM</div>
-      </div>
-
-      <div class="comic-panel" style="background: #fdf6e2; border-color: #d97706;">
-        <div class="panel-header" style="border-color: #d97706;">
-          <div class="panel-title" style="color: #92400e;">💡 ANATOMI MASALAH: MENGAPA ANAK MEMBEKU (BLANK CANVAS)?</div>
-          <span class="comic-badge badge-amber">ANALISIS PSIKOLOGI</span>
-        </div>
-        <p style="font-size: 8.5pt; color: #78350f; margin-bottom: 6px;">
-          Anak usia 8–12 tahun memiliki imajinasi sangat luas, tetapi <em>working memory</em> dan perbendaharaan kata instruksional mereka masih berkembang. Saat diberikan prompt box kosong atau disuruh "ceritakan ide hebatmu", terjadi <strong>Cognitive Overload</strong>. Anak takut salah, bingung memilih kata pertama, dan akhirnya membeku.
-        </p>
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 8pt; color: #78350f;">
-          <div style="background: #ffffff; padding: 6px 8px; border: 1.5px solid #d97706; border-radius: 4px;">
-            <strong>❌ Pendekatan Lama yang Gagal:</strong>
-            <ul style="padding-left: 14px; margin-top: 3px;">
-              <li>Mengetik prompt teks bebas tanpa panduan.</li>
-              <li>Hafalan rumus koding kaku (Scratch if-else rumit).</li>
-              <li>Menuntut produk game utuh di sesi pertama.</li>
-            </ul>
-          </div>
-          <div style="background: #ffffff; padding: 6px 8px; border: 1.5px solid #d97706; border-radius: 4px;">
-            <strong>✅ Solusi Modul 1 (Dimitri HQ):</strong>
-            <ul style="padding-left: 14px; margin-top: 3px;">
-              <li>Pilihan balok visual (Mad-Libs / Lego System).</li>
-              <li>Tantangan misteri & stimulus rasa ingin tahu.</li>
-              <li>Fokus membedah cara berpikir (Step A s/d G).</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <!-- ALUR 7 TAHAP STEP A S/D G -->
-      <div class="comic-panel">
-        <div class="panel-header">
-          <div class="panel-title">🪜 ALUR 7 LANGKAH (STEP A $\rightarrow$ G) PANDUAN CARA BERPIKIR ANAK</div>
-          <span class="comic-badge badge-emerald">ALUR BAKU</span>
-        </div>
-        <div style="display: flex; flex-direction: column; gap: 6px; margin-top: 4px;">
-          <div class="step-box" style="border-left: 4px solid #3b82f6;">
-            <strong>STEP A • STIMULUS VISUAL (The Hook)</strong>
-            <span>Anak disodorkan siluet misterius makhluk asing. Otak anak terpancing rasa penasaran tanpa harus memikirkan teks dari nol.</span>
-          </div>
-          <div class="step-box" style="border-left: 4px solid #f59e0b;">
-            <strong>STEP B • PANCINGAN CIRI / CLUE PICKER (Feature Selection)</strong>
-            <span>Anak memilih kartu ciri bergambar: Wujud Tubuh, Warna Utama, Sifat Unik, dan Aksesoris Saku. 100% klik visual.</span>
-          </div>
-          <div class="step-box" style="border-left: 4px solid #10b981;">
-            <strong>STEP C • STRUKTUR RESEP MESIN (Prompt Lego Assembly)</strong>
-            <span>Sistem merangkai pilihan anak menjadi instruksi terstruktur: <em>[Subjek] + [Atribut] + [Kebiasaan] + [Tujuan]</em>. Anak melihat bagaimana logika dibangun.</span>
-          </div>
-          <div class="step-box" style="border-left: 4px solid #8b5cf6;">
-            <strong>STEP D • SINTESIS &amp; REALISASI AI (Machine Visualization)</strong>
-            <span>AI Studio mengubah resep anak menjadi visual karakter hidup lengkap dengan balon kata dialog otomatis dalam 2 detik.</span>
-          </div>
-          <div class="step-box" style="border-left: 4px solid #ec4899;">
-            <strong>STEP E • UJI TEBAK PIKIRAN MANUSIA VS AI (Mutual Inference)</strong>
-            <span>Teman tandem menebak resep instruksi teman sebelahnya hanya dengan melihat karakter visualnya. Melatih translasi visual ke konsep.</span>
-          </div>
-          <div class="step-box" style="border-left: 4px solid #ef4444;">
-            <strong>STEP F • BEDAH KESALAHAN / DETEKTIF GLITCH (Debugging &amp; Bias)</strong>
-            <span>AI sengaja diberi instruksi ambigu atau latar belakang mengecoh. Anak menemukan kenapa AI keliru dan belajar cara memperbaikinya.</span>
-          </div>
-          <div class="step-box" style="border-left: 4px solid #0f172a; background: #f1f5f9;">
-            <strong>STEP G • SINTESIS BAKAT &amp; RAPOR DAY 1 (Talent Profiling)</strong>
-            <span>Sistem &amp; mentor menyimpulkan kecenderungan alami anak: apakah condong ke analitis, naratif, estetis, atau taktis.</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Bab 1: Kerangka Pedagogis Step A–G • Akademi AI for Kids</span>
-      <span class="page-num">Halaman 2 dari 7</span>
-    </div>
-  </div>
-
-  <!-- ==================== HALAMAN 3: SPESIFIKASI PLATFORM WEB MANDIRI ==================== -->
-  <div class="a4-page">
-    <div>
-      <div class="page-header">
-        <div class="page-header-title">BAB 2 • SPESIFIKASI PLATFORM MANDIRI (AI FOR KIDS CREATIVE STUDIO)</div>
-        <div class="comic-badge badge-emerald">PROPRIETARY TECH</div>
-      </div>
-
-      <div class="comic-panel">
-        <div class="panel-header">
-          <div class="panel-title">🖥️ ARSITEKTUR ANTARMUKA 3-PANEL (KIDS COCKPIT)</div>
-          <span class="comic-badge badge-dark">UI/UX SPECS</span>
-        </div>
-        <p style="font-size: 8.5pt; color: #475569; margin-bottom: 8px;">
-          Platform web dirancang responsif tanpa tombol rumit, menggunakan kontras tinggi matte, ikon tegas, dan pemisahan fungsi yang jelas:
-        </p>
-
-        <!-- DIAGRAM 3 PANEL -->
-        <div style="border: 2px solid #0f172a; border-radius: 6px; background: #0f172a; padding: 8px; color: #ffffff; margin-bottom: 10px;">
-          <div style="display: grid; grid-template-columns: 1.1fr 1.2fr 1.1fr; gap: 8px;">
-            <!-- PANEL 1 -->
-            <div style="background: #1e293b; border: 1.5px solid #3b82f6; border-radius: 6px; padding: 8px;">
-              <div style="font-size: 8pt; font-weight: 800; color: #60a5fa; margin-bottom: 4px;">PANEL 1: BALOK CIRI</div>
-              <p style="font-size: 7.5pt; color: #94a3b8; margin-bottom: 6px;">Pilihan kartu fisik/digital:</p>
-              <div style="display: flex; flex-direction: column; gap: 3px; font-size: 7.5pt;">
-                <span style="background: #334155; padding: 2px 5px; border-radius: 3px;">🔹 Wujud: Bulat / Robot / Jeli</span>
-                <span style="background: #334155; padding: 2px 5px; border-radius: 3px;">🔹 Warna: Biru / Kuning / Belang</span>
-                <span style="background: #334155; padding: 2px 5px; border-radius: 3px;">🔹 Sifat: Pemalu / Pemberani</span>
-                <span style="background: #334155; padding: 2px 5px; border-radius: 3px;">🔹 Benda: Donat / Kacamata</span>
-              </div>
+        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 16px; align-items: center;">
+          <!-- ILUSTRASI KARAKTER HASIL ANAK -->
+          <div style="border: 2.5px solid #0f172a; border-radius: 10px; background: #38bdf8; padding: 8px; text-align: center; box-shadow: 3px 3px 0px #0f172a;">
+            <div style="background: #0284c7; border: 2px solid #0f172a; border-radius: 8px; height: 110px; display: flex; flex-direction: column; justify-content: center; align-items: center; color: #ffffff;">
+              <span style="font-size: 28pt;">🐱🍩</span>
+              <span style="font-size: 7.5pt; font-weight: 800; background: #0f172a; padding: 2px 6px; border-radius: 4px; margin-top: 4px;">ROBO-MOCHI</span>
             </div>
-            <!-- PANEL 2 -->
-            <div style="background: #1e293b; border: 1.5px solid #f59e0b; border-radius: 6px; padding: 8px; text-align: center;">
-              <div style="font-size: 8pt; font-weight: 800; color: #fbbf24; margin-bottom: 4px;">PANEL 2: KANVAS HASIL</div>
-              <div style="background: #0f172a; border: 1px dashed #64748b; height: 65px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 7.5pt; color: #cbd5e1; margin-bottom: 6px;">
-                [Gambar Karakter Hidup]
-              </div>
-              <div style="background: #334155; padding: 4px; border-radius: 4px; font-size: 7pt; color: #e2e8f0;">
-                💬 "Halo Detektif! Aku Robo-Mochi, siap berpetualang!"
-              </div>
+            <div style="font-size: 7.5pt; font-weight: 700; color: #0f172a; margin-top: 5px;">Karya: Rafa (10 Thn)</div>
+          </div>
+
+          <!-- DESKRIPSI CERITA KARYA ANAK -->
+          <div>
+            <div class="speech-bubble" style="margin-bottom: 8px;">
+              <strong>💬 Dialog Suara yang Dibuat Rafa untuk Karakternya:</strong><br>
+              <em>"Meow! Aku Robo-Mochi penjaga toko donat! Siapa pun yang berani comot donat cokelat tanpa bayar, bakal kutembak pakai selai stroberi! Wuzz!"</em>
             </div>
-            <!-- PANEL 3 -->
-            <div style="background: #1e293b; border: 1.5px solid #10b981; border-radius: 6px; padding: 8px;">
-              <div style="font-size: 8pt; font-weight: 800; color: #34d399; margin-bottom: 4px;">PANEL 3: RESEP MESIN</div>
-              <div style="background: #0f172a; padding: 4px; border-radius: 4px; font-size: 7pt; color: #a7f3d0; margin-bottom: 6px; font-family: monospace;">
-                &gt; SUBJEK: Makhluk Jeli<br>
-                &gt; ATRIBUT: Biru, Kacamata<br>
-                &gt; SIFAT: Pemalu, Donat
-              </div>
-              <div style="display: flex; gap: 4px;">
-                <span style="background: #dc2626; padding: 3px; border-radius: 3px; font-size: 6.5pt; font-weight: 700; flex: 1; text-align: center;">TANTANG AI</span>
-                <span style="background: #2563eb; padding: 3px; border-radius: 3px; font-size: 6.5pt; font-weight: 700; flex: 1; text-align: center;">UJI ERROR</span>
-              </div>
+            <div style="font-size: 8.5pt; color: #334155; line-height: 1.4;">
+              <strong>Bahan Pilihan Balok Rafa:</strong><br>
+              • <strong>Bentuk:</strong> Kucing Robot Cyborg bertelinga antena radio.<br>
+              • <strong>Warna:</strong> Biru langit metalik dengan belang kuning cerah.<br>
+              • <strong>Senjata Rahasia:</strong> Pistol semprotan selai stroberi beraroma manis.<br>
+              • <strong>Misi Khusus:</strong> Menjaga etalase toko donat dari serangan monster lapar.
             </div>
           </div>
         </div>
-
-        <table class="data-table">
-          <thead>
-            <tr>
-              <th style="width: 28%;">Komponen Sistem</th>
-              <th style="width: 35%;">Teknologi Terpasang</th>
-              <th>Fungsi Khusus untuk Anak</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>Frontend Engine</strong></td>
-              <td>HTML5, Vanilla JS, Tailwind CSS</td>
-              <td>Zero-lag, 60 FPS, memuat instan di laptop berspesifikasi rendah / Chromebook sekolah.</td>
-            </tr>
-            <tr>
-              <td><strong>Generative LLM</strong></td>
-              <td>Google Gemini 2.0 Flash SDK</td>
-              <td>Menerjemahkan balok pilihan anak menjadi naskah dialog cerdas dalam waktu &lt; 800ms.</td>
-            </tr>
-            <tr>
-              <td><strong>Visual Synthesizer</strong></td>
-              <td>Layered Dynamic Vector &amp; Canvas</td>
-              <td>Mewujudkan karakter instan bebas konten negatif (*100% Kid-Safe Guardrails*).</td>
-            </tr>
-            <tr>
-              <td><strong>Audio Speech</strong></td>
-              <td>Native Web Speech Synthesis API</td>
-              <td>Komputer membaca balon kata dengan suara hidup tanpa menyedot bandwidth Wi-Fi kelas.</td>
-            </tr>
-            <tr>
-              <td><strong>Mentor Telemetry</strong></td>
-              <td>Offline Local Storage / JSON Export</td>
-              <td>Mencatat durasi klik dan pilihan anak untuk bahan kalkulasi Rapor Bakat otomatis.</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
 
-      <div class="comic-panel" style="background: #eff6ff; border-color: #1e40af;">
-        <div style="font-size: 9pt; font-weight: 800; color: #1e40af; margin-bottom: 3px;">🛡️ KEAMANAN KONTEN &amp; PRIVASI DATA (KID-SAFE BY DESIGN)</div>
-        <p style="font-size: 8pt; color: #1e3a8a; margin-bottom: 0;">
-          Seluruh interaksi diisolasi dalam <em>sandbox</em> lokal. Tidak ada data foto atau nama anak yang diunggah ke server publik. Prompt yang dikirim ke Gemini dikunci dengan <em>system prompt</em> pelindung ketat sehingga output teks selalu mendidik, ceria, dan bebas dari konten berbahaya.
+      <!-- NILAI UTAMA: DARI BENGONG MENJADI BANGGA -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+        <div class="card" style="margin-bottom: 0; background: #eff6ff; border-color: #2563eb;">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #1e40af; margin-bottom: 4px;">❌ Kalau Pakai Cara Lama (Pasti Bengong):</div>
+          <p style="font-size: 8.5pt; color: #1e3a8a;">
+            Anak disuruh: <em>"Ayo buka ChatGPT/Gemini, ketik ceritamu sendiri mau bikin apa."</em><br>
+            <strong>Hasil:</strong> Anak diam 20 menit, menatap layar kosong, bingung mau ngetik kata apa.
+          </p>
+        </div>
+        <div class="card" style="margin-bottom: 0; background: #ecfdf5; border-color: #059669;">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #065f46; margin-bottom: 4px;">✅ Cara Modul 1 Kita (Langsung Gaspol):</div>
+          <p style="font-size: 8.5pt; color: #065f46;">
+            Anak disodorkan kartu kasus: <em>"Toko Donat Markas kemalingan! Pilih balok penjagamu!"</em><br>
+            <strong>Hasil:</strong> Dalam 2 menit Rafa langsung memilih 4 kartu dan karakternya hidup!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Akademi AI for Kids • Modul 1: Studi Kasus Nyata</span>
+      <span class="page-tag">Halaman 1 dari 6</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 2: ALUR 4 BABAK PEMBELAJARAN ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 9pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAB 1 • ALUR PEMBELAJARAN ALAMI 90 MENIT (THE 4-ACT JOURNEY)
+        </div>
+        <div class="badge badge-blue">STUDIO FLOW</div>
+      </div>
+
+      <p style="font-size: 9.5pt; color: #475569; margin-bottom: 14px;">
+        Pembelajaran tidak diajarkan lewat ceramah teori, melainkan mengalir seperti <strong>alur film petualangan 4 babak</strong> yang membuat anak tidak pernah merasa sedang "belajar berat":
+      </p>
+
+      <!-- BABAK 1 -->
+      <div class="card" style="border-left: 6px solid #f59e0b; padding: 12px 16px; margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-size: 10pt; font-weight: 800; color: #b45309;">BABAK 1: KASUS DONAT HILANG (Menit 00–15)</span>
+          <span class="badge badge-yellow" style="font-size: 7.5pt;">THE HOOK</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155;">
+          <strong>Aktivitas Nyata:</strong> Layar proyektor menampilkan etalase toko donat yang berantakan dengan jejak kaki misterius. Mentor menantang seluruh kelas: <em>"Detektif, kita butuh penjaga toko yang tidak pernah tidur! Hari ini kita akan latih robot AI untuk mengenali pencurinya!"</em><br>
+          <strong>Hasil Kognitif:</strong> Anak merasa punya misi nyata yang mendesak dan menyenangkan.
+        </p>
+      </div>
+
+      <!-- BABAK 2 -->
+      <div class="card" style="border-left: 6px solid #3b82f6; padding: 12px 16px; margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-size: 10pt; font-weight: 800; color: #1d4ed8;">BABAK 2: MERAKIT RESEP MONSTER PENJAGA (Menit 15–40)</span>
+          <span class="badge badge-blue" style="font-size: 7.5pt;">LEGO PROMPTING</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155;">
+          <strong>Aktivitas Nyata:</strong> Di laptop masing-masing, anak membuka studio web dan memilih 4 balok kartu (Wujud, Warna, Sifat, Benda). Rafa memilih: Kucing Robot + Biru Langit + Suka Tidur + Pistol Selai.<br>
+          <strong>Hasil Kognitif:</strong> Anak melihat balok pilihannya tersusun menjadi 1 kalimat perintah rapi tanpa pusing merangkai kata.
+        </p>
+      </div>
+
+      <!-- BABAK 3 -->
+      <div class="card" style="border-left: 6px solid #10b981; padding: 12px 16px; margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-size: 10pt; font-weight: 800; color: #047857;">BABAK 3: MONSTER HIDUP &amp; BERSUARA (Menit 40–65)</span>
+          <span class="badge badge-emerald" style="font-size: 7.5pt;">THE WOW FACTOR</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155;">
+          <strong>Aktivitas Nyata:</strong> Anak menekan tombol <em>"Nyalakan Penjaga"</em>. Dalam 2 detik, karakter Robo-Mochi muncul di layar dan membacakan dialog suaranya sendiri lewat speaker laptop. Anak tertawa dan saling pamer suara karakternya ke teman sebelah.<br>
+          <strong>Hasil Kognitif:</strong> Membangun rasa percaya diri (*self-efficacy*) bahwa imajinasi mereka bisa diwujudkan oleh AI.
+        </p>
+      </div>
+
+      <!-- BABAK 4 -->
+      <div class="card" style="border-left: 6px solid #ef4444; padding: 12px 16px; margin-bottom: 10px;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+          <span style="font-size: 10pt; font-weight: 800; color: #b91c1c;">BABAK 4: INSIDEN DONAT MELEDAK &amp; BEDAH ERROR (Menit 65–90)</span>
+          <span class="badge badge-rose" style="font-size: 7.5pt;">COMPUTATIONAL THINKING</span>
+        </div>
+        <p style="font-size: 8.5pt; color: #334155;">
+          <strong>Aktivitas Nyata:</strong> Mentor menantang anak menambahkan aksi baru: <em>"Bikinin robotnya makan donat raksasa"</em>. Tapi AI malah menggambar Donat bergigi yang memakan robotnya! Anak diajak membedah kata mana yang bikin AI bingung.<br>
+          <strong>Hasil Kognitif:</strong> Anak paham bahwa manusia adalah kaptennya. Jika komputer salah, kitalah yang harus membetulkan instruksinya.
         </p>
       </div>
     </div>
 
-    <div class="page-footer">
-      <span>Bab 2: Spesifikasi Platform Web Mandiri • Akademi AI for Kids</span>
-      <span class="page-num">Halaman 3 dari 7</span>
+    <div class="footer-bar">
+      <span>Bab 1: Alur 4 Babak Pembelajaran 90 Menit</span>
+      <span class="page-tag">Halaman 2 dari 6</span>
     </div>
   </div>
 
-  <!-- ==================== HALAMAN 4: SOP & RUNDOWN KELAS RAMAI ==================== -->
+  <!-- ==================== HALAMAN 3: TAMPILAN ASLI APLIKASI WEB ==================== -->
   <div class="a4-page">
     <div>
-      <div class="page-header">
-        <div class="page-header-title">BAB 3 • STANDAR OPERASIONAL &amp; RUNDOWN KELAS RAMAI (10–20 SISWA)</div>
-        <div class="comic-badge badge-amber">OPERATIONAL SOP</div>
+      <div class="header-bar">
+        <div style="font-size: 9pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAB 2 • TAMPILAN NYATA PLATFORM WEB STUDIO (COCKPIT SISWA)
+        </div>
+        <div class="badge badge-emerald">REAL INTERFACE</div>
       </div>
 
-      <!-- SISTEM MANAJEMEN KELAS -->
-      <div class="grid-3" style="margin-bottom: 8px;">
-        <div class="comic-panel" style="margin-bottom: 0; padding: 8px 10px;">
-          <div style="font-size: 8.5pt; font-weight: 800; color: #1e40af;">👥 SISTEM TANDEM 2 AGEN</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-top: 3px;">Siswa duduk berpasangan. Saling bantu kendala teknis dan saling menguji karakter meja sebelah. Beban mentor turun 60%.</p>
-        </div>
-        <div class="comic-panel" style="margin-bottom: 0; padding: 8px 10px;">
-          <div style="font-size: 8.5pt; font-weight: 800; color: #d97706;">📢 PROYEKTOR SENTRAL</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-top: 3px;">Suara narasi Gemini &amp; instruksi utama diputar terpusat dari laptop mentor di depan. Mencegah kebisingan tabrakan mic.</p>
-        </div>
-        <div class="comic-panel" style="margin-bottom: 0; padding: 8px 10px;">
-          <div style="font-size: 8.5pt; font-weight: 800; color: #059669;">🚦 KARTU STATUS MEJA</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-top: 3px;">🟢 Hijau = Lancar/Selesai. 🔴 Merah = Butuh Bantuan. Fasilitator langsung bergerak tanpa anak perlu berteriak.</p>
-        </div>
-      </div>
+      <p style="font-size: 9.5pt; color: #475569; margin-bottom: 12px;">
+        Ini adalah wujud layar asli di browser anak saat merakit proyek <strong>Robo-Mochi</strong>. Layar dibagi menjadi 3 zona yang saling terhubung secara real-time:
+      </p>
 
-      <!-- TIMELINE 90 MENIT -->
-      <div class="comic-panel">
-        <div class="panel-header">
-          <div class="panel-title">⏱️ RUNDOWN 90 MENIT (MENIT-PER-MENIT)</div>
-          <span class="comic-badge badge-dark">STEP-BY-STEP</span>
-        </div>
-
-        <table class="data-table" style="font-size: 8pt;">
-          <thead>
-            <tr>
-              <th style="width: 14%;">Fase &amp; Waktu</th>
-              <th style="width: 26%;">Misi Siswa</th>
-              <th style="width: 38%;">Aktivitas Pembelajaran (Step A s/d G)</th>
-              <th style="width: 22%;">Peran Mentor &amp; Asisten</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td><strong>FASE 1</strong><br>(00–15m)</td>
-              <td><strong>Panggilan Darurat Markas</strong><br><em>The Hook &amp; Mystery</em></td>
-              <td>
-                • Proyektor memutar panggilan darurat: Makhluk Planet Z tiba!<br>
-                • Siswa melihat siluet hitam misterius (<strong>Step A</strong>).<br>
-                • Game fisik tebak ciri tanpa layar (Chihuahua vs Muffin).
-              </td>
-              <td>Lead Mentor memandu dari depan. Fasilitator membagikan Berkas Fisik Siswa.</td>
-            </tr>
-            <tr>
-              <td><strong>FASE 2</strong><br>(15–35m)</td>
-              <td><strong>Laboratorium Balok Ciri</strong><br><em>Feature Selection</em></td>
-              <td>
-                • Buka browser web studio mandiri secara serempak.<br>
-                • Siswa memilih 4 balok ciri bergambar (<strong>Step B</strong>).<br>
-                • Sistem merakit balok menjadi "Resep Mesin" (<strong>Step C</strong>).
-              </td>
-              <td>Pantau kartu meja. Pastikan tidak ada siswa yang kesulitan memilih balok.</td>
-            </tr>
-            <tr>
-              <td><strong>FASE 3</strong><br>(35–55m)</td>
-              <td><strong>Kelahiran Karakter &amp; Uji Tebak</strong><br><em>AI Realization</em></td>
-              <td>
-                • Klik tombol "Bangun Karakter": Karakter visual muncul!<br>
-                • Karakter menyapa anak lewat audio suara (<strong>Step D</strong>).<br>
-                • Tukar pandang: Teman sebelah menebak resepnya (<strong>Step E</strong>).
-              </td>
-              <td>Ciptakan antusiasme: ajak siswa mendengarkan suara karakter unik teman.</td>
-            </tr>
-            <tr>
-              <td><strong>FASE 4</strong><br>(55–75m)</td>
-              <td><strong>Misi Detektif Glitch</strong><br><em>Debugging &amp; Bias</em></td>
-              <td>
-                • Mentor memicu "Kasus AI Bingung": apa jadinya jika ciri dihapus?<br>
-                • AI menggambar salah! Siswa membedah kata penyebab eror (<strong>Step F</strong>).<br>
-                • Siswa memperbaiki instruksi resep hingga berhasil.
-              </td>
-              <td>Tanamkan konsep: Manusia adalah kapten penentu, AI hanya menjalankan resep.</td>
-            </tr>
-            <tr>
-              <td><strong>FASE 5</strong><br>(75–90m)</td>
-              <td><strong>Pelantikan &amp; Penyerahan Cap</strong><br><em>Talent Synthesis</em></td>
-              <td>
-                • Siswa mencatat kesimpulan di lembar kerja fisik.<br>
-                • Cap stempel resmi "Approved Agent Level 1" di paspor.<br>
-                • Teaser ke Modul 2: Komik Petualangan 3 Panel.
-              </td>
-              <td>Fasilitator menyelesaikan skor observasi di lembar Rapor Diagnostik.</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Bab 3: SOP &amp; Rundown Kelas Ramai • Akademi AI for Kids</span>
-      <span class="page-num">Halaman 4 dari 7</span>
-    </div>
-  </div>
-
-  <!-- ==================== HALAMAN 5: PANDUAN MISI DETEKTIF GLITCH ==================== -->
-  <div class="a4-page">
-    <div>
-      <div class="page-header">
-        <div class="page-header-title">BAB 4 • PANDUAN EKSPERIMEN: MEMBEDAH KESALAHAN MESIN (STEP F)</div>
-        <div class="comic-badge badge-rose">COMPUTATIONAL THINKING</div>
-      </div>
-
-      <div class="comic-panel" style="background: #fdf2f8; border-color: #db2777;">
-        <div class="panel-header" style="border-color: #db2777;">
-          <div class="panel-title" style="color: #9d174d;">🔍 MENGAPA EKSPERIMEN "GLITCH" ADALAH INTI DARI MODUL 1?</div>
-          <span class="comic-badge badge-rose">CORE PHILOSOPHY</span>
-        </div>
-        <p style="font-size: 8.5pt; color: #831843; margin-bottom: 0;">
-          Banyak kelas AI anak hanya mengajarkan rasa takjub ("Wah, AI bisa gambar!"). Ini salah besar. Tanpa pemahaman bahwa <strong>AI bisa salah dan sering salah paham</strong>, anak akan tumbuh menjadi konsumen pasif yang mudah dibohongi teknologi. Di Step F ini, kita melatih anak menjadi <strong>Detektif Glitch</strong> yang mampu mencari tahu <em>mengapa</em> komputer salah dan <em>bagaimana</em> logika instruksi harus diperbaiki.
-        </p>
-      </div>
-
-      <!-- 2 STUDI KASUS GLITCH LAB -->
-      <div class="grid-2" style="margin-bottom: 10px;">
-        <!-- KASUS 1 -->
-        <div class="comic-panel" style="margin-bottom: 0;">
-          <div class="panel-header">
-            <div style="font-size: 9pt; font-weight: 800; color: #dc2626;">KASUS GLITCH #01: "KATA AMBIGU"</div>
-            <span class="comic-badge badge-dark">BIAS MAKNA</span>
+      <!-- MOCKUP BROWSER WINDOW -->
+      <div style="border: 3px solid #0f172a; border-radius: 12px; background: #0f172a; box-shadow: 4px 4px 0px #0f172a; overflow: hidden; margin-bottom: 14px;">
+        <!-- BROWSER TOP BAR -->
+        <div style="background: #1e293b; padding: 6px 12px; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid #0f172a;">
+          <div style="display: flex; gap: 6px;">
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #ef4444; display: inline-block;"></span>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #f59e0b; display: inline-block;"></span>
+            <span style="width: 10px; height: 10px; border-radius: 50%; background: #10b981; display: inline-block;"></span>
           </div>
-          <div style="font-size: 8pt; color: #334155;">
-            <p style="margin-bottom: 4px;"><strong>Eksperimen:</strong> Siswa memasukkan resep hanya dengan kata: <em>"Bikinin monster manis yang besar"</em>.</p>
-            <div style="background: #fee2e2; padding: 6px; border-radius: 4px; border: 1px solid #ef4444; margin-bottom: 6px;">
-              <strong>Hasil AI:</strong> Mengeluarkan monster raksasa terbuat dari gula dan permen loli berwajah seram.
+          <span style="font-size: 7.5pt; color: #94a3b8; font-family: monospace;">aiforkidss.vercel.app/studio-modul-1</span>
+          <span style="font-size: 7.5pt; color: #38bdf8; font-weight: 700;">AGENT RAFA #10</span>
+        </div>
+
+        <!-- BROWSER CONTENT (3 ZONA) -->
+        <div style="background: #f1f5f9; padding: 12px; display: grid; grid-template-columns: 1fr 1.1fr 1fr; gap: 10px;">
+          
+          <!-- ZONA 1: KARTU BALOK RAFA -->
+          <div style="background: #ffffff; border: 2px solid #0f172a; border-radius: 8px; padding: 10px; box-shadow: 2px 2px 0px #0f172a;">
+            <div style="font-size: 8pt; font-weight: 800; color: #1e40af; border-bottom: 1.5px solid #0f172a; padding-bottom: 4px; margin-bottom: 6px;">
+              1. BALOK PILIHAN RAFA
             </div>
-            <p style="margin-bottom: 4px;"><strong>Pertanyaan Detektif:</strong> *"Kenapa AI menggambar permen padahal maksudmu adalah monster yang berwajah lucu/ramah?"*</p>
-            <p style="color: #059669; font-weight: 700;">💡 Temuan Anak: Kata "manis" punya dua arti (rasa gula vs wajah ramah). AI butuh kata yang presisi!</p>
-          </div>
-        </div>
-
-        <!-- KASUS 2 -->
-        <div class="comic-panel" style="margin-bottom: 0;">
-          <div class="panel-header">
-            <div style="font-size: 9pt; font-weight: 800; color: #2563eb;">KASUS GLITCH #02: "CIRI TERTUKAR"</div>
-            <span class="comic-badge badge-blue">LOGIKA URUTAN</span>
-          </div>
-          <div style="font-size: 8pt; color: #334155;">
-            <p style="margin-bottom: 4px;"><strong>Eksperimen:</strong> Siswa menukar urutan balok: <em>"Donat memegang robot agar-agar berbaju biru"</em>.</p>
-            <div style="background: #e0f2fe; padding: 6px; border-radius: 4px; border: 1px solid #38bdf8; margin-bottom: 6px;">
-              <strong>Hasil AI:</strong> Mengeluarkan kue donat raksasa bertangan yang sedang memegang boneka robot kecil.
+            <div style="display: flex; flex-direction: column; gap: 4px; font-size: 7.5pt;">
+              <div style="background: #dbeafe; border: 1px solid #3b82f6; padding: 4px; border-radius: 4px; font-weight: 700;">
+                🐱 Wujud: Kucing Cyborg (Dipilih)
+              </div>
+              <div style="background: #fef3c7; border: 1px solid #f59e0b; padding: 4px; border-radius: 4px; font-weight: 700;">
+                🎨 Warna: Biru Neon &amp; Kuning
+              </div>
+              <div style="background: #e0e7ff; border: 1px solid #6366f1; padding: 4px; border-radius: 4px; font-weight: 700;">
+                😴 Sifat: Mengantuk tapi Kilat
+              </div>
+              <div style="background: #fce7f3; border: 1px solid #ec4899; padding: 4px; border-radius: 4px; font-weight: 700;">
+                🍓 Senjata: Pistol Selai Stroberi
+              </div>
             </div>
-            <p style="margin-bottom: 4px;"><strong>Pertanyaan Detektif:</strong> *"Siapa yang memegang dan siapa yang dipegang? Kenapa urutan kata mengubah hasil?"*</p>
-            <p style="color: #059669; font-weight: 700;">💡 Temuan Anak: Subjek dan Objek dalam kalimat menentukan arah aksi mesin!</p>
           </div>
+
+          <!-- ZONA 2: HASIL KANVAS KARAKTER -->
+          <div style="background: #ffffff; border: 2px solid #0f172a; border-radius: 8px; padding: 10px; text-align: center; box-shadow: 2px 2px 0px #0f172a;">
+            <div style="font-size: 8pt; font-weight: 800; color: #047857; border-bottom: 1.5px solid #0f172a; padding-bottom: 4px; margin-bottom: 6px;">
+              2. KANVAS HASIL REAL-TIME
+            </div>
+            <div style="background: #38bdf8; border: 1.5px solid #0f172a; border-radius: 6px; height: 80px; display: flex; align-items: center; justify-content: center; font-size: 24pt; margin-bottom: 6px;">
+              🐱🍩⚡
+            </div>
+            <div style="background: #fffbeb; border: 1px solid #d97706; padding: 4px; border-radius: 4px; font-size: 7pt; font-weight: 600; color: #92400e;">
+              "Meow! Toko donat aman bersamaku!"
+            </div>
+          </div>
+
+          <!-- ZONA 3: RESEP INSTRUKSI OTOMATIS -->
+          <div style="background: #ffffff; border: 2px solid #0f172a; border-radius: 8px; padding: 10px; box-shadow: 2px 2px 0px #0f172a;">
+            <div style="font-size: 8pt; font-weight: 800; color: #b91c1c; border-bottom: 1.5px solid #0f172a; padding-bottom: 4px; margin-bottom: 6px;">
+              3. RESEP LOGIKA TERBENTUK
+            </div>
+            <div style="background: #0f172a; color: #a7f3d0; padding: 6px; border-radius: 4px; font-size: 6.5pt; font-family: monospace; line-height: 1.3; margin-bottom: 6px;">
+              &gt; JADIKAN: Kucing Cyborg<br>
+              &gt; WARNA: Biru Neon<br>
+              &gt; BAWA: Pistol Selai<br>
+              &gt; MISI: Jaga Toko Donat
+            </div>
+            <div style="background: #22c55e; color: #ffffff; font-size: 7pt; font-weight: 800; text-align: center; padding: 4px; border-radius: 4px; border: 1px solid #0f172a;">
+              🔊 DENGARKAN SUARA
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- KESIMPULAN BERPIKIR KOMPUTASIONAL -->
-      <div class="comic-panel" style="background: #f8fafc;">
-        <div class="panel-header">
-          <div class="panel-title">🧠 3 ATURAN EMAS ARSITEK AI YANG DIBAWA PULANG ANAK</div>
-          <span class="comic-badge badge-dark">MENTAL MODEL</span>
+      <!-- KESIMPULAN FITUR -->
+      <div class="card" style="background: #f8fafc; margin-bottom: 0;">
+        <div style="font-size: 9pt; font-weight: 800; color: #0f172a; margin-bottom: 3px;">
+          💡 MENGAPA TAMPILAN INI SANGAT RAMAH ANAK?
         </div>
-        <div class="grid-3" style="font-size: 8pt;">
-          <div style="background: #ffffff; padding: 8px; border: 1.5px solid #0f172a; border-radius: 6px; box-shadow: 2px 2px 0px #0f172a;">
-            <strong style="color: #1e40af; display: block; margin-bottom: 2px;">1. SPESIFIK &gt; UMUM</strong>
-            <span>Sebutkan wujud, warna, dan benda secara jelas. Jangan biarkan AI menebak-nebak di ruang hampa.</span>
-          </div>
-          <div style="background: #ffffff; padding: 8px; border: 1.5px solid #0f172a; border-radius: 6px; box-shadow: 2px 2px 0px #0f172a;">
-            <strong style="color: #d97706; display: block; margin-bottom: 2px;">2. RUNUT &gt; ACAK</strong>
-            <span>Susun instruksi dari Siapa (Subjek), Seperti Apa (Sifat), sampai Sedang Apa (Aksi). Urutan menentukan arah.</span>
-          </div>
-          <div style="background: #ffffff; padding: 8px; border: 1.5px solid #0f172a; border-radius: 6px; box-shadow: 2px 2px 0px #0f172a;">
-            <strong style="color: #059669; display: block; margin-bottom: 2px;">3. MANUSIA ADALAH BOS</strong>
-            <span>Kalau hasilnya jelek atau keliru, itu bukan salah kita bodoh. Itu tanda bahwa instruksi kita perlu disempurnakan!</span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Bab 4: Panduan Misi Detektif Glitch • Akademi AI for Kids</span>
-      <span class="page-num">Halaman 5 dari 7</span>
-    </div>
-  </div>
-
-  <!-- ==================== HALAMAN 6: LEMBAR KERJA FISIK SISWA ==================== -->
-  <div class="a4-page">
-    <div>
-      <div class="page-header">
-        <div class="page-header-title">BAB 5 • LEMBAR KERJA SISWA (STUDENT COMPANION WORKSHEET)</div>
-        <div class="comic-badge badge-blue">PRINTABLE WORKSHEET</div>
-      </div>
-
-      <!-- IDENTITY BOX -->
-      <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 2px solid #0f172a; padding: 6px 12px; border-radius: 6px; box-shadow: 2px 2px 0px #0f172a; margin-bottom: 10px;">
-        <div style="font-size: 8.5pt;"><strong>NAMA AGEN:</strong> _______________________</div>
-        <div style="font-size: 8.5pt;"><strong>KODE DETEKTIF:</strong> [ #AGT-______ ]</div>
-        <div style="font-size: 8.5pt;"><strong>TANDEM PARTNER:</strong> ___________________</div>
-      </div>
-
-      <!-- TUGAS 1: PANCINGAN BALOK CIRI -->
-      <div class="comic-panel">
-        <div class="panel-header">
-          <div class="panel-title">TUGAS 1 • PILIHAN BALOK CIRI MAKHLUK MISTERIUS (STEP B)</div>
-          <span class="comic-badge badge-amber">CENTANG OPSI</span>
-        </div>
-        <div class="grid-4" style="font-size: 8pt;">
-          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px;">
-            <strong>A. Wujud Tubuh:</strong><br>
-            [ &nbsp; ] Bulat Berbulu<br>
-            [ &nbsp; ] Robot Besi Baja<br>
-            [ &nbsp; ] Tubuh Jeli Kenyal<br>
-            [ &nbsp; ] Daun Melayang
-          </div>
-          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px;">
-            <strong>B. Warna Utama:</strong><br>
-            [ &nbsp; ] Biru Langit<br>
-            [ &nbsp; ] Kuning Matahari<br>
-            [ &nbsp; ] Hijau Daun<br>
-            [ &nbsp; ] Ungu Angkasa
-          </div>
-          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px;">
-            <strong>C. Sifat Unik:</strong><br>
-            [ &nbsp; ] Suka Mengantuk<br>
-            [ &nbsp; ] Penasaran / Kepo<br>
-            [ &nbsp; ] Pemberani Super<br>
-            [ &nbsp; ] Suka Bernyanyi
-          </div>
-          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px;">
-            <strong>D. Benda Saku:</strong><br>
-            [ &nbsp; ] Donat Cokelat<br>
-            [ &nbsp; ] Kacamata Pembesar<br>
-            [ &nbsp; ] Jam Pasir Ajaib<br>
-            [ &nbsp; ] Sepatu Roda
-          </div>
-        </div>
-      </div>
-
-      <!-- TUGAS 2: RESEP MESIN LEGO -->
-      <div class="comic-panel">
-        <div class="panel-header">
-          <div class="panel-title">TUGAS 2 • RESEP INSTRUKSI TERSTRUKTUR (STEP C)</div>
-          <span class="comic-badge badge-emerald">TULIS TANGAN</span>
-        </div>
-        <p style="font-size: 7.5pt; color: #64748b; margin-bottom: 4px;">Salin resep rapi dari susunan balok yang kamu pilih di layar komputer:</p>
-        <div style="border: 1.5px solid #0f172a; background: #fffbeb; padding: 8px; border-radius: 4px; font-size: 8.5pt; min-height: 40px; font-style: italic;">
-          "Tolong buatkan makhluk __________________________ berwarna __________________________ yang memiliki sifat __________________________ dan selalu membawa __________________________!"
-        </div>
-      </div>
-
-      <!-- TUGAS 3: LOG INVESTIGASI GLITCH & CAP PASPOR -->
-      <div class="grid-2">
-        <div class="comic-panel" style="margin-bottom: 0;">
-          <div class="panel-header">
-            <div style="font-size: 8.5pt; font-weight: 800; color: #dc2626;">TUGAS 3 • LOG DETEKTIF GLITCH (STEP F)</div>
-          </div>
-          <div style="font-size: 7.5pt; color: #334155;">
-            <p>1. Apa kesalahan lucu yang sempat digambar AI?<br>
-            Jawaban: _________________________________________</p>
-            <p style="margin-top: 4px;">2. Kata apa yang kamu tambahkan agar AI paham?<br>
-            Jawaban: _________________________________________</p>
-            <p style="margin-top: 4px;">3. Apakah teman tandemmu berhasil menebak?<br>
-            [ &nbsp; ] Berhasil 100% &nbsp;&nbsp;&nbsp;&nbsp; [ &nbsp; ] Sempat Keliru</p>
-          </div>
-        </div>
-
-        <div class="comic-panel" style="margin-bottom: 0; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center; background: #f8fafc;">
-          <div style="font-size: 8.5pt; font-weight: 800; color: #0f172a;">STEMPEL RESMI POS 1</div>
-          <div style="border: 2px dashed #0f172a; width: 100%; height: 60px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 8pt; color: #94a3b8; font-weight: 700;">
-            [ KOTAK CAP STAMPEL MENTOR ]
-          </div>
-          <div style="font-size: 7pt; color: #64748b; font-weight: 600;">STATUS: APPROVED AGENT LEVEL 1</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="page-footer">
-      <span>Bab 5: Lembar Kerja Siswa • Akademi AI for Kids</span>
-      <span class="page-num">Halaman 6 dari 7</span>
-    </div>
-  </div>
-
-  <!-- ==================== HALAMAN 7: RAPOR DIAGNOSTIK "ANAK STRONG DI MANA" ==================== -->
-  <div class="a4-page">
-    <div>
-      <div class="page-header">
-        <div class="page-header-title">BAB 6 • RAPOR DIAGNOSTIK BAKAT ALAMI SISWA ("ANAK STRONG DI MANA")</div>
-        <div class="comic-badge badge-dark">PARENT DELIVERABLE</div>
-      </div>
-
-      <div class="comic-panel" style="background: #1e3a8a; color: #ffffff; border-color: #0f172a;">
-        <div style="font-size: 10pt; font-weight: 800; color: #facc15; margin-bottom: 3px;">🎯 NILAI TERTINGGI UNTUK ORANG TUA: PEMETAAN POTENSI SEJAK DAY 1</div>
-        <p style="font-size: 8pt; color: #e2e8f0; margin-bottom: 0;">
-          Setiap anak terlahir unik. Ada anak yang imajinasinya meluap-luap tapi kurang teliti; ada anak yang pendiam tapi logikanya tajam saat mencari eror. Di akhir Modul 1, orang tua menerima lembar asesmen ini untuk memahami kecenderungan kognitif anak secara objektif.
+        <p style="font-size: 8.5pt; color: #475569;">
+          Anak tidak perlu mengetik sintaks bahasa Inggris seperti <em>"create a cyborg cat with..."</em>. Cukup klik balok visual di kiri &rarr; langsung melihat wujud gambarnya di tengah &rarr; dan melihat formula logikanya di kanan. Inilah cara termudah melatih <strong>Computational Thinking</strong> sejak usia dini!
         </p>
       </div>
+    </div>
 
-      <!-- RADAR 4 KUADRAN BAKAT -->
-      <div class="grid-2" style="margin-bottom: 10px;">
-        <!-- KUADRAN 1 -->
-        <div class="comic-panel" style="margin-bottom: 0; border-top: 4px solid #f59e0b;">
-          <div style="font-size: 9pt; font-weight: 800; color: #d97706; margin-bottom: 3px;">1. CREATIVE STORYTELLER (Imajinasi &amp; Narasi)</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 4px;"><strong>Ciri Teramati di Kelas:</strong> Memilih kombinasi balok yang paling unik/lucu, suka memberi nama aneh pada karakter, dan aktif bercerita secara lisan.</p>
-          <div style="background: #fffbeb; padding: 4px 6px; border-radius: 4px; font-size: 7.5pt; color: #92400e;">
-            <strong>Saran untuk Ortu:</strong> Fasilitasi dengan pembuatan buku komik, podcast anak, atau latihan menulis cerita fiksi bergambar.
-          </div>
+    <div class="footer-bar">
+      <span>Bab 2: Tampilan Nyata Platform Web Studio</span>
+      <span class="page-tag">Halaman 3 dari 6</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 4: INSIDEN GLITCH & DEBUGGING ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 9pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAB 3 • INSIDEN NYATA: KETIKA DONAT MEMAKAN ROBOT (DEBUGGING)
         </div>
+        <div class="badge badge-rose">REAL DEBUGGING</div>
+      </div>
 
-        <!-- KUADRAN 2 -->
-        <div class="comic-panel" style="margin-bottom: 0; border-top: 4px solid #3b82f6;">
-          <div style="font-size: 9pt; font-weight: 800; color: #1e40af; margin-bottom: 3px;">2. ANALYTICAL THINKER (Logika &amp; Problem Solving)</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 4px;"><strong>Ciri Teramati di Kelas:</strong> Paling teliti memeriksa Resep Mesin, sangat penasaran saat terjadi glitch, dan mampu menjelaskan urutan sebab-akibat dengan runut.</p>
-          <div style="background: #eff6ff; padding: 4px 6px; border-radius: 4px; font-size: 7.5pt; color: #1e3a8a;">
-            <strong>Saran untuk Ortu:</strong> Ajak bermain catur, teka-teki logika, puzzle mekanik, atau perancangan alur automasi sederhana.
-          </div>
+      <p style="font-size: 9.5pt; color: #475569; margin-bottom: 12px;">
+        Ini adalah momen paling seru dan mendidik di kelas. Bukan saat AI menggambar bagus, tapi saat <strong>AI melakukan kesalahan konyol</strong> karena instruksi anak yang ambigu:
+      </p>
+
+      <!-- KASUS KESALAHAN -->
+      <div style="border: 2.5px solid #dc2626; background: #fef2f2; border-radius: 12px; padding: 14px 18px; margin-bottom: 14px; box-shadow: 4px 4px 0px #dc2626;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span style="font-size: 11pt; font-weight: 800; color: #991b1b;">🚨 KASUS NYATA: AI SALAH SANGKA!</span>
+          <span class="badge badge-rose">KATA AMBIGU</span>
         </div>
-
-        <!-- KUADRAN 3 -->
-        <div class="comic-panel" style="margin-bottom: 0; border-top: 4px solid #10b981;">
-          <div style="font-size: 9pt; font-weight: 800; color: #059669; margin-bottom: 3px;">3. VISUAL STYLIST (Estetika &amp; Desain)</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 4px;"><strong>Ciri Teramati di Kelas:</strong> Sangat peduli pada keselarasan warna, bentuk wujud karakter, kerapian gambar, dan peka terhadap detail visual yang janggal.</p>
-          <div style="background: #ecfdf5; padding: 4px 6px; border-radius: 4px; font-size: 7.5pt; color: #065f46;">
-            <strong>Saran untuk Ortu:</strong> Dukung dengan eksplorasi ilustrasi digital, desain grafis ramah anak (Canva Kids), atau 3D modeling dasar.
+        <p style="font-size: 9pt; color: #7f1d1d; margin-bottom: 8px;">
+          Rafa ingin karakternya makan donat raksasa, lalu dia mengklik tombol tantangan dengan kalimat: <em>"Bikinin robot makan donat raksasa bertaring"</em>.
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 8.5pt;">
+          <div style="background: #ffffff; border: 1.5px solid #ef4444; border-radius: 6px; padding: 8px;">
+            <strong style="color: #dc2626;">Yang Dimaksud Rafa:</strong><br>
+            Robot Robo-Mochi yang punya taring kecil lucu sedang memakan kue donat berukuran besar.
           </div>
-        </div>
-
-        <!-- KUADRAN 4 -->
-        <div class="comic-panel" style="margin-bottom: 0; border-top: 4px solid #8b5cf6;">
-          <div style="font-size: 9pt; font-weight: 800; color: #6d28d9; margin-bottom: 3px;">4. TACTILE EXPLORER (Eksplorasi Taktis &amp; Adaptasi)</div>
-          <p style="font-size: 7.5pt; color: #475569; margin-bottom: 4px;"><strong>Ciri Teramati di Kelas:</strong> Paling cepat mencoba semua tombol fitur, tidak takut salah klik, belajar lewat eksperimen fisik (*trial &amp; error*).</p>
-          <div style="background: #f5f3ff; padding: 4px 6px; border-radius: 4px; font-size: 7.5pt; color: #5b21b6;">
-            <strong>Saran untuk Ortu:</strong> Sangat cocok dikenalkan pada robotika fisik, sensor hardware IoT (micro:bit/ESP32), dan kerajinan tangan interaktif.
+          <div style="background: #ffffff; border: 1.5px solid #ef4444; border-radius: 6px; padding: 8px;">
+            <strong style="color: #dc2626;">Yang Digambar Komputer:</strong><br>
+            Kue Donat Raksasa yang punya gigi taring tajam sedang menggigit dan menelan tubuh si robot!
           </div>
         </div>
       </div>
 
-      <!-- RUBRIK EVALUASI MENTOR & FORMAT LAPORAN ORTU -->
-      <div class="comic-panel" style="background: #f8fafc;">
-        <div class="panel-header">
-          <div class="panel-title">📋 CONTOH KUTIPAN LAPORAN PERSONAL KE WHATSAPP ORANG TUA</div>
-          <span class="comic-badge badge-dark">SAMPLE REPORT</span>
+      <!-- CARA MENTOR MEMBIMBING ANAK DARI STEP A KE STEP G -->
+      <div class="card" style="margin-bottom: 14px;">
+        <div style="font-size: 10pt; font-weight: 800; color: #0f172a; margin-bottom: 8px;">
+          🛠️ BAGAIMANA MENTOR MEMANCING CARA BERPIKIR RAFA?
         </div>
-        <div style="background: #ffffff; border: 1.5px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; font-size: 8pt; color: #334155; font-family: monospace;">
-          "Halo Ayah/Bunda [Nama Anak], selamat! Di Sesi Modul 1 hari ini, [Nama Anak] menunjukkan kekuatan menonjol pada kuadran <strong>Analytical Thinker (Skor 88/100)</strong>. Saat sesi Detektif Glitch, [Nama Anak] paling cepat menyadari bahwa kata ambigu membuat AI keliru menggambar. Rekomendasi kami di rumah: [Nama Anak] sangat siap untuk diajak merancang alur cerita komik yang penuh teka-teki logika di Modul 2 minggu depan!"
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 8.5pt; color: #334155;">
+          <div style="background: #f8fafc; border-left: 4px solid #3b82f6; padding: 6px 10px;">
+            <strong>1. Pancing Pertanyaan (Bukan Kasih Tahu Jawaban):</strong><br>
+            Mentor: <em>"Rafa, lihat gambarnya! Kenapa donatnya yang gigit robotmu, bukan robotmu yang makan donat?"</em>
+          </div>
+          <div style="background: #f8fafc; border-left: 4px solid #f59e0b; padding: 6px 10px;">
+            <strong>2. Analisis Struktur Kalimat (Anak Menemukan Sendiri):</strong><br>
+            Rafa: <em>"Oh! Karena kata 'bertaring' nempel di sebelah kata donat! Komputernya ngira donatnya yang punya taring!"</em>
+          </div>
+          <div style="background: #f8fafc; border-left: 4px solid #10b981; padding: 6px 10px;">
+            <strong>3. Perbaikan Resep (Debugging Berhasil):</strong><br>
+            Rafa memperbaiki resep: <em>"Robot kucing bertaring kecil sedang memegang dan memakan donat stroberi besar."</em> &rarr; <strong>Hasil AI langsung sempurna!</strong>
+          </div>
+        </div>
+      </div>
+
+      <!-- PELAJARAN MENTAL ANAK -->
+      <div class="speech-bubble" style="background: #f0fdf4; border-color: #059669;">
+        <strong>🎉 Kesimpulan Hebat yang Disadari Rafa:</strong><br>
+        <em>"Ternyata komputer itu gak pinter-pinter amat ya Kak! Kalau kita kasih instruksinya kebalik, dia ikutan bingung. Jadi kitalah yang harus ngasih tahu secara runtut!"</em>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bab 3: Insiden Nyata Glitch &amp; Cara Membimbing Anak</span>
+      <span class="page-tag">Halaman 4 dari 6</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 5: LEMBAR KERJA ASLI RAFA ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 9pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAB 4 • CONTOH LEMBAR KERJA ASLI SISWA (HASIL CORETAN TANGAN)
+        </div>
+        <div class="badge badge-yellow">STUDENT WORKSHEET</div>
+      </div>
+
+      <p style="font-size: 9.5pt; color: #475569; margin-bottom: 12px;">
+        Ini adalah replika lembar kerja fisik yang benar-benar dibawa pulang oleh anak untuk ditunjukkan ke orang tuanya:
+      </p>
+
+      <!-- WORKSHEET CONTAINER -->
+      <div style="border: 2.5px solid #0f172a; border-radius: 12px; background: #fffdf5; padding: 14px 18px; box-shadow: 4px 4px 0px #0f172a; margin-bottom: 12px;">
+        
+        <!-- HEADER FORM -->
+        <div style="display: flex; justify-content: space-between; border-bottom: 2px dashed #0f172a; padding-bottom: 8px; margin-bottom: 10px; font-size: 8.5pt;">
+          <div><strong>NAMA AGEN:</strong> Rafa Al-Ghifari (10 Thn)</div>
+          <div><strong>KODE AGEN:</strong> [ #AGT-010 ]</div>
+          <div><strong>KOTA:</strong> Bandung</div>
+        </div>
+
+        <!-- MISI 1 -->
+        <div style="margin-bottom: 10px;">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #1e40af; margin-bottom: 4px;">
+            MISI 1: BALOK CIRI PENJAGA TOKO DONAT (PILIHAN RAFA)
+          </div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6px; font-size: 7.5pt;">
+            <div style="background: #ffffff; border: 1px solid #0f172a; padding: 4px; border-radius: 4px;">
+              <strong>[x] Kucing Cyborg</strong><br>
+              [ &nbsp; ] Robot Besi<br>
+              [ &nbsp; ] Monster Agar
+            </div>
+            <div style="background: #ffffff; border: 1px solid #0f172a; padding: 4px; border-radius: 4px;">
+              <strong>[x] Biru Neon</strong><br>
+              [ &nbsp; ] Kuning Emas<br>
+              [ &nbsp; ] Hijau Daun
+            </div>
+            <div style="background: #ffffff; border: 1px solid #0f172a; padding: 4px; border-radius: 4px;">
+              <strong>[x] Mengantuk Kilat</strong><br>
+              [ &nbsp; ] Pemberani<br>
+              [ &nbsp; ] Suka Nyanyi
+            </div>
+            <div style="background: #ffffff; border: 1px solid #0f172a; padding: 4px; border-radius: 4px;">
+              <strong>[x] Pistol Selai</strong><br>
+              [ &nbsp; ] Donat Emas<br>
+              [ &nbsp; ] Kacamata Jam
+            </div>
+          </div>
+        </div>
+
+        <!-- MISI 2: RESEP TULIS TANGAN RAFA -->
+        <div style="margin-bottom: 10px;">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #047857; margin-bottom: 4px;">
+            MISI 2: RESEP TERSTRUKTUR (TULISAN TANGAN RAFA)
+          </div>
+          <div style="background: #ffffff; border: 1.5px solid #0f172a; padding: 8px; border-radius: 6px; font-family: 'JetBrains Mono', monospace; font-size: 8pt; color: #1e3a8a;">
+            "Tolong buatkan <span style="text-decoration: underline; font-weight: 700;">Kucing Cyborg</span> berwarna <span style="text-decoration: underline; font-weight: 700;">Biru Neon</span> yang suka <span style="text-decoration: underline; font-weight: 700;">Mengantuk tapi gerak secepat kilat</span> dan memegang <span style="text-decoration: underline; font-weight: 700;">Pistol Selai Stroberi</span>!"
+          </div>
+        </div>
+
+        <!-- MISI 3: CATATAN DETEKTIF GLITCH -->
+        <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 10px; align-items: center;">
+          <div>
+            <div style="font-size: 8.5pt; font-weight: 800; color: #b91c1c; margin-bottom: 2px;">
+              MISI 3: CATATAN PERBAIKAN EROR
+            </div>
+            <p style="font-size: 7.5pt; color: #475569;">
+              <strong>Apa yang salah:</strong> Donat memakan robot karena kata bertaring salah tempat.<br>
+              <strong>Solusi Rafa:</strong> Pindahin kata bertaring ke sebelah kucing. Hasilnya berhasil!
+            </p>
+          </div>
+
+          <!-- STEMPEL KELULUSAN POS 1 -->
+          <div style="border: 2px dashed #059669; background: #ecfdf5; border-radius: 8px; padding: 8px; text-align: center;">
+            <div style="font-size: 11pt; font-weight: 900; color: #059669; letter-spacing: 0.05em;">
+              ★ APPROVED ★
+            </div>
+            <div style="font-size: 7pt; font-weight: 700; color: #065f46;">DETEKTIF LOGIKA LEVEL 1</div>
+            <div style="font-size: 6.5pt; color: #047857; margin-top: 2px;">Mentor: Dimitri A.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bab 4: Lembar Kerja Asli Siswa (Printable Artifact)</span>
+      <span class="page-tag">Halaman 5 dari 6</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 6: CONTOH NYATA RAPOR ORANG TUA ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 9pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAB 5 • LAPORAN NYATA KE ORANG TUA ("ANAK STRONG DI MANA")
+        </div>
+        <div class="badge badge-emerald">PARENT DELIVERABLE</div>
+      </div>
+
+      <p style="font-size: 9.5pt; color: #475569; margin-bottom: 12px;">
+        Ini adalah contoh laporan asesmen yang langsung dikirimkan ke WhatsApp Ibunda Rafa setelah sesi Modul 1 selesai. Orang tua mendapatkan <strong>jawaban pasti</strong> tentang potensi unik anaknya:
+      </p>
+
+      <!-- CHAT WHATSAPP PREVIEW -->
+      <div style="border: 2.5px solid #0f172a; border-radius: 12px; background: #efeae2; padding: 14px 16px; box-shadow: 4px 4px 0px #0f172a; margin-bottom: 14px;">
+        <div style="display: flex; align-items: center; gap: 8px; border-bottom: 1.5px solid #cbd5e1; padding-bottom: 6px; margin-bottom: 8px;">
+          <span style="font-size: 12pt;">📱</span>
+          <span style="font-size: 8.5pt; font-weight: 800; color: #0f172a;">Kutipan Pesan WhatsApp Resmi ke Orang Tua Siswa:</span>
+        </div>
+        <div style="background: #ffffff; border-radius: 8px; padding: 10px 12px; font-size: 8.5pt; color: #1e293b; line-height: 1.45; box-shadow: 1px 1px 0px rgba(0,0,0,0.1);">
+          "Selamat sore Bunda Rafa! 😊<br><br>
+          Alhamdulillah sesi <strong>Modul 1 (Studio Detektif Pikiran)</strong> Rafa hari ini berjalan sangat seru! Rafa berhasil membuat karakter penjaga toko donat bernama <strong>Robo-Mochi</strong>.<br><br>
+          Dari observasi mentor selama 90 menit, kekuatan alami Rafa terpetakan sangat menonjol di kuadran: <strong>ANALYTICAL THINKER (Skor: 92/100)</strong> 🧠⚡.<br><br>
+          Saat AI sempat keliru menggambar karena urutan kata tertukar, Rafa adalah anak tercepat di kelas yang menyadari penyebab erornya dan membetulkan instruksi kalimatnya secara mandiri.<br><br>
+          <strong>Saran untuk Bunda di rumah:</strong> Rafa punya bakat logika urutan sebab-akibat yang sangat kuat. Bunda bisa ajak Rafa main catur, teka-teki detektif, atau board game strategi!"
+        </div>
+      </div>
+
+      <!-- RADAR 4 KUADRAN SKOR RAFA -->
+      <div class="card" style="margin-bottom: 0;">
+        <div class="card-header">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #0f172a;">
+            📊 SKOR RADAR 4 KUADRAN BAKAT ALAMI (HASIL ASESMEN RAFA)
+          </div>
+          <span class="badge badge-yellow">DAY 1 ASSESSMENT</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 8pt;">
+          <div style="background: #eff6ff; border: 1.5px solid #3b82f6; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #1e40af;">🧠 ANALYTICAL THINKER — 92% (SANGAT DOMINAN)</div>
+            <p style="color: #1e3a8a; margin-top: 2px;">Cepat melihat kejanggalan logika dan senang memecahkan masalah saat sistem eror.</p>
+          </div>
+          <div style="background: #fffbeb; border: 1.5px solid #f59e0b; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #b45309;">🌟 CREATIVE STORYTELLER — 80% (KUAT)</div>
+            <p style="color: #92400e; margin-top: 2px;">Menciptakan senjata pistol selai stroberi yang unik dan humoris.</p>
+          </div>
+          <div style="background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #047857;">🎨 VISUAL STYLIST — 74% (BERKEMBANG)</div>
+            <p style="color: #065f46; margin-top: 2px;">Peduli pada kontras warna biru neon dan kuning pada tubuh robot.</p>
+          </div>
+          <div style="background: #f5f3ff; border: 1.5px solid #8b5cf6; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #6d28d9;">🛠️ TACTILE EXPLORER — 78% (AKTIF)</div>
+            <p style="color: #5b21b6; margin-top: 2px;">Aktif mencoba tombol audio dan mendengarkan suaranya berulang kali.</p>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="page-footer">
-      <span>Bab 6: Rapor Diagnostik "Anak Strong di Mana" • Akademi AI for Kids</span>
-      <span class="page-num">Halaman 7 dari 7</span>
+    <div class="footer-bar">
+      <span>Bab 5: Laporan Nyata ke Orang Tua ("Anak Strong di Mana")</span>
+      <span class="page-tag">Halaman 6 dari 6</span>
     </div>
   </div>
 
