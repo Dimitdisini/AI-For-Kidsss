@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI for Kids Creative Studio • Modul 1: Detektif Pikiran</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@600;800&family=Space+Grotesk:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy-deep: #0f172a;
+      --navy-card: #1e293b;
+      --blue-hero: #2563eb;
+      --blue-light: #eff6ff;
+      --amber: #f59e0b;
+      --amber-light: #fef3c7;
+      --emerald: #10b981;
+      --emerald-light: #ecfdf5;
+      --rose: #ef4444;
+      --rose-light: #fef2f2;
+      --bg-slate: #f8fafc;
+      --border-dark: 2.5px solid #0f172a;
+      --border-thick: 3.5px solid #0f172a;
+      --shadow-solid: 4px 4px 0px #0f172a;
+      --shadow-sm: 2px 2px 0px #0f172a;
+      --font-main: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-heading: 'Space Grotesk', sans-serif;
+      --font-mono: 'JetBrains Mono', monospace;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background-color: #0b1329;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(37, 99, 235, 0.15) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(245, 158, 11, 0.12) 0%, transparent 25%),
+        linear-gradient(rgba(30, 41, 59, 0.4) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(30, 41, 59, 0.4) 1px, transparent 1px);
+      background-size: 100% 100%, 100% 100%, 32px 32px, 32px 32px;
+      color: var(--navy-deep);
+      font-family: var(--font-main);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* TOP HEADER */
+    .top-header {
+      background: #0f172a;
+      border-bottom: var(--border-thick);
+      padding: 12px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #ffffff;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: var(--amber);
+      color: var(--navy-deep);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 9pt;
+      padding: 4px 10px;
+      border-radius: 6px;
+      border: 2px solid #000;
+      box-shadow: 2px 2px 0px #000;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+
+    .header-title h1 {
+      font-size: 1.15rem;
+      font-weight: 800;
+      font-family: var(--font-heading);
+      letter-spacing: -0.02em;
+      color: #ffffff;
+    }
+
+    .header-title p {
+      font-size: 0.75rem;
+      color: #94a3b8;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .agent-pill {
+      background: #1e293b;
+      border: 1.5px solid #334155;
+      padding: 6px 12px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: #38bdf8;
+    }
+
+    .btn-action {
+      background: #2563eb;
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-weight: 800;
+      font-size: 0.8rem;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 2px solid #000;
+      box-shadow: 2px 2px 0px #000;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.15s ease;
+    }
+
+    .btn-action:hover {
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px #000;
+    }
+
+    .btn-action:active {
+      transform: translate(1px, 1px);
+      box-shadow: 1px 1px 0px #000;
+    }
+
+    /* MAIN COCKPIT CONTAINER */
+    .cockpit-container {
+      flex: 1;
+      max-width: 1360px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 24px;
+      display: grid;
+      grid-template-columns: 360px 1fr 340px;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 1180px) {
+      .cockpit-container {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* CARD CONTAINERS */
+    .panel-box {
+      background: #ffffff;
+      border: var(--border-thick);
+      border-radius: 14px;
+      box-shadow: var(--shadow-solid);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+
+    .panel-title {
+      font-family: var(--font-heading);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--navy-deep);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .tag-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 4px;
+      border: 1.5px solid #000;
+      box-shadow: 1.5px 1.5px 0px #000;
+      text-transform: uppercase;
+    }
+
+    /* CATEGORY SECTIONS IN PANEL 1 */
+    .category-group {
+      margin-bottom: 14px;
+    }
+
+    .category-label {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 6px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .clue-cards-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .clue-card {
+      background: #f8fafc;
+      border: 2px solid #cbd5e1;
+      border-radius: 8px;
+      padding: 8px 10px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #334155;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .clue-card:hover {
+      border-color: #0f172a;
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    .clue-card.active {
+      background: #eff6ff;
+      border: 2px solid #2563eb;
+      color: #1e40af;
+      box-shadow: 2px 2px 0px #2563eb;
+    }
+
+    .clue-card .card-icon {
+      font-size: 1.1rem;
+    }
+
+    /* PANEL 2: CANVAS & DISPLAY */
+    .hero-display-box {
+      background: #f1f5f9;
+      border: var(--border-dark);
+      border-radius: 12px;
+      overflow: hidden;
+      position: relative;
+      margin-bottom: 16px;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.06);
+    }
+
+    .hero-image-wrap {
+      width: 100%;
+      height: 380px;
+      background: #0f172a;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .image-tag-overlay {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 10;
+      display: flex;
+      gap: 6px;
+    }
+
+    /* SPEECH BUBBLE INTERACTIVE */
+    .comic-bubble-area {
+      background: #fffdf5;
+      border: var(--border-dark);
+      border-radius: 12px;
+      padding: 14px 18px;
+      box-shadow: var(--shadow-sm);
+      margin-bottom: 16px;
+      position: relative;
+    }
+
+    .bubble-speaker {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: #b45309;
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .bubble-text {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #0f172a;
+      line-height: 1.4;
+    }
+
+    /* BUTTON CONTROLS IN PANEL 2 */
+    .stage-controls {
+      display: grid;
+      grid-template-columns: 1.3fr 1fr;
+      gap: 10px;
+    }
+
+    .btn-speech {
+      background: #10b981;
+      color: #ffffff;
+      border: var(--border-dark);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-speech:hover {
+      background: #059669;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px #0f172a;
+    }
+
+    .btn-speech.speaking {
+      background: #f59e0b;
+      animation: pulse 1s infinite alternate;
+    }
+
+    .btn-glitch {
+      background: #ef4444;
+      color: #ffffff;
+      border: var(--border-dark);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.15s ease;
+    }
+
+    .btn-glitch:hover {
+      background: #dc2626;
+      transform: translate(-1px, -1px);
+      box-shadow: 3px 3px 0px #0f172a;
+    }
+
+    .btn-glitch.resolved {
+      background: #2563eb;
+    }
+
+    /* PANEL 3: RECIPE & LOGIC */
+    .recipe-screen {
+      background: #0f172a;
+      border: 2px solid #000;
+      border-radius: 10px;
+      padding: 14px;
+      color: #a7f3d0;
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      line-height: 1.5;
+      margin-bottom: 14px;
+      box-shadow: inset 0 2px 4px rgba(0,0,0,0.5);
+    }
+
+    .recipe-row {
+      margin-bottom: 6px;
+      display: flex;
+      gap: 6px;
+    }
+
+    .recipe-row .key {
+      color: #94a3b8;
+      min-width: 90px;
+    }
+
+    .recipe-row .val {
+      color: #facc15;
+      font-weight: 700;
+    }
+
+    .recipe-full-prompt {
+      background: #1e293b;
+      border: 1px solid #334155;
+      border-radius: 6px;
+      padding: 10px;
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-size: 0.82rem;
+      font-style: italic;
+      margin-top: 10px;
+      line-height: 1.4;
+    }
+
+    .badge-status-box {
+      background: #eff6ff;
+      border: 2px solid #3b82f6;
+      border-radius: 8px;
+      padding: 10px 12px;
+      font-size: 0.8rem;
+      margin-bottom: 14px;
+    }
+
+    .badge-status-box strong {
+      color: #1e40af;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    .badge-status-box p {
+      color: #3b82f6;
+      font-size: 0.75rem;
+    }
+
+    /* CONFETTI CANVAS */
+    #confettiCanvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 20;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      100% { transform: scale(1.03); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP HEADER COCKPIT -->
+  <header class="top-header">
+    <div class="brand-group">
+      <span class="brand-badge">AKADEMI AI FOR KIDS</span>
+      <div class="header-title">
+        <h1>STUDIO DETEKTIF PIKIRAN • MODUL 1</h1>
+        <p>Simulator Interaktif Merakit Karakter Robo-Mochi &amp; Logika Step A s/d G</p>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <div class="agent-pill">
+        <span>🕵️‍♂️ AGENT: RAFA (#10)</span>
+      </div>
+      <a href="Modul 1 - Cetak Biru Studio Detektif Pikiran.pdf" download class="btn-action" style="background: #f59e0b; color: #0f172a;">
+        <span>📄 Download PDF Modul 1</span>
+      </a>
+      <a href="index.html" class="btn-action" style="background: #334155;">
+        <span>🏠 Kembali ke Cockpit</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- MAIN COCKPIT -->
+  <main class="cockpit-container">
+
+    <!-- ==================== PANEL 1: BALOK PILIHAN (PANCINGAN CIRI) ==================== -->
+    <section class="panel-box">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>🧩 1. BALOK CIRI</span>
+        </div>
+        <span class="tag-badge" style="background: #fef3c7; color: #b45309;">STEP B: CLUE PICKER</span>
+      </div>
+
+      <!-- KATEGORI 1: WUJUD TUBUH -->
+      <div class="category-group">
+        <div class="category-label">
+          <span>A. WUJUD DASAR KARAKTER</span>
+        </div>
+        <div class="clue-cards-grid">
+          <div class="clue-card active" onclick="selectClue('wujud', 'Kucing Cyborg', '🐱', this)">
+            <span class="card-icon">🐱</span>
+            <span>Kucing Cyborg</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('wujud', 'Dino Agar-Agar', '🦖', this)">
+            <span class="card-icon">🦖</span>
+            <span>Dino Agar</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('wujud', 'Beruang Roda', '🐻', this)">
+            <span class="card-icon">🐻</span>
+            <span>Beruang Roda</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('wujud', 'Kelinci Roket', '🐰', this)">
+            <span class="card-icon">🐰</span>
+            <span>Kelinci Roket</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATEGORI 2: CORAK WARNA -->
+      <div class="category-group">
+        <div class="category-label">
+          <span>B. CORAK &amp; WARNA UTAMA</span>
+        </div>
+        <div class="clue-cards-grid">
+          <div class="clue-card active" onclick="selectClue('warna', 'Biru Neon & Kuning', '🎨', this)">
+            <span class="card-icon">🔷</span>
+            <span>Biru &amp; Kuning</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('warna', 'Hijau Zamrud & Perak', '🎨', this)">
+            <span class="card-icon">🟢</span>
+            <span>Hijau Zamrud</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('warna', 'Oranye Api & Merah', '🎨', this)">
+            <span class="card-icon">🔥</span>
+            <span>Oranye Api</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('warna', 'Ungu Angkasa & Putih', '🎨', this)">
+            <span class="card-icon">🟣</span>
+            <span>Ungu Angkasa</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATEGORI 3: SIFAT UNIK -->
+      <div class="category-group">
+        <div class="category-label">
+          <span>C. SIFAT &amp; KEPRIBADIAN</span>
+        </div>
+        <div class="clue-cards-grid">
+          <div class="clue-card active" onclick="selectClue('sifat', 'Mengantuk tapi Kilat', '⚡', this)">
+            <span class="card-icon">😴</span>
+            <span>Tidur Kilat</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('sifat', 'Ramah & Suka Nyanyi', '🎵', this)">
+            <span class="card-icon">🎶</span>
+            <span>Suka Nyanyi</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('sifat', 'Penasaran & Kepo', '🔍', this)">
+            <span class="card-icon">🕵️</span>
+            <span>Kepo &amp; Teliti</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('sifat', 'Pemberani Super', '🛡️', this)">
+            <span class="card-icon">💪</span>
+            <span>Pemberani</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATEGORI 4: ALAT SAKU -->
+      <div class="category-group" style="margin-bottom: 0;">
+        <div class="category-label">
+          <span>D. ALAT / SENJATA RAHASIA</span>
+        </div>
+        <div class="clue-cards-grid">
+          <div class="clue-card active" onclick="selectClue('alat', 'Pistol Selai Stroberi', '🍓', this)">
+            <span class="card-icon">🔫</span>
+            <span>Pistol Selai</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('alat', 'Kacamata Pembesar Laser', '👓', this)">
+            <span class="card-icon">🔍</span>
+            <span>Kacamata Jam</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('alat', 'Ransel Pelontar Donat', '🎒', this)">
+            <span class="card-icon">🍩</span>
+            <span>Pelontar Donat</span>
+          </div>
+          <div class="clue-card" onclick="selectClue('alat', 'Jam Penghenti Waktu', '⏱️', this)">
+            <span class="card-icon">⏳</span>
+            <span>Jam Waktu</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== PANEL 2: KANVAS HASIL REAL-TIME ==================== -->
+    <section class="panel-box">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>🎨 2. KANVAS HASIL REAL-TIME</span>
+        </div>
+        <span id="stageBadge" class="tag-badge" style="background: #ecfdf5; color: #047857;">MODE: AKTIF PENJAGA</span>
+      </div>
+
+      <!-- IMAGE HERO DISPLAY -->
+      <div class="hero-display-box">
+        <canvas id="confettiCanvas"></canvas>
+        <div class="hero-image-wrap">
+          <div class="image-tag-overlay">
+            <span id="charTag" class="tag-badge" style="background: #38bdf8; color: #0f172a;">ROBO-MOCHI</span>
+            <span id="locTag" class="tag-badge" style="background: #fbbf24; color: #0f172a;">TOKO DONAT MOCHI</span>
+          </div>
+          <img id="stageImg" src="Aset/robo_mochi_hero.jpg" alt="Robo-Mochi Hero">
+        </div>
+      </div>
+
+      <!-- COMIC SPEECH BUBBLE -->
+      <div class="comic-bubble-area">
+        <div class="bubble-speaker">
+          <span>💬 DIALOG SUARA KARAKTER:</span>
+        </div>
+        <div id="speechText" class="bubble-text">
+          "Meow! Aku Robo-Mochi penjaga toko donat! Siapa pun yang berani comot donat cokelat tanpa bayar, bakal kutembak pakai selai stroberi! Wuzz!"
+        </div>
+      </div>
+
+      <!-- CONTROLS -->
+      <div class="stage-controls">
+        <button id="btnVoice" class="btn-speech" onclick="playVoice()">
+          <span style="font-size: 1.1rem;">🔊</span>
+          <span id="voiceBtnText">Dengarkan Suara Karakter</span>
+        </button>
+
+        <button id="btnGlitch" class="btn-glitch" onclick="toggleGlitch()">
+          <span style="font-size: 1.1rem;">🚨</span>
+          <span id="glitchBtnText">Uji Glitch Eror AI</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ==================== PANEL 3: RESEP LOGIKA & PROMPT LEGO ==================== -->
+    <section class="panel-box">
+      <div class="panel-header">
+        <div class="panel-title">
+          <span>📜 3. RESEP MESIN</span>
+        </div>
+        <span class="tag-badge" style="background: #eff6ff; color: #1e40af;">STEP C: LEGO PROMPT</span>
+      </div>
+
+      <!-- RESEP SCREEN -->
+      <div class="recipe-screen">
+        <div class="recipe-row">
+          <span class="key">&gt; TARGET :</span>
+          <span id="recWujud" class="val">Kucing Cyborg</span>
+        </div>
+        <div class="recipe-row">
+          <span class="key">&gt; WARNA  :</span>
+          <span id="recWarna" class="val">Biru Neon & Kuning</span>
+        </div>
+        <div class="recipe-row">
+          <span class="key">&gt; SIFAT  :</span>
+          <span id="recSifat" class="val">Mengantuk tapi Kilat</span>
+        </div>
+        <div class="recipe-row">
+          <span class="key">&gt; ALAT   :</span>
+          <span id="recAlat" class="val">Pistol Selai Stroberi</span>
+        </div>
+
+        <div style="border-top: 1px dashed #334155; margin: 10px 0 8px 0; padding-top: 8px; color: #94a3b8; font-size: 0.72rem;">
+          FORMULA LENGKAP ARSITEK AI:
+        </div>
+        <div id="fullPromptBox" class="recipe-full-prompt">
+          "Tolong buatkan Kucing Cyborg berwarna Biru Neon & Kuning yang suka Mengantuk tapi gerak secepat kilat dan memegang Pistol Selai Stroberi untuk menjaga etalase toko donat!"
+        </div>
+      </div>
+
+      <!-- STATUS & PEDAGOGIS -->
+      <div class="badge-status-box">
+        <strong id="statusTitle">✅ Status: Resep Presisi &amp; Siap Kelas</strong>
+        <p id="statusDesc">Balok instruksi tersusun rapi tanpa kerancuan makna. Komputer langsung paham subjek dan aksinya!</p>
+      </div>
+
+      <!-- ACTION BUTTONS -->
+      <button class="btn-action" style="width: 100%; justify-content: center; background: #0f172a; color: #ffffff;" onclick="copyPrompt()">
+        <span>📋 Salin Resep Prompt</span>
+      </button>
+
+      <div style="margin-top: 12px; padding: 10px; background: #fffdf5; border: 1.5px solid #d97706; border-radius: 8px; font-size: 0.75rem; color: #78350f;">
+        <strong>💡 Insight Mentor:</strong> Anak berhasil merangkai instruksi 4 dimensi tanpa mengetik satu baris kode pun. Inilah metode anti-blank canvas!
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    // STATE
+    const state = {
+      wujud: 'Kucing Cyborg',
+      warna: 'Biru Neon & Kuning',
+      sifat: 'Mengantuk tapi Kilat',
+      alat: 'Pistol Selai Stroberi',
+      glitchActive: false,
+      isResolved: false
+    };
+
+    // AUDIO CHIPTUNE GENERATOR (WEB AUDIO API)
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playTone(freq, type = 'sine', duration = 0.1) {
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = type;
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function soundClick() {
+      playTone(600, 'square', 0.05);
+    }
+
+    function soundGlitch() {
+      playTone(180, 'sawtooth', 0.25);
+      setTimeout(() => playTone(120, 'sawtooth', 0.3), 100);
+    }
+
+    function soundVictory() {
+      playTone(523.25, 'triangle', 0.15); // C5
+      setTimeout(() => playTone(659.25, 'triangle', 0.15), 100); // E5
+      setTimeout(() => playTone(783.99, 'triangle', 0.15), 200); // G5
+      setTimeout(() => playTone(1046.50, 'triangle', 0.35), 300); // C6
+    }
+
+    // CLUE SELECTION
+    function selectClue(category, value, icon, elem) {
+      soundClick();
+      state[category] = value;
+
+      // Update UI active state
+      const parent = elem.closest('.clue-cards-grid');
+      parent.querySelectorAll('.clue-card').forEach(c => c.classList.remove('active'));
+      elem.classList.add('active');
+
+      // Reset Glitch if active
+      if (state.glitchActive) {
+        state.glitchActive = false;
+        state.isResolved = false;
+        document.getElementById('stageImg').src = 'Aset/robo_mochi_hero.jpg';
+        document.getElementById('glitchBtnText').innerText = 'Uji Glitch Eror AI';
+        document.getElementById('btnGlitch').className = 'btn-glitch';
+        document.getElementById('stageBadge').className = 'tag-badge';
+        document.getElementById('stageBadge').style.background = '#ecfdf5';
+        document.getElementById('stageBadge').style.color = '#047857';
+        document.getElementById('stageBadge').innerText = 'MODE: AKTIF PENJAGA';
+      }
+
+      updateRecipe();
+    }
+
+    function updateRecipe() {
+      document.getElementById('recWujud').innerText = state.wujud;
+      document.getElementById('recWarna').innerText = state.warna;
+      document.getElementById('recSifat').innerText = state.sifat;
+      document.getElementById('recAlat').innerText = state.alat;
+
+      const fullPrompt = `"Tolong buatkan ${state.wujud} berwarna ${state.warna} yang suka ${state.sifat} dan memegang ${state.alat} untuk menjaga etalase toko donat!"`;
+      document.getElementById('fullPromptBox').innerText = fullPrompt;
+
+      // Update dialogue
+      const dialog = `"Meow! Aku ${state.wujud} penjaga toko donat! Siapa pun yang berani comot donat tanpa bayar, bakal kutembak pakai ${state.alat}! Wuzz!"`;
+      document.getElementById('speechText').innerText = dialog;
+
+      document.getElementById('statusTitle').innerText = '✅ Status: Resep Presisi & Siap Kelas';
+      document.getElementById('statusDesc').innerText = 'Balok instruksi tersusun rapi tanpa kerancuan makna. Komputer langsung paham subjek dan aksinya!';
+      document.getElementById('statusTitle').style.color = '#1e40af';
+    }
+
+    // GLITCH & DEBUGGING TOGGLE
+    function toggleGlitch() {
+      if (!state.glitchActive && !state.isResolved) {
+        // ACTIVATE GLITCH
+        soundGlitch();
+        state.glitchActive = true;
+        document.getElementById('stageImg').src = 'Aset/robo_mochi_glitch.jpg';
+        document.getElementById('stageBadge').style.background = '#fee2e2';
+        document.getElementById('stageBadge').style.color = '#dc2626';
+        document.getElementById('stageBadge').innerText = '🚨 GLITCH: AI SALAH SANGKA!';
+
+        document.getElementById('speechText').innerHTML = '<span style="color: #dc2626;">"YIKES! AI salah sangka! Donat raksasa bertaring malah hidup dan ngejar ekorku! Tolong klik tombol Perbaiki Instruksi!"</span>';
+
+        document.getElementById('glitchBtnText').innerText = '🛠️ Perbaiki Instruksi (Debug)';
+        document.getElementById('btnGlitch').className = 'btn-glitch resolved';
+
+        document.getElementById('fullPromptBox').innerHTML = `"Bikinin robot makan donat raksasa <span style="background: #ef4444; color: #fff; padding: 2px 4px; border-radius: 3px;">bertaring</span>!" <span style="color: #f87171;">&lt;-- Eror: Kata bertaring tertukar ke donat!</span>`;
+
+        document.getElementById('statusTitle').innerText = '⚠️ Glitch Ditemukan: Kata Ambigu';
+        document.getElementById('statusDesc').innerText = 'Komputer mengira donatnya yang bertaring, bukan robotnya! Anak dilatih membedah kata penyebab eror.';
+        document.getElementById('statusTitle').style.color = '#dc2626';
+
+      } else if (state.glitchActive) {
+        // RESOLVE GLITCH (VICTORY)
+        soundVictory();
+        triggerConfetti();
+        state.glitchActive = false;
+        state.isResolved = true;
+
+        document.getElementById('stageImg').src = 'Aset/robo_mochi_victory.jpg';
+        document.getElementById('stageBadge').style.background = '#d1fae5';
+        document.getElementById('stageBadge').style.color = '#059669';
+        document.getElementById('stageBadge').innerText = '🎉 DEBUGGING SUKSES!';
+
+        document.getElementById('speechText').innerHTML = '<span style="color: #059669;">"HOORAY! Debugging berhasil! Robo-Mochi sukses makan donat stroberi sambil tersenyum ceria! Manusia memang kaptennya!"</span>';
+
+        document.getElementById('glitchBtnText').innerText = '🔄 Uji Glitch Lagi';
+        document.getElementById('btnGlitch').className = 'btn-glitch';
+
+        document.getElementById('fullPromptBox').innerHTML = `"Robot kucing <span style="background: #10b981; color: #fff; padding: 2px 4px; border-radius: 3px;">bertaring kecil</span> sedang memegang dan memakan donat stroberi besar." &lt;-- Sukses!`;
+
+        document.getElementById('statusTitle').innerText = '🏆 Kemenangan Logika: Selesai Step F';
+        document.getElementById('statusDesc').innerText = 'Anak berhasil memindahkan kata sifat ke subjek yang tepat. Skor Analytical Thinker meningkat!';
+        document.getElementById('statusTitle').style.color = '#059669';
+
+      } else {
+        // RESET
+        state.isResolved = false;
+        selectClue('wujud', state.wujud, '🐱', document.querySelector('.clue-card.active'));
+      }
+    }
+
+    // WEB SPEECH API
+    function playVoice() {
+      if (!('speechSynthesis' in window)) {
+        alert('Fitur suara tidak didukung oleh browser ini.');
+        return;
+      }
+
+      window.speechSynthesis.cancel();
+      const text = document.getElementById('speechText').innerText;
+      const utterance = new SpeechSynthesisUtterance(text);
+      utterance.lang = 'id-ID';
+      utterance.pitch = 1.35; // Ceria ramah anak
+      utterance.rate = 1.05;
+
+      const btn = document.getElementById('btnVoice');
+      btn.classList.add('speaking');
+      document.getElementById('voiceBtnText').innerText = 'Sedang Berbicara...';
+
+      utterance.onend = () => {
+        btn.classList.remove('speaking');
+        document.getElementById('voiceBtnText').innerText = 'Dengarkan Suara Karakter';
+      };
+
+      utterance.onerror = () => {
+        btn.classList.remove('speaking');
+        document.getElementById('voiceBtnText').innerText = 'Dengarkan Suara Karakter';
+      };
+
+      window.speechSynthesis.speak(utterance);
+    }
+
+    // COPY PROMPT
+    function copyPrompt() {
+      soundClick();
+      const promptText = document.getElementById('fullPromptBox').innerText;
+      navigator.clipboard.writeText(promptText).then(() => {
+        alert('Resep prompt berhasil disalin ke clipboard! 📋');
+      });
+    }
+
+    // CONFETTI CANNON
+    function triggerConfetti() {
+      const canvas = document.getElementById('confettiCanvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = canvas.parentElement.clientWidth;
+      canvas.height = canvas.parentElement.clientHeight;
+
+      const particles = [];
+      const colors = ['#f59e0b', '#ef4444', '#10b981', '#3b82f6', '#ec4899', '#8b5cf6'];
+
+      for (let i = 0; i < 60; i++) {
+        particles.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 12,
+          vy: (Math.random() - 0.7) * 14,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          gravity: 0.35,
+          life: 70
+        });
+      }
+
+      function render() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        let alive = false;
+        particles.forEach(p => {
+          if (p.life > 0) {
+            alive = true;
+            p.x += p.vx;
+            p.y += p.vy;
+            p.vy += p.gravity;
+            p.life--;
+            ctx.fillStyle = p.color;
+            ctx.fillRect(p.x, p.y, p.size, p.size);
+          }
+        });
+        if (alive) requestAnimationFrame(render);
+        else ctx.clearRect(0, 0, canvas.width, canvas.height);
+      }
+      render();
+    }
+  </script>
+</body>
+</html>
