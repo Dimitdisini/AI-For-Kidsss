@@ -1,0 +1,808 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Modul Ajar Resmi Fasilitator: Detektif Pikiran — Modul 1 Akademi AI for Kids</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.45;
+      font-size: 8.6pt;
+    }
+
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      padding: 12mm 15mm 10mm 15mm;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* HEADER & FOOTER */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 7px;
+      border-bottom: 2px solid #0f172a;
+      margin-bottom: 9px;
+    }
+    .ph-left {
+      font-size: 7.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #b45309;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ph-badge {
+      background: #b45309;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 6.8pt;
+    }
+    .ph-right {
+      font-size: 7.2pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 6px;
+      border-top: 1.5px dashed #cbd5e1;
+      font-size: 7pt;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    /* TYPOGRAPHY & CARDS */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .section-card {
+      border: 1.5px solid #0f172a;
+      border-radius: 8px;
+      background: #ffffff;
+      padding: 9px 12px;
+      margin-bottom: 8px;
+      box-shadow: 2.5px 2.5px 0 #0f172a;
+    }
+
+    .sec-badge {
+      display: inline-block;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 7pt;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 5px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 9px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+
+    /* TABLES */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.6pt;
+      margin-top: 4px;
+    }
+    table.data-table th {
+      background: #0f172a;
+      color: #fff;
+      padding: 5px 7px;
+      text-align: left;
+      font-weight: 700;
+      border: 1px solid #0f172a;
+    }
+    table.data-table td {
+      padding: 5px 7px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+      vertical-align: top;
+    }
+    table.data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+
+    /* DIALOG SCRIPTS */
+    .dialog-box {
+      background: #f8fafc;
+      border-left: 3.5px solid #2563eb;
+      padding: 7px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 7.8pt;
+      margin: 4px 0;
+    }
+    .teacher-say {
+      color: #1e40af;
+      font-weight: 700;
+    }
+    .teacher-action {
+      color: #64748b;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HALAMAN 1: IDENTITAS MODUL AJAR & CAPAIAN PEMBELAJARAN ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">MODUL AJAR GURU</span>
+          <span>AKADEMI AI FOR KIDS • PEDOMAN FASILITATOR RESMI</span>
+        </div>
+        <div class="ph-right">KODE PERANGKAT: MA-M01-2026</div>
+      </div>
+
+      <!-- TITLE BANNER -->
+      <div style="background: #0f172a; color: #fff; border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; border: 2.5px solid #b45309;">
+        <div style="display: inline-block; background: #f59e0b; color: #0f172a; font-size: 7pt; font-weight: 900; padding: 2px 8px; border-radius: 4px; margin-bottom: 6px; text-transform: uppercase;">
+          Perangkat Ajar Fasilitator & Guru Kelas
+        </div>
+        <h1 style="color: #ffffff; font-size: 16pt; line-height: 1.2; margin-bottom: 4px;">
+          MODUL AJAR 01: LOGIKA PROMPTING 4 BALOK LEGO & SENI DEBUGGING AI
+        </h1>
+        <p style="color: #94a3b8; font-size: 8.2pt;">
+          Panduan operasional pedagogis terstruktur untuk memandu sesi 90 menit tanpa kepanikan anak di depan layar kosong (*anti-blank canvas*).
+        </p>
+      </div>
+
+      <!-- I. IDENTITAS PERANGKAT AJAR -->
+      <div class="section-card">
+        <span class="sec-badge">I. INFORMASI UMUM & IDENTITAS MODUL</span>
+        <table class="data-table">
+          <tbody>
+            <tr>
+              <td style="width: 25%;"><strong>Nama Program</strong></td>
+              <td style="width: 25%;">Akademi AI for Kids</td>
+              <td style="width: 25%;"><strong>Fase / Jenjang</strong></td>
+              <td style="width: 25%;">Fase B & C (Usia 8–12 Tahun / SD 3–6)</td>
+            </tr>
+            <tr>
+              <td><strong>Alokasi Waktu</strong></td>
+              <td>1 Pertemuan (90 Menit Tatap Muka)</td>
+              <td><strong>Jumlah Peserta</strong></td>
+              <td>10 – 20 Siswa (Rasio 1 Mentor : 5–7 Anak)</td>
+            </tr>
+            <tr>
+              <td><strong>Pendekatan</strong></td>
+              <td><em>Inquiry-Based & Experiential Learning</em></td>
+              <td><strong>Metode Belajar</strong></td>
+              <td>Game Fisik (Unplugged), Praktik Digital, & LK Cetak</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- II. CAPAIAN PEMBELAJARAN (CP) & ALUR TUJUAN (ATP) -->
+      <div class="section-card">
+        <span class="sec-badge" style="background: #1e40af;">II. CAPAIAN PEMBELAJARAN & TUJUAN (ATP)</span>
+        <div style="font-size: 8pt; margin-bottom: 6px;">
+          <strong>Capaian Pembelajaran Elemen Berpikir Komputasional & Literasi Digital:</strong><br>
+          Peserta didik mampu memahami prinsip kerja kecerdasan buatan sebagai pemroses instruksi data teks, menyusun kalimat instruksi berstruktur (Dekomposisi), serta menemukan dan membetulkan kekeliruan logika kalimat saat terjadi kesalahan hasil (Debugging).
+        </div>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 15%;">Kode ATP</th>
+              <th style="width: 45%;">Tujuan Pembelajaran Khusus</th>
+              <th style="width: 40%;">Bukti Capaian / Bukti Kinerja Siswa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ATP 1.1</strong></td>
+              <td>Membedakan cara kerja otak manusia (berimajinasi & berempati) dengan cara kerja AI (pembaca pola data teks harafiah).</td>
+              <td>Siswa mampu menjawab kuis perbedaan Koki Robot vs Manusia pada awal sesi.</td>
+            </tr>
+            <tr>
+              <td><strong>ATP 1.2</strong></td>
+              <td>Mengidentifikasi 4 komponen instruksi (Formula 4 Balok Lego: Subjek, Aksi, Latar, Gaya Visual).</td>
+              <td>Siswa berhasil mencentang dan menuliskan 4 balok lego pada Lembar Kerja Cetak Hal 5.</td>
+            </tr>
+            <tr>
+              <td><strong>ATP 1.3</strong></td>
+              <td>Menyusun prompt berurutan (urutan kata) untuk menghasilkan 1 aset karakter digital orisinal.</td>
+              <td>Tercapainya 1 kartu karakter digital utuh di layar monitor studio kelas.</td>
+            </tr>
+            <tr>
+              <td><strong>ATP 1.4</strong></td>
+              <td>Menerapkan 3 Aturan Emas Debugging (*Stop, Isolate, Add Anchor*) saat terjadi glitch instruksi.</td>
+              <td>Siswa berhasil membetulkan prompt eror tanpa merasa frustasi atau menyerah.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- III. SARANA & PRASARANA KELAS -->
+      <div class="section-card">
+        <span class="sec-badge" style="background: #15803d;">III. SARANA, PRASARANA, & MEDIA AJAR</span>
+        <div class="grid-3" style="gap: 8px; font-size: 7.6pt;">
+          <div style="background: #f0fdf4; border: 1px solid #86efac; padding: 6px; border-radius: 6px;">
+            <strong style="color: #166534;">Perangkat Keras (Hardware):</strong><br>
+            • 1 Laptop/Tablet per anak (atau 1 berdua)<br>
+            • Proyektor/Layar besar untuk demo guru<br>
+            • Wi-Fi kelas stabil
+          </div>
+          <div style="background: #eff6ff; border: 1px solid #93c5fd; padding: 6px; border-radius: 6px;">
+            <strong style="color: #1e40af;">Perangkat Lunak (Software):</strong><br>
+            • Browser Google Chrome<br>
+            • Platform Studio Detektif AI for Kids<br>
+            • Teachable Machine / Web Simulator
+          </div>
+          <div style="background: #fffbeb; border: 1px solid #fde68a; padding: 6px; border-radius: 6px;">
+            <strong style="color: #b45309;">Material Fisik (Printout):</strong><br>
+            • Print Lembar Kerja Siswa A4 per anak<br>
+            • Pensil, penghapus, spidol warna<br>
+            • Stempel & Stiker Resmi Pos 1
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul Ajar Resmi Fasilitator</span>
+      <span>Halaman 1 dari 6</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 2: MANAJEMEN DIFERENSIASI & KELAS RAMAI ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">PEDOMAN GURU</span>
+          <span>DIFERENSIASI PEMBELAJARAN & MANAJEMEN KELAS</span>
+        </div>
+        <div class="ph-right">MODUL AJAR 01</div>
+      </div>
+
+      <!-- STRATEGI MENGATASI BLANK CANVAS PARALYSIS -->
+      <div class="section-card" style="border-color: #b91c1c; background: #fff5f5;">
+        <span class="sec-badge" style="background: #b91c1c;">IV. STRATEGI MENGATASI ANAK MACET (BLANK CANVAS PARALYSIS)</span>
+        <p style="font-size: 8pt; margin-bottom: 6px; color: #7f1d1d;">
+          <strong>Tantangan Nyata di Kelas:</strong> Anak usia 8–10 tahun sering terdiam membeku saat melihat kursor berkedip di kotak kosong. Mereka takut salah, bingung memilih kata, atau tidak tahu harus mulai dari mana.
+        </p>
+        <div class="grid-3" style="gap: 8px;">
+          <div style="background: #fff; border: 1.5px solid #fca5a5; border-radius: 6px; padding: 6px;">
+            <strong style="color: #991b1b; font-size: 7.8pt;">1. JANGAN TANYA "MAU BIKIN APA?"</strong>
+            <p style="font-size: 7.3pt; color: #450a0a; margin-top: 3px;">
+              Pertanyaan ini terlalu luas dan menakutkan bagi anak. Gantilah dengan pertanyaan pilihan terarah (A/B testing).
+            </p>
+          </div>
+          <div style="background: #fff; border: 1.5px solid #fca5a5; border-radius: 6px; padding: 6px;">
+            <strong style="color: #991b1b; font-size: 7.8pt;">2. METODE PILIHAN TIGA KOTAK</strong>
+            <p style="font-size: 7.3pt; color: #450a0a; margin-top: 3px;">
+              <em>"Kamu lebih suka kucing, robot panda, atau burung hantu?"</em> Sekali anak memilih satu kata, beban otaknya langsung turun 80%!
+            </p>
+          </div>
+          <div style="background: #fff; border: 1.5px solid #fca5a5; border-radius: 6px; padding: 6px;">
+            <strong style="color: #991b1b; font-size: 7.8pt;">3. MANFAATKAN KOTAK CENTANG LK</strong>
+            <p style="font-size: 7.3pt; color: #450a0a; margin-top: 3px;">
+              Arahkan anak melihat Lembar Kerja Cetak Misi 1. Minta mereka mencentang 1 kotak ciri warna dan 1 kotak aksesoris.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STRATEGI UNTUK SISWA FAST LEARNER -->
+      <div class="section-card" style="border-color: #1d4ed8; background: #eff6ff;">
+        <span class="sec-badge" style="background: #1d4ed8;">V. STRATEGI PENGAYAAN UNTUK SISWA CEPAT (FAST LEARNER)</span>
+        <p style="font-size: 8pt; margin-bottom: 6px; color: #1e3a8a;">
+          <strong>Tantangan:</strong> Siswa yang sudah terbiasa main game atau suka membaca biasanya menyelesaikan prompt dalam 5 menit, lalu bosan dan mengganggu teman di sebelahnya.
+        </p>
+        <div class="grid-2" style="gap: 8px;">
+          <div style="background: #fff; border: 1.5px solid #93c5fd; border-radius: 6px; padding: 6px;">
+            <strong style="color: #1e40af; font-size: 7.8pt;">Tantangan Misi Lanjutan: "Ganti Suasana Waktu"</strong>
+            <p style="font-size: 7.3pt; color: #1e293b; margin-top: 3px;">
+              Instruksikan: <em>"Bagus sekali! Sekarang coba ubah Balok 3 (Latar) menjadi: di tengah hujan badai malam hari dengan kilatan petir. Amati bagaimana warna karaktermu berubah drastis!"</em>
+            </p>
+          </div>
+          <div style="background: #fff; border: 1.5px solid #93c5fd; border-radius: 6px; padding: 6px;">
+            <strong style="color: #1e40af; font-size: 7.8pt;">Diangkat Menjadi "Detektif Pembantu" (Buddy System)</strong>
+            <p style="font-size: 7.3pt; color: #1e293b; margin-top: 3px;">
+              Beri pin bintang khusus: <em>"Kamu sudah berhasil! Sekarang kamu bertugas menjadi Asisten Detektif untuk membantu teman sebangkumu menemukan balok aksi yang hilang."</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- MANAJEMEN KELAS RAMAI (10-20 SISWA) -->
+      <div class="section-card">
+        <span class="sec-badge" style="background: #0f172a;">VI. PROTOKOL KELAS RAMAI & SISTEM ISYARAT DETEKTIF</span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Situasi Kelas</th>
+              <th style="width: 36%;">Isyarat / Call & Response Mentor</th>
+              <th style="width: 36%;">Respon Wajib Siswa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Kelas Terlalu Riuh / Ramai</strong></td>
+              <td>Mentor berteriak lantang: <em>"Detektif Cilik!"</em></td>
+              <td>Siswa berhenti bicara, menegakkan badan, dan menjawab: <em>"Siap Selidiki!"</em></td>
+            </tr>
+            <tr>
+              <td><strong>Saat Mengalami Glitch Eror</strong></td>
+              <td>Mentor mengingatkan: <em>"Ada Glitch? Apa Aturan 1?"</em></td>
+              <td>Siswa serentak mengangkat tangan: <em>"Stop & Re-Read!"</em></td>
+            </tr>
+            <tr>
+              <td><strong>Selesai Mengerjakan Misi</strong></td>
+              <td>Siswa tidak perlu berteriak di kelas.</td>
+              <td>Cukup mengangkat jempol kanan ke atas meja (Thumbs Up Silence).</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul Ajar Resmi Fasilitator</span>
+      <span>Halaman 2 dari 6</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 3: SKENARIO PEMBELAJARAN FASE 1 & FASE 2 ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">RUNDOWN KELAS</span>
+          <span>SKENARIO PEMBELAJARAN MENIT DEMI MENIT (BAGIAN 1)</span>
+        </div>
+        <div class="ph-right">MODUL AJAR 01</div>
+      </div>
+
+      <!-- FASE 1: PEMBUKAAN & ICEBREAKING -->
+      <div class="section-card" style="border-left: 4px solid #f59e0b;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <span class="sec-badge" style="background: #d97706;">FASE 1: PEMBUKAAN & ICEBREAKING FISIK (MENIT 00 – 15)</span>
+          <span style="font-size: 7.2pt; font-weight: 800; color: #d97706;">DURASI: 15 MENIT</span>
+        </div>
+        <p style="font-size: 7.8pt; margin-bottom: 4px;">
+          <strong>Tujuan:</strong> Mencairkan suasana, melepaskan anak dari ketergantungan gawai di awal sesi, dan menanamkan pemahaman bahwa instruksi tidak lengkap akan menghasilkan kekacauan konyol.
+        </p>
+
+        <!-- SCRIPT DIALOG GURU -->
+        <div class="dialog-box">
+          <div class="teacher-say">🗣️ NASKAH GURU KATA-DEMI-KATA:</div>
+          <em>"Halo para Detektif Cilik! Selamat datang di Markas Besar Akademi AI! Sebelum kita menyentuh satu pun tombol komputer hari ini, Mister punya satu pertanyaan penting: Menurut kalian, komputer dan kecerdasan buatan itu pesulap sakti atau koki robot yang buta?"</em><br>
+          <span class="teacher-action">[Tunggu jawaban siswa yang beragam: "Robot!", "Pesulap!", "Komputer!"]</span><br>
+          <em>"Nah, untuk membuktikannya, kita akan main game: <strong>Koki Buta & Robot Dapur</strong>! Mister butuh satu relawan maju ke depan untuk menjadi Koki Robot. Koki ini matanya ditutup kain, dan kalian semua harus menyuruhnya mengambil botol air ini!"</em>
+        </div>
+
+        <div style="font-size: 7.4pt; background: #fffbeb; border: 1px solid #fde68a; padding: 5px; border-radius: 4px; margin-top: 4px;">
+          <strong>Inti Eksperimen:</strong> Ketika siswa hanya berteriak <em>"Maju! Ambil!"</em>, koki robot sengaja menabrak meja atau mengambil spidol alih-alih botol. Kelas akan tertawa terbahak-bahak. Mentor langsung menyimpulkan: <em>"Lihat! Robot itu tidak tahu apa-apa kalau perintah kita tidak urut dan tidak jelas!"</em>
+        </div>
+      </div>
+
+      <!-- FASE 2: EKSPLORASI KONSEP & BEDAH GLITCH -->
+      <div class="section-card" style="border-left: 4px solid #1e40af;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <span class="sec-badge" style="background: #1e40af;">FASE 2: EKSPLORASI KONSEP & BEDAH KASUS GLITCH (MENIT 15 – 35)</span>
+          <span style="font-size: 7.2pt; font-weight: 800; color: #1e40af;">DURASI: 20 MENIT</span>
+        </div>
+        <p style="font-size: 7.8pt; margin-bottom: 4px;">
+          <strong>Tujuan:</strong> Mengenalkan Formula 4 Balok Lego Prompting dan membedah Kasus Donat Bertaring di layar proyektor utama.
+        </p>
+
+        <!-- SCRIPT DIALOG GURU -->
+        <div class="dialog-box">
+          <div class="teacher-say">🗣️ NASKAH GURU KATA-DEMI-KATA:</div>
+          <span class="teacher-action">[Guru menampilkan gambar Robo-Mochi Glitch di layar proyektor besar]</span><br>
+          <em>"Perhatikan layar di depan! Ini adalah kejadian nyata minggu lalu. Teman kita, Rafa, ingin menggambar kucing robotnya yang lucu sedang makan donat stroberi manis. Tapi coba lihat! Kenapa donatnya malah berubah jadi monster merah muda bertaring tajam yang mengejar kucing robotnya?!"</em><br>
+          <span class="teacher-action">[Biarkan anak-anak bereaksi heboh melihat donat bergigi]</span><br>
+          <em>"Apakah komputernya rusak? Tidak! Rafa hanya mengetik: 'Robo-Mochi donat stroberi makan kejar'. Komputer bingung siapa yang mengejar siapa! Nah, agar kalian tidak dimakan donat monster, kita harus merakit <strong>Formula 4 Balok Lego</strong>!"</em>
+        </div>
+
+        <!-- TABEL PENJELASAN 4 BALOK UNTUK GURU -->
+        <table class="data-table" style="margin-top: 4px;">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Balok Lego</th>
+              <th style="width: 35%;">Pertanyaan Penuntun Guru</th>
+              <th style="width: 40%;">Target Respon Kognitif Siswa</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Balok 1: Subjek</strong></td>
+              <td><em>"Siapa pemeran utamanya? Jangan cuma bilang kucing!"</em></td>
+              <td>Menyebut ciri unik: robot, warna biru langit, antena telinga.</td>
+            </tr>
+            <tr>
+              <td><strong>Balok 2: Aksi</strong></td>
+              <td><em>"Dia lagi ngapain? Sedang lari atau santai?"</em></td>
+              <td>Menjelaskan kata kerja spesifik: duduk makan donat stroberi.</td>
+            </tr>
+            <tr>
+              <td><strong>Balok 3: Latar</strong></td>
+              <td><em>"Di mana tempatnya? Jangan di ruang hampa putih!"</em></td>
+              <td>Menyebut lokasi: etalase toko donat kartun yang bersih.</td>
+            </tr>
+            <tr>
+              <td><strong>Balok 4: Gaya</strong></td>
+              <td><em>"Mau gaya 3D lelet atau gaya komik 2D yang keren?"</em></td>
+              <td>Menyebut gaya visual: komik retro 2D, garis tinta tegas.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul Ajar Resmi Fasilitator</span>
+      <span>Halaman 3 dari 6</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 4: SKENARIO PEMBELAJARAN FASE 3, 4, & 5 ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">RUNDOWN KELAS</span>
+          <span>SKENARIO PEMBELAJARAN MENIT DEMI MENIT (BAGIAN 2)</span>
+        </div>
+        <div class="ph-right">MODUL AJAR 01</div>
+      </div>
+
+      <!-- FASE 3: PRAKTIK MANDIRI TERBIMBING -->
+      <div class="section-card" style="border-left: 4px solid #16a34a;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <span class="sec-badge" style="background: #16a34a;">FASE 3: PRAKTIK MANDIRI TERBIMBING DI STUDIO (MENIT 35 – 65)</span>
+          <span style="font-size: 7.2pt; font-weight: 800; color: #16a34a;">DURASI: 30 MENIT</span>
+        </div>
+        <p style="font-size: 7.8pt; margin-bottom: 4px;">
+          <strong>Tujuan:</strong> Siswa menuliskan resepnya di Lembar Kerja Cetak Hal 5 terlebih dahulu, lalu memasukkannya ke Studio Interaktif.
+        </p>
+
+        <div class="dialog-box">
+          <div class="teacher-say">🗣️ SOP FASILITATOR SAAT KELILING MEJA SISWA:</div>
+          • <strong>Aturan Wajib:</strong> Jangan izinkan anak membuka tab browser sebelum Lembar Kerja Misi 1 & Misi 2 terisi minimal 3 balok centang tulisan tangan.<br>
+          • <strong>Sentuhan Personal:</strong> Dekati siswa yang memegang pensil tanpa menulis selama lebih dari 60 detik. Gunakan <em>Metode Pilihan 3 Kotak</em>.<br>
+          • <strong>Scaffolding Verbal:</strong> <em>"Wah, Agen Kinar memilih burung hantu bermotor uap! Balok aksinya mau sedang membaca buku kuno atau menerbangkan pesawat kecil?"</em>
+        </div>
+      </div>
+
+      <!-- FASE 4: BEDAH GLITCH & DEBUGGING -->
+      <div class="section-card" style="border-left: 4px solid #9333ea;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <span class="sec-badge" style="background: #9333ea;">FASE 4: BEDAH GLITCH & DEBUGGING BERSAMA (MENIT 65 – 80)</span>
+          <span style="font-size: 7.2pt; font-weight: 800; color: #9333ea;">DURASI: 15 MENIT</span>
+        </div>
+        <p style="font-size: 7.8pt; margin-bottom: 4px;">
+          <strong>Tujuan:</strong> Menampilkan karya anak yang hasilnya tidak sesuai ke layar proyektor untuk dipecahkan bersama seluruh kelas secara sportif.
+        </p>
+
+        <div class="dialog-box">
+          <div class="teacher-say">🗣️ NASKAH GURU KATA-DEMI-KATA:</div>
+          <em>"Wah! Lihat layar depan teman-teman! Agen Bima punya robot panda, tapi kenapa tangannya ada tiga dan menempel di kepala?! Siapa yang bisa menemukan kata apa yang bikin komputernya bingung?"</em><br>
+          <span class="teacher-action">[Ajak siswa lain berpartisipasi membaca prompt di layar]</span><br>
+          <em>"Hebat sekali analisis kalian! Kata 'pegang' dan 'kepala' terlalu dekat. Mari kita gunakan Aturan Emas 3: <strong>Add Anchor!</strong> Kita tulis: 'kedua tangan robot panda memegang bambu di dada'. Klik Generate ulang... Dan boom! Tangannya kembali normal dua!"</em>
+        </div>
+      </div>
+
+      <!-- FASE 5: PENUTUPAN & CAP PASPOR -->
+      <div class="section-card" style="border-left: 4px solid #0f172a;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <span class="sec-badge" style="background: #0f172a;">FASE 5: PENUTUPAN, CAP PASPOR, & REFLEKSI (MENIT 80 – 90)</span>
+          <span style="font-size: 7.2pt; font-weight: 800; color: #0f172a;">DURASI: 10 MENIT</span>
+        </div>
+        <p style="font-size: 7.8pt; margin-bottom: 4px;">
+          <strong>Tujuan:</strong> Memberikan apresiasi emosional nyata atas keberanian anak bereksperimen, membubuhkan stempel kelulusan fisik, dan mencatat profil observasi bakat.
+        </p>
+
+        <div class="grid-2" style="gap: 8px;">
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px;">
+            <strong style="color: #0f172a; font-size: 7.6pt;">Protokol Cap Stempel Fisik:</strong>
+            <p style="font-size: 7.2pt; color: #475569; margin-top: 2px;">
+              Mentor mendatangi meja satu per satu, membubuhkan cap stempel resmi di kotak Halaman 5 Lembar Kerja Siswa sambil memuji 1 kekuatan spesifik karya anak.
+            </p>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px;">
+            <strong style="color: #0f172a; font-size: 7.6pt;">Refleksi 3 Pertanyaan Kilat:</strong>
+            <p style="font-size: 7.2pt; color: #475569; margin-top: 2px;">
+              1. Siapa yang tadi mengalami glitch konyol?<br>
+              2. Siapa yang berhasil memperbaikinya?<br>
+              3. Siapa yang bosnya: kamu atau komputernya?
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul Ajar Resmi Fasilitator</span>
+      <span>Halaman 4 dari 6</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 5: ASESMEN & RUBRIK RADAR BAKAT 4 KUADRAN ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">INSTRUMEN EVALUASI</span>
+          <span>ASESMEN DIAGNOSTIK & RUBRIK RADAR 4 KUADRAN BAKAT</span>
+        </div>
+        <div class="ph-right">MODUL AJAR 01</div>
+      </div>
+
+      <!-- PENJELASAN ASESMEN DIAGNOSTIK -->
+      <div class="section-card">
+        <span class="sec-badge">VII. TUJUAN ASESMEN: "ANAK STRONG DI MANA?"</span>
+        <p style="font-size: 8pt; color: #334155;">
+          Sesuai kesepakatan prinsip pendidikan bersama Dimitri & Rekan Mitra, Modul 1 <strong>TIDAK MENGGUNAKAN UJIAN ANGKA KAKU (NILAI 0-100)</strong>. Tujuan utama penilaian adalah menghasilkan <em>Profil Diagnostik Bakat Anak</em> untuk disampaikan kepada orang tua agar mereka tahu potensi unik putra/putrinya sejak hari pertama.
+        </p>
+      </div>
+
+      <!-- RUBRIK 4 KUADRAN BAKAT -->
+      <div class="section-card">
+        <span class="sec-badge" style="background: #1e40af;">RUBRIK OBSERVASI 4 KUADRAN BAKAT DETEKTIF</span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 22%;">Kuadran Bakat</th>
+              <th style="width: 38%;">Indikator Perilaku yang Teramati di Kelas</th>
+              <th style="width: 40%;">Rekomendasi Saluran Pengembangan</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong style="color: #2563eb;">1. Analytical Thinker</strong><br>
+                <small style="color: #64748b;">(Pemikir Sistematis)</small>
+              </td>
+              <td>
+                • Sangat teliti menyusun urutan kata secara kronologis.<br>
+                • Cepat menyadari kata yang hilang saat terjadi glitch.<br>
+                • Senang membedah struktur balok dan logika sebab-akibat.
+              </td>
+              <td>
+                Sangat cocok diarahkan ke arsitektur algoritma, pembuatan game bercabang logika, dan pemodelan sains komputer.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong style="color: #d97706;">2. Creative Storyteller</strong><br>
+                <small style="color: #64748b;">(Penutur Cerita Naratif)</small>
+              </td>
+              <td>
+                • Memberikan nama unik, latar belakang, dan sifat emosional tokoh.<br>
+                • Bersemangat menceritakan misi penyelamatan karakter.<br>
+                • Prompt kaya akan kata sifat dan suasana dunia fiksi.
+              </td>
+              <td>
+                Sangat cocok diarahkan ke penulisan skenario komik, perancangan narasi interaktif (*world building*), dan podcast cerita.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong style="color: #7e22ce;">3. Visual Stylist</strong><br>
+                <small style="color: #64748b;">(Perancang Estetika Visual)</small>
+              </td>
+              <td>
+                • Sangat spesifik memilih warna (misal: bukan biru biasa, tapi <em>sky-blue metalik</em>).<br>
+                • Memperhatikan detail kostum, bayangan, dan gaya seni.<br>
+                • Kritis membandingkan kualitas gambar sebelum vs sesudah.
+              </td>
+              <td>
+                Sangat cocok diarahkan ke ilustrasi digital, desain grafis komik manga, dan visual character styling.
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <strong style="color: #15803d;">4. Tactile Explorer</strong><br>
+                <small style="color: #64748b;">(Eksplorator Sensorik & Fisik)</small>
+              </td>
+              <td>
+                • Paling aktif dan ceria saat sesi game fisik Koki Buta.<br>
+                • Senang menggambar sketsa manual di Lembar Kerja Cetak.<br>
+                • Suka mencoba kombinasi kata nyeleneh untuk melihat apa yang terjadi.
+              </td>
+              <td>
+                Sangat cocok diarahkan ke integrasi sensor webcam, hardware interaktif, dan penciptaan objek nyata.
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- LEMBAR LOG OBSERVASI KELAS (UNTUK GURU) -->
+      <div class="section-card" style="background: #f8fafc;">
+        <span class="sec-badge" style="background: #0f172a;">LEMBAR LOG KELAS SEMENTARA FASILITATOR (SAMPLE 3 SISWA)</span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Nama Siswa</th>
+              <th style="width: 25%;">Proyek Karakter</th>
+              <th style="width: 25%;">Kuadran Bakat Menonjol</th>
+              <th style="width: 25%;">Catatan Mentor</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Rafa (10 Thn)</strong></td>
+              <td>Robo-Mochi Penjaga Donat</td>
+              <td><span style="color: #2563eb; font-weight: 700;">Analytical & Visual</span></td>
+              <td>Mampu membetulkan prompt donat bertaring secara mandiri dalam 2 menit.</td>
+            </tr>
+            <tr>
+              <td><strong>Kinar (8 Thn)</strong></td>
+              <td>Awan Pelangi Bernyanyi</td>
+              <td><span style="color: #d97706; font-weight: 700;">Creative Storyteller</span></td>
+              <td>Memiliki imajinasi narasi emosional yang sangat hidup dan penuh kasih.</td>
+            </tr>
+            <tr>
+              <td><strong>Bima (11 Thn)</strong></td>
+              <td>Robot Panda Uap Bersenjata</td>
+              <td><span style="color: #15803d; font-weight: 700;">Tactile Explorer</span></td>
+              <td>Sangat aktif mencoba berbagai macam gaya visual mekanik yang unik.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul Ajar Resmi Fasilitator</span>
+      <span>Halaman 5 dari 6</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 6: TEMPLATE WHATSAPP KE ORANG TUA & CHECKLIST GURU ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">KOMUNIKASI ORANG TUA</span>
+          <span>TEMPLATE LAPORAN WHATSAPP & CHECKLIST AKHIR FASILITATOR</span>
+        </div>
+        <div class="ph-right">MODUL AJAR 01</div>
+      </div>
+
+      <!-- FORMAT PESAN WHATSAPP RESMI KE ORANG TUA -->
+      <div class="section-card" style="border-color: #15803d; background: #f0fdf4;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 5px;">
+          <span class="sec-badge" style="background: #15803d;">VIII. TEMPLATE PESAN WHATSAPP RESMI LAPORAN KE ORANG TUA</span>
+          <span style="font-size: 7pt; font-weight: 800; color: #15803d;">KIRIM MAKSIMAL H+0 (MALAM HARI)</span>
+        </div>
+        <p style="font-size: 7.8pt; color: #166534; margin-bottom: 6px;">
+          Gunakan format pesan profesional dan hangat ini untuk mengirimkan hasil karya digital anak beserta kesimpulan bakatnya ke nomor WhatsApp orang tua siswa:
+        </p>
+
+        <div style="background: #ffffff; border: 1.5px solid #86efac; border-radius: 8px; padding: 9px 12px; font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 7.6pt; line-height: 1.45; color: #0f172a;">
+          Selamat sore/malam Ayah/Bunda <strong>[Nama Orang Tua]</strong>, salam hangat dari Tim Fasilitator Akademi AI for Kids!<br><br>
+          Hari ini, ananda <strong>[Nama Lengkap Siswa]</strong> telah resmi menyelesaikan <strong>Modul 1: Detektif Pikiran</strong> dengan sangat membanggakan. Ananda tidak hanya sekadar bermain komputer, melainkan berhasil memimpin AI menggunakan <em>Formula 4 Balok Lego</em>.<br><br>
+          ⭐ <strong>Karya Nyata Hari Ini:</strong><br>
+          Ananda berhasil menciptakan karakter orisinal bernama <em>"[Nama Karakter Siswa]"</em> lengkap dengan atribut dan gayanya. Ketika sempat terjadi kesalahan gambar (glitch), ananda bersikap tenang dan berhasil membetulkan instruksi kalimatnya secara mandiri (*Seni Debugging*).<br><br>
+          🎯 <strong>Kesimpulan Profil Bakat Hari Ini:</strong><br>
+          Dari observasi mentor, ananda menunjukkan kecenderungan kuat pada kuadran: <strong>[Pilih: Analytical Thinker / Creative Storyteller / Visual Stylist / Tactile Explorer]</strong>. Ananda sangat cepat dalam <em>[sebutkan 1 hal positif konkret, misal: menyusun kalimat yang runut / memiliki imajinasi visual warna yang kaya]</em>.<br><br>
+          📎 <em>(Terlampir: File gambar hasil karya digital ananda dan foto saat menerima cap kelulusan Pos 1).</em><br><br>
+          Sampai jumpa di Sesi Modul 2 minggu depan, Ayah/Bunda! Terima kasih atas dukungannya.<br>
+          <em>— Tim Fasilitator Akademi AI for Kids</em>
+        </div>
+      </div>
+
+      <!-- CHECKLIST OPERASIONAL FASILITATOR SEBELUM & SESUDAH KELAS -->
+      <div class="section-card">
+        <span class="sec-badge">IX. CHECKLIST OPERASIONAL FASILITATOR (H-1 S/D PASCA KELAS)</span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Waktu</th>
+              <th style="width: 50%;">Tugas Operasional Fasilitator</th>
+              <th style="width: 25%;">Status Verifikasi</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>H-1 Sebelum Sesi</strong></td>
+              <td>
+                • Memastikan lembar kerja fisik A4 sudah tercetak sesuai jumlah siswa + cadangan 3 lbr.<br>
+                • Menguji proyektor dan koneksi internet di ruangan kelas.<br>
+                • Memeriksa stempel Pos 1 dan persediaan stiker bintang.
+              </td>
+              <td>[ &nbsp; ] Siap 100%</td>
+            </tr>
+            <tr>
+              <td><strong>H-30 Menit di Lokasi</strong></td>
+              <td>
+                • Membuka tab Studio Interaktif di semua layar komputer/laptop siswa.<br>
+                • Menyiapkan 1 kain penutup mata untuk game Koki Buta di meja depan.<br>
+                • Menata meja berpasangan (*Buddy Seating*).
+              </td>
+              <td>[ &nbsp; ] Ruangan Rapi</td>
+            </tr>
+            <tr>
+              <td><strong>Saat Sesi Berlangsung</strong></td>
+              <td>
+                • Menjaga waktu agar fase icebreaking tidak molor lewat dari menit ke-15.<br>
+                • Memastikan semua anak mendapatkan cap stempel fisik di Lembar Kerja.<br>
+                • Mengisi catatan log bakat untuk 100% siswa yang hadir.
+              </td>
+              <td>[ &nbsp; ] Tepat Waktu 90m</td>
+            </tr>
+            <tr>
+              <td><strong>Pasca Kelas (Maks H+0)</strong></td>
+              <td>
+                • Menyimpan export file gambar karya anak ke folder Google Drive kelas.<br>
+                • Mengirimkan pesan WhatsApp laporan individu ke seluruh orang tua siswa.
+              </td>
+              <td>[ &nbsp; ] Laporan Terkirim</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- CATATAN ETIKA & KESELAMATAN -->
+      <div style="background: #fffbeb; border-left: 4px solid #f59e0b; padding: 7px 10px; border-radius: 0 6px 6px 0; font-size: 7.4pt; color: #78350f;">
+        <strong>Pedoman Keselamatan & Etika AI:</strong> Fasilitator wajib memastikan anak tidak memasukkan data pribadi sensitif (seperti alamat rumah, nomor telepon, atau foto wajah tanpa izin) ke dalam platform AI publik. AI adalah alat kolaborasi, keamanan anak adalah prioritas nomor satu.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul Ajar Resmi Fasilitator</span>
+      <span>Halaman 6 dari 6</span>
+    </div>
+  </div>
+
+</body>
+</html>

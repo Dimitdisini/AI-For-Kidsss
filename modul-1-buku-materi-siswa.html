@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Buku Modul Siswa: Detektif Pikiran — Modul 1 Akademi AI for Kids</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #f1f5f9;
+      color: #0f172a;
+      line-height: 1.45;
+      font-size: 8.8pt;
+    }
+
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      padding: 12mm 15mm 10mm 15mm;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    /* HEADER & FOOTER */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 7px;
+      border-bottom: 2px solid #0f172a;
+      margin-bottom: 9px;
+    }
+    .ph-left {
+      font-size: 7.2pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: #2563eb;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .ph-badge {
+      background: #2563eb;
+      color: #fff;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 6.8pt;
+    }
+    .ph-right {
+      font-size: 7.2pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 6px;
+      border-top: 1.5px dashed #cbd5e1;
+      font-size: 7pt;
+      color: #64748b;
+      margin-top: 6px;
+    }
+
+    /* HEADINGS & COMIC CARDS */
+    h1, h2, h3, h4 {
+      font-family: 'Space Grotesk', sans-serif;
+      font-weight: 800;
+      color: #0f172a;
+    }
+
+    .comic-card {
+      border: 2px solid #0f172a;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 3px 3px 0 #0f172a;
+      padding: 10px 12px;
+      margin-bottom: 9px;
+    }
+
+    .comic-title-badge {
+      display: inline-block;
+      background: #0f172a;
+      color: #ffffff;
+      font-size: 7.2pt;
+      font-weight: 800;
+      padding: 3px 8px;
+      border-radius: 5px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+    }
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 7px;
+    }
+
+    /* HIGHLIGHT BOXES */
+    .box-info {
+      background: #eff6ff;
+      border-left: 4px solid #2563eb;
+      padding: 8px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 8.2pt;
+    }
+    .box-warn {
+      background: #fffbeb;
+      border-left: 4px solid #f59e0b;
+      padding: 8px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 8.2pt;
+    }
+    .box-success {
+      background: #f0fdf4;
+      border-left: 4px solid #10b981;
+      padding: 8px 10px;
+      border-radius: 0 6px 6px 0;
+      font-size: 8.2pt;
+    }
+
+    /* LEGO BLOCKS */
+    .lego-block {
+      border: 2px solid #0f172a;
+      border-radius: 8px;
+      padding: 8px;
+      position: relative;
+    }
+    .lego-subjek { background: #dbeafe; border-color: #1e40af; }
+    .lego-aksi { background: #fef3c7; border-color: #b45309; }
+    .lego-latar { background: #dcfce7; border-color: #15803d; }
+    .lego-gaya { background: #f3e8ff; border-color: #7e22ce; }
+
+    .lego-header {
+      font-size: 7.2pt;
+      font-weight: 900;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* CODE & PROMPT PILLS */
+    .prompt-snippet {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 7.8pt;
+      background: #0f172a;
+      color: #38bdf8;
+      padding: 6px 10px;
+      border-radius: 6px;
+      line-height: 1.4;
+      border-left: 3px solid #38bdf8;
+      margin: 5px 0;
+    }
+
+    /* TABLE */
+    table.data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 7.8pt;
+      margin-top: 4px;
+    }
+    table.data-table th {
+      background: #0f172a;
+      color: #fff;
+      padding: 5px 8px;
+      text-align: left;
+      font-weight: 700;
+      border: 1px solid #0f172a;
+    }
+    table.data-table td {
+      padding: 5px 8px;
+      border: 1px solid #cbd5e1;
+      background: #fff;
+    }
+    table.data-table tr:nth-child(even) td {
+      background: #f8fafc;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HALAMAN 1: COVER BUKU SISWA & PASPOR DETEKTIF ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BUKU MODUL SISWA</span>
+          <span>AKADEMI AI FOR KIDS • EDISI RESMI 2026</span>
+        </div>
+        <div class="ph-right">MODUL 01 DARI 04</div>
+      </div>
+
+      <!-- HERO BANNER -->
+      <div style="background: linear-gradient(135deg, #1e3a8a 0%, #0f172a 100%); color: #fff; border: 3px solid #0f172a; border-radius: 12px; padding: 18px 20px; box-shadow: 4px 4px 0 #0f172a; margin-bottom: 12px; position: relative;">
+        <div style="display: inline-block; background: #fbbf24; color: #0f172a; font-size: 7.5pt; font-weight: 900; padding: 3px 10px; border-radius: 6px; margin-bottom: 8px; text-transform: uppercase;">
+          Buku Bacaan & Laboratorium Kreator Cilik
+        </div>
+        <h1 style="color: #ffffff; font-size: 20pt; line-height: 1.15; margin-bottom: 6px;">
+          DETEKTIF PIKIRAN: MEMBONGKAR RAHASIA AI & FORMULA 4 BALOK LEGO
+        </h1>
+        <p style="color: #cbd5e1; font-size: 9pt; max-width: 90%;">
+          Panduan lengkap memahami bagaimana kecerdasan buatan membaca kata-katamu, memecahkan teka-teki logika, dan menciptakan karakter komik impian tanpa rasa takut salah.
+        </p>
+      </div>
+
+      <!-- PASPOR DETEKTIF CILIK -->
+      <div class="comic-card" style="background: #fffbeb; border-color: #b45309;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span class="comic-title-badge" style="background: #b45309;">PASPOR RESMI DETEKTIF CILIK</span>
+          <span style="font-size: 7pt; font-weight: 700; color: #b45309;">KODE AGEN: M1-DETEKTIF</span>
+        </div>
+        <div class="grid-3" style="gap: 8px; font-size: 8pt;">
+          <div style="border-bottom: 1.5px dashed #d97706; padding-bottom: 2px;">
+            <strong style="color: #78350f;">Nama Lengkap:</strong> ........................................
+          </div>
+          <div style="border-bottom: 1.5px dashed #d97706; padding-bottom: 2px;">
+            <strong style="color: #78350f;">Nama Detektif:</strong> Agen ................................
+          </div>
+          <div style="border-bottom: 1.5px dashed #d97706; padding-bottom: 2px;">
+            <strong style="color: #78350f;">Usia / Kelas:</strong> ........ Thn / Kelas ........
+          </div>
+        </div>
+      </div>
+
+      <!-- DAFTAR ISI RESMI BUKU SISWA -->
+      <div class="comic-card">
+        <span class="comic-title-badge">DAFTAR ISI BAB & PETA PETUALANGAN</span>
+        <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 4px;">
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px;">
+            <div>
+              <strong style="color: #1e40af; font-size: 8.5pt;">BAB 1: Menyelami Dunia AI — Rahasia di Balik Layar Kaca</strong>
+              <div style="font-size: 7.2pt; color: #64748b;">Mesin hitung vs AI, analogi Koki Robot, dan perbandingan otak manusia vs otak mesin.</div>
+            </div>
+            <span style="font-weight: 800; font-size: 8.5pt; color: #0f172a;">Hal 2</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px;">
+            <div>
+              <strong style="color: #1e40af; font-size: 8.5pt;">BAB 2: Anatomi Bahasa AI — Mengapa AI Bisa Salah Paham?</strong>
+              <div style="font-size: 7.2pt; color: #64748b;">Konsep urutan kata (order of words), instruksi harafiah, dan studi kasus Kasus Donat Bertaring.</div>
+            </div>
+            <span style="font-weight: 800; font-size: 8.5pt; color: #0f172a;">Hal 3</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px;">
+            <div>
+              <strong style="color: #1e40af; font-size: 8.5pt;">BAB 3: Formula 4 Balok Lego Prompting</strong>
+              <div style="font-size: 7.2pt; color: #64748b;">Membedah 4 dimensi instruksi: Subjek, Aksi, Latar Tempat, dan Gaya Visual Seni.</div>
+            </div>
+            <span style="font-weight: 800; font-size: 8.5pt; color: #0f172a;">Hal 4</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px;">
+            <div>
+              <strong style="color: #1e40af; font-size: 8.5pt;">BAB 4: Laboratorium Detektif — Seni Debugging & Memperbaiki Resep</strong>
+              <div style="font-size: 7.2pt; color: #64748b;">3 Aturan Emas membetulkan hasil AI yang kacau, isolasi kata, dan kisah kemenangan Robo-Mochi.</div>
+            </div>
+            <span style="font-weight: 800; font-size: 8.5pt; color: #0f172a;">Hal 5</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px;">
+            <div>
+              <strong style="color: #1e40af; font-size: 8.5pt;">BAB 5: Galeri Tokoh & Kisah Karakter Robo-Mochi</strong>
+              <div style="font-size: 7.2pt; color: #64748b;">Profil lengkap kucing cyborg, blaster selai stroberi, sketsa pensil vs hasil jadi 2D retro.</div>
+            </div>
+            <span style="font-weight: 800; font-size: 8.5pt; color: #0f172a;">Hal 6</span>
+          </div>
+
+          <div style="display: flex; justify-content: space-between; align-items: center; background: #f8fafc; border: 1.5px solid #e2e8f0; border-radius: 6px; padding: 6px 10px;">
+            <div>
+              <strong style="color: #1e40af; font-size: 8.5pt;">BAB 6: Teka-Teki Logika Detektif Cilik & Glosarium AI</strong>
+              <div style="font-size: 7.2pt; color: #64748b;">Uji logika detektif, kamus kata kunci ajaib, dan cap stempel kelulusan Pos 1.</div>
+            </div>
+            <span style="font-weight: 800; font-size: 8.5pt; color: #0f172a;">Hal 7</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KATA SAMBUTAN -->
+      <div class="box-info" style="display: flex; gap: 10px; align-items: center;">
+        <div style="font-size: 16pt;">💡</div>
+        <div>
+          <strong>Pesan Detektif Utama:</strong> <em>"AI itu bukan pesulap sakti yang tahu isi pikiranmu. AI itu seperti koki hebat yang matanya tertutup kain. Dia hanya bisa memasak makanan lezat kalau kamu memberinya buku resep yang urut dan jelas!"</em>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 1 dari 7</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 2: BAB 1 MENYELAMI DUNIA AI ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BAB 1</span>
+          <span>MENYELAMI DUNIA AI • RAHASIA DI BALIK LAYAR KACA</span>
+        </div>
+        <div class="ph-right">BUKU SISWA • MODUL 01</div>
+      </div>
+
+      <!-- PENGANTAR BAB -->
+      <div class="comic-card" style="background: #eff6ff; border-color: #1d4ed8;">
+        <span class="comic-title-badge" style="background: #1d4ed8;">1.1 MISTERI MESIN PINTAR</span>
+        <p style="font-size: 8.6pt; margin-bottom: 6px;">
+          Pernahkah kamu bertanya-tanya, bagaimana layar ponsel atau komputermu bisa menjawab pertanyaanmu seperti manusia sungguhan? Apakah ada orang kerdil yang mengetik di dalam layar? Tentu saja tidak! Di dalam sana ada teknologi yang disebut <strong>Kecerdasan Buatan (Artificial Intelligence / AI)</strong>.
+        </p>
+        <p style="font-size: 8.6pt;">
+          Namun, ada satu rahasia besar: <strong>AI sebenarnya tidak memiliki akal atau perasaan.</strong> AI bekerja dengan cara membaca ribuan pola kata dan gambar yang pernah dipelajari dari buku dan internet.
+        </p>
+      </div>
+
+      <!-- ANALOGI KOKI ROBOT -->
+      <div class="comic-card">
+        <span class="comic-title-badge" style="background: #b45309;">1.2 ANALOGI KOKI ROBOT YANG BUTA</span>
+        <p style="font-size: 8.3pt; margin-bottom: 8px;">
+          Bayangkan kamu masuk ke restoran masa depan. Di dapurnya ada sebuah <strong>Koki Robot Super Canggih</strong>. Robot ini punya pisau super tajam, kompor super cepat, dan bahan makanan terlengkap di dunia. Tapi robot ini punya satu kekurangan: <strong>ia tidak bisa melihat dan tidak punya selera rasa!</strong>
+        </p>
+        <div class="grid-2" style="gap: 10px;">
+          <div style="background: #fef2f2; border: 1.5px solid #b91c1c; border-radius: 8px; padding: 8px;">
+            <strong style="color: #991b1b; font-size: 8pt;">❌ JIKA KAMU HANYA BERTERIAK:</strong>
+            <p style="font-style: italic; font-size: 7.8pt; margin: 4px 0;">"Koki! Buatkan aku makanan yang enak banget sekarang!"</p>
+            <p style="font-size: 7.6pt; color: #7f1d1d;">
+              Koki robot akan bingung. Enak itu apa? Pedas? Manis? Asin? Akhirnya koki robot memasukkan cabai, cokelat, dan garam sekaligus menjadi sup yang aneh dan menjijikkan!
+            </p>
+          </div>
+          <div style="background: #f0fdf4; border: 1.5px solid #15803d; border-radius: 8px; padding: 8px;">
+            <strong style="color: #166534; font-size: 8pt;">✅ JIKA KAMU MEMBERIKAN RESEP JELAS:</strong>
+            <p style="font-style: italic; font-size: 7.8pt; margin: 4px 0;">"Ambil 2 roti tawar, oleskan selai stroberi manis, lalu potong jadi segitiga!"</p>
+            <p style="font-size: 7.6pt; color: #14532d;">
+              Koki robot akan bergerak dengan cepat dan tepat. Dalam 5 detik, roti selai stroberi yang lezat siap kamu santap!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TABEL KOMPARASI OTAK MANUSIA VS OTAK AI -->
+      <div class="comic-card">
+        <span class="comic-title-badge">1.3 PERBEDAAN OTAK MANUSIA VS OTAK AI</span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 28%;">Ciri Kognitif</th>
+              <th style="width: 36%;">Otak Manusia (KAMU!)</th>
+              <th style="width: 36%;">Otak AI (Komputer / Model)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Imajinasi & Rasa</strong></td>
+              <td>Punya rasa haru, lucu, bahagia, dan bisa melamun membayangkan hal baru.</td>
+              <td>Tidak punya rasa. Hanya menghitung angka statistik kemunculan kata.</td>
+            </tr>
+            <tr>
+              <td><strong>Memahami Maksud</strong></td>
+              <td>Mengerti kode lirikan mata, nada suara, dan konteks percakapan.</td>
+              <td>Hanya membaca teks harafiah persis seperti yang kamu ketikkan.</td>
+            </tr>
+            <tr>
+              <td><strong>Kecepatan Kerja</strong></td>
+              <td>Butuh waktu menggambar sketsa manual 1-2 jam per karakter.</td>
+              <td>Mampu menghasilkan gambar visual dalam waktu 5 hingga 10 detik.</td>
+            </tr>
+            <tr>
+              <td><strong>Siapa Pemimpinnya?</strong></td>
+              <td><strong>KAPSI / SUTRADARA:</strong> Kamu yang menentukan ide cerita dan gaya!</td>
+              <td><strong>ASISTEN:</strong> Hanya menjalankan perintah yang diberikan manusia.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- KOTAK CATATAN DETEKTIF -->
+      <div class="box-warn">
+        <strong>Pelajaran Penting Bab 1:</strong> Jangan pernah takut salah atau takut komputer rusak. Komputer tidak bisa marah. Jika hasil AI tidak sesuai dengan apa yang ada di kepalamu, itu bukan karena kamu bodoh, melainkan karena resep kata yang kamu berikan belum cukup detail untuk dibaca si Koki Robot!
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 2 dari 7</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 3: BAB 2 ANATOMI BAHASA AI ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BAB 2</span>
+          <span>ANATOMI BAHASA AI • MENGAPA BISA SALAH PAHAM?</span>
+        </div>
+        <div class="ph-right">BUKU SISWA • MODUL 01</div>
+      </div>
+
+      <!-- PENGERTIAN PROMPT -->
+      <div class="comic-card">
+        <span class="comic-title-badge">2.1 APA ITU "PROMPT"?</span>
+        <p style="font-size: 8.4pt; margin-bottom: 6px;">
+          Dalam dunia kecerdasan buatan, kalimat atau instruksi yang kita ketikkan untuk memberi perintah kepada AI disebut dengan <strong>PROMPT</strong>. Prompt adalah jembatan penghubung antara imajinasi di kepalamu dengan mesin komputer.
+        </p>
+        <div class="box-info">
+          <strong>Hukum Dasar Prompt:</strong> <em>"Sampah yang masuk, sampah yang keluar (Garbage In, Garbage Out)."</em> Jika promptmu berantakan dan asal-asalan, hasil gambar AI akan berantakan. Jika promptmu teratur dan runut, hasil gambar AI akan luar biasa menakjubkan!
+        </div>
+      </div>
+
+      <!-- KASUS NYATA: KASUS DONAT BERTARING -->
+      <div class="comic-card" style="border-color: #b91c1c; background: #fff5f5;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span class="comic-title-badge" style="background: #b91c1c;">2.2 STUDI KASUS NYATA: TRAGEDI DONAT BERTARING</span>
+          <span style="font-size: 7pt; font-weight: 800; color: #b91c1c;">INSIDEN DETEKTIF #01</span>
+        </div>
+        <p style="font-size: 8.2pt; margin-bottom: 8px;">
+          Mari kita pelajari kasus nyata karya Detektif Rafa (usia 10 tahun). Rafa ingin membuat gambar seekor kucing robot lucu bernama <strong>Robo-Mochi</strong> yang sedang makan donat stroberi di toko kue. Tapi lihat apa yang terjadi ketika Rafa terburu-buru mengetik prompt:
+        </p>
+
+        <div class="grid-2" style="gap: 10px;">
+          <div>
+            <div style="font-size: 7.6pt; font-weight: 800; color: #991b1b; margin-bottom: 4px;">PROMPT ASAL RAFA (SALAH URUTAN):</div>
+            <div class="prompt-snippet" style="border-color: #ef4444; color: #fca5a5;">
+              "Robo-Mochi donat stroberi makan kejar"
+            </div>
+            <div style="font-size: 7.8pt; line-height: 1.35; color: #450a0a; margin-top: 6px;">
+              <strong>Apa yang Terjadi di Otak AI?</strong><br>
+              AI melihat kata "donat", "makan", dan "kejar". Karena kata donat ditaruh di depan tanpa keterangan siapa pelakunya, AI mengira: <em>"Oh, mungkin si donat yang hidup, punya gigi, dan sedang mengejar kucing robot!"</em>
+            </div>
+          </div>
+          <div style="border: 2px solid #0f172a; border-radius: 8px; overflow: hidden; background: #000; text-align: center;">
+            <img src="Aset/robo_mochi_glitch.jpg" style="width: 100%; height: 110px; object-fit: cover; display: block;" alt="Glitch Donat Bertaring">
+            <div style="background: #0f172a; color: #f87171; font-size: 6.8pt; font-weight: 800; padding: 3px;">
+              HASIL GLITCH: Donat Raksasa Bertaring Mengejar Robot!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RAHASIA URUTAN KATA -->
+      <div class="comic-card">
+        <span class="comic-title-badge" style="background: #1e40af;">2.3 RAHASIA "URUTAN KATA" (THE ORDER OF WORDS)</span>
+        <p style="font-size: 8.3pt; margin-bottom: 6px;">
+          Komputer membaca kata dari kiri ke kanan. <strong>Kata yang kamu tulis paling depan akan dianggap sebagai hal paling penting (Pemeran Utama)!</strong>
+        </p>
+        <div class="grid-3" style="gap: 8px; font-size: 7.8pt;">
+          <div style="background: #f8fafc; border: 1.5px solid #cbd5e1; border-radius: 6px; padding: 6px;">
+            <strong style="color: #2563eb;">Kucing mengejar tikus</strong>
+            <p style="color: #64748b; font-size: 7.2pt; margin-top: 2px;">Kucing sebagai pahlawan pemburu, tikus yang lari ketakutan.</p>
+          </div>
+          <div style="background: #fef2f2; border: 1.5px solid #f87171; border-radius: 6px; padding: 6px;">
+            <strong style="color: #dc2626;">Tikus mengejar kucing</strong>
+            <p style="color: #64748b; font-size: 7.2pt; margin-top: 2px;">Tikus raksasa menyeramkan, kucing lari terbirit-birit!</p>
+          </div>
+          <div style="background: #f0fdf4; border: 1.5px solid #4ade80; border-radius: 6px; padding: 6px;">
+            <strong style="color: #16a34a;">Donat mengejar robot</strong>
+            <p style="color: #64748b; font-size: 7.2pt; margin-top: 2px;">Donat ajaib punya kaki dan mata memangsa mesin besi.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- KESIMPULAN BAB -->
+      <div class="box-success">
+        <strong>Pelajaran Detektif:</strong> Jangan pernah menaruh kata secara acak. Tentukan dulu <strong>SIAPA</strong> yang beraksi, baru jelaskan <strong>APA</strong> yang sedang dia lakukan. Inilah mengapa kita membutuhkan <em>Formula 4 Balok Lego</em> di bab selanjutnya!
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 3 dari 7</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 4: BAB 3 FORMULA 4 BALOK LEGO ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BAB 3</span>
+          <span>FORMULA 4 BALOK LEGO PROMPTING</span>
+        </div>
+        <div class="ph-right">BUKU SISWA • MODUL 01</div>
+      </div>
+
+      <!-- PENGANTAR FORMULA -->
+      <div class="comic-card" style="background: #fdf4ff; border-color: #a21caf;">
+        <span class="comic-title-badge" style="background: #a21caf;">3.1 MENYUSUN KATA SEPERTI MERAKIT MAINAN LEGO</span>
+        <p style="font-size: 8.5pt;">
+          Agar kamu tidak pernah bingung lagi saat mengetik instruksi di depan layar komputer, kita akan menggunakan <strong>Formula 4 Balok Lego</strong>. Seperti saat merakit istana Lego, ada 4 balok fondasi yang wajib kamu pasang secara berurutan:
+        </p>
+      </div>
+
+      <!-- 4 BALOK LEGO RINCI -->
+      <div style="display: flex; flex-direction: column; gap: 7px; margin-bottom: 8px;">
+        
+        <!-- BALOK 1: SUBJEK -->
+        <div class="lego-block lego-subjek">
+          <div class="lego-header" style="color: #1e40af;">
+            <span>🧱 BALOK 1: SUBJEK (SIAPA TOKOH UTAMANYA?)</span>
+            <span>FONDASI UTAMA</span>
+          </div>
+          <p style="font-size: 8.2pt; margin-bottom: 4px;">
+            Sebutkan siapa karaktermu dengan ciri khas fisiknya (spesies, warna, aksesoris, pakaian unik).
+          </p>
+          <div style="font-size: 7.6pt; background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #bfdbfe;">
+            <strong>Contoh Bagus:</strong> <em>"Seekor kucing robot cyborg imut berwarna biru langit dengan telinga antena dan sabuk lencana bintang..."</em>
+          </div>
+        </div>
+
+        <!-- BALOK 2: AKSI -->
+        <div class="lego-block lego-aksi">
+          <div class="lego-header" style="color: #b45309;">
+            <span>🧱 BALOK 2: AKSI (SEDANG MELAKUKAN APA?)</span>
+            <span>GERAKAN & EMOSI</span>
+          </div>
+          <p style="font-size: 8.2pt; margin-bottom: 4px;">
+            Jelaskan apa yang sedang dilakukan si tokoh secara spesifik. Apakah dia tersenyum, melompat, makan, atau membaca buku?
+          </p>
+          <div style="font-size: 7.6pt; background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #fde68a;">
+            <strong>Contoh Bagus:</strong> <em>"...sedang duduk santai sambil memegang donat stroberi manis dan mengacungkan jempol ceria..."</em>
+          </div>
+        </div>
+
+        <!-- BALOK 3: LATAR -->
+        <div class="lego-block lego-latar">
+          <div class="lego-header" style="color: #15803d;">
+            <span>🧱 BALOK 3: LATAR TEMPAT & SUASANA (DI MANA KEJADIANNYA?)</span>
+            <span>DUNIA & LOKASI</span>
+          </div>
+          <p style="font-size: 8.2pt; margin-bottom: 4px;">
+            Gambarkan di mana tempat kejadiannya. Apakah di dalam toko kue, di stasiun luar angkasa, atau di taman bermain?
+          </p>
+          <div style="font-size: 7.6pt; background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #bbf7d0;">
+            <strong>Contoh Bagus:</strong> <em>"...di atas meja etalase toko donat kartun yang bersih dengan hiasan toples gula dan susu..."</em>
+          </div>
+        </div>
+
+        <!-- BALOK 4: GAYA VISUAL -->
+        <div class="lego-block lego-gaya">
+          <div class="lego-header" style="color: #7e22ce;">
+            <span>🧱 BALOK 4: GAYA VISUAL (SEPERTI APA GAYA GAMBARNYA?)</span>
+            <span>SENTUHAN ARTISTIK</span>
+          </div>
+          <p style="font-size: 8.2pt; margin-bottom: 4px;">
+            Pilihlah gaya seni agar gambar tidak pecah atau terlihat seperti 3D murahan. Misalnya gaya komik retro 2D, cat air lembut, atau pixel art.
+          </p>
+          <div style="font-size: 7.6pt; background: #fff; padding: 4px 8px; border-radius: 4px; border: 1px solid #e9d5ff;">
+            <strong>Contoh Bagus:</strong> <em>"...gaya ilustrasi retro-komik petualangan 2D, garis tinta hitam tebal yang tegas, warna cel-shading cerah."</em>
+          </div>
+        </div>
+      </div>
+
+      <!-- KAMUS KATA KUNCI VISUAL (VISUAL DICTIONARY) -->
+      <div class="comic-card">
+        <span class="comic-title-badge">3.2 KAMUS KATA KUNCI AJAIB DETEKTIF</span>
+        <div class="grid-4" style="gap: 6px; font-size: 7.4pt;">
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 4px 6px;">
+            <strong style="color: #2563eb;">Kata Sifat Karakter:</strong>
+            <div style="color: #475569; margin-top: 2px;">Cyborg, robotik, bersayap, bertopi fedora, berbulu lebat, mata lentik, armor baja.</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 4px 6px;">
+            <strong style="color: #d97706;">Kata Aksi Keren:</strong>
+            <div style="color: #475569; margin-top: 2px;">Menyelidiki jejak, mengacungkan jempol, menembakkan selai, melompat tinggi.</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 4px 6px;">
+            <strong style="color: #16a34a;">Kata Latar Unik:</strong>
+            <div style="color: #475569; margin-top: 2px;">Etalase kaca, laboratorium rahasia, kafe permen pelangi, markas bawah tanah.</div>
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 5px; padding: 4px 6px;">
+            <strong style="color: #9333ea;">Kata Gaya Seni:</strong>
+            <div style="color: #475569; margin-top: 2px;">Retro-comic 2D, bold ink outline, flat vector, watercolor soft, doodle ceria.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 4 dari 7</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 5: BAB 4 LABORATORIUM DETEKTIF ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BAB 4</span>
+          <span>LABORATORIUM DETEKTIF • SENI DEBUGGING</span>
+        </div>
+        <div class="ph-right">BUKU SISWA • MODUL 01</div>
+      </div>
+
+      <!-- PENGERTIAN DEBUGGING -->
+      <div class="comic-card">
+        <span class="comic-title-badge">4.1 APA ITU "DEBUGGING"?</span>
+        <p style="font-size: 8.4pt;">
+          Dahulu kala di tahun 1947, seekor ngengat (serangga kecil / <em>bug</em>) terselip di dalam kabel komputer raksasa di Universitas Harvard sehingga komputer itu macet. Sejak saat itu, setiap kali ada kesalahan dalam dunia komputer, para insinyur menyebutnya <strong>"BUG"</strong> atau <strong>"GLITCH"</strong>.
+        </p>
+        <p style="font-size: 8.4pt; margin-top: 4px;">
+          Tugas seorang detektif cerdas bukanlah marah-marah saat menemukan glitch, melainkan melakukan <strong>DEBUGGING</strong>: mencari letak kesalahan kata dan membetulkannya hingga berhasil!
+        </p>
+      </div>
+
+      <!-- 3 ATURAN EMAS DEBUGGING -->
+      <div class="comic-card" style="background: #fffbeb; border-color: #d97706;">
+        <span class="comic-title-badge" style="background: #d97706;">4.2 TIGA ATURAN EMAS SANG DEBUGGER CILIK</span>
+        <div class="grid-3" style="gap: 8px;">
+          <div style="background: #fff; border: 1.5px solid #fde68a; border-radius: 8px; padding: 8px;">
+            <div style="font-size: 14pt; margin-bottom: 2px;">🛑</div>
+            <strong style="font-size: 8pt; color: #92400e;">1. STOP & RE-READ</strong>
+            <p style="font-size: 7.4pt; color: #78350f; margin-top: 3px;">
+              Tahan tanganmu! Jangan langsung klik tombol berkali-kali. Baca ulang resep promptmu kata demi kata dengan suara pelan.
+            </p>
+          </div>
+          <div style="background: #fff; border: 1.5px solid #fde68a; border-radius: 8px; padding: 8px;">
+            <div style="font-size: 14pt; margin-bottom: 2px;">🔍</div>
+            <strong style="font-size: 8pt; color: #92400e;">2. ISOLATE THE WORD</strong>
+            <p style="font-size: 7.4pt; color: #78350f; margin-top: 3px;">
+              Temukan satu kata yang bikin AI bingung. Apakah kata kerjamu menempel di objek? Apakah ada kata yang punya dua arti?
+            </p>
+          </div>
+          <div style="background: #fff; border: 1.5px solid #fde68a; border-radius: 8px; padding: 8px;">
+            <div style="font-size: 14pt; margin-bottom: 2px;">⚓</div>
+            <strong style="font-size: 8pt; color: #92400e;">3. ADD ANCHOR</strong>
+            <p style="font-size: 7.4pt; color: #78350f; margin-top: 3px;">
+              Beri "Jangkar Penjelas". Sebutkan peran objek dengan tegas, misalnya: <em>"donat stroberi adalah kue lezat di piring, BUKAN monster!"</em>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STUDI KASUS KEMENANGAN ROBO-MOCHI -->
+      <div class="comic-card" style="border-color: #15803d; background: #f0fdf4;">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span class="comic-title-badge" style="background: #15803d;">4.3 KEMENANGAN DEBUGGING: RESEP FINAL RAFA</span>
+          <span style="font-size: 7pt; font-weight: 800; color: #15803d;">STATUS: BERHASIL TOTAL</span>
+        </div>
+        
+        <div class="grid-2" style="gap: 10px; align-items: center;">
+          <div>
+            <div style="font-size: 7.6pt; font-weight: 800; color: #166534; margin-bottom: 4px;">RESEP 4 BALOK LEGO LENGKAP YANG DIPERBAIKI:</div>
+            <div class="prompt-snippet" style="border-color: #22c55e; color: #86efac; font-size: 7.4pt;">
+              [Kucing robot cyborg Robo-Mochi berwarna biru langit dengan telinga antena]<br>
+              sedang [duduk santai menikmati donat stroberi dan mengacungkan jempol gembira]<br>
+              di [meja etalase toko donat kartun yang bersih]<br>
+              dengan gaya [ilustrasi retro-komik 2D, garis tinta hitam tegas].
+            </div>
+            <p style="font-size: 7.6pt; color: #14532d; margin-top: 5px;">
+              <strong>Hasil Uji:</strong> AI 100% memahami perintah! Donat bertaring hilang, dan Robo-Mochi tersenyum bahagia sambil makan donat stroberi manis.
+            </p>
+          </div>
+          <div style="border: 2px solid #0f172a; border-radius: 8px; overflow: hidden; background: #000; text-align: center;">
+            <img src="Aset/robo_mochi_victory.jpg" style="width: 100%; height: 110px; object-fit: cover; display: block;" alt="Victory Robo Mochi">
+            <div style="background: #0f172a; color: #4ade80; font-size: 6.8pt; font-weight: 800; padding: 3px;">
+              HASIL DEBUGGED: Robo-Mochi Menang & Donat Selamat!
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KOTAK MOTIVASI -->
+      <div class="box-info">
+        <strong>Pesan Mentor:</strong> Ketika programmu eror, jangan pernah bilang <em>"Aku gagal!"</em>. Katakanlah: <em>"Aha! Aku baru saja menemukan cara yang tidak berhasil, sekarang mari kita perbaiki resepnya!"</em> Inilah mentalitas ilmuwan dan pembuat teknologi masa depan.
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 5 dari 7</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 6: BAB 5 GALERI TOKOH & KISAH ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BAB 5</span>
+          <span>GALERI TOKOH & KISAH ROBO-MOCHI</span>
+        </div>
+        <div class="ph-right">BUKU SISWA • MODUL 01</div>
+      </div>
+
+      <!-- PROFIL KARAKTER ROBO-MOCHI -->
+      <div class="comic-card">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">
+          <span class="comic-title-badge">5.1 BIODATA RESMI KARAKTER: ROBO-MOCHI</span>
+          <span style="font-size: 7pt; font-weight: 700; color: #2563eb;">KREASI SISWA: DETEKTIF RAFA (10 TAHUN)</span>
+        </div>
+
+        <div class="grid-2" style="gap: 12px; align-items: center;">
+          <div style="border: 2px solid #0f172a; border-radius: 8px; overflow: hidden; text-align: center;">
+            <img src="Aset/robo_mochi_hero.jpg" style="width: 100%; height: 140px; object-fit: cover; display: block;" alt="Robo Mochi Hero">
+            <div style="background: #0f172a; color: #38bdf8; font-size: 7pt; font-weight: 800; padding: 3px;">
+              STATUS: Detektif Penjaga Toko Donat Bintang Lima
+            </div>
+          </div>
+
+          <div style="font-size: 8pt; display: flex; flex-direction: column; gap: 4px;">
+            <div><strong style="color: #1e40af;">Nama Kode:</strong> Robo-Mochi (Model CY-Cat 01)</div>
+            <div><strong style="color: #1e40af;">Spesies:</strong> Kucing Cyborg Pelindung Toko Roti</div>
+            <div><strong style="color: #1e40af;">Warna Tubuh:</strong> Biru langit metalik dengan aksen belang kuning cerah</div>
+            <div><strong style="color: #1e40af;">Perangkat Khas:</strong> Antena radio di telinga kanan & sabuk lencana detektif bintang</div>
+            <div><strong style="color: #1e40af;">Senjata Unik:</strong> <em>Strawberry Jam Blaster</em> (Pistol mainan yang menyemprotkan selai stroberi manis untuk melumpuhkan pencuri kue tanpa melukai)</div>
+            <div><strong style="color: #1e40af;">Makanan Favorit:</strong> Donat mochi kenyal berlapis gula bubuk</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- KISAH PETUALANGAN MINI -->
+      <div class="comic-card" style="background: #f8fafc;">
+        <span class="comic-title-badge" style="background: #0f172a;">5.2 CERITA MINI: MISTERI DONAT STROBERI YANG HILANG</span>
+        <p style="font-size: 8.2pt; line-height: 1.4; color: #334155; margin-bottom: 6px;">
+          Di sebuah kota kecil bernuansa kartun retro, ada toko roti legendaris bernama <em>Toko Mochi Manis</em>. Suatu pagi, Nenek Pembuat Donat menangis karena donat stroberi edisi spesialnya mendadak lenyap dari etalase kaca!
+        </p>
+        <p style="font-size: 8.2pt; line-height: 1.4; color: #334155; margin-bottom: 6px;">
+          Robo-Mochi langsung menyalakan antena di telinganya. Dengan bantuan sensor radar detektif, ia menemukan jejak remah gula yang mengarah ke gudang tepung. Di sana, Robo-Mochi menemukan seekor anak anjing kecil yang kelaparan. Alih-alih menembaknya, Robo-Mochi tersenyum ramah dan membagikan donat stroberi tersebut untuk dimakan bersama.
+        </p>
+      </div>
+
+      <!-- TUGAS IMAJINASI SISWA -->
+      <div class="comic-card" style="background: #fffbeb; border-color: #d97706;">
+        <span class="comic-title-badge" style="background: #d97706;">5.3 GILIRANMU MENJADI PENCIPTA KARAKTER!</span>
+        <p style="font-size: 8.2pt; margin-bottom: 6px;">
+          Robo-Mochi adalah bukti bahwa kamu bisa menciptakan tokoh apa saja di dunia ini. Sekarang giliranmu! Karakter apa yang ingin kamu ciptakan hari ini?
+        </p>
+        <div class="grid-3" style="gap: 6px; font-size: 7.5pt; text-align: center;">
+          <div style="background: #fff; border: 1px dashed #d97706; padding: 6px; border-radius: 6px;">
+            <strong>Pilihan A: Robot Satwa</strong><br>
+            Panda astronot, burung hantu penyelam, atau rubah bermotor uap.
+          </div>
+          <div style="background: #fff; border: 1px dashed #d97706; padding: 6px; border-radius: 6px;">
+            <strong>Pilihan B: Penjelajah Waktu</strong><br>
+            Ksatria cilik bertopeng permen, detektif dinosaurus berjas rapi.
+          </div>
+          <div style="background: #fff; border: 1px dashed #d97706; padding: 6px; border-radius: 6px;">
+            <strong>Pilihan C: Teman Curhat</strong><br>
+            Awan pelangi yang bisa bicara, tanaman kaktus penyanyi lagu riang.
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 6 dari 7</span>
+    </div>
+  </div>
+
+
+  <!-- ==================== HALAMAN 7: BAB 6 TEKA-TEKI LOGIKA & GLOSARIUM ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="page-header">
+        <div class="ph-left">
+          <span class="ph-badge">BAB 6</span>
+          <span>TEKA-TEKI LOGIKA DETEKTIF & GLOSARIUM AI</span>
+        </div>
+        <div class="ph-right">BUKU SISWA • MODUL 01</div>
+      </div>
+
+      <!-- KUIS TEKA-TEKI LOGIKA -->
+      <div class="comic-card">
+        <span class="comic-title-badge">6.1 UJI KETAJAMAN LOGIKA DETEKTIF CILIK</span>
+        <div style="display: flex; flex-direction: column; gap: 7px; margin-top: 4px; font-size: 7.8pt;">
+          
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 8px;">
+            <strong>Teka-Teki 1: Balok Mana yang Hilang?</strong><br>
+            Prompt seorang anak berbunyi: <em>"Kelinci putih memakai kacamata renang di dasar kolam renang air biru jernih."</em><br>
+            <span style="color: #b91c1c;">Tanya: Balok apa yang belum dimasukkan oleh anak tersebut?</span><br>
+            <span style="color: #1e40af;">Jawaban: <strong>Balok 2 (Aksi)!</strong> Kelinci itu sedang apa? Menyelam? Duduk melamun? Atau mencari wortel tenggelam?</span>
+          </div>
+
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 6px; padding: 6px 8px;">
+            <strong>Teka-Teki 2: Mengapa Hasil Gambarnya Aneh?</strong><br>
+            Seorang anak mengetik prompt: <em>"Mobil balap merah melompati dinosaurus di tengah kota kartun 2D."</em> Tapi hasil gambar AI justru memperlihatkan dinosaurus yang sedang menyetir mobil balap!<br>
+            <span style="color: #b91c1c;">Tanya: Bagaimana cara membetulkan kata-katanya?</span><br>
+            <span style="color: #1e40af;">Jawaban: Berikan kata pemisah yang jelas: <em>"Sebuah mobil balap merah yang sedang terbang di udara melompati seekor dinosaurus hijau yang berdiri diam di jalan raya kota kartun 2D."</em></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- GLOSARIUM ISTILAH RAMAH ANAK -->
+      <div class="comic-card">
+        <span class="comic-title-badge" style="background: #1e40af;">6.2 GLOSARIUM RESMI DETEKTIF AI</span>
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Istilah Keren</th>
+              <th>Artinya dalam Bahasa Sehari-hari Detektif</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Prompt</strong></td>
+              <td>Resep atau rangkaian instruksi teks yang kita berikan agar komputer menghasilkan sesuatu yang kita inginkan.</td>
+            </tr>
+            <tr>
+              <td><strong>Bug / Glitch</strong></td>
+              <td>Kesalahan atau kejanggalan pada hasil program karena komputer salah paham membaca urutan kata kita.</td>
+            </tr>
+            <tr>
+              <td><strong>Debugging</strong></td>
+              <td>Proses penyelidikan membaca ulang instruksi untuk mencari dan membetulkan kata yang keliru.</td>
+            </tr>
+            <tr>
+              <td><strong>AI (Kecerdasan Buatan)</strong></td>
+              <td>Program komputer canggih yang pandai mengenali jutaan pola kata dan gambar untuk membantu pekerjaan manusia.</td>
+            </tr>
+            <tr>
+              <td><strong>Cel-Shading</strong></td>
+              <td>Gaya pewarnaan gambar kartun yang memiliki bayangan tegas tanpa gradasi buram, mirip komik manga jepang.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- STEMPEL RESMI KELULUSAN BUKU SISWA -->
+      <div class="comic-card" style="background: #f0fdf4; border-color: #16a34a; text-align: center; padding: 8px;">
+        <div style="font-size: 8pt; font-weight: 800; color: #166534; text-transform: uppercase; margin-bottom: 4px;">
+          TANDA KELULUSAN BACAAN MODUL 1
+        </div>
+        <p style="font-size: 7.5pt; color: #15803d; margin-bottom: 6px;">
+          Dengan menyelesaikan pembacaan Buku Siswa ini, kamu resmi berhak menyandang gelar <strong>Detektif Pikiran Tingkat 1</strong> dan siap melangkah ke Lembar Kerja Praktik Cetak!
+        </p>
+        <div style="display: flex; justify-content: space-around; font-size: 7.4pt; margin-top: 4px;">
+          <div>Tanda Tangan Siswa: ____________________</div>
+          <div>Paraf Fasilitator: ____________________</div>
+          <div>Tanggal Uji: _____ / _____ / 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-footer">
+      <span>Akademi AI for Kids • Modul 1: Detektif Pikiran</span>
+      <span>Halaman 7 dari 7</span>
+    </div>
+  </div>
+
+</body>
+</html>
