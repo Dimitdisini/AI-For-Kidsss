@@ -1,0 +1,798 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Buku Panduan Lengkap Modul 1 — Akademi AI for Kids</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@700;800&family=JetBrains+Mono:wght@600;700&display=swap');
+
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      background: #f8fafc;
+      color: #0f172a;
+      line-height: 1.45;
+      font-size: 9pt;
+    }
+
+    .a4-page {
+      width: 210mm;
+      height: 297mm;
+      max-height: 297mm;
+      margin: 0 auto;
+      padding: 13mm 16mm 11mm 16mm;
+      background: #ffffff;
+      position: relative;
+      overflow: hidden;
+      page-break-after: always;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    @media print {
+      body { background: transparent; }
+      .a4-page { margin: 0; border: none; }
+    }
+
+    /* TYPOGRAPHY */
+    h1, h2, h3, h4, .font-heading {
+      font-family: 'Space Grotesk', sans-serif;
+      letter-spacing: -0.02em;
+      font-weight: 800;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 3px 8px;
+      font-size: 7.5pt;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+      border: 1.5px solid #0f172a;
+      box-shadow: 1.5px 1.5px 0px #0f172a;
+    }
+
+    .badge-amber { background: #f59e0b; color: #0f172a; }
+    .badge-blue { background: #2563eb; color: #ffffff; }
+    .badge-emerald { background: #10b981; color: #ffffff; }
+    .badge-rose { background: #ef4444; color: #ffffff; }
+    .badge-dark { background: #0f172a; color: #ffffff; }
+    .badge-purple { background: #8b5cf6; color: #ffffff; }
+
+    /* CARD STYLES */
+    .comic-card {
+      border: 2px solid #0f172a;
+      border-radius: 8px;
+      background: #ffffff;
+      box-shadow: 3px 3px 0px #0f172a;
+      padding: 10px 14px;
+      margin-bottom: 9px;
+    }
+
+    .card-header-clean {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #e2e8f0;
+      padding-bottom: 6px;
+      margin-bottom: 8px;
+    }
+
+    /* HEADER & FOOTER */
+    .header-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 8px;
+      border-bottom: 2px solid #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .footer-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1.5px solid #cbd5e1;
+      font-size: 7.5pt;
+      color: #64748b;
+      font-weight: 600;
+    }
+
+    .page-tag {
+      background: #0f172a;
+      color: #ffffff;
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-weight: 700;
+      font-size: 7.5pt;
+    }
+
+    /* SPEECH BUBBLE */
+    .speech-bubble {
+      background: #fffdf5;
+      border: 1.5px solid #0f172a;
+      border-radius: 8px;
+      padding: 8px 12px;
+      box-shadow: 2px 2px 0px #0f172a;
+      font-size: 8.5pt;
+    }
+
+    /* TABLES */
+    table.compact-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 8pt;
+    }
+
+    table.compact-table th, table.compact-table td {
+      border: 1.5px solid #0f172a;
+      padding: 5px 8px;
+      text-align: left;
+    }
+
+    table.compact-table th {
+      background: #f1f5f9;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 7.5pt;
+      color: #0f172a;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== HALAMAN 1: COVER MASTER & NAVIGASI DOKUMEN ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          AKADEMI AI FOR KIDS • BUKU MASTER MODUL 01
+        </div>
+        <div class="badge badge-amber">MASTER PACK (ALL-IN-ONE)</div>
+      </div>
+
+      <!-- MAIN HERO BANNER -->
+      <div style="background: #1e3a8a; border: 2.5px solid #0f172a; box-shadow: 4px 4px 0px #0f172a; border-radius: 10px; padding: 18px 20px; color: #ffffff; margin-bottom: 12px;">
+        <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+          <span class="badge badge-amber" style="font-size: 7.5pt;">MODUL 1: FONDASI KOGNITIF</span>
+          <span class="badge badge-emerald" style="font-size: 7.5pt;">USIA: 8–12 TAHUN</span>
+          <span class="badge badge-blue" style="font-size: 7.5pt;">DURASI: 90 MENIT</span>
+        </div>
+        <h1 style="font-size: 19pt; line-height: 1.2; color: #ffffff; margin-bottom: 4px;">
+          BUKU PANDUAN LENGKAP &amp; LEMBAR KERJA: DETEKTIF PIKIRAN &amp; ARSITEK AI
+        </h1>
+        <p style="font-size: 10pt; color: #93c5fd; font-weight: 600;">
+          Studi Kasus Proyek Nyata: "Robo-Mochi &amp; Misteri Donat Hilang" (Solusi Anti-Blank Canvas)
+        </p>
+      </div>
+
+      <!-- PETA NAVIGASI: MANA YANG DICETAK & MANA PEGANGAN GURU/ORTU -->
+      <div class="comic-card" style="background: #fffdf5; border-color: #0f172a; margin-bottom: 12px;">
+        <div class="card-header-clean">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #0f172a;">
+            🧭 PETA NAVIGASI PENGGUNAAN DOKUMEN (PANDUAN OPERASIONAL)
+          </div>
+          <span class="badge badge-dark">DISTRIBUSI BERKAS</span>
+        </div>
+        <p style="font-size: 8pt; color: #475569; margin-bottom: 8px;">
+          Dokumen ini dirancang lengkap agar Mas Dimitri, mentor lapangan, siswa, dan orang tua memiliki panduan yang saling melengkapi:
+        </p>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 7.5pt;">
+          <!-- KELOMPOK 1 -->
+          <div style="background: #eff6ff; border: 1.5px solid #2563eb; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #1e40af; margin-bottom: 3px;">📖 BUKU MODUL SISWA</div>
+            <p style="color: #1e3a8a; margin-bottom: 4px;"><strong>Halaman 3 &amp; 4:</strong></p>
+            <p style="color: #334155;">Dibaca bersama di layar proyektor / laptop siswa. Berisi kisah komik toko donat, konsep AI, dan eksperimen glitch.</p>
+            <span class="badge badge-blue" style="font-size: 6.5pt; margin-top: 4px;">TAMPILAN KELAS</span>
+          </div>
+
+          <!-- KELOMPOK 2 -->
+          <div style="background: #fef3c7; border: 1.5px solid #d97706; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #92400e; margin-bottom: 3px;">🖨️ LEMBAR KERJA CETAK</div>
+            <p style="color: #92400e; margin-bottom: 4px;"><strong>Halaman 5 (WAJIB DICETAK):</strong></p>
+            <p style="color: #78350f;">Dicetak 1 lembar A4 per anak. Dikerjakan dengan pensil/pulpen di meja: centang balok, tulis resep, dan cap stempel.</p>
+            <span class="badge badge-amber" style="font-size: 6.5pt; margin-top: 4px;">DICETAK KE SISWA</span>
+          </div>
+
+          <!-- KELOMPOK 3 -->
+          <div style="background: #ecfdf5; border: 1.5px solid #059669; border-radius: 6px; padding: 8px;">
+            <div style="font-weight: 800; color: #065f46; margin-bottom: 3px;">👨‍🏫 GURU &amp; ORANG TUA</div>
+            <p style="color: #065f46; margin-bottom: 4px;"><strong>Halaman 6 &amp; 7:</strong></p>
+            <p style="color: #334155;"><strong>Hal 6:</strong> SOP guru &amp; naskah dialog kata-demi-kata.<br><strong>Hal 7:</strong> Format rapor diagnostik bakat anak (dikirim ke WA ortu).</p>
+            <span class="badge badge-emerald" style="font-size: 6.5pt; margin-top: 4px;">PEGANGAN MENTOR</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- KARTU IDENTITAS DETEKTIF CILIK -->
+      <div class="comic-card" style="margin-bottom: 0;">
+        <div class="card-header-clean">
+          <div style="font-size: 9pt; font-weight: 800; color: #0f172a;">
+            PASPOR DETEKTIF CILIK • AKADEMI AI FOR KIDS
+          </div>
+          <span class="badge badge-dark">IDENTITAS SISWA</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 100px 1fr 1fr; gap: 12px; align-items: center; font-size: 8pt;">
+          <div style="border: 2px dashed #0f172a; height: 75px; border-radius: 6px; display: flex; align-items: center; justify-content: center; background: #f8fafc; font-size: 7pt; color: #94a3b8; font-weight: 700; text-align: center;">
+            [ TEMPEL FOTO / SKETSA AVATAR ]
+          </div>
+          <div>
+            <p><strong>NAMA DETEKTIF:</strong> _______________________</p>
+            <p style="margin-top: 4px;"><strong>USIA / KELAS:</strong> ____ TAHUN / KELAS _____</p>
+            <p style="margin-top: 4px;"><strong>SEKOLAH:</strong> ____________________________</p>
+          </div>
+          <div>
+            <p><strong>KODE DETEKTIF:</strong> [ #AGT-______ ]</p>
+            <p style="margin-top: 4px;"><strong>TANDEM PARTNER:</strong> _________________</p>
+            <p style="margin-top: 4px;"><strong>STATUS MISI:</strong> <span style="color: #2563eb; font-weight: 800;">POS 1 AKTIF</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Akademi AI for Kids • Modul 1: Buku Master Lengkap</span>
+      <span class="page-tag">Halaman 1 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 2: STANDAR KURIKULUM & MATRIKS CAPAIAN ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          STANDAR KURIKULUM • MATERI, TUJUAN, &amp; CAPAIAN PEMBELAJARAN
+        </div>
+        <div class="badge badge-blue">CURRICULUM SPEC</div>
+      </div>
+
+      <!-- MATERI & TUJUAN -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px;">
+        <!-- MATERI -->
+        <div class="comic-card" style="margin-bottom: 0;">
+          <div class="card-header-clean">
+            <div style="font-size: 8.5pt; font-weight: 800; color: #1e40af;">📚 MATERI APA YANG DIAJARKAN?</div>
+            <span class="badge badge-blue">KONTEN</span>
+          </div>
+          <ul style="padding-left: 14px; font-size: 7.5pt; color: #334155; line-height: 1.45;">
+            <li><strong>Konsep Otak AI:</strong> Bahwa komputer tidak punya imajinasi sendiri; AI hanya menjalankan pola dari instruksi yang kita susun.</li>
+            <li><strong>Lego Prompting (4 Dimensi):</strong> Mengelompokkan instruksi ke dalam: Wujud Tubuh, Warna Utama, Sifat/Perilaku, dan Alat Saku.</li>
+            <li><strong>Logika Sebab-Akibat (Order of Words):</strong> Bagaimana urutan kata menentukan subjek dan objek aksi mesin.</li>
+            <li><strong>Deteksi Glitch &amp; Debugging:</strong> Mengidentifikasi kata ambigu yang membuat AI keliru dan cara membetulkannya.</li>
+          </ul>
+        </div>
+
+        <!-- TUJUAN -->
+        <div class="comic-card" style="margin-bottom: 0;">
+          <div class="card-header-clean">
+            <div style="font-size: 8.5pt; font-weight: 800; color: #b45309;">🎯 TUJUAN PEMBELAJARAN (OBJECTIVES)</div>
+            <span class="badge badge-amber">TARGET</span>
+          </div>
+          <ul style="padding-left: 14px; font-size: 7.5pt; color: #334155; line-height: 1.45;">
+            <li>Siswa <strong>tidak mengalami Blank Canvas Paralysis</strong> saat berhadapan dengan AI generatif.</li>
+            <li>Siswa mampu <strong>merangkai instruksi terstruktur (Step A s/d G)</strong> menggunakan balok pancingan tanpa mengetik kode rumit.</li>
+            <li>Siswa mampu <strong>menemukan kesalahan logika (debugging)</strong> saat komputer salah paham.</li>
+            <li>Mentor &amp; orang tua memperoleh <strong>profil diagnostik minat alami anak (Radar 4 Kuadran)</strong> sejak Day 1.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TABEL MATRIKS CAPAIAN NYATA -->
+      <div class="comic-card" style="margin-bottom: 10px;">
+        <div class="card-header-clean">
+          <div style="font-size: 9pt; font-weight: 800; color: #047857;">
+            🏆 MATRIKS CAPAIAN NYATA SISWA (TANGIBLE &amp; COGNITIVE OUTCOMES)
+          </div>
+          <span class="badge badge-emerald">OUTPUT HASIL</span>
+        </div>
+
+        <table class="compact-table">
+          <thead>
+            <tr>
+              <th style="width: 20%;">Lapis Capaian</th>
+              <th style="width: 38%;">Wujud Nyata yang Dihasilkan Siswa</th>
+              <th>Nilai Pembelajaran bagi Siswa &amp; Ortu</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. Produk Nyata (Hands-on Product)</strong></td>
+              <td>
+                • Karakter digital orisinal: <strong>Robo-Mochi</strong> penjaga toko donat.<br>
+                • Naskah dialog audio yang bisa dibacakan oleh komputer.<br>
+                • Lembar kerja fisik resmi berstempel <strong>Approved Agent</strong>.
+              </td>
+              <td>Anak pulang membawa bukti karya konkret yang bisa dipamerkan ke keluarga di rumah.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Pola Pikir (Computational Thinking)</strong></td>
+              <td>
+                • Memahami struktur kalimat instruksi: <em>[Subjek] + [Warna] + [Sifat] + [Aksi]</em>.<br>
+                • Berhasil memecahkan eror pada kasus Donat Bertaring.
+              </td>
+              <td>Anak tidak takut salah; memahami bahwa jika komputer keliru, manusialah kapten yang membetulkannya.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Diagnostik Bakat (Talent Profiling)</strong></td>
+              <td>
+                • Skor pemetaan 4 Kuadran Bakat Alami siswa.<br>
+                • Pesan evaluasi perkembangan personal ke WhatsApp orang tua.
+              </td>
+              <td>Orang tua mendapatkan kepastian tentang potensi dominan anak: <em>"Anak saya strong-nya di mana?"</em></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ALUR STEP A S/D G RINGKAS -->
+      <div class="comic-card" style="background: #f8fafc; margin-bottom: 0;">
+        <div style="font-size: 8.5pt; font-weight: 800; color: #0f172a; margin-bottom: 4px;">
+          🪜 ALUR KOGNITIF STEP A $\rightarrow$ G (PANDUAN ALAMI CARA BERPIKIR ANAK)
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; font-size: 6.8pt; text-align: center;">
+          <div style="background: #dbeafe; border: 1px solid #2563eb; padding: 4px; border-radius: 4px;"><strong>STEP A</strong><br>Lihat Misteri Donat</div>
+          <div style="background: #fef3c7; border: 1px solid #d97706; padding: 4px; border-radius: 4px;"><strong>STEP B</strong><br>Pilih Balok Ciri</div>
+          <div style="background: #ecfdf5; border: 1px solid #059669; padding: 4px; border-radius: 4px;"><strong>STEP C</strong><br>Rakit Resep Lego</div>
+          <div style="background: #f3e8ff; border: 1px solid #7c3aed; padding: 4px; border-radius: 4px;"><strong>STEP D</strong><br>Karakter Hidup</div>
+          <div style="background: #fce7f3; border: 1px solid #db2777; padding: 4px; border-radius: 4px;"><strong>STEP E</strong><br>Uji Tebak Teman</div>
+          <div style="background: #fee2e2; border: 1px solid #dc2626; padding: 4px; border-radius: 4px;"><strong>STEP F</strong><br>Bedah Eror Glitch</div>
+          <div style="background: #e2e8f0; border: 1px solid #475569; padding: 4px; border-radius: 4px;"><strong>STEP G</strong><br>Rapor Bakat Ortu</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Standar Kurikulum: Tujuan, Materi, &amp; Capaian</span>
+      <span class="page-tag">Halaman 2 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 3: MODUL BACAAN SISWA (KOMIK & KONSEP) ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAGIAN 1: BUKU BACAAN SISWA • CERITA PEMBUKA &amp; KONSEP DASAR
+        </div>
+        <div class="badge badge-emerald">MODUL BACAAN SISWA</div>
+      </div>
+
+      <!-- KISAH KOMIK PEMBUKA -->
+      <div class="comic-card" style="background: #fffdf5; margin-bottom: 10px;">
+        <div class="card-header-clean">
+          <div style="font-size: 9.5pt; font-weight: 800; color: #b45309;">
+            🍩 EPISODE 01: MISTERI DONAT HILANG DI TOKO MOCHI
+          </div>
+          <span class="badge badge-amber">THE STORY HOOK</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 140px 1fr; gap: 12px; align-items: center;">
+          <div style="border: 2px solid #0f172a; border-radius: 8px; overflow: hidden; box-shadow: 2px 2px 0px #0f172a;">
+            <img src="Aset/robo_mochi_hero.jpg" alt="Robo Mochi Hero" style="width: 100%; height: 135px; object-fit: cover; display: block;">
+          </div>
+          <div>
+            <p style="font-size: 8pt; color: #334155; margin-bottom: 6px;">
+              Pagi itu di Toko Donat Mochi, sang koki kaget bukan main! Etalase toko berantakan dan puluhan donat stroberi lezat lenyap tanpa jejak. Hanya tertinggal jejak kaki berbulu misterius. Sang koki butuh seorang <strong>Penjaga Toko Super Cerdas</strong> yang tidak pernah tidur untuk menjaga etalase.
+            </p>
+            <div class="speech-bubble">
+              <strong>💬 Panggilan Detektif untuk Seluruh Siswa:</strong><br>
+              <em>"Detektif Cilik! Komputer kita punya kekuatan untuk menggambar penjaga toko impian kita, tapi komputer ini butuh bantuan kalian! Komputer tidak tahu harus bikin apa kalau tidak kita beri resep instruksi yang jelas!"</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MATERI KONSEP: OTAK MANUSIA VS OTAK KOMPUTER -->
+      <div class="comic-card" style="margin-bottom: 10px;">
+        <div class="card-header-clean">
+          <div style="font-size: 9pt; font-weight: 800; color: #1e40af;">
+            🧠 BAGAIMANA CARA OTAK KITA VS OTAK KOMPUTER BERPIKIR?
+          </div>
+          <span class="badge badge-blue">KONSEP KUNCI</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; font-size: 7.8pt;">
+          <div style="background: #eff6ff; border: 1.5px solid #3b82f6; border-radius: 6px; padding: 8px;">
+            <strong style="color: #1e40af; display: block; margin-bottom: 3px;">Otak Manusia (Imajinasi Bebas):</strong>
+            <p style="color: #334155;">
+              Saat mendengar kata <em>"kucing keren"</em>, otak kita langsung membayangkan berbagai macam kucing: ada yang pakai kacamata hitam, ada yang bulunya belang, ada yang suka melompat. Manusia punya imajinasi alami tanpa perlu rumus.
+            </p>
+          </div>
+          <div style="background: #fef2f2; border: 1.5px solid #ef4444; border-radius: 6px; padding: 8px;">
+            <strong style="color: #dc2626; display: block; margin-bottom: 3px;">Otak AI / Komputer (Resep Angka):</strong>
+            <p style="color: #334155;">
+              Komputer tidak punya mata atau perasaan. Kalau kita cuma bilang <em>"bikin kucing keren"</em>, komputer akan bingung dan menebak asal-asalan. Komputer butuh <strong>balok resep spesifik</strong>: Bentuk apa? Warna apa? Senjatanya apa?
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- FORMULA 4 BALOK LEGO PROMPTING -->
+      <div class="comic-card" style="background: #ecfdf5; border-color: #059669; margin-bottom: 0;">
+        <div style="font-size: 8.5pt; font-weight: 800; color: #065f46; margin-bottom: 4px;">
+          🧱 FORMULA RESEP 4 BALOK KATA (LEGO PROMPTING)
+        </div>
+        <p style="font-size: 7.5pt; color: #047857; margin-bottom: 6px;">
+          Agar komputer paham 100% tanpa salah sangka, kita selalu menyusun instruksi dalam 4 balok teratur:
+        </p>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6px; font-size: 7.5pt; text-align: center;">
+          <div style="background: #ffffff; border: 1.5px solid #059669; border-radius: 4px; padding: 6px;">
+            <strong style="color: #059669;">BALOK 1: SIAPA</strong><br>Wujud makhluk (Kucing Cyborg)
+          </div>
+          <div style="background: #ffffff; border: 1.5px solid #059669; border-radius: 4px; padding: 6px;">
+            <strong style="color: #059669;">BALOK 2: WARNA</strong><br>Corak tubuh (Biru &amp; Kuning)
+          </div>
+          <div style="background: #ffffff; border: 1.5px solid #059669; border-radius: 4px; padding: 6px;">
+            <strong style="color: #059669;">BALOK 3: SIFAT</strong><br>Kepribadian (Tidur tapi Kilat)
+          </div>
+          <div style="background: #ffffff; border: 1.5px solid #059669; border-radius: 4px; padding: 6px;">
+            <strong style="color: #059669;">BALOK 4: ALAT</strong><br>Senjata saku (Pistol Selai)
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bagian 1: Buku Bacaan Siswa (Komik &amp; Konsep)</span>
+      <span class="page-tag">Halaman 3 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 4: MODUL BACAAN SISWA (LAB & GLITCH) ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAGIAN 1: BUKU BACAAN SISWA • LAB PRAKTIK &amp; DETEKTIF GLITCH
+        </div>
+        <div class="badge badge-rose">LABORATORIUM SISWA</div>
+      </div>
+
+      <!-- KASUS KESALAHAN NYATA -->
+      <div class="comic-card" style="border-color: #dc2626; background: #fef2f2; margin-bottom: 10px;">
+        <div class="card-header-clean">
+          <div style="font-size: 9pt; font-weight: 800; color: #991b1b;">
+            🚨 KASUS NYATA DETEKTIF GLITCH: KETIKA DONAT MEMAKAN ROBOT!
+          </div>
+          <span class="badge badge-rose">KATA TERTUKAR</span>
+        </div>
+        <p style="font-size: 7.8pt; color: #7f1d1d; margin-bottom: 8px;">
+          Siswa bernama Rafa ingin karakternya memakan kue donat berukuran besar. Rafa mengklik tombol tantangan dengan kalimat: <em>"Bikinin robot makan donat raksasa bertaring"</em>. Dan lihat apa yang terjadi di layar komputer!
+        </p>
+
+        <!-- DUA GAMBAR SIDE BY SIDE -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+          <!-- GLITCH -->
+          <div style="background: #ffffff; border: 2px solid #ef4444; border-radius: 6px; padding: 6px; box-shadow: 2px 2px 0px #ef4444;">
+            <div style="font-size: 7.5pt; font-weight: 800; color: #dc2626; margin-bottom: 3px;">❌ SEBELUM: AI SALAH SANGKA!</div>
+            <img src="Aset/robo_mochi_glitch.jpg" alt="Glitch Donut" style="width: 100%; height: 110px; object-fit: cover; border-radius: 4px; border: 1.5px solid #0f172a; display: block; margin-bottom: 3px;">
+            <p style="font-size: 7pt; color: #7f1d1d; line-height: 1.3;">
+              Donat raksasa bertaring malah hidup dan mengejar robot karena kata 'bertaring' menempel di sebelah donat!
+            </p>
+          </div>
+
+          <!-- VICTORY -->
+          <div style="background: #ffffff; border: 2px solid #10b981; border-radius: 6px; padding: 6px; box-shadow: 2px 2px 0px #10b981;">
+            <div style="font-size: 7.5pt; font-weight: 800; color: #047857; margin-bottom: 3px;">✅ SESUDAH: DEBUGGING BERHASIL!</div>
+            <img src="Aset/robo_mochi_victory.jpg" alt="Victory Scene" style="width: 100%; height: 110px; object-fit: cover; border-radius: 4px; border: 1.5px solid #0f172a; display: block; margin-bottom: 3px;">
+            <p style="font-size: 7pt; color: #065f46; line-height: 1.3;">
+              Rafa memindahkan kata 'bertaring kecil' ke sebelah kucing: Robo-Mochi sukses makan donat sambil tersenyum ceria!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARA MEMBEDAH EROR -->
+      <div class="comic-card" style="margin-bottom: 10px;">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #0f172a;">
+            🔍 BAGAIMANA CARA DETEKTIF MEMBETULKAN KESALAHAN AI?
+          </div>
+          <span class="badge badge-dark">DEBUGGING SKILL</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 7.5pt;">
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px;">
+            <strong style="color: #2563eb;">1. Cari Kata Penyebab:</strong><br>
+            Kata apa yang posisinya salah atau artinya punya makna ganda? (Kata 'bertaring' nempel di donat).
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px;">
+            <strong style="color: #d97706;">2. Pindahkan Posisi:</strong><br>
+            Pasangkan kata sifat tepat di sebelah benda yang dimaksud (Kucing bertaring kecil, donat stroberi besar).
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px;">
+            <strong style="color: #059669;">3. Uji Coba Ulang:</strong><br>
+            Klik tombol verifikasi dan saksikan gambar komputer berubah menjadi tepat sesuai keinginan kita!
+          </div>
+        </div>
+      </div>
+
+      <!-- KESIMPULAN MENTAL -->
+      <div class="speech-bubble" style="background: #ecfdf5; border-color: #059669;">
+        <strong>🎉 Pesan Emas untuk Detektif Cilik:</strong><br>
+        <em>"Kalau komputer salah menggambar, jangan takut atau merasa bodoh! Itu tandanya komputer butuh instruksi yang lebih runtut. KITA manusia yang menjadi kapten dan bosnya!"</em>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bagian 1: Buku Bacaan Siswa (Lab Glitch &amp; Debugging)</span>
+      <span class="page-tag">Halaman 4 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 5: LEMBAR KERJA CETAK SISWA (PRINTABLE) ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #d97706; letter-spacing: 0.05em;">
+          BAGIAN 2: LEMBAR KERJA SISWA (WAJIB DICETAK &amp; DIISI TANGAN OLEH SISWA)
+        </div>
+        <div class="badge badge-amber">🖨️ CETAK 1 LEMBAR PER SISWA</div>
+      </div>
+
+      <!-- FORM IDENTITAS SISWA -->
+      <div style="display: flex; justify-content: space-between; align-items: center; background: #fffdf5; border: 2px solid #0f172a; padding: 6px 12px; border-radius: 6px; box-shadow: 2px 2px 0px #0f172a; margin-bottom: 10px; font-size: 8pt;">
+        <div><strong>NAMA SISWA:</strong> _______________________</div>
+        <div><strong>KODE AGENT:</strong> [ #AGT-______ ]</div>
+        <div><strong>TANDEM:</strong> __________________</div>
+      </div>
+
+      <!-- MISI 1: CENTANG BALOK -->
+      <div class="comic-card">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #1e40af;">
+            MISI 1 • CENTANG BALOK PILIHAN PENJAGA TOKO DONATMU (STEP B)
+          </div>
+          <span class="badge badge-blue">PILIH 1 PER KATEGORI</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 6px; font-size: 7.5pt;">
+          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px; background: #ffffff;">
+            <strong>A. Wujud Makhluk:</strong><br>
+            [ &nbsp; ] Kucing Cyborg<br>
+            [ &nbsp; ] Dino Agar-Agar<br>
+            [ &nbsp; ] Beruang Roda<br>
+            [ &nbsp; ] Kelinci Roket
+          </div>
+          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px; background: #ffffff;">
+            <strong>B. Corak Warna:</strong><br>
+            [ &nbsp; ] Biru &amp; Kuning<br>
+            [ &nbsp; ] Hijau Zamrud<br>
+            [ &nbsp; ] Oranye Api<br>
+            [ &nbsp; ] Ungu Angkasa
+          </div>
+          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px; background: #ffffff;">
+            <strong>C. Sifat Unik:</strong><br>
+            [ &nbsp; ] Tidur tapi Kilat<br>
+            [ &nbsp; ] Suka Nyanyi<br>
+            [ &nbsp; ] Kepo &amp; Teliti<br>
+            [ &nbsp; ] Pemberani Super
+          </div>
+          <div style="border: 1px dashed #cbd5e1; padding: 6px; border-radius: 4px; background: #ffffff;">
+            <strong>D. Senjata Saku:</strong><br>
+            [ &nbsp; ] Pistol Selai Stroberi<br>
+            [ &nbsp; ] Kacamata Jam<br>
+            [ &nbsp; ] Pelontar Donat<br>
+            [ &nbsp; ] Jam Waktu
+          </div>
+        </div>
+      </div>
+
+      <!-- MISI 2: RESEP TULIS TANGAN -->
+      <div class="comic-card">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #047857;">
+            MISI 2 • SALIN RESEP LOGIKA DENGAN TULISAN TANGANMU (STEP C)
+          </div>
+          <span class="badge badge-emerald">TULIS RUNUT</span>
+        </div>
+        <p style="font-size: 7.5pt; color: #64748b; margin-bottom: 4px;">Gabungkan 4 balok pilihanmu di atas menjadi 1 kalimat resep rapi:</p>
+        <div style="border: 1.5px solid #0f172a; background: #fffdf5; padding: 8px 10px; border-radius: 4px; font-size: 8pt; font-family: 'JetBrains Mono', monospace; line-height: 1.4;">
+          "Tolong buatkan __________________________ berwarna __________________________ yang suka __________________________ dan memegang __________________________ untuk menjaga toko donat!"
+        </div>
+      </div>
+
+      <!-- MISI 3: LOG GLITCH & KOTAK STEMPEL -->
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 8px;">
+        <div class="comic-card" style="margin-bottom: 0;">
+          <div class="card-header-clean">
+            <div style="font-size: 8pt; font-weight: 800; color: #b91c1c;">MISI 3 • CATATAN DETEKTIF GLITCH (STEP F)</div>
+          </div>
+          <div style="font-size: 7.2pt; color: #334155; line-height: 1.4;">
+            <p>1. Apa kesalahan lucu yang sempat digambar komputer?<br>
+            Jawaban: __________________________________________________</p>
+            <p style="margin-top: 4px;">2. Kata apa yang kamu pindahkan agar komputer paham?<br>
+            Jawaban: __________________________________________________</p>
+            <p style="margin-top: 4px;">3. Apakah teman tandemmu berhasil menebak resepmu?<br>
+            [ &nbsp; ] Berhasil 100% &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; [ &nbsp; ] Sempat Keliru</p>
+          </div>
+        </div>
+
+        <div class="comic-card" style="margin-bottom: 0; background: #ecfdf5; border-color: #059669; display: flex; flex-direction: column; justify-content: space-between; align-items: center; text-align: center;">
+          <div style="font-size: 8pt; font-weight: 800; color: #065f46;">STEMPEL KELULUSAN RESMI</div>
+          <div style="border: 2px dashed #059669; width: 100%; height: 50px; border-radius: 6px; display: flex; align-items: center; justify-content: center; gap: 8px; background: #ffffff;">
+            <img src="Aset/robo_mochi_hero.jpg" alt="Badge" style="width: 38px; height: 38px; object-fit: cover; border-radius: 50%; border: 1.5px solid #059669;">
+            <div style="text-align: left;">
+              <div style="font-size: 8.5pt; font-weight: 900; color: #059669;">★ APPROVED ★</div>
+              <div style="font-size: 6.5pt; font-weight: 700; color: #065f46;">DETEKTIF LOGIKA POS 1</div>
+            </div>
+          </div>
+          <div style="font-size: 6.8pt; color: #047857; font-weight: 600;">Mentor TTD: ____________________</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bagian 2: Lembar Kerja Cetak Siswa (Printable Activity)</span>
+      <span class="page-tag">Halaman 5 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 6: BUKU PEGANGAN GURU / FASILITATOR ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAGIAN 3: BUKU PEGANGAN FASILITATOR • SOP KELAS &amp; NASKAH DIALOG MENTOR
+        </div>
+        <div class="badge badge-purple">👨‍🏫 TEACHER'S PLAYBOOK</div>
+      </div>
+
+      <!-- SISTEM KELAS RAMAI 10-20 ANAK -->
+      <div class="comic-card" style="margin-bottom: 9px;">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #0f172a;">
+            👥 SOP MANAJEMEN KELAS RAMAI (10–20 SISWA TANPA KACAU)
+          </div>
+          <span class="badge badge-dark">SOP RUANGAN</span>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 8px; font-size: 7.2pt; color: #334155;">
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px;">
+            <strong style="color: #2563eb;">1. Sistem Tandem 2 Agen:</strong> Siswa duduk berpasangan (Meja A &amp; B). Saling bantu tombol dan saling uji tebak. Mengurangi pertanyaan ke guru 60%.
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px;">
+            <strong style="color: #d97706;">2. Proyektor Audio Sentral:</strong> Suara dialog dan instruksi diputar terpusat dari laptop guru di depan. Mencegah tabrakan bising di ruangan.
+          </div>
+          <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 6px; border-radius: 4px;">
+            <strong style="color: #059669;">3. Kartu Hijau &amp; Merah:</strong> Meja mengangkat 🟢 Hijau jika lancar, 🔴 Merah jika macet. Asisten guru langsung mendatangi tanpa anak berteriak.
+          </div>
+        </div>
+      </div>
+
+      <!-- NASKAH DIALOG MENTOR KATA PER KATA -->
+      <div class="comic-card" style="margin-bottom: 0;">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #7c3aed;">
+            🎙️ NASKAH DIALOG MENTOR KATA-DEMI-KATA (SCRIPT MENGAJAR 90 MENIT)
+          </div>
+          <span class="badge badge-purple">WORD-BY-WORD SCRIPT</span>
+        </div>
+
+        <div style="display: flex; flex-direction: column; gap: 6px; font-size: 7.3pt; color: #334155;">
+          <div style="background: #fdf4ff; border-left: 3px solid #a855f7; padding: 6px 8px;">
+            <strong style="color: #7e22ce;">FASE 1 (Menit 00–15) • MEMBUKA MISI KASUS DONAT:</strong><br>
+            <em>"Halo Detektif Cilik! Lihat layar di depan! Toko Donat Mochi kemalingan dan kokinya bingung! Hari ini misi kalian adalah melatih komputer membuat robot penjaga toko donat yang paling keren! Siapa yang siap menangkap pencurinya? Angkat tangan!"</em>
+          </div>
+
+          <div style="background: #eff6ff; border-left: 3px solid #3b82f6; padding: 6px 8px;">
+            <strong style="color: #1d4ed8;">FASE 2 (Menit 15–40) • MEMANDU BALOK CIRI (MENGATASI ANAK BENGONG):</strong><br>
+            <em>"Buka laptop kalian di alamat aiforkidss.vercel.app/studio.html! Jangan bingung mau ngetik apa, kalian cukup pilih kartu balok di sebelah kiri! Coba klik Kucing Cyborg, terus pilih warna kesukaanmu! Lihat kanvas di tengah, karakternya langsung muncul!"</em>
+          </div>
+
+          <div style="background: #ecfdf5; border-left: 3px solid #10b981; padding: 6px 8px;">
+            <strong style="color: #047857;">FASE 3 (Menit 40–65) • MENDENGARKAN AUDIO &amp; UJI TEBAK TEMAN:</strong><br>
+            <em>"Sekarang pencet tombol hijau 'Dengarkan Suara'! Dengar robot kalian bicara! Nah sekarang tutup layar resep kanan, tunjukkan gambarnya ke teman sebelahmu! Bisakah temanmu menebak senjata rahasiamu?"</em>
+          </div>
+
+          <div style="background: #fef2f2; border-left: 3px solid #ef4444; padding: 6px 8px;">
+            <strong style="color: #b91c1c;">FASE 4 (Menit 65–85) • MEMICU GLITCH DONAT &amp; BEDAH EROR:</strong><br>
+            <em>"Awas Detektif! Sekarang klik tombol merah 'Uji Glitch Eror'! Lho, kok donatnya yang gigit robotnya? Kenapa ya? Siapa yang tahu kata apa yang tertukar? Betul! Pindahkan kata bertaring ke sebelah kucing, lalu klik Perbaiki! Hebat, ledakan konfeti keluar!"</em>
+          </div>
+
+          <div style="background: #f8fafc; border-left: 3px solid #0f172a; padding: 6px 8px;">
+            <strong style="color: #0f172a;">FASE 5 (Menit 85–90) • PENUTUPAN &amp; CAP PASPOR:</strong><br>
+            <em>"Kalian semua luar biasa! Manusia terbukti lebih pintar daripada komputer! Buka lembar kerja kertas kalian, Kakak Mentor akan memberikan stempel resmi kelulusan Pos 1!"</em>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bagian 3: Buku Pegangan Fasilitator &amp; SOP Mengajar</span>
+      <span class="page-tag">Halaman 6 dari 7</span>
+    </div>
+  </div>
+
+  <!-- ==================== HALAMAN 7: PANDUAN ORANG TUA & RAPOR DIAGNOSTIK ==================== -->
+  <div class="a4-page">
+    <div>
+      <div class="header-bar">
+        <div style="font-size: 8pt; font-weight: 800; color: #1e3a8a; letter-spacing: 0.05em;">
+          BAGIAN 4: PANDUAN ORANG TUA • RAPOR DIAGNOSTIK BAKAT ("ANAK STRONG DI MANA")
+        </div>
+        <div class="badge badge-dark">PARENT REPORT</div>
+      </div>
+
+      <!-- NILAI TERTINGGI UNTUK ORANG TUA -->
+      <div class="comic-card" style="background: #1e3a8a; color: #ffffff; border-color: #0f172a; margin-bottom: 9px;">
+        <div style="font-size: 9pt; font-weight: 800; color: #facc15; margin-bottom: 2px;">
+          🎯 MENGAPA RAPOR DIAGNOSTIK INI SANGAT BERNILAI BAGI ORANG TUA?
+        </div>
+        <p style="font-size: 7.5pt; color: #e2e8f0;">
+          Orang tua tidak hanya ingin tahu anak bisa bikin robot atau tidak. Orang tua ingin tahu: <strong>"Bakat alami anak saya condong ke mana?"</strong> Di akhir Modul 1, guru mengisi lembar asesmen 4 kuadran ini berdasarkan perilaku nyata anak selama 90 menit di kelas.
+        </p>
+      </div>
+
+      <!-- RADAR 4 KUADRAN BAKAT -->
+      <div class="comic-card" style="margin-bottom: 9px;">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #0f172a;">
+            📊 RUBRIK 4 KUADRAN BAKAT ALAMI (OBSERVASI DAY 1)
+          </div>
+          <span class="badge badge-amber">4 QUADRANT RADAR</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 7.3pt;">
+          <div style="background: #eff6ff; border: 1.5px solid #3b82f6; border-radius: 6px; padding: 6px;">
+            <strong style="color: #1e40af;">🧠 1. ANALYTICAL THINKER (Logika &amp; Problem Solving):</strong>
+            <p style="color: #334155; margin-top: 2px;">• <strong>Ciri:</strong> Paling cepat menemukan kata yang bikin glitch donat, teliti memeriksa urutan resep.<br>• <strong>Saran Ortu:</strong> Fasilitasi dengan catur, puzzle logika, dan tantangan teka-teki detektif.</p>
+          </div>
+
+          <div style="background: #fffbeb; border: 1.5px solid #f59e0b; border-radius: 6px; padding: 6px;">
+            <strong style="color: #b45309;">🌟 2. CREATIVE STORYTELLER (Imajinasi &amp; Narasi):</strong>
+            <p style="color: #334155; margin-top: 2px;">• <strong>Ciri:</strong> Membuat nama karakter yang lucu, aktif bercerita dialog lisan, dan suka latar komedi.<br>• <strong>Saran Ortu:</strong> Ajak menulis cerita fiksi bergambar, komik strip, atau podcast cerita anak.</p>
+          </div>
+
+          <div style="background: #ecfdf5; border: 1.5px solid #10b981; border-radius: 6px; padding: 6px;">
+            <strong style="color: #047857;">🎨 3. VISUAL STYLIST (Estetika &amp; Desain):</strong>
+            <p style="color: #334155; margin-top: 2px;">• <strong>Ciri:</strong> Sangat memperhatikan keserasian warna biru neon-kuning dan detail bentuk karakter.<br>• <strong>Saran Ortu:</strong> Dukung dengan eksplorasi ilustrasi digital, menggambar animasi, atau Canva Kids.</p>
+          </div>
+
+          <div style="background: #f5f3ff; border: 1.5px solid #8b5cf6; border-radius: 6px; padding: 6px;">
+            <strong style="color: #6d28d9;">🛠️ 4. TACTILE EXPLORER (Eksplorasi Taktis &amp; Hardware):</strong>
+            <p style="color: #334155; margin-top: 2px;">• <strong>Ciri:</strong> Tidak sabar ingin mencoba semua tombol fitur, senang mendengar suara audio berulang kali.<br>• <strong>Saran Ortu:</strong> Sangat cocok dikenalkan pada robotika fisik, sensor IoT (micro:bit), dan prakarya.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- DRAF PESAN WHATSAPP ORANG TUA -->
+      <div class="comic-card" style="background: #fffdf5; border-color: #0f172a; margin-bottom: 0;">
+        <div class="card-header-clean">
+          <div style="font-size: 8.5pt; font-weight: 800; color: #047857;">
+            📱 FORMAT PESAN WHATSAPP RESMI KE ORANG TUA SETELAH KELAS
+          </div>
+          <span class="badge badge-emerald">TEMPLATE WHATSAPP</span>
+        </div>
+        <div style="background: #ffffff; border: 1px solid #cbd5e1; border-radius: 6px; padding: 8px 10px; font-size: 7.3pt; color: #334155; font-family: 'JetBrains Mono', monospace; line-height: 1.4;">
+          "Selamat sore Ayah/Bunda [Nama Anak]! 😊<br>
+          Alhamdulillah sesi Modul 1 [Nama Anak] berjalan seru sekali! [Nama Anak] berhasil merakit robot penjaga toko donat <strong>Robo-Mochi</strong> dan memecahkan teka-teki logika AI.<br>
+          Dari observasi mentor hari ini, bakat alami [Nama Anak] sangat menonjol di kuadran: <strong>[Kuadran Dominan, contoh: Analytical Thinker - Skor 92/100]</strong>.<br>
+          Lembar kerja fisik dan hasil karyanya sudah dibawa pulang di dalam tas. Sampai jumpa di Modul 2 minggu depan ya Bunda!"
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bar">
+      <span>Bagian 4: Panduan Orang Tua &amp; Rapor Diagnostik Day 1</span>
+      <span class="page-tag">Halaman 7 dari 7</span>
+    </div>
+  </div>
+
+</body>
+</html>
