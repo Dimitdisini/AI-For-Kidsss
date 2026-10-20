@@ -6,14 +6,15 @@
   <title>Portal Master AI for Kids - Dimitri Ahmad & Mitra</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700;800;900&family=JetBrains+Mono:wght@700;900&family=Space+Grotesk:wght@700;800&display=swap" rel="stylesheet">
   <style>
     :root {
+      --bg-dark: #020617;
       --bar-bg: #0b1329;
       --bar-border: #1e293b;
       --accent-blue: #2563eb;
       --accent-amber: #f59e0b;
-      --accent-green: #10b981;
+      --accent-emerald: #10b981;
       --text-white: #ffffff;
       --text-muted: #94a3b8;
       --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
@@ -29,312 +30,385 @@
       width: 100%;
       height: 100%;
       overflow: hidden;
-      background: #020617;
+      background: var(--bg-dark);
       font-family: var(--font-main);
     }
 
-    /* TOP MASTER HEADER */
-    #masterTopBar {
-      height: 64px;
+    /* ==================== 2-TIER CLEAN HEADER ==================== */
+    #masterHeader {
+      width: 100%;
       background: var(--bar-bg);
-      border-bottom: 2.5px solid #1e293b;
+      border-bottom: 2px solid var(--bar-border);
+      z-index: 1000;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* BARIS 1: TOP BRAND & UTILITIES (Tinggi: 44px) */
+    .top-utility-bar {
+      height: 44px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       padding: 0 16px;
-      gap: 12px;
-      z-index: 1000;
-      position: relative;
+      border-bottom: 1px solid #1e293b;
+      background: #080e1e;
     }
 
-    .master-brand {
+    .brand-left {
       display: flex;
       align-items: center;
-      gap: 12px;
+      gap: 10px;
     }
 
     .brand-badge {
       background: var(--accent-amber);
       color: #0f172a;
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       font-weight: 900;
-      padding: 4px 10px;
-      border-radius: 6px;
+      padding: 2px 8px;
+      border-radius: 5px;
       letter-spacing: 0.5px;
       white-space: nowrap;
     }
 
     .brand-title {
-      font-size: 0.96rem;
-      font-weight: 900;
-      color: var(--text-white);
-      line-height: 1.2;
-    }
-
-    .brand-sub {
-      font-size: 0.72rem;
-      color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    /* TAB NAVIGATOR */
-    .master-nav-tabs {
-      display: flex;
-      gap: 8px;
-      align-items: center;
-    }
-
-    .nav-tab-btn {
-      background: #1e293b;
-      border: 1.5px solid #334155;
-      border-radius: 10px;
-      padding: 6px 14px;
-      display: flex;
-      align-items: center;
-      gap: 9px;
-      color: #e2e8f0;
-      cursor: pointer;
-      font-family: var(--font-main);
-      transition: all 0.15s ease;
-      user-select: none;
-      box-shadow: 0 2px 0px #020617;
-      text-decoration: none;
-    }
-
-    .nav-tab-btn:hover {
-      background: #334155;
-      border-color: #64748b;
-    }
-
-    .nav-tab-btn.active {
-      background: var(--accent-blue);
-      border-color: #60a5fa;
-      color: #ffffff;
-      box-shadow: 0 3px 0px #020617;
-    }
-
-    .tab-number {
-      width: 22px;
-      height: 22px;
-      border-radius: 50%;
-      background: #0f172a;
-      color: #f59e0b;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      font-weight: 900;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1.5px solid #ffffff;
-    }
-
-    .nav-tab-btn.active .tab-number {
-      background: #f59e0b;
-      color: #0f172a;
-    }
-
-    .tab-meta {
-      text-align: left;
-    }
-
-    .tab-meta strong {
-      display: block;
-      font-size: 0.84rem;
-      font-weight: 900;
-      line-height: 1.15;
-    }
-
-    .tab-meta small {
-      font-size: 0.65rem;
-      opacity: 0.85;
-      font-weight: 600;
-      display: block;
-    }
-
-    /* RIGHT ACTIONS */
-    .master-actions {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .btn-open-tab {
-      background: #0f172a;
-      border: 1.5px solid #334155;
-      color: #38bdf8;
-      border-radius: 8px;
-      padding: 6px 12px;
-      font-size: 0.78rem;
+      font-size: 0.88rem;
       font-weight: 800;
-      cursor: pointer;
-      text-decoration: none;
+      color: #ffffff;
+      letter-spacing: -0.2px;
+    }
+
+    .brand-title span {
+      color: #94a3b8;
+      font-weight: 600;
+      font-size: 0.78rem;
+      margin-left: 6px;
+    }
+
+    .top-actions {
       display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    /* ACTION BUTTONS */
+    .btn-action {
+      font-family: var(--font-main);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 5px 11px;
+      border-radius: 6px;
+      border: 1px solid #334155;
+      background: #0f172a;
+      color: #e2e8f0;
+      text-decoration: none;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
+      cursor: pointer;
       transition: all 0.15s ease;
       white-space: nowrap;
     }
 
-    .btn-open-tab:hover {
+    .btn-action:hover {
+      background: #1e293b;
+      border-color: #64748b;
+      color: #ffffff;
+    }
+
+    .btn-primary {
+      background: #2563eb;
+      border-color: #60a5fa;
+      color: #ffffff;
+    }
+    .btn-primary:hover {
+      background: #1d4ed8;
+      border-color: #93c5fd;
+    }
+
+    /* DROPDOWN UNDUH PDF */
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    .dropdown-btn {
+      background: #0f172a;
+      border: 1px solid #f59e0b;
+      color: #fbbf24;
+      font-family: var(--font-main);
+      font-size: 0.76rem;
+      font-weight: 800;
+      padding: 5px 12px;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+
+    .dropdown-btn:hover {
       background: #1e293b;
       color: #ffffff;
-      border-color: #38bdf8;
     }
 
-    /* IFRAME VIEWPORT */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      margin-top: 4px;
+      background: #0f172a;
+      border: 1.5px solid #334155;
+      border-radius: 8px;
+      box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.6);
+      width: 270px;
+      z-index: 2000;
+      padding: 5px 0;
+      overflow: hidden;
+    }
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+    .dropdown-item {
+      display: flex;
+      flex-direction: column;
+      padding: 8px 12px;
+      color: #e2e8f0;
+      text-decoration: none;
+      font-size: 0.78rem;
+      border-bottom: 1px solid #1e293b;
+      transition: background 0.15s ease;
+    }
+
+    .dropdown-item:last-child {
+      border-bottom: none;
+    }
+
+    .dropdown-item:hover {
+      background: #1e293b;
+    }
+
+    .dropdown-item strong {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: #ffffff;
+      font-size: 0.8rem;
+    }
+
+    .dropdown-item span {
+      font-size: 0.68rem;
+      color: #94a3b8;
+      margin-top: 2px;
+    }
+
+    /* BARIS 2: TABS NAVIGATOR (Tinggi: 46px) */
+    .tabs-bar {
+      height: 46px;
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      gap: 8px;
+      overflow-x: auto;
+      background: var(--bar-bg);
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .tabs-bar::-webkit-scrollbar {
+      height: 3px;
+    }
+    .tabs-bar::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 3px;
+    }
+
+    .tab-btn {
+      height: 34px;
+      background: #0f172a;
+      border: 1.5px solid #1e293b;
+      border-radius: 7px;
+      padding: 0 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #94a3b8;
+      cursor: pointer;
+      font-family: var(--font-main);
+      font-size: 0.78rem;
+      font-weight: 700;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+      flex-shrink: 0;
+    }
+
+    .tab-btn:hover {
+      background: #1e293b;
+      color: #e2e8f0;
+      border-color: #334155;
+    }
+
+    .tab-btn.active {
+      background: #2563eb;
+      border-color: #60a5fa;
+      color: #ffffff;
+      box-shadow: 0 2px 0 #020617;
+    }
+
+    .tab-num {
+      width: 19px;
+      height: 19px;
+      border-radius: 50%;
+      background: #1e293b;
+      color: #e2e8f0;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.68rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .tab-btn.active .tab-num {
+      background: #ffffff;
+      color: #1e40af;
+    }
+
+    .tab-sub {
+      font-size: 0.68rem;
+      opacity: 0.75;
+      font-weight: 500;
+      margin-left: 2px;
+    }
+
+    /* ==================== IFRAME VIEWPORT ==================== */
     #contentViewport {
       width: 100%;
-      height: calc(100vh - 64px);
-      height: calc(100dvh - 64px);
+      height: calc(100vh - 90px);
+      height: calc(100dvh - 90px);
       border: none;
       display: block;
-      background: #0b1329;
-    }
-
-    @media (max-width: 950px) {
-      #masterTopBar {
-        height: auto;
-        padding: 8px 10px;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-
-      .brand-title {
-        font-size: 0.92rem;
-      }
-
-      .brand-sub {
-        font-size: 0.65rem;
-      }
-
-      .master-nav-tabs {
-        order: 3;
-        width: 100%;
-        overflow-x: auto;
-        padding-bottom: 2px;
-        gap: 6px;
-        -webkit-overflow-scrolling: touch;
-      }
-
-      .nav-tab-btn {
-        padding: 6px 10px;
-      }
-
-      .tab-meta strong {
-        font-size: 0.76rem;
-      }
-
-      .tab-meta small {
-        display: none;
-      }
-
-      #contentViewport {
-        height: calc(100vh - 105px);
-        height: calc(100dvh - 105px);
-      }
+      background: #020617;
     }
   </style>
 </head>
 <body>
 
-  <!-- MASTER HEADER -->
-  <header id="masterTopBar">
-    <div class="master-brand">
-      <div class="brand-badge">PORTAL TERPADU</div>
-      <div>
-        <div class="brand-title">AI for Kids: Cockpit Presentasi & Demo</div>
-        <div class="brand-sub">Dimitri Ahmad (Lead Tech & 3D Maker) & Mitra Digital Marketing</div>
+  <!-- MASTER 2-TIER CLEAN HEADER -->
+  <header id="masterHeader">
+    
+    <!-- BARIS 1: BRANDING & AKSI UTAMA -->
+    <div class="top-utility-bar">
+      <div class="brand-left">
+        <div class="brand-badge">PORTAL RESMI</div>
+        <div class="brand-title">
+          Akademi AI for Kids
+          <span>• Cockpit Kurikulum & Demo Modul 1</span>
+        </div>
+      </div>
+
+      <div class="top-actions">
+        <!-- TOMBOL BUKA STUDIO -->
+        <a href="studio.html" target="_blank" class="btn-action btn-primary" title="Buka Studio Interaktif Robo-Mochi di Tab Penuh">
+          <span>🎮 Buka Studio Interaktif</span>
+        </a>
+
+        <!-- DROPDOWN UNDUH DOKUMEN PDF -->
+        <div class="dropdown">
+          <button class="dropdown-btn" type="button">
+            <span>📥 Unduh Berkas PDF ▾</span>
+          </button>
+          <div class="dropdown-menu">
+            <a href="Modul 1 - Buku Materi Siswa Lengkap.pdf" download target="_blank" class="dropdown-item">
+              <strong>📘 Buku Modul Siswa (Bab 1–6)</strong>
+              <span>Textbook & Materi Lengkap (PDF A4 7 Halaman)</span>
+            </a>
+            <a href="Modul 1 - Modul Ajar Resmi Fasilitator.pdf" download target="_blank" class="dropdown-item">
+              <strong>📋 Modul Ajar Resmi Fasilitator</strong>
+              <span>RPP, SOP Kelas, & Rubrik Asesmen (PDF A4 6 Halaman)</span>
+            </a>
+            <a href="Modul 1 - Buku Panduan Lengkap dan Lembar Kerja.pdf" download target="_blank" class="dropdown-item">
+              <strong>🖨️ Lembar Kerja Cetak Siswa</strong>
+              <span>Lembar Kerja Praktik Fisik A4 Siswa</span>
+            </a>
+            <a href="Modul 1 - Cetak Biru Studio Detektif Pikiran.pdf" download target="_blank" class="dropdown-item">
+              <strong>📑 Cetak Biru Master Lengkap</strong>
+              <span>Laporan Komprehensif Arsitektur Modul 1</span>
+            </a>
+          </div>
+        </div>
+
+        <!-- TOMBOL BUKA TAB PENUH -->
+        <a id="linkDirectOpen" href="presentasi.html" target="_blank" class="btn-action" title="Buka kamar aktif di tab browser terpisah">
+          <span>↗ Tab Penuh</span>
+        </a>
       </div>
     </div>
 
-    <!-- TABS NAVIGATOR: MEMUAT KAMAR MASING-MASING -->
-    <nav class="master-nav-tabs">
-      <button class="nav-tab-btn active" id="tabBtn-1" onclick="openRoom(1)">
-        <span class="tab-number">1</span>
-        <div class="tab-meta">
-          <strong>Slide Presentasi</strong>
-          <small>Pitch Partner 16:9</small>
-        </div>
+    <!-- BARIS 2: KAMAR NAVIGATOR (5 TAB LEGA & PROPORSIONAL) -->
+    <nav class="tabs-bar">
+      <button class="tab-btn active" id="tabBtn-1" onclick="openRoom(1)">
+        <span class="tab-num">1</span>
+        <span>Slide Presentasi Kemitraan</span>
+        <span class="tab-sub">(16:9)</span>
       </button>
 
-      <button class="nav-tab-btn" id="tabBtn-2" onclick="openRoom(2)">
-        <span class="tab-number">2</span>
-        <div class="tab-meta">
-          <strong>Studio Detektif Pikiran</strong>
-          <small>Simulator Interaktif M1</small>
-        </div>
+      <button class="tab-btn" id="tabBtn-2" onclick="openRoom(2)">
+        <span class="tab-num">2</span>
+        <span>Studio Detektif Pikiran</span>
+        <span class="tab-sub">(Simulator)</span>
       </button>
 
-      <button class="nav-tab-btn" id="tabBtn-3" onclick="openRoom(3)">
-        <span class="tab-number">3</span>
-        <div class="tab-meta">
-          <strong>Buku Modul Siswa</strong>
-          <small>Bab 1 s/d Bab 6 Lengkap</small>
-        </div>
+      <button class="tab-btn" id="tabBtn-3" onclick="openRoom(3)">
+        <span class="tab-num">3</span>
+        <span>Buku Modul Siswa</span>
+        <span class="tab-sub">(Bab 1 s/d 6)</span>
       </button>
 
-      <button class="nav-tab-btn" id="tabBtn-4" onclick="openRoom(4)">
-        <span class="tab-number">4</span>
-        <div class="tab-meta">
-          <strong>Modul Ajar Guru</strong>
-          <small>RPP & Pedoman Mentor</small>
-        </div>
+      <button class="tab-btn" id="tabBtn-4" onclick="openRoom(4)">
+        <span class="tab-num">4</span>
+        <span>Modul Ajar Guru</span>
+        <span class="tab-sub">(RPP Resmi)</span>
       </button>
 
-      <button class="nav-tab-btn" id="tabBtn-5" onclick="openRoom(5)">
-        <span class="tab-number">5</span>
-        <div class="tab-meta">
-          <strong>Lembar Kerja Cetak</strong>
-          <small>Printout A4 Siswa</small>
-        </div>
+      <button class="tab-btn" id="tabBtn-5" onclick="openRoom(5)">
+        <span class="tab-num">5</span>
+        <span>Lembar Kerja Cetak</span>
+        <span class="tab-sub">(Printout A4)</span>
       </button>
     </nav>
-
-    <!-- ACTION: BUKA FILE MURNI & DOWNLOAD PDF -->
-    <div class="master-actions">
-      <a href="studio.html" target="_blank" class="btn-open-tab" style="background: #2563eb; border-color: #93c5fd; color: #ffffff;" title="Buka Studio Interaktif di Tab Penuh">
-        <span>🎮 Buka Studio</span>
-      </a>
-      <a href="Modul 1 - Buku Materi Siswa Lengkap.pdf" download target="_blank" class="btn-open-tab" style="background: #0f172a; border-color: #38bdf8; color: #38bdf8;" title="Unduh Buku Modul Siswa Lengkap (PDF A4 7 Halaman)">
-        <span>📘 Buku Siswa (PDF)</span>
-      </a>
-      <a href="Modul 1 - Modul Ajar Resmi Fasilitator.pdf" download target="_blank" class="btn-open-tab" style="background: #0f172a; border-color: #f59e0b; color: #fbbf24;" title="Unduh Modul Ajar Resmi Fasilitator / Guru (PDF A4 6 Halaman)">
-        <span>📋 Modul Ajar Guru (PDF)</span>
-      </a>
-      <a href="Modul 1 - Buku Panduan Lengkap dan Lembar Kerja.pdf" download target="_blank" class="btn-open-tab" style="background: #065f46; border-color: #34d399; color: #a7f3d0;" title="Unduh Lembar Kerja Cetak & Paket Lengkap (PDF A4 7 Halaman)">
-        <span>🖨️ LK Cetak (PDF)</span>
-      </a>
-      <a id="linkDirectOpen" href="presentasi.html" target="_blank" class="btn-open-tab" title="Buka kamar aktif di tab browser terpisah">
-        <span>↗ Tab Penuh</span>
-      </a>
-    </div>
   </header>
 
-  <!-- ISOLATED IFRAME VIEWPORT (100% TERISOLASI, ZERO CONFLICT) -->
-  <iframe id="contentViewport" src="presentasi.html" title="Kamar AI for Kids"></iframe>
+  <!-- ISOLATED IFRAME VIEWPORT (TANPA TITLE SUPAYA TIDAK MUNCUL TOOLTIP MENGGANGGU DI TENGAH) -->
+  <iframe id="contentViewport" src="presentasi.html"></iframe>
 
   <script>
     const rooms = {
       1: {
         file: "presentasi.html",
-        label: "Slide Presentasi (Kamar 1)"
+        label: "Slide Presentasi Kemitraan"
       },
       2: {
         file: "studio.html",
-        label: "Studio Detektif Pikiran: Robo-Mochi (Kamar 2)"
+        label: "Studio Detektif Pikiran: Robo-Mochi"
       },
       3: {
         file: "modul-1-buku-materi-siswa.html",
-        label: "Buku Modul Siswa Bab 1 s/d Bab 6 (Kamar 3)"
+        label: "Buku Modul Siswa (Bab 1 s/d Bab 6)"
       },
       4: {
         file: "modul-1-modul-ajar-guru.html",
-        label: "Modul Ajar Resmi Fasilitator (Kamar 4)"
+        label: "Modul Ajar Resmi Fasilitator (RPP)"
       },
       5: {
         file: "lembar-kerja.html",
-        label: "Lembar Kerja Siswa (Kamar 5)"
+        label: "Lembar Kerja Siswa Cetak A4"
       }
     };
 
@@ -345,7 +419,7 @@
       activeRoomId = roomId;
 
       // Update Tab Styles
-      document.querySelectorAll('.nav-tab-btn').forEach(btn => btn.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
       const activeBtn = document.getElementById('tabBtn-' + roomId);
       if (activeBtn) activeBtn.classList.add('active');
 
@@ -359,7 +433,7 @@
       }
       if (directLink) {
         directLink.href = targetFile;
-        directLink.setAttribute('title', 'Buka ' + rooms[roomId].label + ' di tab baru');
+        directLink.setAttribute('title', 'Buka ' + rooms[roomId].label + ' di tab browser terpisah');
       }
     }
   </script>
